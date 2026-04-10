@@ -93,7 +93,7 @@ const upcomingProjects = [
   {
     name: "Expressway Residency",
     location: "Ghaziabad",
-    status: "Ongoing",
+    status: "upcoming",
     href: "/expressway-residency",
     desc: "Delhi NCR's first AI-enabled township on the Delhi–Meerut Expressway...",
     image: "/assets/expressway.png",
@@ -101,8 +101,8 @@ const upcomingProjects = [
   {
     name: "Haute Grand City",
     location: "Near Dubai Metro, Ghaziabad",
-    status: "Ongoing",
-    href: "/#contact",   // no dedicated page yet → send to contact
+    status: "upcoming",
+    href: "/haute-grand-city",   // no dedicated page yet → send to contact
     desc: "Premium township offering spacious plots...",
     image: "/assets/hgc-front.png",
   },
@@ -110,7 +110,7 @@ const upcomingProjects = [
     name: "Haute world City",
     location: "Dholera",
     status: "Upcoming",
-    href: "/#contact",
+    href: "/haute-world-city",
     desc: "A landmark investment opportunity in Dholera Smart City...",
     image: "/assets/dholera.png",
   },
@@ -118,7 +118,7 @@ const upcomingProjects = [
     name: "Haute Residency",
     location: "Vrindavan",
     status: "Upcoming",
-    href: "/#contact",
+    href: "/haute-residency",
     desc: "A serene residential retreat in the sacred city of Vrindavan...",
     image: "/assets/vrindavan.jpg",
   },
@@ -1040,18 +1040,7 @@ export default function Home() {
                   height: "300px",
                 }}
               >
-                <div
-                  style={{
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    height: "3px",
-                    zIndex: 2,
-                    background:
-                      "linear-gradient(90deg, var(--gold), rgba(201,144,26,0.3), transparent)",
-                  }}
-                />
+                <div/>
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.3!2d77.3793752!3d28.6245126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef7d9d90e765%3A0x6fb20d3fc097c88!2sHaute%20Developers!5e0!3m2!1sen!2sin!4v1700000000000"
                   allowFullScreen=""

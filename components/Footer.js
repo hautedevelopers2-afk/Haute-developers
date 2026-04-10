@@ -89,16 +89,6 @@ export default function Footer() {
                   +91 83830 73291
                 </a>
               </li>
-              <li>
-                <a href="https://www.hautedevelopers.com" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
-                    <circle cx="12" cy="12" r="10" />
-                    <line x1="2" y1="12" x2="22" y2="12" />
-                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-                  </svg>
-                  www.hautedevelopers.com
-                </a>
-              </li>
             </ul>
           </div>
         </div>

@@ -741,18 +741,7 @@ export default function ExpresswayResidencyPage() {
 
             {/* RIGHT — Map */}
             <div className="er-map-card">
-              <div
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  right: 0,
-                  height: "3px",
-                  zIndex: 2,
-                  background:
-                    "linear-gradient(90deg, var(--gold), rgba(201,144,26,0.3), transparent)",
-                }}
-              />
+              <div/>
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.123456789!2d77.4850!3d28.7050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf33ebb2a7351%3A0x4e08c11e7abf3002!2sExpressway%20Residency!5e0!3m2!1sen!2sin!4v1775802565878!5m2!1sen!2sin"
                 allowFullScreen=""
