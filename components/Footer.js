@@ -77,7 +77,7 @@ export default function Footer() {
                   <circle cx="12" cy="10" r="3" />
                 </svg>
                 <span>
-                  Ground Floor, H-214, Sector 63,<br />
+                  Ground Floor, H-214, Sector 63,
                   Noida, Uttar Pradesh 201301
                 </span>
               </li>
@@ -98,7 +98,7 @@ export default function Footer() {
           <p>
             <a href="/privacy-policy">Privacy Policy</a>
             {" · "}
-            <a href="/terms">Terms of Use</a>
+            <a href="/terms-of-use">Terms of Use</a>
           </p>
         </div>
       </div>

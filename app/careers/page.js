@@ -114,73 +114,10 @@ const roles = [
     title: 'Senior Sales Executive',
     dept: 'Sales & Business Development',
     type: 'Full-Time',
-    location: 'Noida, UP',
+    location: 'Dholera, Gujrat',
     exp: '2–5 Years',
     desc: 'Drive residential plot and villa sales across our active project sites. Build client relationships, conduct site visits, and close deals with a consultative approach.',
     skills: ['Real Estate Sales', 'Client Relationship Management', 'Site Presentations', 'Target-Driven'],
-  },
-  {
-    title: 'Channel Partner Manager',
-    dept: 'Sales & Partnerships',
-    type: 'Full-Time',
-    location: 'Noida / Delhi NCR',
-    exp: '3–6 Years',
-    desc: 'Onboard, manage and grow our network of channel partners, brokers and real estate agents across NCR. Conduct training sessions and drive partner-led sales.',
-    skills: ['Channel Sales', 'Broker Network Management', 'Real Estate Market Knowledge', 'CRM Tools'],
-  },
-  {
-    title: 'Digital Marketing Executive',
-    dept: 'Marketing',
-    type: 'Full-Time',
-    location: 'Noida, UP',
-    exp: '1–3 Years',
-    desc: 'Plan and execute digital campaigns across Google, Meta and YouTube to generate qualified leads for our projects. Manage SEO, content, and paid media strategy.',
-    skills: ['Google Ads', 'Meta Ads', 'SEO', 'Lead Generation', 'Analytics'],
-  },
-  {
-    title: 'Real Estate Legal Executive',
-    dept: 'Legal & Compliance',
-    type: 'Full-Time',
-    location: 'Noida, UP',
-    exp: '2–4 Years',
-    desc: 'Assist in RERA registration, property documentation, title verification, sale deeds, and ensure all project compliance under UP RERA regulations.',
-    skills: ['RERA Compliance', 'Property Documentation', 'Title Search', 'Legal Drafting'],
-  },
-  {
-    title: 'Site & Project Coordinator',
-    dept: 'Projects & Operations',
-    type: 'Full-Time',
-    location: 'Ghaziabad / Greater Noida',
-    exp: '2–4 Years',
-    desc: 'Coordinate between contractors, engineers and management to ensure timely project delivery. Monitor site progress, quality checks and vendor coordination.',
-    skills: ['Project Management', 'Site Coordination', 'Vendor Management', 'Reporting'],
-  },
-  {
-    title: 'Customer Relationship Executive',
-    dept: 'Customer Experience',
-    type: 'Full-Time',
-    location: 'Noida, UP',
-    exp: '1–3 Years',
-    desc: 'Be the primary point of contact for clients post-booking. Handle queries, coordinate possession, resolve grievances and ensure a premium post-sale experience.',
-    skills: ['Customer Service', 'CRM Software', 'Communication', 'Problem Solving'],
-  },
-  {
-    title: 'Accounts & Finance Executive',
-    dept: 'Finance',
-    type: 'Full-Time',
-    location: 'Noida, UP',
-    exp: '2–4 Years',
-    desc: 'Manage day-to-day accounting, payment collections from clients, vendor payments, GST filing, and coordinate with the audit team for financial reporting.',
-    skills: ['Tally / QuickBooks', 'GST Filing', 'Accounts Receivable', 'MIS Reporting'],
-  },
-  {
-    title: 'Graphic Designer & Content Creator',
-    dept: 'Marketing & Creative',
-    type: 'Full-Time',
-    location: 'Noida, UP (Hybrid)',
-    exp: '1–3 Years',
-    desc: 'Create compelling visual content for social media, brochures, hoardings and digital ads. Develop video content and reels for project launches and brand campaigns.',
-    skills: ['Adobe Suite', 'Canva', 'Video Editing', 'Social Media Content', 'Real Estate Branding'],
   },
 ]
 
@@ -317,7 +254,7 @@ export default function CareersPage() {
             <div className="divider" style={{ margin: '1rem auto' }} />
             <p style={{ color: 'var(--gray)', fontSize: '0.95rem' }}>
               Don't see your role? We're always open to exceptional talent. Reach out directly to
-              <a href="mailto:careers@hautedevelopers.com" style={{ color: 'var(--gold)', fontWeight: 600 }}> careers@hautedevelopers.com</a>
+              <a href="mailto:hr@hautedevelopers.com" style={{ color: 'var(--gold)', fontWeight: 600 }}> hr@hautedevelopers.com</a>
             </p>
           </div>
 
@@ -347,7 +284,7 @@ export default function CareersPage() {
                     </div>
                   </div>
                   <a
-                    href={`mailto:careers@hautedevelopers.com?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Haute Developers Team,%0A%0AI would like to apply for the ${encodeURIComponent(role.title)} position.%0A%0APlease find my details below:%0AName:%0APhone:%0AExperience:%0A%0ALooking forward to hearing from you.`}
+                    href={`mailto:hr@hautedevelopers.com?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Haute Developers Team,%0A%0AI would like to apply for the ${encodeURIComponent(role.title)} position.%0A%0APlease find my details below:%0AName:%0APhone:%0AExperience:%0A%0ALooking forward to hearing from you.`}
                     className="btn-primary careers-apply-btn"
                     aria-label={`Apply for ${role.title}`}
                   >
@@ -380,7 +317,7 @@ export default function CareersPage() {
               </p>
             </div>
             <a
-              href="mailto:careers@hautedevelopers.com?subject=General Application — Haute Developers&body=Hi Haute Developers Team,%0A%0AI'd like to be considered for a role at Haute Developers.%0A%0AName:%0APhone:%0ARole I'm interested in:%0AYears of Experience:%0A%0ALooking forward to connecting."
+              href="mailto:hr@hautedevelopers.com?subject=General Application — Haute Developers&body=Hi Haute Developers Team,%0A%0AI'd like to be considered for a role at Haute Developers.%0A%0AName:%0APhone:%0ARole I'm interested in:%0AYears of Experience:%0A%0ALooking forward to connecting."
               className="btn-primary"
             >
               Email Your Application →

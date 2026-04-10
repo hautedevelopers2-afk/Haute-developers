@@ -1242,7 +1242,7 @@ export default function Home() {
                         width: "40px",
                         height: "40px",
                         flexShrink: 0,
-                        background: "var(--white)",
+                        background: "rgba(201,144,26,0.08)",
                         border: "1px solid rgba(201,144,26,0.25)",
                         borderRadius: "10px",
                         display: "flex",
