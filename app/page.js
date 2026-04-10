@@ -94,28 +94,32 @@ const upcomingProjects = [
     name: "Expressway Residency",
     location: "Ghaziabad",
     status: "Ongoing",
-    desc: "Delhi NCR's first AI-enabled township on the Delhi–Meerut Expressway, offering 500+ luxury villas and 450 plotted units across 100 acres with 50+ world-class amenities, 8 themed parks, and 24×7 smart surveillance.",
+    href: "/expressway-residency",
+    desc: "Delhi NCR's first AI-enabled township on the Delhi–Meerut Expressway...",
     image: "/assets/expressway.png",
   },
   {
     name: "Haute Grand City",
     location: "Near Dubai Metro, Ghaziabad",
     status: "Ongoing",
-    desc: "Premium township offering spacious plots and modern living across 30 bigha of prime land with excellent connectivity and high future growth potential.",
+    href: "/#contact",   // no dedicated page yet → send to contact
+    desc: "Premium township offering spacious plots...",
     image: "/assets/hgc-front.png",
   },
   {
-    name: "Haute City",
+    name: "Haute world City",
     location: "Dholera",
     status: "Upcoming",
-    desc: "A landmark investment opportunity in Dholera Smart City — India's first greenfield smart city and a key node of the Delhi–Mumbai Industrial Corridor. Secure future-ready plots in a government-planned, high-growth zone with exceptional infrastructure and long-term appreciation potential.",
+    href: "/#contact",
+    desc: "A landmark investment opportunity in Dholera Smart City...",
     image: "/assets/dholera.png",
   },
   {
     name: "Haute Residency",
     location: "Vrindavan",
     status: "Upcoming",
-    desc: "A serene residential retreat in the sacred city of Vrindavan, offering thoughtfully designed homes and plots for those seeking spiritual living, peaceful surroundings, and a secure community — with strong rental and long-term value.",
+    href: "/#contact",
+    desc: "A serene residential retreat in the sacred city of Vrindavan...",
     image: "/assets/vrindavan.jpg",
   },
 ];
@@ -148,7 +152,9 @@ export default function Home() {
               </span>
             </h1>
             <p className="hero-desc--stacked" style={{ marginTop: "1.2rem" }}>
-             Premium residential and investment opportunities designed for modern lifestyles — across Delhi NCR, Vrindavan, Dholera & Dehradun.
+              Premium residential and investment opportunities designed for
+              modern lifestyles — across Delhi NCR, Vrindavan, Dholera &
+              Dehradun.
             </p>
           </div>
           <div className="hero-col-btns">
@@ -257,132 +263,143 @@ export default function Home() {
         </div>
       </section>
 
-{/* ── VISION & MISSION ── */}
-<section
-  style={{ background: "var(--cream)", padding: "6rem 0" }}
-  aria-labelledby="vm-heading"
->
-  <div className="container">
-    <div
-      style={{
-        textAlign: "center",
-        maxWidth: 580,
-        margin: "0 auto 4rem",
-      }}
-    >
-      <span className="section-label">Our Purpose</span>
-      <h2 id="vm-heading" style={{ lineHeight: 1.2 }}>
-        The <em style={{ color: "var(--gold)" }}>Vision & Mission</em> Behind Every Home We Build
-      </h2>
-      <div className="divider" style={{ margin: "1rem auto" }} />
-      <p style={{ lineHeight: 1.8 }}>
-        At Haute Developers, every brick we lay is guided by a clear purpose — to create communities that enrich lives.
-      </p>
-    </div>
-
-    {/* GRID FIXED */}
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
-        gap: "2rem",
-      }}
-    >
-
-      {/* VISION CARD */}
-      <div
-        style={{
-          background: "linear-gradient(145deg, var(--forest-dark), var(--forest))",
-          padding: "4rem 3rem",
-          borderRadius: "20px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
+      {/* ── VISION & MISSION ── */}
+      <section
+        style={{ background: "var(--cream)", padding: "6rem 0" }}
+        aria-labelledby="vm-heading"
       >
-        <IconTelescope size={32} color="var(--gold)" />
+        <div className="container">
+          <div
+            style={{
+              textAlign: "center",
+              maxWidth: 580,
+              margin: "0 auto 4rem",
+            }}
+          >
+            <span className="section-label">Our Purpose</span>
+            <h2 id="vm-heading" style={{ lineHeight: 1.2 }}>
+              The <em style={{ color: "var(--gold)" }}>Vision & Mission</em>{" "}
+              Behind Every Home We Build
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p style={{ lineHeight: 1.8 }}>
+              At Haute Developers, every brick we lay is guided by a clear
+              purpose — to create communities that enrich lives.
+            </p>
+          </div>
 
-        <p style={{
-          marginTop: "1.5rem",
-          fontSize: "0.75rem",
-          letterSpacing: "0.2em",
-          color: "var(--gold)"
-        }}>
-          OUR VISION
-        </p>
+          {/* GRID FIXED */}
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(340px, 1fr))",
+              gap: "2rem",
+            }}
+          >
+            {/* VISION CARD */}
+            <div
+              style={{
+                background:
+                  "linear-gradient(145deg, var(--forest-dark), var(--forest))",
+                padding: "4rem 3rem",
+                borderRadius: "20px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <IconTelescope size={32} color="var(--gold)" />
 
-        <h3
-          style={{
-            fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)",
-            lineHeight: 1.3,
-            color: "#fff",
-            marginTop: "1rem",
-            maxWidth: "360px",
-          }}
-        >
-          Redefining Modern Living Across India
-        </h3>
+              <p
+                style={{
+                  marginTop: "1.5rem",
+                  fontSize: "0.75rem",
+                  letterSpacing: "0.2em",
+                  color: "var(--gold)",
+                }}
+              >
+                OUR VISION
+              </p>
 
-        <p
-          style={{
-            marginTop: "1.5rem",
-            lineHeight: 1.8,
-            color: "rgba(255,255,255,0.7)",
-            maxWidth: "420px",
-          }}
-        >
-          To be India's most trusted real estate developer — delivering premium, sustainable, and community-first residential projects across every city we enter.
-        </p>
-      </div>
+              <h3
+                style={{
+                  fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)",
+                  lineHeight: 1.3,
+                  color: "#fff",
+                  marginTop: "1rem",
+                  maxWidth: "360px",
+                }}
+              >
+                Redefining Modern Living Across India
+              </h3>
 
-      {/* MISSION CARD */}
-      <div
-        style={{
-          background: "linear-gradient(145deg, var(--gold), var(--gold-light))",
-          padding: "4rem 3rem",
-          borderRadius: "20px",
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-        }}
-      >
-        <IconTarget size={32} color="white" />
+              <p
+                style={{
+                  marginTop: "1.5rem",
+                  lineHeight: 1.8,
+                  color: "rgba(255,255,255,0.7)",
+                  maxWidth: "420px",
+                }}
+              >
+                To be India's most trusted real estate developer — delivering
+                premium, sustainable, and community-first residential projects
+                across every city we enter.
+              </p>
+            </div>
 
-        <p style={{
-          marginTop: "1.5rem",
-          fontSize: "0.75rem",
-          letterSpacing: "0.2em",
-          color: "rgba(255,255,255,0.9)"
-        }}>
-          OUR MISSION
-        </p>
+            {/* MISSION CARD */}
+            <div
+              style={{
+                background:
+                  "linear-gradient(145deg, var(--gold), var(--gold-light))",
+                padding: "4rem 3rem",
+                borderRadius: "20px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <IconTarget size={32} color="white" />
 
-        <h3
-          style={{
-            fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)",
-            lineHeight: 1.3,
-            color: "#fff",
-            marginTop: "1rem",
-            maxWidth: "360px",
-          }}
-        >
-          Homes Built on Trust, Transparency & Value
-        </h3>
+              <p
+                style={{
+                  marginTop: "1.5rem",
+                  fontSize: "0.75rem",
+                  letterSpacing: "0.2em",
+                  color: "rgba(255,255,255,0.9)",
+                }}
+              >
+                OUR MISSION
+              </p>
 
-        <p
-          style={{
-            marginTop: "1.5rem",
-            lineHeight: 1.8,
-            color: "rgba(255,255,255,0.9)",
-            maxWidth: "420px",
-          }}
-        >
-          To provide value-driven real estate solutions that prioritise transparency, customer satisfaction, and long-term community growth.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
+              <h3
+                style={{
+                  fontSize: "clamp(1.9rem, 2.5vw, 2.4rem)",
+                  lineHeight: 1.3,
+                  color: "#fff",
+                  marginTop: "1rem",
+                  maxWidth: "360px",
+                }}
+              >
+                Homes Built on Trust, Transparency & Value
+              </h3>
+
+              <p
+                style={{
+                  marginTop: "1.5rem",
+                  lineHeight: 1.8,
+                  color: "rgba(255,255,255,0.9)",
+                  maxWidth: "420px",
+                }}
+              >
+                To provide value-driven real estate solutions that prioritise
+                transparency, customer satisfaction, and long-term community
+                growth.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* ── WHY US ── */}
       <section
@@ -673,7 +690,7 @@ export default function Home() {
                 <div className="project-card-body">
                   <p>{p.desc}</p>
                   <div className="project-card-footer">
-                    <a href="/#contact" className="project-detail-btn">
+                    <a href={p.href} className="project-detail-btn">
                       <div className="project-detail-btn-left">
                         <div className="project-detail-btn-dot"></div>
                         <span className="project-detail-btn-text">
@@ -929,8 +946,7 @@ export default function Home() {
         id="contact"
         aria-labelledby="contact-heading"
         style={{
-          background:
-            "linear-gradient(160deg, var(--forest-dark) 0%, var(--forest) 60%, #0e2b20 100%)",
+          background: "var(--cream)",
           padding: "5rem 0",
           position: "relative",
           overflow: "hidden",
@@ -984,14 +1000,14 @@ export default function Home() {
             <span className="section-label" style={{ color: "var(--gold)" }}>
               Get In Touch
             </span>
-            <h2 id="contact-heading" style={{ color: "var(--white)" }}>
+            <h2 id="contact-heading" style={{ color: "var(--charcoal)" }}>
               Let's Find Your{" "}
               <em style={{ color: "var(--gold)", fontStyle: "italic" }}>
                 Perfect Home
               </em>
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.95rem" }}>
+            <p style={{ color: "var(--gray)", fontSize: "0.95rem" }}>
               Visit us, call us, or fill in the form — our team is ready to
               guide you every step of the way.
             </p>
@@ -1019,7 +1035,7 @@ export default function Home() {
                   borderRadius: "20px",
                   overflow: "hidden",
                   boxShadow:
-                    "0 32px 80px rgba(0,0,0,0.45), 0 0 0 1px rgba(201,144,26,0.25)",
+                    "0 8px 32px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.25)",
                   position: "relative",
                   height: "300px",
                 }}
@@ -1118,7 +1134,7 @@ export default function Home() {
                       <div
                         style={{
                           fontSize: "0.88rem",
-                          color: "rgba(255,255,255,0.85)",
+                          color: "var(--charcoal)",
                           fontWeight: 600,
                           lineHeight: 1.4,
                         }}
@@ -1128,7 +1144,7 @@ export default function Home() {
                       <div
                         style={{
                           fontSize: "0.82rem",
-                          color: "rgba(255,255,255,0.55)",
+                          color: "var(--gray)",
                           lineHeight: 1.5,
                         }}
                       >
@@ -1188,7 +1204,7 @@ export default function Home() {
                       <div
                         style={{
                           fontSize: "0.88rem",
-                          color: "rgba(255,255,255,0.8)",
+                          color: "var(--charcoal)",
                           fontWeight: 600,
                           lineHeight: 1.4,
                         }}
@@ -1198,7 +1214,7 @@ export default function Home() {
                       <div
                         style={{
                           fontSize: "0.82rem",
-                          color: "rgba(255,255,255,0.5)",
+                          color: "var(--gray)",
                           lineHeight: 1.5,
                         }}
                       >
@@ -1237,7 +1253,7 @@ export default function Home() {
                         width: "40px",
                         height: "40px",
                         flexShrink: 0,
-                        background: "rgba(201,144,26,0.1)",
+                        background: "var(--white)",
                         border: "1px solid rgba(201,144,26,0.25)",
                         borderRadius: "10px",
                         display: "flex",
@@ -1355,7 +1371,7 @@ export default function Home() {
 
             {/* RIGHT col */}
             <div>
-              <ContactForm darkMode={true} />
+              <ContactForm darkMode={false} />
             </div>
           </div>
         </div>

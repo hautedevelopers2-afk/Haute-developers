@@ -123,13 +123,13 @@ export default function Navbar() {
             ✕
           </button>
 
-          <Image
+          {/* <Image
             src="/assets/web-logo.png"
             alt="Haute Developers"
             width={120}
             height={40}
             style={{ objectFit: "contain", marginBottom: "1rem" }}
-          />
+          /> */}
 
           {links.map((l) => (
             <Link
