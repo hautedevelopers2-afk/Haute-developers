@@ -90,15 +90,6 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="mailto:support@hautedevelopers.com" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
-                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  support@hautedevelopers.com
-                </a>
-              </li>
-              <li>
                 <a href="https://www.hautedevelopers.com" style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.88rem", display: "flex", alignItems: "center", gap: "0.6rem" }}>
                   <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 0.7 }}>
                     <circle cx="12" cy="12" r="10" />
