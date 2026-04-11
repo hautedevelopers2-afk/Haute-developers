@@ -100,7 +100,7 @@ const upcomingProjects = [
   },
   {
     name: "Haute Grand City",
-    location: "Near Dubai Metro, Ghaziabad",
+    location: "Near Duhai Metro, Ghaziabad",
     status: "upcoming",
     href: "/haute-grand-city",   // no dedicated page yet → send to contact
     desc: "Premium township offering spacious plots...",

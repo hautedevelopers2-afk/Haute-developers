@@ -29,7 +29,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Haute Grand City | Coming Soon",
     description:
-      "Premium township near Dubai Metro, Ghaziabad. Launching soon by Haute Developers.",
+      "Premium township near Duhai Metro, Ghaziabad. Launching soon by Haute Developers.",
     images: ["/assets/hgc-front.png"],
   },
 };
