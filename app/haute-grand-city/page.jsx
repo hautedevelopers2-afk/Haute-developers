@@ -4,14 +4,14 @@ import WhatsAppButton from "../../components/WhatsAppButton";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Haute Grand City | Premium Township Near Dubai Metro, Ghaziabad — Coming Soon",
+  title: "Haute Grand City | Premium Township Near Duhai Metro, Ghaziabad — Coming Soon",
   description:
-    "Haute Grand City is an upcoming premium township near Dubai Metro, Ghaziabad offering spacious plots and luxury living. Register your interest today with Haute Developers.",
+    "Haute Grand City is an upcoming premium township near Duhai Metro, Ghaziabad offering spacious plots and luxury living. Register your interest today with Haute Developers.",
   alternates: { canonical: "https://www.hautedevelopers.com/haute-grand-city" },
   openGraph: {
     title: "Haute Grand City | Coming Soon — Haute Developers",
     description:
-      "A landmark township near Dubai Metro, Ghaziabad. Premium plots, world-class amenities, and unmatched connectivity. Register your interest now.",
+      "A landmark township near Duhai Metro, Ghaziabad. Premium plots, world-class amenities, and unmatched connectivity. Register your interest now.",
     url: "https://www.hautedevelopers.com/haute-grand-city",
     siteName: "Haute Developers",
     images: [
@@ -48,14 +48,14 @@ const IconStar = ({ size = 16, color = "currentColor" }) => (
 );
 
 const highlights = [
-  { label: "Location", value: "Near Dubai Metro, Ghaziabad" },
+  { label: "Location", value: "Near Duhai Metro, Ghaziabad" },
   { label: "Project Type", value: "Premium Township" },
   { label: "Offerings", value: "Spacious Plots" },
   { label: "Status", value: "Launching Soon" },
 ];
 
 const features = [
-  "Strategically located near Dubai Metro, Ghaziabad",
+  "Strategically located near Duhai Metro, Ghaziabad",
   "Premium gated township with world-class infrastructure",
   "Spacious residential plots for custom dream homes",
   "24×7 security with smart surveillance systems",
@@ -308,7 +308,7 @@ export default function HauteGrandCity() {
               </h2>
               <div className="divider" />
               <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.95rem", lineHeight: 1.8, marginBottom: "1.4rem" }}>
-                Haute Grand City is a premium township being developed near the Dubai Metro
+                Haute Grand City is a premium township being developed near the Duhai Metro
                 corridor in Ghaziabad — one of NCR's fastest-growing real estate destinations.
                 Designed for discerning investors and homeowners, this project promises spacious
                 plots, lush green surroundings, and world-class infrastructure.

@@ -152,7 +152,7 @@ const amenities = [
   { Icon: IconBuilding, label: "Club House" },
   { Icon: IconTree,     label: "Landscaped Park" },
   { Icon: IconPool,     label: "Swimming Pool" },
-  { Icon: IconCamera,   label: "CCTV Surveillance" },
+  { Icon: IconCamera,   label: "CCTV with Drone Surveillance" },
   { Icon: IconGate,     label: "Separate Entry & Exit Gate" },
   { Icon: IconShield,   label: "24×7 Secured Living" },
   { Icon: IconRun,      label: "Jogging Track" },
@@ -193,8 +193,8 @@ const layoutHighlights = [
 const proximityBullets = [
   "Close to NH-24, Delhi-Hapur Expressway",
   "5 Minutes from Lalkuan Ghaziabad",
-  "10 Minutes from Sector 62 Noida",
-  "20 Minutes from Akshardham Metro Station",
+  "20 Minutes from Sector 62 Noida",
+  "25 Minutes from Akshardham Metro Station",
   "15 Minutes from Ghaziabad Railway Station",
   "45 Minutes from Jewar International Airport",
 ];
