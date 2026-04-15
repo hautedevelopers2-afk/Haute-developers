@@ -262,7 +262,7 @@ const amenities = [
 
 const advantages = [
   "Freehold plots with clear title and complete documentation",
-  "Located inside India's first greenfield smart city",
+  "Located inside India's first Greenfield smart city",
   "Backed by central & state government DMIC project",
   "Proximity to upcoming Dholera International Airport",
   "High-speed national highway & expressway access",
@@ -292,7 +292,7 @@ const dholeraMilestones = [
   {
     Icon: IconPlane,
     title: "International Airport",
-    desc: "Dholera International Airport — under construction — will become one of India's largest greenfield airports, transforming the region into a global aviation hub.",
+    desc: "Dholera International Airport — under construction — will become one of India's largest Greenfield airports, transforming the region into a global aviation hub.",
   },
   {
     Icon: IconFactory,
@@ -469,7 +469,7 @@ export default function HauteWorldCityPage() {
             "@type": "RealEstateListing",
             name: "Haute World City – Premium Residential Plots in Dholera Smart City",
             description:
-              "Freehold residential plots in Dholera SIR by Haute Developers. India's first greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
+              "Freehold residential plots in Dholera SIR by Haute Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
             url: "https://www.hautedevelopers.com/haute-world-city",
             image: "https://www.hautedevelopers.com/assets/dholera.png",
             address: {
@@ -544,7 +544,7 @@ export default function HauteWorldCityPage() {
             </h1>
 
             <p className="hero-desc--stacked" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
-              Haute World City is Haute Developers' landmark investment in India's most ambitious project — the Dholera Special Investment Region. Freehold residential plots inside India's first planned greenfield smart city, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
+              Haute World City is Haute Developers' landmark investment in India's most ambitious project — the Dholera Special Investment Region. Freehold residential plots inside India's first planned Greenfield smart city, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
             </p>
           </div>
 
@@ -606,7 +606,7 @@ export default function HauteWorldCityPage() {
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.85 }}>
-              Dholera Special Investment Region (SIR) is a 920 sq. km. greenfield smart city developed under India's flagship Delhi–Mumbai Industrial Corridor (DMIC) initiative. Planned to house 2 million residents and generate over 800,000 jobs, it is already attracting semiconductor giants, global manufacturers, and billions in FDI.
+              Dholera Special Investment Region (SIR) is a 920 sq. km. Greenfield smart city developed under India's flagship Delhi–Mumbai Industrial Corridor (DMIC) initiative. Planned to house 2 million residents and generate over 800,000 jobs, it is already attracting semiconductor giants, global manufacturers, and billions in FDI.
             </p>
           </div>
 
@@ -652,7 +652,7 @@ export default function HauteWorldCityPage() {
             <div>
               <span className="section-label">Why Invest</span>
               <h2 id="why-invest-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)", lineHeight: 1.15, marginBottom: "0.5rem" }}>
-                The Right Time to Buy in India's greenfield Smart City of the Future
+                The Right Time to Buy in India's Greenfield Smart City of the Future
               </h2>
               <div className="divider" />
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "1.2rem" }}>
