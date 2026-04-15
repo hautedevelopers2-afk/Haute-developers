@@ -837,7 +837,7 @@ export default function Home() {
                   maxWidth: "780px",
                 }}
               >
-                Expressway Residency is a government-approved, premium township
+                Expressway Residency is an upcoming premium township
                 spread across 100 acres on the Delhi–Meerut Expressway,
                 Ghaziabad. Featuring 500+ luxury villas and 450 plotted units,
                 it offers 50+ world-class amenities including 8 themed parks, a
