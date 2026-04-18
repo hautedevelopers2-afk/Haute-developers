@@ -145,7 +145,7 @@ const POLICY_SECTIONS = [
   },
 ]
 
-// ── PDF generation via browser print ─────────────────────────────────────────
+// ── Contract HTML builder ─────────────────────────────────────────────────────
 function buildContractHTML(data) {
   const today = new Date().toLocaleDateString('en-IN', {
     day: '2-digit', month: 'long', year: 'numeric',
@@ -206,7 +206,7 @@ function buildContractHTML(data) {
   <div class="meta">
     <span>Document Date: ${today}</span>
     <span>Document Type: Channel Partner Agreement</span>
-    <span>Issuing Entity: Haute Developers Pvt. Ltd.</span>
+    <span>Issuing Entity: Haute Developers.</span>
   </div>
   <table>
     <thead><tr><th colspan="2">Partner Information & Details</th></tr></thead>
@@ -217,7 +217,7 @@ function buildContractHTML(data) {
   <div class="declaration-box">
     <div class="declaration-title">Declaration by the Channel Partner</div>
     <div class="declaration-text">
-      "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute Developers Pvt. Ltd. I / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
+      "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute Developers. I / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
     </div>
   </div>
   <div class="sig-section">
@@ -236,43 +236,47 @@ function buildContractHTML(data) {
   </div>
   <div class="footer-note">
     This document is computer-generated and constitutes a binding agreement upon submission.<br/>
-    Haute Developers Pvt. Ltd. | Ground Floor, H-214, Sector 63, Noida, UP 201301 | support@hautedevelopers.com
+    Haute Developers. | Ground Floor, H-214, Sector 63, Noida, UP 201301 | support@hautedevelopers.com
   </div>
 </body>
 </html>`
 }
 
-function downloadContract(data) {
+// ── Downloads the contract as an HTML file directly — no popup needed ─────────
+function downloadContractFile(data) {
   const html = buildContractHTML(data)
   const blob = new Blob([html], { type: 'text/html' })
   const url = URL.createObjectURL(blob)
-  const win = window.open(url, '_blank')
-  if (win) {
-    win.addEventListener('load', () => {
-      win.print()
-    })
-  }
+  const a = document.createElement('a')
+  a.href = url
+  a.download = `Channel_Partner_Agreement_${data.partnerName.replace(/\s+/g, '_')}.html`
+  document.body.appendChild(a)
+  a.click()
+  document.body.removeChild(a)
+  URL.revokeObjectURL(url)
 }
 
 // ── Google Sheets via Service Account JWT ────────────────────────────────────
 async function submitToGoogleSheets(data) {
   const SHEET_ID = GOOGLE_SHEET_ID
-  const SHEET_RANGE = 'Sheet1!A:J'
 
   const today = new Date().toLocaleDateString('en-IN')
+
+  // ── Always 10 fixed columns — no conditional skipping ──────────────────────
   const row = [
     today,
     data.partnerName,
     data.status,
-    data.status === 'Company' ? data.location : '',
+    data.status === 'Company' ? data.location : '—',
     data.reraLicensed,
-    data.reraLicensed === 'Yes' ? data.reraNumber : '',
+    data.reraLicensed === 'Yes' ? data.reraNumber : '—',
     data.panTan,
     data.bankAccount,
     data.ifsc,
-    data.gst || '',
+    data.gst || '—',
   ]
 
+  // ── JWT generation (unchanged) ─────────────────────────────────────────────
   const header = { alg: 'RS256', typ: 'JWT' }
   const now = Math.floor(Date.now() / 1000)
   const payload = {
@@ -328,23 +332,17 @@ joxlXpQXA/HzB3zMQFiftw==
     .trim()
 
   const binaryDer = Uint8Array.from(atob(pemContents), c => c.charCodeAt(0))
-
   const cryptoKey = await crypto.subtle.importKey(
-    'pkcs8',
-    binaryDer.buffer,
+    'pkcs8', binaryDer.buffer,
     { name: 'RSASSA-PKCS1-v1_5', hash: 'SHA-256' },
-    false,
-    ['sign']
+    false, ['sign']
   )
-
   const encoder = new TextEncoder()
   const signature = await crypto.subtle.sign('RSASSA-PKCS1-v1_5', cryptoKey, encoder.encode(signingInput))
-
   const sigBytes = new Uint8Array(signature)
   let sigStr = ''
   for (let i = 0; i < sigBytes.length; i++) sigStr += String.fromCharCode(sigBytes[i])
   const sigB64 = b64url(sigStr)
-
   const jwt = `${signingInput}.${sigB64}`
 
   const tokenRes = await fetch('https://oauth2.googleapis.com/token', {
@@ -354,17 +352,37 @@ joxlXpQXA/HzB3zMQFiftw==
   })
   const tokenData = await tokenRes.json()
   const accessToken = tokenData.access_token
-
   if (!accessToken) throw new Error(`Failed to obtain access token: ${JSON.stringify(tokenData)}`)
 
+  // ── Check & write header row if missing ────────────────────────────────────
+  const checkRes = await fetch(
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1`,
+    { headers: { Authorization: `Bearer ${accessToken}` } }
+  )
+  const checkData = await checkRes.json()
+  const hasHeader = checkData.values?.[0]?.[0] === 'Date'
+
+  if (!hasHeader) {
+    const HEADERS = [
+      ['Date', 'Partner Name', 'Status', 'Registered Address',
+       'RERA Licensed', 'RERA Number', 'PAN / TAN', 'Bank Account No.', 'IFSC Code', 'GST Number']
+    ]
+    await fetch(
+      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:J1?valueInputOption=USER_ENTERED`,
+      {
+        method: 'PUT',
+        headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({ values: HEADERS }),
+      }
+    )
+  }
+
+  // ── Append data row ────────────────────────────────────────────────────────
   const sheetsRes = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/${encodeURIComponent(SHEET_RANGE)}:append?valueInputOption=USER_ENTERED`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:J:append?valueInputOption=USER_ENTERED`,
     {
       method: 'POST',
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-        'Content-Type': 'application/json',
-      },
+      headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
       body: JSON.stringify({ values: [row] }),
     }
   )
@@ -606,7 +624,7 @@ function PolicyModal({ onAccept }) {
               }}
             />
             <span style={{ fontSize: '13px', color: '#333', lineHeight: 1.75 }}>
-              I / We have read and fully understood the Channel Partner Policy of <strong style={{ color: '#0d2f24' }}>Haute Developers Pvt. Ltd.</strong> (Effective: April 1, 2026) and agree to comply with all terms, conditions, obligations, and guidelines set forth herein.
+              I / We have read and fully understood the Channel Partner Policy of <strong style={{ color: '#0d2f24' }}>Haute Developers.</strong> (Effective: April 1, 2026) and agree to comply with all terms, conditions, obligations, and guidelines set forth herein.
             </span>
           </label>
 
@@ -640,7 +658,7 @@ function PolicyModal({ onAccept }) {
           </button>
 
           <p style={{ textAlign: 'center', fontSize: '11px', color: '#aaa', marginTop: '12px', letterSpacing: '0.04em' }}>
-            Haute Developers Pvt. Ltd. · Sector 63, Noida 201301
+            Haute Developers. · Sector 63, Noida 201301
           </p>
         </div>
       </div>
@@ -696,6 +714,7 @@ export default function ChannelPartnerRegistration() {
   const [accepted, setAccepted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
+  const [submittedForm, setSubmittedForm] = useState(null)
   const [error, setError] = useState('')
 
   const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }))
@@ -710,7 +729,7 @@ export default function ChannelPartnerRegistration() {
     setSubmitting(true)
     try {
       await submitToGoogleSheets(form)
-      downloadContract(form)
+      setSubmittedForm({ ...form })
       setSubmitted(true)
     } catch (err) {
       setError('Submission failed: ' + err.message + '. Please try again or contact us directly.')
@@ -719,7 +738,8 @@ export default function ChannelPartnerRegistration() {
     }
   }
 
-  if (submitted) {
+  // ── Success screen ──────────────────────────────────────────────────────────
+  if (submitted && submittedForm) {
     return (
       <>
         <Navbar />
@@ -733,24 +753,54 @@ export default function ChannelPartnerRegistration() {
             border: '2px solid #c4901a', borderRadius: '50%', display: 'flex',
             alignItems: 'center', justifyContent: 'center', fontSize: '36px',
           }}>✓</div>
+
           <h2 style={{
             fontFamily: "'Cormorant Garamond', serif", fontSize: 'clamp(1.8rem, 4vw, 2.8rem)',
             color: '#fff', fontWeight: 600, letterSpacing: '0.02em',
           }}>Registration Submitted Successfully</h2>
+
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '1rem', lineHeight: 1.8, maxWidth: '520px' }}>
-            Your Channel Partner Agreement has been received and recorded. Your contract document should be printing or opening now.
+            Your Channel Partner Agreement has been received and recorded.
           </p>
+
+          {/* Next step card with download button */}
           <div style={{
             background: 'rgba(196,144,26,0.12)', border: '1.5px solid rgba(196,144,26,0.5)',
-            borderRadius: '12px', padding: '20px 32px', maxWidth: '480px', width: '100%',
+            borderRadius: '12px', padding: '24px 32px', maxWidth: '480px', width: '100%',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px',
           }}>
-            <p style={{ color: '#c4901a', fontWeight: 600, fontSize: '1rem', marginBottom: '8px' }}>📋 Next Step</p>
-            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', lineHeight: 1.7 }}>
-              Please print out the contract and bring it to our office at your earliest convenience to complete the onboarding process.
+            <p style={{ color: '#c4901a', fontWeight: 600, fontSize: '1rem', margin: 0 }}>📋 Next Step</p>
+            <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
+              Please download your contract, take a printout, and bring it to our office at your earliest convenience to complete the onboarding process.
             </p>
+            <button
+              onClick={() => downloadContractFile(submittedForm)}
+              style={{
+                width: '100%',
+                padding: '14px 24px',
+                background: '#c4901a',
+                color: '#fff',
+                border: 'none',
+                borderRadius: '8px',
+                fontSize: '13px',
+                fontWeight: 700,
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: '10px',
+                fontFamily: "'Jost', sans-serif",
+              }}
+            >
+              <span style={{ fontSize: '16px' }}>⬇</span> Download Contract
+            </button>
           </div>
+
           <a href="/" style={{
-            marginTop: '8px', padding: '12px 32px', background: '#c4901a', color: '#fff',
+            marginTop: '4px', padding: '12px 32px',
+            color: 'rgba(255,255,255,0.5)', border: '1px solid rgba(255,255,255,0.15)',
             borderRadius: '8px', textDecoration: 'none', fontWeight: 600, fontSize: '0.9rem',
             letterSpacing: '0.08em', textTransform: 'uppercase',
           }}>Return to Home</a>
@@ -760,7 +810,7 @@ export default function ChannelPartnerRegistration() {
     )
   }
 
-  // Responsive form padding and card padding
+  // Responsive padding
   const formPadding = isMobile ? '20px 16px' : '36px 48px'
   const cardHeaderPadding = isMobile ? '20px 16px' : '32px 48px'
   const preamblePadding = isMobile ? '20px 16px 0' : '36px 48px 0'
@@ -777,7 +827,6 @@ export default function ChannelPartnerRegistration() {
 
       <Navbar />
 
-      {/* ── Policy Gate Modal ── */}
       {!policyAccepted && (
         <PolicyModal onAccept={() => setPolicyAccepted(true)} />
       )}
@@ -872,14 +921,13 @@ export default function ChannelPartnerRegistration() {
             {/* Preamble */}
             <div style={{ padding: preamblePadding, borderBottom: '1px solid #ede8df' }}>
               <p style={{ fontSize: '13px', color: '#555', lineHeight: 1.9, marginBottom: '28px', fontStyle: 'italic' }}>
-                This Channel Partner Registration Agreement ("Agreement") is entered into between <strong style={{ color: '#0d2f24' }}>Haute Developers Pvt. Ltd.</strong>, a company registered under the Companies Act with its corporate office at Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301, and the undersigned Channel Partner, with effect from the date of submission of this Agreement.
+                This Channel Partner Registration Agreement ("Agreement") is entered into between <strong style={{ color: '#0d2f24' }}>Haute Developers.</strong>, a company registered under the Companies Act with its corporate office at Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301, and the undersigned Channel Partner, with effect from the date of submission of this Agreement.
               </p>
             </div>
 
             {/* Form */}
             <form onSubmit={handleSubmit} style={{ padding: formPadding }}>
 
-              {/* Section 1 */}
               <SectionHeading number="01" title="Partner Identification" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
                 <div style={{ gridColumn: '1 / -1' }}>
@@ -917,10 +965,8 @@ export default function ChannelPartnerRegistration() {
                 )}
               </div>
 
-              {/* Section 2 */}
               <SectionHeading number="02" title="Regulatory & Tax Information" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
-
                 <Field label="RERA Registered" required>
                   <select
                     style={{ ...inputStyle, cursor: 'pointer' }} required
@@ -963,7 +1009,6 @@ export default function ChannelPartnerRegistration() {
                 </Field>
               </div>
 
-              {/* Section 3 */}
               <SectionHeading number="03" title="Banking Details" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '40px' }}>
                 <Field label="Bank Account Number" required>
@@ -985,7 +1030,6 @@ export default function ChannelPartnerRegistration() {
                 </Field>
               </div>
 
-              {/* Section 4 */}
               <SectionHeading number="04" title="Declaration & Undertaking" />
               <div style={{
                 border: '1.5px solid #c4901a', borderRadius: '12px',
@@ -1005,11 +1049,10 @@ export default function ChannelPartnerRegistration() {
                   Declaration by the Channel Partner
                 </div>
                 <p style={{ fontSize: '14px', lineHeight: 2, color: '#333', fontStyle: 'italic' }}>
-                  "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute Developers Pvt. Ltd. I / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
+                  "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute Developers / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
                 </p>
               </div>
 
-              {/* Acceptance Checkbox */}
               <label style={{
                 display: 'flex', alignItems: 'flex-start', gap: '14px', cursor: 'pointer',
                 padding: isMobile ? '16px' : '20px 24px',
@@ -1027,7 +1070,7 @@ export default function ChannelPartnerRegistration() {
                   }}
                 />
                 <span style={{ fontSize: '13px', color: '#333', lineHeight: 1.75 }}>
-                  I / We confirm that I / We have read, understood, and agree to be bound by the terms and conditions of this Channel Partner Agreement with Haute Developers Pvt. Ltd. I / We acknowledge that this constitutes a legally binding undertaking.
+                  I / We confirm that I / We have read, understood, and agree to be bound by the terms and conditions of this Channel Partner Agreement with Haute Developers / We acknowledge that this constitutes a legally binding undertaking.
                 </span>
               </label>
 
@@ -1040,7 +1083,6 @@ export default function ChannelPartnerRegistration() {
                 </div>
               )}
 
-              {/* Submit */}
               <div style={{ display: 'flex', justifyContent: isMobile ? 'stretch' : 'flex-end' }}>
                 <button
                   type="submit"
@@ -1061,14 +1103,13 @@ export default function ChannelPartnerRegistration() {
                   {submitting ? (
                     <><span style={{ fontSize: '16px' }}>⏳</span> Submitting Agreement…</>
                   ) : (
-                    <><span style={{ fontSize: '16px' }}>📋</span> Submit & Download Contract</>
+                    <><span style={{ fontSize: '16px' }}>📋</span> Submit Agreement</>
                   )}
                 </button>
               </div>
 
             </form>
 
-            {/* Contract Footer Note */}
             <div style={{
               borderTop: '1px solid #ede8df', padding: footerBarPadding,
               background: '#faf7f2', display: 'flex', alignItems: 'center',
@@ -1077,7 +1118,7 @@ export default function ChannelPartnerRegistration() {
               textAlign: isMobile ? 'center' : 'left',
             }}>
               <span style={{ fontSize: '11px', color: '#aaa', letterSpacing: '0.06em' }}>
-                Haute Developers Pvt. Ltd. | Sector 63, Noida 201301
+                Haute Developers | Sector 63, Noida 201301
               </span>
               <span style={{ fontSize: '11px', color: '#aaa', letterSpacing: '0.06em' }}>
                 This agreement is generated electronically and is legally binding.
