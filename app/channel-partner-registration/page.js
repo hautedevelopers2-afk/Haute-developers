@@ -407,6 +407,33 @@ function useIsMobile() {
   return isMobile
 }
 
+// ── iOS keyboard collapse fix ─────────────────────────────────────────────────
+function useIOSViewportFix() {
+  useEffect(() => {
+    const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
+    if (!isIOS) return
+
+    const fixViewport = () => {
+      // Force the page to acknowledge the new viewport size
+      window.scrollTo({ top: window.scrollY, behavior: 'instant' })
+      document.documentElement.style.height = 'auto'
+      requestAnimationFrame(() => {
+        document.documentElement.style.height = ''
+      })
+    }
+
+    // visualViewport is the correct API for tracking keyboard open/close
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', fixViewport)
+      return () => window.visualViewport.removeEventListener('resize', fixViewport)
+    }
+
+    // Fallback for older iOS
+    window.addEventListener('focusout', fixViewport)
+    return () => window.removeEventListener('focusout', fixViewport)
+  }, [])
+}
+
 // ── Policy Modal ──────────────────────────────────────────────────────────────
 function PolicyModal({ onAccept }) {
   const scrollRef = useRef(null)
@@ -686,10 +713,29 @@ const inputStyle = {
   width: '100%',
 }
 
+const inputErrorStyle = {
+  ...inputStyle,
+  border: '1.5px solid #e53e3e',
+  background: '#fff8f8',
+}
+
+function FieldError({ msg }) {
+  if (!msg) return null
+  return (
+    <span style={{
+      fontSize: '11px', color: '#e53e3e', fontWeight: 600,
+      display: 'flex', alignItems: 'center', gap: '4px', marginTop: '2px',
+    }}>
+      ✕ {msg}
+    </span>
+  )
+}
+
 // ── Main Page ─────────────────────────────────────────────────────────────────
 export default function ChannelPartnerRegistration() {
   const [policyAccepted, setPolicyAccepted] = useState(false)
   const isMobile = useIsMobile()
+  useIOSViewportFix()
 
   const [form, setForm] = useState({
     partnerName: '',
@@ -707,8 +753,47 @@ export default function ChannelPartnerRegistration() {
   const [submitted, setSubmitted] = useState(false)
   const [submittedForm, setSubmittedForm] = useState(null)
   const [error, setError] = useState('')
+  const [fieldErrors, setFieldErrors] = useState({})
 
-  const set = (k) => (e) => setForm(f => ({ ...f, [k]: e.target.value }))
+  const UPPERCASE_FIELDS = ['panTan', 'ifsc', 'gst', 'reraNumber']
+  const set = (k) => (e) => {
+    const val = UPPERCASE_FIELDS.includes(k) ? e.target.value.toUpperCase() : e.target.value
+    setForm(f => ({ ...f, [k]: val }))
+    // Clear error for this field as user types
+    if (fieldErrors[k]) setFieldErrors(prev => ({ ...prev, [k]: undefined }))
+  }
+
+  // ── Field validation rules ──────────────────────────────────────────────────
+  function validateForm() {
+    const errors = {}
+
+    // PAN: 5 letters + 4 digits + 1 letter, all uppercase
+    if (!/^[A-Z]{5}[0-9]{4}[A-Z]{1}$/.test(form.panTan.toUpperCase())) {
+      errors.panTan = 'Invalid PAN format. Expected format: ABCDE1234F'
+    }
+
+    // Bank account: 9–18 digits only
+    if (!/^\d{9,18}$/.test(form.bankAccount)) {
+      errors.bankAccount = 'Bank account number must be 9–18 digits with no spaces or letters.'
+    }
+
+    // IFSC: 4 letters + 0 + 6 alphanumeric
+    if (!/^[A-Z]{4}0[A-Z0-9]{6}$/.test(form.ifsc.toUpperCase())) {
+      errors.ifsc = 'Invalid IFSC code. Expected format: SBIN0001234 (4 letters, 0, 6 characters)'
+    }
+
+    // GST: 15-character format if provided
+    if (form.gst && !/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/.test(form.gst.toUpperCase())) {
+      errors.gst = 'Invalid GST number. Expected format: 09ABCDE1234F1Z5'
+    }
+
+    // RERA number: must be non-empty if RERA licensed
+    if (form.reraLicensed === 'Yes' && form.reraNumber.trim().length < 5) {
+      errors.reraNumber = 'Please enter a valid RERA registration number.'
+    }
+
+    return errors
+  }
 
   async function handleSubmit(e) {
     e.preventDefault()
@@ -716,6 +801,14 @@ export default function ChannelPartnerRegistration() {
       setError('Please confirm that you have read and accepted the declaration before proceeding.')
       return
     }
+
+    const validationErrors = validateForm()
+    if (Object.keys(validationErrors).length > 0) {
+      setFieldErrors(validationErrors)
+      setError('Please fix the highlighted fields before submitting.')
+      return
+    }
+    setFieldErrors({})
     setError('')
     setSubmitting(true)
     try {
@@ -738,6 +831,7 @@ export default function ChannelPartnerRegistration() {
           minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center',
           background: 'linear-gradient(135deg, #0d2f24 0%, #1a4a3a 100%)',
           flexDirection: 'column', gap: '24px', padding: '2rem', textAlign: 'center',
+          paddingTop: '80px', paddingBottom: '80px',
         }}>
           <div style={{
             width: '80px', height: '80px', background: 'rgba(196,144,26,0.15)',
@@ -796,7 +890,6 @@ export default function ChannelPartnerRegistration() {
             letterSpacing: '0.08em', textTransform: 'uppercase',
           }}>Return to Home</a>
         </div>
-        <Footer />
       </>
     )
   }
@@ -810,6 +903,7 @@ export default function ChannelPartnerRegistration() {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
           input:focus, select:focus { border-color: #c4901a !important; box-shadow: 0 0 0 3px rgba(196,144,26,0.12) !important; }
@@ -972,53 +1066,66 @@ export default function ChannelPartnerRegistration() {
                 </Field>
 
                 {form.reraLicensed === 'Yes' && (
-                  <Field label="RERA Registration Number" required>
+                  <Field label="RERA Registration Number" required hint="As issued by your state RERA authority">
                     <input
-                      style={inputStyle} required
+                      style={fieldErrors.reraNumber ? inputErrorStyle : inputStyle}
+                      required
                       placeholder="e.g. UPRERAPRJ000000"
                       value={form.reraNumber}
                       onChange={set('reraNumber')}
                     />
+                    <FieldError msg={fieldErrors.reraNumber} />
                   </Field>
                 )}
 
-                <Field label="PAN / TAN Number" required hint="Permanent Account Number or Tax Deduction Account Number">
+                <Field label="PAN / TAN Number" required hint="5 letters · 4 digits · 1 letter — e.g. ABCDE1234F">
                   <input
-                    style={inputStyle} required
+                    style={fieldErrors.panTan ? inputErrorStyle : inputStyle} required
                     placeholder="ABCDE1234F"
                     value={form.panTan}
                     onChange={set('panTan')}
+                    maxLength={10}
                   />
+                  <FieldError msg={fieldErrors.panTan} />
                 </Field>
 
-                <Field label="GST Registration Number" hint="Leave blank if not applicable">
+                <Field label="GST Registration Number" hint="15-character GST number — leave blank if not applicable">
                   <input
-                    style={inputStyle}
-                    placeholder="e.g. 09ABCDE1234F1Z5"
+                    style={fieldErrors.gst ? inputErrorStyle : inputStyle}
+                    placeholder="09ABCDE1234F1Z5"
                     value={form.gst}
                     onChange={set('gst')}
+                    maxLength={15}
                   />
+                  <FieldError msg={fieldErrors.gst} />
                 </Field>
               </div>
 
               <SectionHeading number="03" title="Banking Details" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '40px' }}>
-                <Field label="Bank Account Number" required>
+                <Field label="Bank Account Number" required hint="9–18 digits, numbers only">
                   <input
-                    style={inputStyle} required type="text"
-                    placeholder="Enter account number"
+                    style={fieldErrors.bankAccount ? inputErrorStyle : inputStyle}
+                    required type="text"
+                    placeholder="e.g. 123456789012"
                     value={form.bankAccount}
                     onChange={set('bankAccount')}
+                    maxLength={18}
+                    inputMode="numeric"
                   />
+                  <FieldError msg={fieldErrors.bankAccount} />
                 </Field>
 
-                <Field label="IFSC Code" required hint="11-character code on your cheque book">
+                <Field label="IFSC Code" required hint="4 letters · 0 · 6 alphanumeric — e.g. SBIN0001234">
                   <input
-                    style={inputStyle} required
-                    placeholder="e.g. SBIN0001234"
+                    style={fieldErrors.ifsc ? inputErrorStyle : inputStyle}
+                    required
+                    placeholder="SBIN0001234"
                     value={form.ifsc}
                     onChange={set('ifsc')}
+                    maxLength={11}
                   />
+                  <FieldError msg={fieldErrors.ifsc} />
                 </Field>
               </div>
 
