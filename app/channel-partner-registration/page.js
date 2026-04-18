@@ -472,7 +472,7 @@ function PolicyModal({ onAccept }) {
                 Channel Partner Policy
               </h2>
               <p style={{ color: 'rgba(255,255,255,0.5)', fontSize: '12px', margin: '6px 0 0', letterSpacing: '0.04em' }}>
-                Effective Date: April 1, 2026 · Project: Expressway Residency
+                Effective Date: April 1, 2026 
               </p>
             </div>
             <div style={{
@@ -580,35 +580,24 @@ function PolicyModal({ onAccept }) {
           </div>
         </div>
 
-        {/* Footer with Acceptance */}
+      {/* Footer with Acceptance — compact, no wasted space */}
         <div style={{
           flexShrink: 0,
-          padding: isMobile ? '16px' : '24px 40px',
+          padding: isMobile ? '12px 16px' : '20px 40px',
           background: '#faf7f2',
           borderTop: '1px solid #ede8df',
         }}>
-          {!hasScrolledToBottom && (
-            <div style={{
-              display: 'flex', alignItems: 'center', gap: '8px',
-              marginBottom: '16px', justifyContent: 'center',
-              fontSize: '12px', color: '#c4901a', fontWeight: 600,
-              letterSpacing: '0.06em',
-            }}>
-              <span>↕</span>
-              <span>Scroll through the entire policy to enable acceptance</span>
-            </div>
-          )}
-
           <label style={{
-            display: 'flex', alignItems: 'flex-start', gap: '14px',
-            cursor: hasScrolledToBottom ? 'pointer' : 'not-allowed',
-            padding: isMobile ? '14px' : '16px 20px',
+            display: hasScrolledToBottom ? 'flex' : 'none',
+            alignItems: 'center', gap: '12px',
+            cursor: 'pointer',
+            padding: isMobile ? '10px 12px' : '14px 20px',
             background: policyAccepted ? 'rgba(13,47,36,0.05)' : '#fff',
-            border: `1.5px solid ${policyAccepted ? '#0d2f24' : hasScrolledToBottom ? '#c4901a' : '#e0d5c0'}`,
-            borderRadius: '10px',
-            marginBottom: '16px',
+            border: `1.5px solid ${policyAccepted ? '#0d2f24' : '#c4901a'}`,
+            borderRadius: '8px',
+            marginBottom: '10px',
             transition: 'all 0.2s',
-            opacity: hasScrolledToBottom ? 1 : 0.6,
+            animation: 'fadeSlideUp 0.35s ease',
           }}>
             <input
               type="checkbox"
@@ -616,50 +605,52 @@ function PolicyModal({ onAccept }) {
               checked={policyAccepted}
               onChange={e => setPolicyAccepted(e.target.checked)}
               style={{
-                width: '20px', height: '20px',
+                width: '18px', height: '18px',
                 accentColor: '#0d2f24',
                 cursor: hasScrolledToBottom ? 'pointer' : 'not-allowed',
                 flexShrink: 0,
-                marginTop: '2px',
               }}
             />
-            <span style={{ fontSize: '13px', color: '#333', lineHeight: 1.75 }}>
-              I / We have read and fully understood the Channel Partner Policy of <strong style={{ color: '#0d2f24' }}>Haute Developers.</strong> (Effective: April 1, 2026) and agree to comply with all terms, conditions, obligations, and guidelines set forth herein.
+            <span style={{ fontSize: isMobile ? '11.5px' : '13px', color: '#333', lineHeight: 1.5 }}>
+              {isMobile
+                ? <>I agree to the <strong style={{ color: '#0d2f24' }}>Channel Partner Policy</strong> of Haute Developers (April 1, 2026).</>
+                : <>I / We have read and fully understood the Channel Partner Policy of <strong style={{ color: '#0d2f24' }}>Haute Developers.</strong> (Effective: April 1, 2026) and agree to comply with all terms, conditions, obligations, and guidelines set forth herein.</>
+              }
             </span>
           </label>
+
+          {!hasScrolledToBottom && (
+            <p style={{
+              textAlign: 'center', fontSize: '11px', color: '#c4901a',
+              fontWeight: 600, letterSpacing: '0.05em', margin: '0 0 8px',
+            }}>
+              ↕ Scroll through the entire policy to continue
+            </p>
+          )}
 
           <button
             onClick={() => policyAccepted && onAccept()}
             disabled={!policyAccepted}
             style={{
               width: '100%',
-              padding: '16px',
+              padding: isMobile ? '13px' : '15px',
               background: policyAccepted
                 ? 'linear-gradient(135deg, #0d2f24, #1a4a3a)'
                 : '#d0ccc4',
               color: '#fff',
               border: 'none',
-              borderRadius: '10px',
-              fontSize: '13px',
+              borderRadius: '8px',
+              fontSize: isMobile ? '12px' : '13px',
               fontWeight: 700,
-              letterSpacing: '0.14em',
+              letterSpacing: '0.12em',
               textTransform: 'uppercase',
               cursor: policyAccepted ? 'pointer' : 'not-allowed',
               transition: 'all 0.2s',
               fontFamily: "'Jost', sans-serif",
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '10px',
             }}
           >
-            <span>📋</span>
             {policyAccepted ? 'Proceed to Registration Form →' : 'Accept the Policy to Continue'}
           </button>
-
-          <p style={{ textAlign: 'center', fontSize: '11px', color: '#aaa', marginTop: '12px', letterSpacing: '0.04em' }}>
-            Haute Developers. · Sector 63, Noida 201301
-          </p>
         </div>
       </div>
     </div>
@@ -769,7 +760,7 @@ export default function ChannelPartnerRegistration() {
             borderRadius: '12px', padding: '24px 32px', maxWidth: '480px', width: '100%',
             display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '16px',
           }}>
-            <p style={{ color: '#c4901a', fontWeight: 600, fontSize: '1rem', margin: 0 }}>📋 Next Step</p>
+           <p style={{ color: '#c4901a', fontWeight: 600, fontSize: '1rem', margin: 0 }}>Next Step</p>
             <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '0.95rem', lineHeight: 1.7, margin: 0 }}>
               Please download your contract, take a printout, and bring it to our office at your earliest convenience to complete the onboarding process.
             </p>
@@ -794,7 +785,7 @@ export default function ChannelPartnerRegistration() {
                 fontFamily: "'Jost', sans-serif",
               }}
             >
-              <span style={{ fontSize: '16px' }}>⬇</span> Download Contract
+               Download Contract
             </button>
           </div>
 
@@ -822,6 +813,7 @@ export default function ChannelPartnerRegistration() {
         <style>{`
           @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
           input:focus, select:focus { border-color: #c4901a !important; box-shadow: 0 0 0 3px rgba(196,144,26,0.12) !important; }
+          @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         `}</style>
       </Head>
 
@@ -1101,9 +1093,9 @@ export default function ChannelPartnerRegistration() {
                   }}
                 >
                   {submitting ? (
-                    <><span style={{ fontSize: '16px' }}>⏳</span> Submitting Agreement…</>
+                    <>Submitting Agreement…</>
                   ) : (
-                    <><span style={{ fontSize: '16px' }}>📋</span> Submit Agreement</>
+                    <>Submit Agreement</>
                   )}
                 </button>
               </div>
