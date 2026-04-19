@@ -11,6 +11,14 @@ export const metadata = {
   title: "Haute Developers | Premium Real Estate — Plots, Villas & Apartments in NCR",
   description: "Haute Developers offers premium plots, villas & residential apartments in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Delivering excellence since 2011. Invest with Haute.",
   alternates: { canonical: "https://www.hautedevelopers.com" },
+  icons: {
+    icon: "/favicon.png",
+    apple: "/favicon.png",
+    shortcut: "/favicon.png",
+  },
+  openGraph: {
+    images: [{ url: "https://www.hautedevelopers.com/favicon.png" }],
+  },
 };
 
 const projects = [

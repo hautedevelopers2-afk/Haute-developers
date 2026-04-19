@@ -152,6 +152,8 @@ function buildContractHTML(data) {
   })
 
   const rows = [
+    ['Employee Name', data.employeeName],
+    ['Employee ID', data.employeeId],
     ['Channel Partner Name', data.partnerName],
     ['Status', data.status],
     ...(data.status === 'Company' ? [['Registered Office Address', data.location]] : []),
@@ -265,6 +267,8 @@ async function submitToGoogleSheets(data) {
   // ── Always 10 fixed columns — no conditional skipping ──────────────────────
   const row = [
     today,
+    data.employeeName,
+    data.employeeId,
     data.partnerName,
     data.status,
     data.status === 'Company' ? data.location : '—',
@@ -364,11 +368,11 @@ joxlXpQXA/HzB3zMQFiftw==
 
   if (!hasHeader) {
     const HEADERS = [
-      ['Date', 'Partner Name', 'Status', 'Registered Address',
-       'RERA Licensed', 'RERA Number', 'PAN / TAN', 'Bank Account No.', 'IFSC Code', 'GST Number']
-    ]
+  ['Date', 'Employee Name', 'Employee ID', 'Partner Name', 'Status', 'Registered Address',
+   'RERA Licensed', 'RERA Number', 'PAN / TAN', 'Bank Account No.', 'IFSC Code', 'GST Number']
+]
     await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:J1?valueInputOption=USER_ENTERED`,
+      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:L1?valueInputOption=USER_ENTERED`,
       {
         method: 'PUT',
         headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
@@ -379,7 +383,7 @@ joxlXpQXA/HzB3zMQFiftw==
 
   // ── Append data row ────────────────────────────────────────────────────────
   const sheetsRes = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:J:append?valueInputOption=USER_ENTERED`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:L:append?valueInputOption=USER_ENTERED`,
     {
       method: 'POST',
       headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
@@ -738,6 +742,8 @@ export default function ChannelPartnerRegistration() {
   useIOSViewportFix()
 
   const [form, setForm] = useState({
+    employeeName: '',
+    employeeId: '',
     partnerName: '',
     status: '',
     location: '',
@@ -1014,7 +1020,27 @@ export default function ChannelPartnerRegistration() {
             {/* Form */}
             <form onSubmit={handleSubmit} style={{ padding: formPadding }}>
 
-              <SectionHeading number="01" title="Partner Identification" />
+              <SectionHeading number="01" title="Employee Details" />
+<div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
+  <Field label="Employee Name" required>
+    <input
+      style={inputStyle} required
+      placeholder="Full name of the referring employee"
+      value={form.employeeName}
+      onChange={set('employeeName')}
+    />
+  </Field>
+  <Field label="Employee ID" required>
+    <input
+      style={inputStyle} required
+      placeholder="e.g. HD-1001"
+      value={form.employeeId}
+      onChange={set('employeeId')}
+    />
+  </Field>
+</div>
+
+<SectionHeading number="02" title="Partner Identification" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
                 <div style={{ gridColumn: '1 / -1' }}>
                   <Field label="Full Name / Organisation Name" required>
@@ -1051,7 +1077,7 @@ export default function ChannelPartnerRegistration() {
                 )}
               </div>
 
-              <SectionHeading number="02" title="Regulatory & Tax Information" />
+              <SectionHeading number="03" title="Regulatory & Tax Information" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '32px' }}>
                 <Field label="RERA Registered" required>
                   <select
@@ -1101,7 +1127,7 @@ export default function ChannelPartnerRegistration() {
                 </Field>
               </div>
 
-              <SectionHeading number="03" title="Banking Details" />
+              <SectionHeading number="04" title="Banking Details" />
               <div style={{ display: 'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', gap: '20px', marginBottom: '40px' }}>
                 <Field label="Bank Account Number" required hint="9–18 digits, numbers only">
                   <input
@@ -1129,7 +1155,7 @@ export default function ChannelPartnerRegistration() {
                 </Field>
               </div>
 
-              <SectionHeading number="04" title="Declaration & Undertaking" />
+              <SectionHeading number="05" title="Declaration & Undertaking" />
               <div style={{
                 border: '1.5px solid #c4901a', borderRadius: '12px',
                 padding: isMobile ? '20px 16px' : '28px 32px', marginBottom: '28px',
