@@ -157,6 +157,8 @@ function buildContractHTML(data) {
     ['Channel Partner Name', data.partnerName],
     ['Status', data.status],
     ...(data.status === 'Company' ? [['Registered Office Address', data.location]] : []),
+    ['Email Address', data.email],
+    ['Mobile Number', data.mobile],
     ['RERA Licensed', data.reraLicensed],
     ...(data.reraLicensed === 'Yes' ? [['RERA Registration Number', data.reraNumber]] : []),
     ['PAN / TAN Number', data.panTan],
@@ -272,6 +274,8 @@ async function submitToGoogleSheets(data) {
     data.partnerName,
     data.status,
     data.status === 'Company' ? data.location : '—',
+    data.email,
+    data.mobile,
     data.reraLicensed,
     data.reraLicensed === 'Yes' ? data.reraNumber : '—',
     data.panTan,
@@ -369,10 +373,10 @@ joxlXpQXA/HzB3zMQFiftw==
   if (!hasHeader) {
     const HEADERS = [
   ['Date', 'Employee Name', 'Employee ID', 'Partner Name', 'Status', 'Registered Address',
-   'RERA Licensed', 'RERA Number', 'PAN / TAN', 'Bank Account No.', 'IFSC Code', 'GST Number']
+   'Email', 'Mobile', 'RERA Licensed', 'RERA Number', 'PAN / TAN', 'Bank Account No.', 'IFSC Code', 'GST Number']
 ]
     await fetch(
-      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:L1?valueInputOption=USER_ENTERED`,
+     `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:N1?valueInputOption=USER_ENTERED`,
       {
         method: 'PUT',
         headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
@@ -383,7 +387,7 @@ joxlXpQXA/HzB3zMQFiftw==
 
   // ── Append data row ────────────────────────────────────────────────────────
   const sheetsRes = await fetch(
-    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:L:append?valueInputOption=USER_ENTERED`,
+    `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A:N:append?valueInputOption=USER_ENTERED`,
     {
       method: 'POST',
       headers: { Authorization: `Bearer ${accessToken}`, 'Content-Type': 'application/json' },
@@ -747,6 +751,8 @@ export default function ChannelPartnerRegistration() {
     partnerName: '',
     status: '',
     location: '',
+    email: '',
+    mobile: '',
     reraLicensed: '',
     reraNumber: '',
     panTan: '',
@@ -791,6 +797,11 @@ export default function ChannelPartnerRegistration() {
     // GST: 15-character format if provided
     if (form.gst && !/^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}Z[0-9A-Z]{1}$/.test(form.gst.toUpperCase())) {
       errors.gst = 'Invalid GST number. Expected format: 09ABCDE1234F1Z5'
+    }
+
+    // Mobile: must be 10 digits
+    if (!/^[6-9]\d{9}$/.test(form.mobile)) {
+      errors.mobile = 'Enter a valid 10-digit Indian mobile number.'
     }
 
     // RERA number: must be non-empty if RERA licensed
@@ -1075,6 +1086,30 @@ export default function ChannelPartnerRegistration() {
                     />
                   </Field>
                 )}
+
+                <Field label="Email Address" required>
+                  <input
+                    style={inputStyle} required
+                    type="email"
+                    placeholder="e.g. partner@example.com"
+                    value={form.email}
+                    onChange={set('email')}
+                  />
+                </Field>
+
+                <Field label="Mobile Number" required hint="10-digit Indian mobile number">
+                  <input
+                    style={fieldErrors.mobile ? inputErrorStyle : inputStyle}
+                    required
+                    type="tel"
+                    placeholder="e.g. 9876543210"
+                    value={form.mobile}
+                    onChange={set('mobile')}
+                    maxLength={10}
+                    inputMode="numeric"
+                  />
+                  <FieldError msg={fieldErrors.mobile} />
+                </Field>
               </div>
 
               <SectionHeading number="03" title="Regulatory & Tax Information" />
