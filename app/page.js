@@ -22,13 +22,13 @@ export const metadata = {
 };
 
 const projects = [
-  { name: "Neelkanth Pinnacle", location: "Dehradun, UK", desc: "Residential project offering 2 & 3 BHK builder floors and apartments launched in 2011 and delivered in 2013 with 200 units.", status: "Delivered", image: "/assets/neelkanth-pinnacle.jpg" },
-  { name: "Sailok Society", location: "Dehradun, UK", desc: "Premium 300 Bigha gated township with residential plots, fully developed and delivered in 2014.", status: "Delivered", image: "/assets/sailok-society.jpg" },
+  { name: "Neelkanth Pinnacle", location: "Dehradun, UK", desc: "Residential project offering 2 & 3 BHK builder floors and apartments launched in 2011 and delivered in 2013 with 200 units.", status: "Delivered", image: "/assets/neelkanth-pinnacle.png" },
+  { name: "Sailok Society", location: "Dehradun, UK", desc: "Premium 300 Bigha gated township with residential plots, fully developed and delivered in 2014.", status: "Delivered", image: "/assets/sailok-society.png" },
   { name: "Shiv Shakti Enclave", location: "Sector 79, Noida", desc: "A successfully delivered 55 Bigha gated township offering well-planned residential plots with a secure living environment since 2015.", status: "Delivered", image: "/assets/shiv-shakti-enclave.png" },
-  { name: "Signature Homes", location: "Govindpuram, Ghaziabad", desc: "800+ freehold 1 & 2 BHK apartments, completed and delivered in 2017 with strong infrastructure and a thriving community.", status: "Delivered", image: "/assets/signature-homes.jpg" },
-  { name: "East Avenue Society", location: "Sector 72 & 73, Noida", desc: "A premium residential project featuring 1200+ freehold 2 & 3 BHK apartments, delivered in 2019.", status: "Delivered", image: "/assets/east-avenue-society.jpg" },
+  { name: "Signature Homes", location: "Govindpuram, Ghaziabad", desc: "800+ freehold 1 & 2 BHK apartments, completed and delivered in 2017 with strong infrastructure and a thriving community.", status: "Delivered", image: "/assets/signature-homes.png" },
+  { name: "East Avenue Society", location: "Sector 72 & 73, Noida", desc: "A premium residential project featuring 1200+ freehold 2 & 3 BHK apartments, delivered in 2019.", status: "Delivered", image: "/assets/east-avenue-society.png" },
   { name: "Aashiyana Homes", location: "Vill. Basai, Sector 70, Noida", desc: "2 & 3 BHK freehold builder floor apartments, successfully delivered in 2020, offering quality construction and modern living.", status: "Delivered", image: "/assets/aashiyana-homes.png" },
-  { name: "Neelkanth Villa", location: "Sadullahpur, Sector 10, Greater Noida West", desc: "3 BHK freehold duplex villas in a secure gated community, offering prime location advantage and luxurious living.", status: "Ongoing", image: "/assets/neelkanth-villa.jpg" },
+  { name: "Neelkanth Villa", location: "Sadullahpur, Sector 10, Greater Noida West", desc: "3 BHK freehold duplex villas in a secure gated community, offering prime location advantage and luxurious living.", status: "Ongoing", image: "/assets/neelkanth-villa.png" },
 ];
 
 const IconMapPin = ({ size = 20, color = "currentColor" }) => (
@@ -625,7 +625,7 @@ export default function Home() {
         id="projects"
         style={{
           position: "relative",
-          overflow: "hidden",
+          overflow: "visible",
         }}
       >
         {/* Background image */}
@@ -639,17 +639,7 @@ export default function Home() {
             backgroundRepeat: "no-repeat",
             opacity: 0.9,
             zIndex: 0,
-          }}
-        />
-
-        {/* Soft overlay to keep text crisp */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(180deg, rgba(247,244,239,0.3) 0%, rgba(247,244,239,0.1) 50%, rgba(247,244,239,0.35) 100%)",
-            zIndex: 1,
+            borderRadius: 0,
           }}
         />
 
