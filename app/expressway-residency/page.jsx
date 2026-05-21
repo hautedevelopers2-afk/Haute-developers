@@ -283,6 +283,14 @@ export default function ExpresswayResidencyPage() {
 
           /* Why invest box padding */
           .er-why-box    { padding: 1.4rem !important; }
+
+          /* Prevent buttons from overflowing on mobile */
+          .btn-primary, .btn-dark, .btn-outline {
+            max-width: 100%;
+            white-space: normal;
+            word-break: break-word;
+            box-sizing: border-box;
+          }
         }
 
         /* ══════════════════════════
@@ -482,7 +490,7 @@ export default function ExpresswayResidencyPage() {
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
+          <div style={{ textAlign: "center", marginTop: "2.4rem", padding: "0 1rem" }}>
             <a
               href="/#contact"
               className="btn-primary"
@@ -814,43 +822,50 @@ export default function ExpresswayResidencyPage() {
                 left: 0,
                 right: 0,
                 background:
-                  "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)",
-                padding: "2rem 1.5rem 1.5rem",
-                display: "flex",
-                alignItems: "flex-end",
-                justifyContent: "space-between",
-                flexWrap: "wrap",
-                gap: "1rem",
+                  "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0.2) 85%, transparent 100%)",
+                padding: "3rem 1.5rem 1.8rem",
               }}
             >
-              <div>
-                <p
-                  style={{
-                    color: "var(--gold)",
-                    fontSize: "0.72rem",
-                    letterSpacing: "0.15em",
-                    textTransform: "uppercase",
-                    fontWeight: 700,
-                    margin: 0,
-                  }}
-                >
-                  Vastu-Friendly Site Plan
-                </p>
-                <h3
-                  style={{
-                    color: "#fff",
-                    fontFamily: "var(--font-display)",
-                    fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
-                    margin: "0.3rem 0 0",
-                  }}
-                >
-                  Expressway Residency Layout
-                </h3>
-              </div>
-              <a href="/#contact" className="btn-primary">
-                Receive a return call →
-              </a>
+              <p
+                style={{
+                  color: "var(--gold)",
+                  fontSize: "0.72rem",
+                  letterSpacing: "0.15em",
+                  textTransform: "uppercase",
+                  fontWeight: 700,
+                  margin: 0,
+                }}
+              >
+                Vastu-Friendly Site Plan
+              </p>
+              <h3
+                style={{
+                  color: "#fff",
+                  fontFamily: "var(--font-display)",
+                  fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
+                  margin: "0.3rem 0 0",
+                }}
+              >
+                Expressway Residency Layout
+              </h3>
             </div>
+          </div>
+
+          <div style={{ marginTop: "1.8rem" }}>
+            <a
+              href="/#contact"
+              className="btn-primary"
+              style={{
+                display: "block",
+                width: "100%",
+                textAlign: "center",
+                padding: "1.2rem 2rem",
+                fontSize: "1rem",
+                boxSizing: "border-box",
+              }}
+            >
+              Receive a Return Call →
+            </a>
           </div>
 
           <div className="er-highlights">
