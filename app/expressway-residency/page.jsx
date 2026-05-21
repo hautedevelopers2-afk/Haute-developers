@@ -417,7 +417,7 @@ export default function ExpresswayResidencyPage() {
                 fontWeight: 600,
               }}
             >
-              Upcoming Integrated Township on NE 3
+              Upcoming Integrated Township on NE&nbsp;3
             </p>
             <h1
               className="hero-title"
