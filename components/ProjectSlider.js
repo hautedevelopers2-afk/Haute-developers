@@ -60,7 +60,6 @@ export default function ProjectSlider({ projects }) {
         const opacity = Math.max(1 - distance / 500, 0.5);
         const zIndex = 1000 - distance;
         slide.style.transform = `scale(${scale})`;
-        slide.style.opacity = opacity;
         slide.style.zIndex = zIndex;
       });
     };
@@ -215,6 +214,37 @@ export default function ProjectSlider({ projects }) {
           border-radius: 50%;
           background: var(--gold);
         }
+        .project-slide-overlay {
+          position: absolute !important;
+          inset: 0 !important;
+          background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 75%) !important;
+          z-index: 1 !important;
+          display: block !important;
+        }
+        .project-slide-content {
+          position: absolute !important;
+          bottom: 0 !important;
+          left: 0 !important;
+          right: 0 !important;
+          padding: 1.4rem 1.2rem !important;
+          z-index: 2 !important;
+        }
+        .project-slide-location {
+          font-size: 0.7rem !important;
+          letter-spacing: 0.1em !important;
+          color: rgba(255,255,255,0.9) !important;
+          opacity: 1 !important;
+          margin-bottom: 0.3rem !important;
+          text-transform: uppercase !important;
+        }
+        .project-slide-title {
+          font-family: var(--font-display) !important;
+          font-size: 1.5rem !important;
+          color: #ffffff !important;
+          font-weight: 700 !important;
+          text-shadow: 0 2px 20px rgba(0,0,0,1), 0 0 60px rgba(0,0,0,1) !important;
+          line-height: 1.2 !important;
+        }
       `}</style>
 
       <div className="projects-slider-wrapper">
@@ -226,12 +256,30 @@ export default function ProjectSlider({ projects }) {
               <div className="flip-card-inner">
 
                 {/* ── FRONT ── */}
-               <div className="flip-front">
-                  <img src={p.image} alt={p.name} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", position:"absolute", inset:0 }} />
-                  <div className="project-slide-overlay" />
-                  <div className="project-slide-content">
-                    <div className="project-slide-location">{p.location}</div>
-                    <div className="project-slide-title">{p.name}</div>
+              <div className="flip-front">
+                  <img src={p.image} alt={p.name} style={{ width:"100%", height:"100%", objectFit:"cover", display:"block", position:"absolute", inset:0, transition:"opacity 0.35s ease" }} />
+                  <div className="project-slide-overlay" style={{
+                    position:"absolute", inset:0,
+                    background:"linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, transparent 60%)",
+                  }} />
+                  <div className="project-slide-content" style={{
+                    position:"absolute", bottom:0, left:0, right:0,
+                    padding:"1.5rem 1.2rem",
+                  }}>
+                    <div className="project-slide-location" style={{
+                      color:"rgba(255,255,255,0.85)",
+                      fontSize:"0.72rem",
+                      letterSpacing:"0.1em",
+                      textTransform:"uppercase",
+                      marginBottom:"0.3rem",
+                    }}>{p.location}</div>
+                    <div className="project-slide-title" style={{
+                      color:"#ffffff",
+                      fontSize:"1.1rem",
+                      fontWeight:700,
+                      textShadow:"0 2px 8px rgba(0,0,0,0.8)",
+                      lineHeight:1.3,
+                    }}>{p.name}</div>
                   </div>
                 </div>
 
