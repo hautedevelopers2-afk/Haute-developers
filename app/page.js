@@ -22,13 +22,13 @@ export const metadata = {
 };
 
 const projects = [
-  { name: "Neelkanth Pinnacle", location: "Dehradun, UK", desc: "Residential project offering 2 & 3 BHK builder floors and apartments launched in 2011 and delivered in 2013 with 200 units.", status: "Delivered", image: "/assets/neelkanth-pinnacle.png" },
+  { name: "Neelkanth Pinnacle", location: "Dehradun, UK", desc: "Residential project offering 2 & 3 BHK builder floors and apartments launched in 2011 and delivered in 2013 with 200 units.", status: "Delivered", image: "/assets/neelkanth-pinnacle.jpeg" },
   { name: "Sailok Society", location: "Dehradun, UK", desc: "Premium 300 Bigha gated township with residential plots, fully developed and delivered in 2014.", status: "Delivered", image: "/assets/sailok-society.png" },
-  { name: "Shiv Shakti Enclave", location: "Sector 79, Noida", desc: "A successfully delivered 55 Bigha gated township offering well-planned residential plots with a secure living environment since 2015.", status: "Delivered", image: "/assets/shiv-shakti-enclave.png" },
+  { name: "Shiv Shakti Enclave", location: "Sector 79, Noida", desc: "A successfully delivered 55 Bigha gated township offering well-planned residential plots with a secure living environment since 2015.", status: "Delivered", image: "/assets/shiv-shakti-enclave.jpeg" },
   { name: "Signature Homes", location: "Govindpuram, Ghaziabad", desc: "800+ freehold 1 & 2 BHK apartments, completed and delivered in 2017 with strong infrastructure and a thriving community.", status: "Delivered", image: "/assets/signature-homes.png" },
-  { name: "East Avenue Society", location: "Sector 72 & 73, Noida", desc: "A premium residential project featuring 1200+ freehold 2 & 3 BHK apartments, delivered in 2019.", status: "Delivered", image: "/assets/east-avenue-society.png" },
-  { name: "Aashiyana Homes", location: "Vill. Basai, Sector 70, Noida", desc: "2 & 3 BHK freehold builder floor apartments, successfully delivered in 2020, offering quality construction and modern living.", status: "Delivered", image: "/assets/aashiyana-homes.png" },
-  { name: "Neelkanth Villa", location: "Sadullahpur, Sector 10, Greater Noida West", desc: "3 BHK freehold duplex villas in a secure gated community, offering prime location advantage and luxurious living.", status: "Ongoing", image: "/assets/neelkanth-villa.png" },
+  { name: "East Avenue Society", location: "Sector 72 & 73, Noida", desc: "A premium residential project featuring 1200+ freehold 2 & 3 BHK apartments, delivered in 2019.", status: "Delivered", image: "/assets/east-avenue-society.jpeg" },
+  { name: "Aashiyana Homes", location: "Vill. Basai, Sector 70, Noida", desc: "2 & 3 BHK freehold builder floor apartments, successfully delivered in 2020, offering quality construction and modern living.", status: "Delivered", image: "/assets/aashiyana-homes.jpeg" },
+  { name: "Neelkanth Villa", location: "Sadullahpur, Sector 10, Greater Noida West", desc: "3 BHK freehold duplex villas in a secure gated community, offering prime location advantage and luxurious living.", status: "Ongoing", image: "/assets/neelkanth-villa.jpeg" },
 ];
 
 const IconMapPin = ({ size = 20, color = "currentColor" }) => (
@@ -128,7 +128,7 @@ const upcomingProjects = [
     status: "Upcoming",
     href: "/haute-residency",
     desc: "A serene residential retreat in the sacred city of Vrindavan...",
-    image: "/assets/vrindavan.jpg",
+    image: "/assets/vrindavan.png",
   },
 ];
 
@@ -222,7 +222,7 @@ export default function Home() {
                 style={{ padding: 0, overflow: "hidden", borderRadius: "20px" }}
               >
                 <img
-                  src="/assets/meeting.png"
+                  src="/assets/meeting.jpg"
                   alt="Haute Developers team planning premium real estate projects"
                   style={{
                     width: "100%",
@@ -232,10 +232,6 @@ export default function Home() {
                     display: "block",
                   }}
                 />
-              </div>
-              <div className="about-accent-box">
-                <span>Delivering Since</span>
-                <strong>2011</strong>
               </div>
             </div>
             <div className="about-content animate-fade-up-1">

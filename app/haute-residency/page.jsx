@@ -16,7 +16,7 @@ export const metadata = {
     siteName: "Haute Developers",
     images: [
       {
-        url: "/assets/vrindavan.jpg",
+        url: "/assets/vrindavan.png",
         width: 1200,
         height: 630,
         alt: "Haute Residency — Vrindavan",
@@ -30,7 +30,7 @@ export const metadata = {
     title: "Haute Residency Vrindavan | Coming Soon",
     description:
       "Serene residential retreat in Vrindavan. Launching soon by Haute Developers.",
-    images: ["/assets/vrindavan.jpg"],
+    images: ["/assets/vrindavan.png"],
   },
 };
 
@@ -114,7 +114,7 @@ export default function HauteResidency() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/assets/vrindavan.jpg')",
+            backgroundImage: "url('/assets/vrindavan.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
@@ -325,7 +325,7 @@ export default function HauteResidency() {
               <div style={{ borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(201,144,26,0.25)", boxShadow: "0 24px 64px rgba(0,0,0,0.5)", position: "relative" }}>
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, var(--gold), rgba(201,144,26,0.3), transparent)", zIndex: 2 }} />
                 <img
-                  src="/assets/vrindavan.jpg"
+                  src="/assets/vrindavan.png"
                   alt="Haute Residency — Vrindavan"
                   style={{ width: "100%", height: "420px", objectFit: "cover", display: "block", filter: "brightness(0.9)" }}
                 />

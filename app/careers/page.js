@@ -111,16 +111,51 @@ const IconBriefcase = ({ size = 15, color = "currentColor" }) => (
 
 const roles = [
   {
-    title: 'Senior Sales Executive',
+    title: 'Director Sales',
+    dept: 'Sales & Leadership',
+    type: 'Full-Time',
+    location: 'Sector 63, Noida',
+    exp: '10+ Years',
+    desc: 'Lead the entire sales division with a strategic vision. Drive revenue targets, build high-performance sales teams, and manage key client relationships across premium projects in Ghaziabad and NCR.',
+    skills: ['Sales Leadership', 'Team Building', 'Revenue Strategy', 'Client Relations', 'Real Estate Expertise'],
+  },
+  {
+    title: 'VP Sales',
+    dept: 'Sales & Leadership',
+    type: 'Full-Time',
+    location: 'Sector 63, Noida',
+    exp: '10+ Years',
+    desc: 'Drive sales operations and strategy at a senior level. Oversee regional sales performance, mentor sales managers, and ensure consistent achievement of business targets across all Haute projects.',
+    skills: ['Sales Operations', 'Strategic Planning', 'Mentorship', 'Target Management', 'Real Estate Sales'],
+  },
+  {
+    title: 'Project Head',
+    dept: 'Project Management',
+    type: 'Full-Time',
+    location: 'Sector 63, Noida',
+    exp: '10+ Years',
+    desc: 'Oversee end-to-end project sales and operations for premium residential developments. Coordinate between sales, marketing, and construction teams to ensure seamless project delivery and customer satisfaction.',
+    skills: ['Project Management', 'Sales Coordination', 'Team Leadership', 'Client Management', 'Real Estate'],
+  },
+  {
+    title: 'GM Sales',
     dept: 'Sales & Business Development',
     type: 'Full-Time',
-    location: 'Dholera, Gujrat',
-    exp: '2–5 Years',
-    desc: 'Drive residential plot and villa sales across our active project sites. Build client relationships, conduct site visits, and close deals with a consultative approach.',
-    skills: ['Real Estate Sales', 'Client Relationship Management', 'Site Presentations', 'Target-Driven'],
+    location: 'Sector 63, Noida',
+    exp: '10+ Years',
+    desc: 'Manage and scale the sales function across multiple projects. Set targets, build sales processes, and lead a large team to achieve business goals for our premium projects in Ghaziabad and NCR.',
+    skills: ['Sales Management', 'Business Development', 'Process Building', 'Team Handling', 'Real Estate'],
+  },
+  {
+    title: 'AGM Sales',
+    dept: 'Sales & Business Development',
+    type: 'Full-Time',
+    location: 'Sector 63, Noida',
+    exp: '10+ Years',
+    desc: 'Support the GM Sales in managing day-to-day sales operations. Drive team performance, handle key accounts, and contribute to achieving monthly and quarterly sales targets across Haute projects.',
+    skills: ['Sales Operations', 'Key Account Management', 'Target Achievement', 'Team Coordination', 'Real Estate'],
   },
 ]
-
 const perks = [
   { Icon: IconCurrency, title: 'Competitive Pay', desc: 'Industry-leading salaries with performance-linked incentives and annual bonuses.' },
   { Icon: IconTrendingUp, title: 'Growth Path', desc: 'Clear career progression with mentorship from senior leadership and industry experts.' },
