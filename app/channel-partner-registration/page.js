@@ -171,7 +171,7 @@ function buildContractHTML(data) {
 <html lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Channel Partner Agreement — Haute Developers</title>
+  <title>Channel Partner Agreement — Haute World Developers</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
     *{box-sizing:border-box;margin:0;padding:0}
@@ -201,7 +201,7 @@ function buildContractHTML(data) {
 </head>
 <body>
   <div class="header">
-    <div class="logo-text">HAUTE DEVELOPERS</div>
+    <div class="logo-text">Haute World Developers</div>
     <div class="logo-sub">Premium Real Estate — Building Homes You Love</div>
   </div>
   <h1>Channel Partner Registration Agreement</h1>
@@ -210,7 +210,7 @@ function buildContractHTML(data) {
   <div class="meta">
     <span>Document Date: ${today}</span>
     <span>Document Type: Channel Partner Agreement</span>
-    <span>Issuing Entity: Haute Developers.</span>
+    <span>Issuing Entity: Haute World Developers.</span>
   </div>
   <table>
     <thead><tr><th colspan="2">Partner Information & Details</th></tr></thead>
@@ -221,7 +221,7 @@ function buildContractHTML(data) {
   <div class="declaration-box">
     <div class="declaration-title">Declaration by the Channel Partner</div>
     <div class="declaration-text">
-      "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute Developers. I / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
+      "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute World Developers. I / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute World Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
     </div>
   </div>
   <div class="sig-section">
@@ -234,13 +234,13 @@ function buildContractHTML(data) {
       <div class="sig-name">${today}</div>
     </div>
     <div class="sig-block">
-      <div class="sig-label">Authorised Signatory — Haute Developers</div>
+      <div class="sig-label">Authorised Signatory — Haute World Developers</div>
       <div class="sig-name">Director / Authorised Representative</div>
     </div>
   </div>
   <div class="footer-note">
     This document is computer-generated and constitutes a binding agreement upon submission.<br/>
-    Haute Developers. | Ground Floor, H-214, Sector 63, Noida, UP 201301 | support@hautedevelopers.com
+    Haute World Developers. | Ground Floor, H-214, Sector 63, Noida, UP 201301 | support@hautedevelopers.com
   </div>
 </body>
 </html>`
@@ -648,8 +648,8 @@ function PolicyModal({ onAccept }) {
             />
             <span style={{ fontSize: isMobile ? '11.5px' : '13px', color: '#333', lineHeight: 1.5 }}>
               {isMobile
-                ? <>I agree to the <strong style={{ color: '#0d2f24' }}>Channel Partner Policy</strong> of Haute Developers (April 1, 2026).</>
-                : <>I / We have read and fully understood the Channel Partner Policy of <strong style={{ color: '#0d2f24' }}>Haute Developers.</strong> (Effective: April 1, 2026) and agree to comply with all terms, conditions, obligations, and guidelines set forth herein.</>
+                ? <>I agree to the <strong style={{ color: '#0d2f24' }}>Channel Partner Policy</strong> of Haute World Developers (April 1, 2026).</>
+                : <>I / We have read and fully understood the Channel Partner Policy of <strong style={{ color: '#0d2f24' }}>Haute World Developers.</strong> (Effective: April 1, 2026) and agree to comply with all terms, conditions, obligations, and guidelines set forth herein.</>
               }
             </span>
           </label>
@@ -965,7 +965,7 @@ export default function ChannelPartnerRegistration() {
           <span style={{
             display: 'block', fontSize: '11px', fontWeight: 700, letterSpacing: '0.22em',
             textTransform: 'uppercase', color: '#c4901a', marginBottom: '16px',
-          }}>Haute Developers Partnership Programme</span>
+          }}>Haute World Developers Partnership Programme</span>
           <h1 style={{
             fontFamily: "'Cormorant Garamond', serif",
             fontSize: 'clamp(1.8rem, 5vw, 3.6rem)', fontWeight: 600, color: '#fff',
@@ -975,7 +975,7 @@ export default function ChannelPartnerRegistration() {
           </h1>
           <div style={{ width: '60px', height: '2px', background: '#c4901a', margin: '0 auto 20px' }} />
           <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '0.95rem', lineHeight: 1.8, maxWidth: '560px', margin: '0 auto' }}>
-            Complete the following agreement to formalise your partnership with Haute Developers. All fields marked with an asterisk are mandatory.
+            Complete the following agreement to formalise your partnership with Haute World Developers. All fields marked with an asterisk are mandatory.
           </p>
         </div>
       </section>
@@ -1005,7 +1005,7 @@ export default function ChannelPartnerRegistration() {
               }}>
                 <div>
                   <div style={{ fontFamily: "'Cormorant Garamond', serif", fontSize: isMobile ? '1.3rem' : '1.6rem', fontWeight: 600, color: '#fff', letterSpacing: '0.04em' }}>
-                    HAUTE DEVELOPERS
+                    Haute World Developers
                   </div>
                   <div style={{ fontSize: '10px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#c4901a', marginTop: '4px' }}>
                     Premium Real Estate
@@ -1024,7 +1024,7 @@ export default function ChannelPartnerRegistration() {
             {/* Preamble */}
             <div style={{ padding: preamblePadding, borderBottom: '1px solid #ede8df' }}>
               <p style={{ fontSize: '13px', color: '#555', lineHeight: 1.9, marginBottom: '28px', fontStyle: 'italic' }}>
-                This Channel Partner Registration Agreement ("Agreement") is entered into between <strong style={{ color: '#0d2f24' }}>Haute Developers.</strong>, a company registered under the Companies Act with its corporate office at Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301, and the undersigned Channel Partner, with effect from the date of submission of this Agreement.
+                This Channel Partner Registration Agreement ("Agreement") is entered into between <strong style={{ color: '#0d2f24' }}>Haute World Developers.</strong>, a company registered under the Companies Act with its corporate office at Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301, and the undersigned Channel Partner, with effect from the date of submission of this Agreement.
               </p>
             </div>
 
@@ -1209,7 +1209,7 @@ export default function ChannelPartnerRegistration() {
                   Declaration by the Channel Partner
                 </div>
                 <p style={{ fontSize: '14px', lineHeight: 2, color: '#333', fontStyle: 'italic' }}>
-                  "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute Developers / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
+                  "I / We have read and understood all terms and conditions governing the Channel Partner Programme of Haute World Developers / We hereby declare that I / We shall conduct all business activities pertaining to the sale, marketing, and promotion of Haute World Developers' projects with complete integrity, professionalism, and in strict adherence to applicable industry standards, regulatory guidelines, and ethical business practices. I / We further undertake that all representations made to prospective clients shall be accurate, fair, and in the best interest of all parties involved."
                 </p>
               </div>
 
@@ -1230,7 +1230,7 @@ export default function ChannelPartnerRegistration() {
                   }}
                 />
                 <span style={{ fontSize: '13px', color: '#333', lineHeight: 1.75 }}>
-                  I / We confirm that I / We have read, understood, and agree to be bound by the terms and conditions of this Channel Partner Agreement with Haute Developers / We acknowledge that this constitutes a legally binding undertaking.
+                  I / We confirm that I / We have read, understood, and agree to be bound by the terms and conditions of this Channel Partner Agreement with Haute World Developers / We acknowledge that this constitutes a legally binding undertaking.
                 </span>
               </label>
 
@@ -1278,7 +1278,7 @@ export default function ChannelPartnerRegistration() {
               textAlign: isMobile ? 'center' : 'left',
             }}>
               <span style={{ fontSize: '11px', color: '#aaa', letterSpacing: '0.06em' }}>
-                Haute Developers | Sector 63, Noida 201301
+                Haute World Developers | Sector 63, Noida 201301
               </span>
               <span style={{ fontSize: '11px', color: '#aaa', letterSpacing: '0.06em' }}>
                 This agreement is generated electronically and is legally binding.

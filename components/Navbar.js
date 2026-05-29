@@ -32,12 +32,12 @@ export default function Navbar() {
           <Link
             href="/"
             className="nav-logo"
-            aria-label="Haute Developers Home"
+            aria-label="Haute World Developers Home"
             style={{ marginLeft: 0, flexShrink: 0 }}
           >
             <Image
               src="/assets/web-logo.png"
-              alt="Haute Developers"
+              alt="Haute World Developers"
               width={200}
               height={80}
               style={{

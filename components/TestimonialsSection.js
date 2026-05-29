@@ -124,7 +124,7 @@ export default function TestimonialsSection() {
           <div className="divider" style={{ margin: "1rem auto" }} />
           <p className="testimonials-subtitle">
             Real experiences from families who chose to invest and live with
-            Haute Developers.
+            Haute World Developers.
           </p>
         </div>
       </div>

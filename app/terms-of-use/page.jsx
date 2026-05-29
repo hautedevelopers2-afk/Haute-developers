@@ -3,9 +3,9 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Terms & Conditions | Haute Developers",
+  title: "Terms & Conditions | Haute World Developers",
   description:
-    "Read the Terms and Conditions governing your use of the Haute Developers website and services. Understand your rights and responsibilities before engaging with us.",
+    "Read the Terms and Conditions governing your use of the Haute World Developers website and services. Understand your rights and responsibilities before engaging with us.",
   alternates: { canonical: "https://www.hautedevelopers.com/terms-and-conditions" },
   robots: { index: true, follow: true },
 };
@@ -17,11 +17,11 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "By accessing or using the Haute Developers website (www.hautedevelopers.com) and any related services, you confirm that you have read, understood, and agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree to these terms, please discontinue use of our website immediately.",
+        text: "By accessing or using the Haute World Developers website (www.hautedevelopers.com) and any related services, you confirm that you have read, understood, and agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree to these terms, please discontinue use of our website immediately.",
       },
       {
         type: "paragraph",
-        text: "These terms constitute a legally binding agreement between you and Haute Developers (referred to as 'we', 'us', or 'the Company'). We reserve the right to update these terms at any time. Continued use of our website following such updates constitutes your acceptance of the revised terms.",
+        text: "These terms constitute a legally binding agreement between you and Haute World Developers (referred to as 'we', 'us', or 'the Company'). We reserve the right to update these terms at any time. Continued use of our website following such updates constitutes your acceptance of the revised terms.",
       },
     ],
   },
@@ -63,7 +63,7 @@ const sections = [
       },
       {
         type: "important",
-        text: "Nothing on this website constitutes an offer, invitation to offer, or commitment to sell. All sales are subject to a formal agreement to sell / sale deed executed between the buyer and Haute Developers.",
+        text: "Nothing on this website constitutes an offer, invitation to offer, or commitment to sell. All sales are subject to a formal agreement to sell / sale deed executed between the buyer and Haute World Developers.",
       },
     ],
   },
@@ -73,7 +73,7 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "Any property booking or transaction with Haute Developers is governed exclusively by the allotment letter, agreement to sell, or sale deed executed between the parties and applicable law, including the Real Estate (Regulation and Development) Act, 2016 (RERA). In the event of any conflict between these Terms and such formal agreements, the formal agreements shall prevail.",
+        text: "Any property booking or transaction with Haute World Developers is governed exclusively by the allotment letter, agreement to sell, or sale deed executed between the parties and applicable law, including the Real Estate (Regulation and Development) Act, 2016 (RERA). In the event of any conflict between these Terms and such formal agreements, the formal agreements shall prevail.",
       },
       {
         type: "list",
@@ -92,7 +92,7 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "All content on this website — including but not limited to text, graphics, logos, images, project renders, videos, and software — is the exclusive property of Haute Developers or its licensors and is protected under Indian and international copyright, trademark, and intellectual property laws.",
+        text: "All content on this website — including but not limited to text, graphics, logos, images, project renders, videos, and software — is the exclusive property of Haute World Developers or its licensors and is protected under Indian and international copyright, trademark, and intellectual property laws.",
       },
       {
         type: "paragraph",
@@ -116,7 +116,7 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "To the fullest extent permitted by applicable law, Haute Developers shall not be liable for:",
+        text: "To the fullest extent permitted by applicable law, Haute World Developers shall not be liable for:",
       },
       {
         type: "list",
@@ -139,7 +139,7 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "You agree to indemnify, defend, and hold harmless Haute Developers, its directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising from: (a) your use of the website or services; (b) your violation of these Terms; or (c) your infringement of any third-party rights.",
+        text: "You agree to indemnify, defend, and hold harmless Haute World Developers, its directors, employees, agents, and affiliates from and against any claims, liabilities, damages, losses, and expenses (including reasonable legal fees) arising from: (a) your use of the website or services; (b) your violation of these Terms; or (c) your infringement of any third-party rights.",
       },
     ],
   },
@@ -168,7 +168,7 @@ const sections = [
       {
         type: "contact",
         lines: [
-          "Haute Developers",
+          "Haute World Developers",
           "Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301",
           "Email: support@hautedevelopers.com",
           "Phone: +91 83830 73291",
@@ -237,7 +237,7 @@ export default function TermsAndConditions() {
             Terms & Conditions
           </h1>
           <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.9rem", margin: 0 }}>
-            Effective Date: {lastUpdated} &nbsp;·&nbsp; Haute Developers
+            Effective Date: {lastUpdated} &nbsp;·&nbsp; Haute World Developers
           </p>
         </div>
       </section>

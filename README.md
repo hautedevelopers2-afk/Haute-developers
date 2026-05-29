@@ -1,6 +1,6 @@
-# Haute Developers — Next.js Website
+# Haute World Developers — Next.js Website
 
-Premium real estate website for Haute Developers, built with Next.js 14 (App Router).
+Premium real estate website for Haute World Developers, built with Next.js 14 (App Router).
 
 ## 🚀 Quick Start
 

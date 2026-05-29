@@ -9,7 +9,7 @@ export default function WhatsAppButton() {
         target="_blank"
         rel="noopener noreferrer"
         className="whatsapp-btn"
-        aria-label="Chat with Haute Developers on WhatsApp"
+        aria-label="Chat with Haute World Developers on WhatsApp"
       >
         <div className="whatsapp-pulse" />
         <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

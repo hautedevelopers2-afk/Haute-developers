@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Page Not Found | Haute Developers',
+  title: 'Page Not Found | Haute World Developers',
 }
 
 export default function NotFound() {

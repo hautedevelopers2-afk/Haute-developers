@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="footer-brand" style={{ marginTop: "-4rem" }}>
             <img
               src="/assets/fotter-logo.png"
-              alt="Haute Developers"
+              alt="Haute World Developers"
               className="footer-logo"
               style={{ height: "200px", width: "auto" }}
             />
@@ -34,7 +34,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/haute_developers/?utm_source=ig_web_button_share_sheet"
+                href="https://www.instagram.com/haute_world_developers/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-btn"
@@ -209,7 +209,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} Haute Developers. All rights reserved.
+            © {new Date().getFullYear()} Haute World Developers. All rights reserved.
           </p>
           <p>
             <a href="/privacy-policy">Privacy Policy</a>

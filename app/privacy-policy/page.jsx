@@ -3,9 +3,9 @@ import Footer from "../../components/Footer";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Privacy Policy | Haute Developers",
+  title: "Privacy Policy | Haute World Developers",
   description:
-    "Learn how Haute Developers collects, uses, and protects your personal information. Our Privacy Policy outlines your rights and our data practices.",
+    "Learn how Haute World Developers collects, uses, and protects your personal information. Our Privacy Policy outlines your rights and our data practices.",
   alternates: { canonical: "https://www.hautedevelopers.com/privacy-policy" },
   robots: { index: true, follow: true },
 };
@@ -17,7 +17,7 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "When you interact with Haute Developers — through our website, inquiry forms, site visits, or communications — we may collect the following categories of personal information:",
+        text: "When you interact with Haute World Developers — through our website, inquiry forms, site visits, or communications — we may collect the following categories of personal information:",
       },
       {
         type: "list",
@@ -42,7 +42,7 @@ const sections = [
     content: [
       {
         type: "paragraph",
-        text: "Haute Developers uses your information for the following purposes:",
+        text: "Haute World Developers uses your information for the following purposes:",
       },
       {
         type: "list",
@@ -71,7 +71,7 @@ const sections = [
           "Service providers: third-party vendors (such as CRM platforms, email services, or analytics providers) who assist us in operating our business, under strict confidentiality agreements.",
           "Legal authorities: when required by law, court order, or government authorities including RERA authorities, income tax departments, or law enforcement agencies.",
           "Business partners: channel partners or co-developers involved in a specific project, only to the extent necessary for completing a transaction.",
-          "Corporate transactions: in the event of a merger, acquisition, or restructuring of Haute Developers, your information may be transferred to the successor entity.",
+          "Corporate transactions: in the event of a merger, acquisition, or restructuring of Haute World Developers, your information may be transferred to the successor entity.",
         ],
       },
       {
@@ -179,7 +179,7 @@ const sections = [
       {
         type: "contact",
         lines: [
-          "Haute Developers",
+          "Haute World Developers",
           "Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301",
           "Email: support@hautedevelopers.com",
           "Phone: +91 83830 73291",
@@ -258,7 +258,7 @@ export default function PrivacyPolicy() {
             Privacy Policy
           </h1>
           <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.9rem", margin: 0 }}>
-            Effective Date: {lastUpdated} &nbsp;·&nbsp; Haute Developers
+            Effective Date: {lastUpdated} &nbsp;·&nbsp; Haute World Developers
           </p>
         </div>
       </section>
@@ -338,7 +338,7 @@ export default function PrivacyPolicy() {
                 }}
               >
                 <p style={{ fontSize: "0.9rem", color: "var(--charcoal)", lineHeight: 1.75, margin: 0 }}>
-                  At Haute Developers, we respect your privacy and are committed to protecting your personal
+                  At Haute World Developers, we respect your privacy and are committed to protecting your personal
                   information. This Privacy Policy explains how we collect, use, share, and safeguard data
                   when you visit our website or engage with our services. Please read it carefully.
                 </p>

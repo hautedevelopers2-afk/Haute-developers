@@ -9,11 +9,11 @@ export const metadata = {
     "Haute Residency is an upcoming serene residential retreat in the sacred city of Vrindavan. Premium homes blending spiritual living with modern comfort. Register your interest today.",
   alternates: { canonical: "https://www.hautedevelopers.com/haute-residency" },
   openGraph: {
-    title: "Haute Residency Vrindavan | Coming Soon — Haute Developers",
+    title: "Haute Residency Vrindavan | Coming Soon — Haute World Developers",
     description:
       "A serene residential retreat in the sacred city of Vrindavan. Premium homes, peaceful living, and modern amenities. Register your interest now.",
     url: "https://www.hautedevelopers.com/haute-residency",
-    siteName: "Haute Developers",
+    siteName: "Haute World Developers",
     images: [
       {
         url: "/assets/vrindavan.png",
@@ -29,7 +29,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Haute Residency Vrindavan | Coming Soon",
     description:
-      "Serene residential retreat in Vrindavan. Launching soon by Haute Developers.",
+      "Serene residential retreat in Vrindavan. Launching soon by Haute World Developers.",
     images: ["/assets/vrindavan.png"],
   },
 };

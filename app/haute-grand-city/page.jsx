@@ -6,14 +6,14 @@ import Link from "next/link";
 export const metadata = {
   title: "Haute Grand City | Premium Township Near Duhai Metro, Ghaziabad — Coming Soon",
   description:
-    "Haute Grand City is an upcoming premium township near Duhai Metro, Ghaziabad offering spacious plots and luxury living. Register your interest today with Haute Developers.",
+    "Haute Grand City is an upcoming premium township near Duhai Metro, Ghaziabad offering spacious plots and luxury living. Register your interest today with Haute World Developers.",
   alternates: { canonical: "https://www.hautedevelopers.com/haute-grand-city" },
   openGraph: {
-    title: "Haute Grand City | Coming Soon — Haute Developers",
+    title: "Haute Grand City | Coming Soon — Haute World Developers",
     description:
       "A landmark township near Duhai Metro, Ghaziabad. Premium plots, world-class amenities, and unmatched connectivity. Register your interest now.",
     url: "https://www.hautedevelopers.com/haute-grand-city",
-    siteName: "Haute Developers",
+    siteName: "Haute World Developers",
     images: [
       {
         url: "/assets/hgc-front.png",
@@ -29,7 +29,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Haute Grand City | Coming Soon",
     description:
-      "Premium township near Duhai Metro, Ghaziabad. Launching soon by Haute Developers.",
+      "Premium township near Duhai Metro, Ghaziabad. Launching soon by Haute World Developers.",
     images: ["/assets/hgc-front.png"],
   },
 };

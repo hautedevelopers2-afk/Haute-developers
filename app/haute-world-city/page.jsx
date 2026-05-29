@@ -8,18 +8,18 @@ import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 
 // export const metadata = {
-//   title: "Haute World City – Premium Plots in Dholera Smart City | Haute Developers",
+//   title: "Haute World City – Premium Plots in Dholera Smart City | Haute World Developers",
 //   description:
-//     "Invest in Haute World City — Haute Developers' landmark residential township in Dholera Smart City (SIR), Gujarat. Freehold plotted units in India's first greenfield smart city on the Delhi–Mumbai Industrial Corridor. Book your plot today.",
+//     "Invest in Haute World City — Haute World Developers' landmark residential township in Dholera Smart City (SIR), Gujarat. Freehold plotted units in India's first greenfield smart city on the Delhi–Mumbai Industrial Corridor. Book your plot today.",
 //   keywords:
-//     "Haute World City Dholera, Dholera Smart City plots, Dholera SIR investment, DMIC plots Gujarat, residential plots Dholera, Haute Developers Dholera, Dholera greenfield smart city, freehold plots Gujarat",
+//     "Haute World City Dholera, Dholera Smart City plots, Dholera SIR investment, DMIC plots Gujarat, residential plots Dholera, Haute World Developers Dholera, Dholera greenfield smart city, freehold plots Gujarat",
 //   alternates: { canonical: "https://www.hautedevelopers.com/haute-world-city" },
 //   openGraph: {
 //     title: "Haute World City – Premium Plots in Dholera Smart City",
 //     description:
-//       "India's first greenfield smart city. Freehold residential plots by Haute Developers in Dholera SIR, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
+//       "India's first greenfield smart city. Freehold residential plots by Haute World Developers in Dholera SIR, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
 //     url: "https://www.hautedevelopers.com/haute-world-city",
-//     siteName: "Haute Developers",
+//     siteName: "Haute World Developers",
 //     images: [
 //       {
 //         url: "/assets/dholera.png",
@@ -273,7 +273,7 @@ const advantages = [
 
 const projectDetails = [
   { label: "Project Type",  value: "Residential Township — Plotted Development" },
-  { label: "Developer",     value: "Haute Developers World Pvt Ltd" },
+  { label: "Developer",     value: "Haute World Developers World Pvt Ltd" },
   { label: "Location",      value: "Dholera Special Investment Region (SIR), Ahmedabad District, Gujarat" },
   { label: "Plot Sizes",    value: "200 sq. yd. & above" },
   { label: "Ownership",     value: "Freehold Property" },
@@ -469,7 +469,7 @@ export default function HauteWorldCityPage() {
             "@type": "RealEstateListing",
             name: "Haute World City – Premium Residential Plots in Dholera Smart City",
             description:
-              "Freehold residential plots in Dholera SIR by Haute Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
+              "Freehold residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
             url: "https://www.hautedevelopers.com/haute-world-city",
             image: "https://www.hautedevelopers.com/assets/dholera.png",
             address: {
@@ -487,7 +487,7 @@ export default function HauteWorldCityPage() {
             },
             brand: {
               "@type": "Organization",
-              name: "Haute Developers",
+              name: "Haute World Developers",
               url: "https://www.hautedevelopers.com",
             },
           }),
@@ -544,7 +544,7 @@ export default function HauteWorldCityPage() {
             </h1>
 
             <p className="hero-desc--stacked" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
-              Haute World City is Haute Developers' landmark investment in India's most ambitious project — the Dholera Special Investment Region. Freehold residential plots inside India's first planned Greenfield smart city, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
+              Haute World City is Haute World Developers' landmark investment in India's most ambitious project — the Dholera Special Investment Region. Freehold residential plots inside India's first planned Greenfield smart city, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
             </p>
           </div>
 
@@ -840,17 +840,17 @@ export default function HauteWorldCityPage() {
               <span className="section-label">About the Developer</span>
               <h2 id="developer-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}>
                 Built by{" "}
-                <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Haute Developers</em>
+                <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Haute World Developers</em>
               </h2>
               <div className="divider" />
               <p style={{ fontSize: "0.93rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "1.2rem" }}>
-                With over 15 years of experience developing premium residential communities across NCR, Dehradun, Vrindavan, and now Dholera, Haute Developers has earned the trust of more than 5,000 families. Every project is backed by clear documentation, community-first planning, and a commitment to on-time delivery.
+                With over 15 years of experience developing premium residential communities across NCR, Dehradun, Vrindavan, and now Dholera, Haute World Developers has earned the trust of more than 5,000 families. Every project is backed by clear documentation, community-first planning, and a commitment to on-time delivery.
               </p>
               <p style={{ fontSize: "0.93rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "2rem" }}>
                 Haute World City marks our most ambitious step yet — taking our track record of delivering quality residential communities into India's most transformational infrastructure project: Dholera Smart City.
               </p>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <a href="/#about" className="btn-dark">About Haute Developers →</a>
+                <a href="/#about" className="btn-dark">About Haute World Developers →</a>
                 <a href="/#contact" className="btn-primary">Get in Touch →</a>
               </div>
             </div>

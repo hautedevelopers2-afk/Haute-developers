@@ -5,18 +5,18 @@ import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 
 export const metadata = {
-  title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway | Haute Developers",
+  title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway | Haute World Developers",
   description:
-    "Government-approved residential plots (100–300 sq. yd.) at Expressway Residency on NH-24 Delhi–Meerut Expressway, Ghaziabad. Freehold titles, transparent pricing & 24×7 security. Developed by Haute Developers since 2011.",
+    "Government-approved residential plots (100–300 sq. yd.) at Expressway Residency on NH-24 Delhi–Meerut Expressway, Ghaziabad. Freehold titles, transparent pricing & 24×7 security. Developed by Haute World Developers since 2011.",
   keywords:
-    "Expressway Residency plots, Delhi Meerut Expressway plots, NH-24 Ghaziabad plots, residential plots Ghaziabad, Haute Developers, freehold plots NCR, investment plots expressway",
+    "Expressway Residency plots, Delhi Meerut Expressway plots, NH-24 Ghaziabad plots, residential plots Ghaziabad, Haute World Developers, freehold plots NCR, investment plots expressway",
   alternates: { canonical: "https://www.hautedevelopers.com/expressway-residency" },
   openGraph: {
     title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway",
     description:
-      "Government-approved freehold residential plots along the 16-lane Delhi–Meerut Expressway. Developed by Haute Developers. Book your site visit today.",
+      "Government-approved freehold residential plots along the 16-lane Delhi–Meerut Expressway. Developed by Haute World Developers. Book your site visit today.",
     url: "https://www.hautedevelopers.com/expressway-residency",
-    siteName: "Haute Developers",
+    siteName: "Haute World Developers",
     images: [{ url: "/assets/expressway-front.png", width: 1200, height: 630, alt: "Expressway Residency aerial view" }],
     type: "website",
   },
@@ -176,7 +176,7 @@ const advantages = [
 
 const projectDetails = [
   { label: "Project Type", value: "Residential township" },
-  { label: "Developer",    value: "Haute Developers World Pvt ltd" },
+  { label: "Developer",    value: "Haute World Developers World Pvt ltd" },
   { label: "Location",     value: "Near Hawa Hawai Restaurant, Delhi–Meerut Expressway, Ghaziabad" },
   { label: "Plot Sizes",   value: "100 sq. yd. & above" },
   { label: "Ownership",    value: "Freehold Property" },
@@ -311,7 +311,7 @@ export default function ExpresswayResidencyPage() {
             "@type": "RealEstateListing",
             name: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway",
             description:
-              "Government-approved freehold residential plots on the Delhi–Meerut Expressway (NH-24), Ghaziabad. Developed by Haute Developers.",
+              "Government-approved freehold residential plots on the Delhi–Meerut Expressway (NH-24), Ghaziabad. Developed by Haute World Developers.",
             url: "https://www.hautedevelopers.com/expressway-residency",
             image:
               "https://www.hautedevelopers.com/assets/expressway-front.png",
@@ -331,7 +331,7 @@ export default function ExpresswayResidencyPage() {
             },
             brand: {
               "@type": "Organization",
-              name: "Haute Developers",
+              name: "Haute World Developers",
               url: "https://www.hautedevelopers.com",
             },
           }),
@@ -1044,7 +1044,7 @@ export default function ExpresswayResidencyPage() {
               >
                 Built by{" "}
                 <em style={{ color: "var(--gold)", fontStyle: "italic" }}>
-                  Haute Developers
+                  Haute World Developers
                 </em>
               </h2>
               <div className="divider" />
@@ -1076,7 +1076,7 @@ export default function ExpresswayResidencyPage() {
               </p>
               <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
                 <a href="/#about" className="btn-dark">
-                  About Haute Developers →
+                  About Haute World Developers →
                 </a>
                 <a href="/#contact" className="btn-primary">
                   Get in Touch →

@@ -4,21 +4,21 @@ import WhatsAppButton from '../../components/WhatsAppButton'
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Careers at Haute Developers | Join Our Real Estate Team in Noida NCR',
+  title: 'Careers at Haute World Developers | Join Our Real Estate Team in Noida NCR',
   description:
-    'Explore career opportunities at Haute Developers — a premium real estate company delivering excellence since 2011. Join our growing team in Noida, Delhi NCR. Apply now.',
+    'Explore career opportunities at Haute World Developers — a premium real estate company delivering excellence since 2011. Join our growing team in Noida, Delhi NCR. Apply now.',
   keywords: [
-    'careers at Haute Developers',
+    'careers at Haute World Developers',
     'real estate jobs Noida',
     'real estate careers NCR',
     'property sales jobs Delhi',
     'jobs in real estate India',
-    'Haute Developers hiring',
+    'Haute World Developers hiring',
   ],
   alternates: { canonical: 'https://www.hautedevelopers.com/careers' },
   openGraph: {
-    title: 'Careers at Haute Developers | Real Estate Jobs in NCR',
-    description: 'Be part of a team that is redefining premium real estate across Delhi NCR, Vrindavan, Dholera & Dehradun. View open roles at Haute Developers.',
+    title: 'Careers at Haute World Developers | Real Estate Jobs in NCR',
+    description: 'Be part of a team that is redefining premium real estate across Delhi NCR, Vrindavan, Dholera & Dehradun. View open roles at Haute World Developers.',
     url: 'https://www.hautedevelopers.com/careers',
   },
 }
@@ -178,7 +178,7 @@ export default function CareersPage() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="careers-hero" aria-label="Careers at Haute Developers">
+      <section className="careers-hero" aria-label="Careers at Haute World Developers">
         <div className="careers-hero-bg" aria-hidden="true" />
         <div className="careers-hero-overlay" aria-hidden="true" />
         <div className="container">
@@ -188,7 +188,7 @@ export default function CareersPage() {
             </div>
             <h1 className="careers-hero-title">
               Build Your Career at<br />
-              <em>Haute Developers</em>
+              <em>Haute World Developers</em>
             </h1>
             <p className="careers-hero-desc">
               Join a team redefining premium real estate across India. We are looking for passionate,
@@ -210,7 +210,7 @@ export default function CareersPage() {
               <h2 id="careers-about-heading">More Than Just a Workplace</h2>
               <div className="divider" />
               <p>
-                At Haute Developers, we strongly believe that a home is the most precious asset for anyone.
+                At Haute World Developers, we strongly believe that a home is the most precious asset for anyone.
                 Since 2011, we have been building modern, safe, secure and compassionate communities — delivering
                 ZEN living experiences through innovative design and sustainable infrastructure.
               </p>
@@ -221,7 +221,7 @@ export default function CareersPage() {
                 Dehradun, Vrindavan and Dholera.
               </p>
               <p style={{ marginTop: '1rem' }}>
-                When you join Haute Developers, you join a culture that values integrity, ownership, and
+                When you join Haute World Developers, you join a culture that values integrity, ownership, and
                 ambition. Our people are our greatest asset — and we invest in them as much as we invest in our projects.
               </p>
               <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
@@ -319,7 +319,7 @@ export default function CareersPage() {
                     </div>
                   </div>
                   <a
-                    href={`mailto:hr@hautedevelopers.com?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Haute Developers Team,%0A%0AI would like to apply for the ${encodeURIComponent(role.title)} position.%0A%0APlease find my details below:%0AName:%0APhone:%0AExperience:%0A%0ALooking forward to hearing from you.`}
+                    href={`mailto:hr@hautedevelopers.com?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Haute World Developers Team,%0A%0AI would like to apply for the ${encodeURIComponent(role.title)} position.%0A%0APlease find my details below:%0AName:%0APhone:%0AExperience:%0A%0ALooking forward to hearing from you.`}
                     className="btn-primary careers-apply-btn"
                     aria-label={`Apply for ${role.title}`}
                   >
@@ -341,7 +341,7 @@ export default function CareersPage() {
       </section>
 
       {/* ── APPLY CTA ── */}
-      <section className="careers-cta" aria-label="Apply to Haute Developers">
+      <section className="careers-cta" aria-label="Apply to Haute World Developers">
         <div className="container">
           <div className="careers-cta-inner">
             <div>
@@ -352,7 +352,7 @@ export default function CareersPage() {
               </p>
             </div>
             <a
-              href="mailto:hr@hautedevelopers.com?subject=General Application — Haute Developers&body=Hi Haute Developers Team,%0A%0AI'd like to be considered for a role at Haute Developers.%0A%0AName:%0APhone:%0ARole I'm interested in:%0AYears of Experience:%0A%0ALooking forward to connecting."
+              href="mailto:hr@hautedevelopers.com?subject=General Application — Haute World Developers&body=Hi Haute World Developers Team,%0A%0AI'd like to be considered for a role at Haute World Developers.%0A%0AName:%0APhone:%0ARole I'm interested in:%0AYears of Experience:%0A%0ALooking forward to connecting."
               className="btn-primary"
             >
               Email Your Application →

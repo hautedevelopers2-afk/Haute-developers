@@ -8,8 +8,8 @@ import ProjectSlider from "../components/ProjectSlider";
 import TestimonialsSection from "../components/TestimonialsSection";
 
 export const metadata = {
-  title: "Haute Developers | Premium Real Estate — Plots, Villas & Apartments in NCR",
-  description: "Haute Developers offers premium plots, villas & residential apartments in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Delivering excellence since 2011. Invest with Haute.",
+  title: "Haute World Developers | Premium Real Estate — Plots, Villas & Apartments in NCR",
+  description: "Haute World Developers offers premium plots, villas & residential apartments in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Delivering excellence since 2011. Invest with Haute.",
   alternates: { canonical: "https://www.hautedevelopers.com" },
   icons: {
     icon: "/favicon.png",
@@ -223,7 +223,7 @@ export default function Home() {
               >
                 <img
                   src="/assets/meeting.jpg"
-                  alt="Haute Developers team planning premium real estate projects"
+                  alt="Haute World Developers team planning premium real estate projects"
                   style={{
                     width: "100%",
                     height: "100%",
@@ -239,7 +239,7 @@ export default function Home() {
               <h2 id="about-heading">Building homes that you Love! </h2>
               <div className="divider" />
               <p>
-                At Haute Developers, we believe a home is life's most valuable
+                At Haute World Developers, we believe a home is life's most valuable
                 asset. We create modern, secure, and thoughtfully designed
                 communities — delivering ZEN living experiences through
                 innovative architecture and sustainable development since 2011.
@@ -287,7 +287,7 @@ export default function Home() {
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ lineHeight: 1.8 }}>
-              At Haute Developers, every brick we lay is guided by a clear
+              At Haute World Developers, every brick we lay is guided by a clear
               purpose — to create communities that enrich lives.
             </p>
           </div>
@@ -438,7 +438,7 @@ export default function Home() {
             }}
           >
             <span className="section-label">Why Choose Us</span>
-            <h2 id="why-heading">Why Haute Developers?</h2>
+            <h2 id="why-heading">Why Haute World Developers?</h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p
               style={{
@@ -1040,7 +1040,7 @@ export default function Home() {
                   allowFullScreen=""
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Haute Developers Corporate Office Location"
+                  title="Haute World Developers Corporate Office Location"
                   style={{
                     width: "100%",
                     height: "100%",

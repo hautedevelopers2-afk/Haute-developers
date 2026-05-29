@@ -3,13 +3,13 @@ import './globals.css'
 export const metadata = {
   metadataBase: new URL('https://www.hautedevelopers.com'),
   title: {
-    default: 'Haute Developers | Premium Real Estate in NCR, Noida, Ghaziabad',
-    template: '%s | Haute Developers',
+    default: 'Haute World Developers | Premium Real Estate in NCR, Noida, Ghaziabad',
+    template: '%s | Haute World Developers',
   },
   description:
-    'Haute Developers — Delivering premium residential plots, villas, and apartments since 2011. Projects in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Invest with Haute.',
+    'Haute World Developers — Delivering premium residential plots, villas, and apartments since 2011. Projects in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Invest with Haute.',
   keywords: [
-    'Haute Developers',
+    'Haute World Developers',
     'real estate Noida',
     'plots Ghaziabad',
     'Expressway Residency',
@@ -20,28 +20,28 @@ export const metadata = {
     'real estate investment India',
     'RERA approved plots',
   ],
-  authors: [{ name: 'Haute Developers', url: 'https://www.hautedevelopers.com' }],
-  creator: 'Haute Developers',
+  authors: [{ name: 'Haute World Developers', url: 'https://www.hautedevelopers.com' }],
+  creator: 'Haute World Developers',
   openGraph: {
     type: 'website',
     locale: 'en_IN',
     url: 'https://www.hautedevelopers.com',
-    siteName: 'Haute Developers',
-    title: 'Haute Developers | Premium Real Estate Since 2011',
+    siteName: 'Haute World Developers',
+    title: 'Haute World Developers | Premium Real Estate Since 2011',
     description:
-      'Explore premium residential and investment opportunities across NCR, Noida, Ghaziabad, Vrindavan & Dholera with Haute Developers.',
+      'Explore premium residential and investment opportunities across NCR, Noida, Ghaziabad, Vrindavan & Dholera with Haute World Developers.',
     images: [
       {
         url: '/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: 'Haute Developers - Premium Real Estate',
+        alt: 'Haute World Developers - Premium Real Estate',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Haute Developers | Premium Real Estate Since 2011',
+    title: 'Haute World Developers | Premium Real Estate Since 2011',
     description:
       'Premium residential plots, villas & apartments in Delhi NCR. Invest with Haute.',
     images: ['/og-image.jpg'],
@@ -82,7 +82,7 @@ export default function RootLayout({ children }) {
             __html: JSON.stringify({
               '@context': 'https://schema.org',
               '@type': 'RealEstateAgent',
-              name: 'Haute Developers',
+              name: 'Haute World Developers',
               description:
                 'Premium real estate developer specializing in residential plots, villas, and apartments across Delhi NCR and India.',
               url: 'https://www.hautedevelopers.com',

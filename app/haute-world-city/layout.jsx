@@ -1,18 +1,18 @@
 // Place at: app/haute-world-city/layout.jsx
 
 export const metadata = {
-  title: "Haute World City – Premium Plots in Dholera Smart City | Haute Developers",
+  title: "Haute World City – Premium Plots in Dholera Smart City | Haute World Developers",
   description:
-    "Invest in Haute World City — Haute Developers' landmark residential township in Dholera Smart City (SIR), Gujarat. Freehold plotted units in India's first greenfield smart city on the Delhi–Mumbai Industrial Corridor. Book your plot today.",
+    "Invest in Haute World City — Haute World Developers' landmark residential township in Dholera Smart City (SIR), Gujarat. Freehold plotted units in India's first greenfield smart city on the Delhi–Mumbai Industrial Corridor. Book your plot today.",
   keywords:
-    "Haute World City Dholera, Dholera Smart City plots, Dholera SIR investment, DMIC plots Gujarat, residential plots Dholera, Haute Developers Dholera, Dholera greenfield smart city, freehold plots Gujarat",
+    "Haute World City Dholera, Dholera Smart City plots, Dholera SIR investment, DMIC plots Gujarat, residential plots Dholera, Haute World Developers Dholera, Dholera greenfield smart city, freehold plots Gujarat",
   alternates: { canonical: "https://www.hautedevelopers.com/haute-world-city" },
   openGraph: {
     title: "Haute World City – Premium Plots in Dholera Smart City",
     description:
-      "India's first greenfield smart city. Freehold residential plots by Haute Developers in Dholera SIR, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
+      "India's first greenfield smart city. Freehold residential plots by Haute World Developers in Dholera SIR, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
     url: "https://www.hautedevelopers.com/haute-world-city",
-    siteName: "Haute Developers",
+    siteName: "Haute World Developers",
     images: [
       {
         url: "/assets/dholera.png",
