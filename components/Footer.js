@@ -130,9 +130,6 @@ export default function Footer() {
                 <Link href="/#upcoming">Expressway Residency</Link>
               </li>
               <li>
-                <Link href="/#upcoming">Haute Grand City</Link>
-              </li>
-              <li>
                 <Link href="/#upcoming">Haute World City</Link>
               </li>
               <li>

@@ -107,14 +107,6 @@ const upcomingProjects = [
     image: "/assets/expressway.png",
   },
   {
-    name: "Haute Grand City",
-    location: "Near Duhai Metro, Ghaziabad",
-    status: "upcoming",
-    href: "/haute-grand-city",   // no dedicated page yet → send to contact
-    desc: "Premium township offering spacious plots...",
-    image: "/assets/hgc-front.png",
-  },
-  {
     name: "Haute world City",
     location: "Dholera",
     status: "Upcoming",
