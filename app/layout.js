@@ -15,7 +15,7 @@ export const metadata = {
     'Expressway Residency',
     'premium residential plots NCR',
     'Haute City Dholera',
-    'Haute Residency Vrindavan',
+    'Haute Pearl Residency Vrindavan',
     'buy plots Delhi NCR',
     'real estate investment India',
     'RERA approved plots',
@@ -75,7 +75,7 @@ export default function RootLayout({ children }) {
           href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap"
           rel="stylesheet"
         />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.svg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

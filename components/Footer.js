@@ -6,12 +6,12 @@ export default function Footer() {
       <div className="container">
         <div className="footer-grid">
           {/* Brand */}
-          <div className="footer-brand" style={{ marginTop: "-4rem" }}>
+          <div className="footer-brand" style={{ marginTop: "-1rem" }}>
             <img
-              src="/assets/fotter-logo.png"
+              src="/assets/fotter-logo.webp"
               alt="Haute World Developers"
               className="footer-logo"
-              style={{ height: "200px", width: "auto" }}
+              style={{ height: "120px", width: "auto" }}
             />
             <div
               className="footer-social"
@@ -60,7 +60,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://youtube.com"
+                href="https://www.youtube.com/@HauteDevelopers"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-btn"
@@ -133,7 +133,7 @@ export default function Footer() {
                 <Link href="/#upcoming">Haute World City</Link>
               </li>
               <li>
-                <Link href="/#upcoming">Haute Residency</Link>
+                <Link href="/#upcoming">Haute Pearl Residency</Link>
               </li>
               <li>
                 <Link href="/#projects">Delivered Projects</Link>
@@ -147,7 +147,7 @@ export default function Footer() {
             <ul className="footer-links" style={{ gap: "0.8rem" }}>
               <li
                 style={{
-                  color: "rgba(255,255,255,0.5)",
+                  color: "rgba(255,255,255,0.85)",
                   fontSize: "0.88rem",
                   lineHeight: "1.6",
                   display: "flex",
@@ -164,7 +164,7 @@ export default function Footer() {
                   strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  style={{ flexShrink: 0, marginTop: "3px", opacity: 0.7 }}
+                  style={{ flexShrink: 0, marginTop: "3px", opacity: 1 }}
                 >
                   <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" />
                   <circle cx="12" cy="10" r="3" />
@@ -177,7 +177,7 @@ export default function Footer() {
                 <a
                   href="tel:+918383073291"
                   style={{
-                    color: "rgba(255,255,255,0.5)",
+                    color: "rgba(255,255,255,0.85)",
                     fontSize: "0.88rem",
                     display: "flex",
                     alignItems: "center",
@@ -193,7 +193,7 @@ export default function Footer() {
                     strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    style={{ flexShrink: 0, opacity: 0.7 }}
+                    style={{ flexShrink: 0, opacity: 1 }}
                   >
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 5.55 5.55l1.62-1.62a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z" />
                   </svg>
@@ -206,7 +206,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} Haute World Developers. All rights reserved.
+            © {new Date().getFullYear()} Haute World Developers Pvt. Ltd. All rights reserved.
           </p>
           <p>
             <a href="/privacy-policy">Privacy Policy</a>

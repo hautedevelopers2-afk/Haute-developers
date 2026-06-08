@@ -226,15 +226,15 @@ export default function CareersPage() {
               </p>
               <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
                 <div className="careers-stat">
-                  <strong>15+</strong>
+                  <strong style={{ fontFamily: "var(--font-number)" }}>15+</strong>
                   <span>Years of Excellence</span>
                 </div>
                 <div className="careers-stat">
-                  <strong>1000+</strong>
+                  <strong style={{ fontFamily: "var(--font-number)" }}>1000+</strong>
                   <span>Families Served</span>
                 </div>
                 <div className="careers-stat">
-                  <strong>6+</strong>
+                  <strong style={{ fontFamily: "var(--font-number)" }}>6+</strong>
                   <span>Cities Active</span>
                 </div>
               </div>

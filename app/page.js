@@ -12,12 +12,12 @@ export const metadata = {
   description: "Haute World Developers offers premium plots, villas & residential apartments in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Delivering excellence since 2011. Invest with Haute.",
   alternates: { canonical: "https://www.hautedevelopers.com" },
   icons: {
-    icon: "/favicon.png",
-    apple: "/favicon.png",
-    shortcut: "/favicon.png",
+    icon: "/favicon.svg",
+    apple: "/favicon.svg",
+    shortcut: "/favicon.svg",
   },
   openGraph: {
-    images: [{ url: "https://www.hautedevelopers.com/favicon.png" }],
+    images: [{ url: "https://www.hautedevelopers.com/favicon.svg" }],
   },
 };
 
@@ -115,7 +115,7 @@ const upcomingProjects = [
     image: "/assets/dholera.png",
   },
   {
-    name: "Haute Residency",
+    name: "Haute Pearl Residency",
     location: "Vrindavan",
     status: "Upcoming",
     href: "/haute-residency",
@@ -130,7 +130,7 @@ export default function Home() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="hero" aria-label="Hero section">
+      <section className="hero" aria-label="Hero section" style={{ overflow: "visible" }}>
         <div className="hero-slides" aria-hidden="true">
           <div className="hero-slide hero-slide--1" />
           <div className="hero-slide hero-slide--2" />
@@ -168,7 +168,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="scroll-indicator" aria-hidden="true">
+        <div className="scroll-indicator" aria-hidden="true" style={{ bottom: "1.5rem", zIndex: 10 }}>
           <span>Scroll</span>
           <div className="scroll-line" />
         </div>
@@ -758,22 +758,6 @@ export default function Home() {
               <div
                 style={{ position: "absolute", top: "1.2rem", left: "1.2rem" }}
               >
-                <span
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.4rem",
-                    background: "rgba(201,144,26,0.92)",
-                    color: "white",
-                    padding: "0.3rem 0.9rem",
-                    borderRadius: "999px",
-                    fontSize: "0.72rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.06em",
-                  }}
-                >
-                  <IconMapPin size={13} color="white" /> Ghaziabad, NCR
-                </span>
               </div>
               <div
                 style={{
@@ -883,7 +867,7 @@ export default function Home() {
                     >
                       <span
                         style={{
-                          fontFamily: "var(--font-display)",
+                          fontFamily: "var(--font-number)",
                           fontSize: "1.4rem",
                           fontWeight: 700,
                           color: "var(--forest)",

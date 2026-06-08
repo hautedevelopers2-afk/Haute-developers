@@ -4,12 +4,12 @@ import WhatsAppButton from "../../components/WhatsAppButton";
 import Link from "next/link";
 
 export const metadata = {
-  title: "Haute Residency | Serene Residential Retreat in Vrindavan — Coming Soon",
+  title: "Haute Pearl Residency | Serene Residential Retreat in Vrindavan — Coming Soon",
   description:
-    "Haute Residency is an upcoming serene residential retreat in the sacred city of Vrindavan. Premium homes blending spiritual living with modern comfort. Register your interest today.",
+    "Haute Pearl Residency is an upcoming serene residential retreat in the sacred city of Vrindavan. Premium homes blending spiritual living with modern comfort. Register your interest today.",
   alternates: { canonical: "https://www.hautedevelopers.com/haute-residency" },
   openGraph: {
-    title: "Haute Residency Vrindavan | Coming Soon — Haute World Developers",
+    title: "Haute Pearl Residency Vrindavan | Coming Soon — Haute World Developers",
     description:
       "A serene residential retreat in the sacred city of Vrindavan. Premium homes, peaceful living, and modern amenities. Register your interest now.",
     url: "https://www.hautedevelopers.com/haute-residency",
@@ -19,7 +19,7 @@ export const metadata = {
         url: "/assets/vrindavan.png",
         width: 1200,
         height: 630,
-        alt: "Haute Residency — Vrindavan",
+        alt: "Haute Pearl Residency — Vrindavan",
       },
     ],
     locale: "en_IN",
@@ -27,7 +27,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haute Residency Vrindavan | Coming Soon",
+    title: "Haute Pearl Residency Vrindavan | Coming Soon",
     description:
       "Serene residential retreat in Vrindavan. Launching soon by Haute World Developers.",
     images: ["/assets/vrindavan.png"],
@@ -95,7 +95,7 @@ export default function HauteResidency() {
 
       {/* ── HERO / COMING SOON ── */}
       <section
-        aria-label="Haute Residency Coming Soon"
+        aria-label="Haute Pearl Residency Coming Soon"
         style={{
           height: "100vh",
           minHeight: "600px",
@@ -177,25 +177,6 @@ export default function HauteResidency() {
             gap: "1.2rem",
           }}
         >
-          {/* Location badge */}
-          <div
-            style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "0.4rem",
-              background: "rgba(201,144,26,0.92)",
-              color: "white",
-              padding: "0.35rem 1rem",
-              borderRadius: "999px",
-              fontSize: "0.72rem",
-              fontWeight: 700,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-            }}
-          >
-            <IconMapPin size={13} color="white" />
-            Vrindavan, Uttar Pradesh
-          </div>
 
           {/* COMING SOON */}
           <div style={{ lineHeight: 1 }}>
@@ -233,7 +214,7 @@ export default function HauteResidency() {
                 textTransform: "uppercase",
               }}
             >
-              Haute Residency
+              Haute Pearl Residency
             </h2>
             <div
               style={{
@@ -262,38 +243,6 @@ export default function HauteResidency() {
             <a href="tel:+918383073291" className="btn-outline">
               Call Us Now
             </a>
-          </div>
-
-          {/* Stat pills */}
-          <div
-            style={{
-              display: "flex",
-              gap: "0.75rem",
-              flexWrap: "wrap",
-              justifyContent: "center",
-            }}
-          >
-            {highlights.map((h) => (
-              <div
-                key={h.label}
-                style={{
-                  background: "rgba(255,255,255,0.07)",
-                  border: "1px solid rgba(201,144,26,0.3)",
-                  borderRadius: "999px",
-                  padding: "0.45rem 1.1rem",
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                }}
-              >
-                <span style={{ fontSize: "0.65rem", letterSpacing: "0.1em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 700 }}>
-                  {h.label}:
-                </span>
-                <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.8)", fontWeight: 500 }}>
-                  {h.value}
-                </span>
-              </div>
-            ))}
           </div>
         </div>
 
@@ -326,7 +275,7 @@ export default function HauteResidency() {
                 <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "3px", background: "linear-gradient(90deg, var(--gold), rgba(201,144,26,0.3), transparent)", zIndex: 2 }} />
                 <img
                   src="/assets/vrindavan.png"
-                  alt="Haute Residency — Vrindavan"
+                  alt="Haute Pearl Residency — Vrindavan"
                   style={{ width: "100%", height: "420px", objectFit: "cover", display: "block", filter: "brightness(0.9)" }}
                 />
                 <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(13,47,36,0.6) 0%, transparent 60%)" }} />
@@ -359,14 +308,14 @@ export default function HauteResidency() {
               </h2>
               <div className="divider" />
               <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.95rem", lineHeight: 1.8, marginBottom: "1.4rem" }}>
-                Haute Residency is a serene residential retreat set in the sacred city of
+                Haute Pearl Residency is a serene residential retreat set in the sacred city of
                 Vrindavan, Uttar Pradesh. Designed for those who seek a harmonious blend of
                 spiritual peace and contemporary comfort, this project offers premium homes
                 surrounded by the divine calm of one of India's most revered cities.
               </p>
               <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8, marginBottom: "2rem" }}>
                 Whether you're looking for a permanent home, a peaceful retirement sanctuary,
-                or a weekend retreat away from city life, Haute Residency offers an unmatched
+                or a weekend retreat away from city life, Haute Pearl Residency offers an unmatched
                 quality of life in a location unlike any other.
               </p>
 
@@ -404,7 +353,7 @@ export default function HauteResidency() {
             </h2>
             <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.95rem", lineHeight: 1.8, maxWidth: "520px", margin: "0 auto 2.5rem" }}>
               Register your interest now to receive exclusive pre-launch pricing,
-              priority unit selection, and early-bird offers for Haute Residency, Vrindavan.
+              priority unit selection, and early-bird offers for Haute Pearl Residency, Vrindavan.
             </p>
 
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>

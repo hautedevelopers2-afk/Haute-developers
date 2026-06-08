@@ -1,6 +1,8 @@
 // Place this file at: src/app/expressway-residency/page.jsx
 
 import Navbar from "../../components/Navbar";
+import GallerySlider from "../../components/GallerySlider";
+import SitePlanLightbox from "../../components/SitePlanLightbox";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 
@@ -365,53 +367,12 @@ export default function ExpresswayResidencyPage() {
 
         <div className="hero-content hero-content--new">
           <div className="hero-col-title">
-            <div
-              style={{
-                display: "flex",
-                gap: "0.6rem",
-                marginBottom: "1.1rem",
-                flexWrap: "wrap",
-              }}
-            >
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.35rem",
-                  background: "rgba(201,144,26,0.9)",
-                  color: "#fff",
-                  padding: "0.28rem 0.8rem",
-                  borderRadius: "999px",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.08em",
-                }}
-              >
-                <IconPin size={12} color="#fff" /> Ghaziabad, NCR
-              </span>
-              <span
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.35rem",
-                  background: "rgba(34,197,94,0.85)",
-                  color: "#fff",
-                  padding: "0.28rem 0.8rem",
-                  borderRadius: "999px",
-                  fontSize: "0.7rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.08em",
-                }}
-              >
-                ● Pre Launch
-              </span>
-            </div>
             <p
               style={{
                 fontSize: "0.76rem",
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
-                color: "var(--gold)",
+                color: "#ffffff",
                 marginBottom: "0.6rem",
                 fontFamily: "var(--font-body)",
                 fontWeight: 600,
@@ -795,61 +756,10 @@ export default function ExpresswayResidencyPage() {
             </p>
           </div>
 
-          <div
-            style={{
-              position: "relative",
-              borderRadius: "20px",
-              overflow: "hidden",
-              border: "1px solid rgba(201,144,26,0.2)",
-              boxShadow: "0 8px 48px rgba(26,74,58,0.1)",
-            }}
-          >
-            <img
-              src="/assets/expressway.png"
-              alt="Expressway Residency master plan and site layout — Delhi Meerut Expressway Ghaziabad"
-              style={{
-                width: "100%",
-                display: "block",
-                objectFit: "cover",
-                minHeight: "220px",
-                maxHeight: "520px",
-              }}
-            />
-            <div
-              style={{
-                position: "absolute",
-                bottom: 0,
-                left: 0,
-                right: 0,
-                background:
-                  "linear-gradient(to top, rgba(0,0,0,1) 0%, rgba(0,0,0,0.75) 55%, rgba(0,0,0,0.2) 85%, transparent 100%)",
-                padding: "3rem 1.5rem 1.8rem",
-              }}
-            >
-              <p
-                style={{
-                  color: "var(--gold)",
-                  fontSize: "0.72rem",
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  fontWeight: 700,
-                  margin: 0,
-                }}
-              >
-                Vastu-Friendly Site Plan
-              </p>
-              <h3
-                style={{
-                  color: "#fff",
-                  fontFamily: "var(--font-display)",
-                  fontSize: "clamp(1rem, 2.5vw, 1.4rem)",
-                  margin: "0.3rem 0 0",
-                }}
-              >
-                Expressway Residency Layout
-              </h3>
-            </div>
-          </div>
+          <SitePlanLightbox
+            src="https://i.postimg.cc/d39kzcXF/expressway-layout.webp"
+            alt="Expressway Residency master plan and site layout — Delhi Meerut Expressway Ghaziabad"
+          />
 
           <div style={{ marginTop: "1.8rem" }}>
             <a
@@ -1125,7 +1035,7 @@ export default function ExpresswayResidencyPage() {
                   </div>
                   <div
                     style={{
-                      fontFamily: "var(--font-display)",
+                      fontFamily: "var(--font-number)",
                       fontSize: "2.2rem",
                       fontWeight: 700,
                       color: "var(--forest)",
@@ -1149,6 +1059,20 @@ export default function ExpresswayResidencyPage() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          IMAGE GALLERY
+      ══════════════════════════════════════════ */}
+      <section className="er-section" aria-labelledby="gallery-heading" style={{ background: '#f0ece3' }}>
+        <div className="er-container">
+          <div className="er-center">
+            <span className="section-label">Project Visuals</span>
+            <h2 id="gallery-heading" style={{ fontFamily: "'DM Sans', system-ui, sans-serif", fontWeight: 400, letterSpacing: '0.01em' }}>Image Gallery</h2>
+            <div className="divider" style={{ margin: '1rem auto' }} />
+          </div>
+          <GallerySlider />
         </div>
       </section>
 

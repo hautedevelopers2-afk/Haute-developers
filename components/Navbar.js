@@ -36,7 +36,7 @@ export default function Navbar() {
             style={{ marginLeft: 0, flexShrink: 0 }}
           >
             <Image
-              src="/assets/web-logo.png"
+              src="/assets/web-logo.webp"
               alt="Haute World Developers"
               width={200}
               height={80}

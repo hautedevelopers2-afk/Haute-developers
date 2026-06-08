@@ -173,7 +173,7 @@ function buildContractHTML(data) {
   <meta charset="UTF-8"/>
   <title>Channel Partner Agreement — Haute World Developers</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
     *{box-sizing:border-box;margin:0;padding:0}
     body{font-family:'Jost',sans-serif;color:#1a1a1a;background:#fff;padding:48px 60px;font-size:13px;line-height:1.7}
     .header{text-align:center;border-bottom:2px solid #c4901a;padding-bottom:24px;margin-bottom:32px}
@@ -922,7 +922,7 @@ export default function ChannelPartnerRegistration() {
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content" />
         <style>{`
-          @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
+          @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Jost:wght@300;400;500;600&display=swap');
           input:focus, select:focus { border-color: #c4901a !important; box-shadow: 0 0 0 3px rgba(196,144,26,0.12) !important; }
           @keyframes fadeSlideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         `}</style>

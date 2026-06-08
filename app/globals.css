@@ -16,6 +16,7 @@
   --radius: 4px;
   --radius-lg: 12px;
   --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-number: 'Outfit', system-ui, sans-serif;
   --font-body: 'DM Sans', system-ui, sans-serif;
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -148,8 +149,9 @@ section { padding: 6rem 0; }
   position: relative;
   display: flex;
   align-items: flex-end;
-  overflow: hidden;
   padding-top: 88px;
+  overflow: visible;
+  padding-bottom: 3rem;
 }
 
 .hero-bg-pattern {
@@ -307,7 +309,7 @@ section { padding: 6rem 0; }
 .stats-strip-item { display: flex; align-items: center; flex: 1; padding: 2.8rem 0; }
 .stats-strip-divider { width: 1px; height: 64px; background: rgba(0,0,0,0.1); margin-right: 3rem; flex-shrink: 0; align-self: center; }
 .stats-strip-inner-cell { display: flex; flex-direction: column; gap: 0.4rem; }
-.stats-strip-num { font-family: var(--font-display); font-size: clamp(2rem,3.2vw,3rem); font-weight: 600; color: var(--charcoal); line-height: 1; }
+.stats-strip-num { font-family: var(--font-number); font-size: clamp(2rem,3.2vw,3rem); font-weight: 600; color: var(--charcoal); line-height: 1; }
 .stats-strip-label { font-family: var(--font-body); font-size: 0.8rem; color: var(--gray); letter-spacing: 0.04em; }
 
 /* ── About ── */
@@ -337,7 +339,7 @@ section { padding: 6rem 0; }
 }
 .about-stat-box:hover { background: rgba(255,255,255,0.12); transform: translateY(-3px); }
 .about-stat-box:hover::before { opacity: 1; }
-.about-stat-num { font-family: var(--font-display); font-size: 1.9rem; font-weight: 600; color: var(--gold-pale); line-height: 1; }
+.about-stat-num { font-family: var(--font-number); font-size: 1.9rem; font-weight: 600; color: var(--gold-pale); line-height: 1; }
 .about-stat-text { font-size: 0.65rem; color: rgba(255,255,255,0.55); margin-top: 0.3rem; letter-spacing: 0.08em; text-transform: uppercase; }
 .about-accent-box {
   position: absolute; bottom: -1.2rem; right: -1.2rem;
@@ -535,7 +537,7 @@ section { padding: 6rem 0; }
 .map-panel-stat { flex: 1; padding: 0.9rem 0.5rem; text-align: center; background: rgba(255,255,255,0.03); border-right: 1px solid rgba(201,144,26,0.15); transition: background 0.3s; }
 .map-panel-stat:last-child { border-right: none; }
 .map-panel-stat:hover { background: rgba(201,144,26,0.07); }
-.map-panel-stat strong { display: block; font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--gold-pale); line-height: 1; }
+.map-panel-stat strong { display: block; font-family: var(--font-number); font-size: 1.4rem; font-weight: 700; color: var(--gold-pale); line-height: 1; }
 .map-panel-stat span { display: block; font-size: 0.62rem; color: rgba(255,255,255,0.4); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 0.25rem; }
 .map-panel-cta { position: relative; z-index: 1; display: inline-flex; align-items: center; gap: 0.6rem; align-self: flex-start; padding: 0.8rem 1.8rem; background: transparent; border: 1.5px solid var(--gold); border-radius: 4px; color: var(--gold); font-family: var(--font-body); font-size: 0.82rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; overflow: hidden; transition: color 0.35s; }
 .map-panel-cta::before { content: ''; position: absolute; inset: 0; background: var(--gold); transform: translateX(-100%); transition: transform 0.35s cubic-bezier(0.4,0,0.2,1); }
@@ -546,7 +548,7 @@ section { padding: 6rem 0; }
 /* ── Footer ── */
 .footer { background: var(--forest-dark); padding: 4rem 0 1.5rem; }
 .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 3rem; padding-bottom: 3rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
-.footer-brand p { color: rgba(255,255,255,0.5); font-size: 0.88rem; line-height: 1.7; margin: 1rem 0 1.5rem; }
+.footer-brand p { color: rgba(255,255,255,0.8); font-size: 0.88rem; line-height: 1.7; margin: 1rem 0 1.5rem; }
 .footer-logo-text { font-family: var(--font-display); font-size: 1.8rem; font-weight: 700; color: var(--white); letter-spacing: 0.04em; line-height: 1; }
 .footer-logo-sub { font-family: var(--font-body); font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-top: 2px; }
 .footer-social { display: flex; gap: 1rem; margin-top: 1.2rem; }
@@ -562,11 +564,11 @@ section { padding: 6rem 0; }
 .social-btn:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); }
 .footer-col h5 { font-family: var(--font-body); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
-.footer-links li a { font-size: 0.88rem; color: rgba(255,255,255,0.5); transition: color var(--transition); }
+.footer-links li a { font-size: 0.88rem; color: rgba(255,255,255,0.85); transition: color var(--transition); }
 .footer-links li a:hover { color: var(--white); }
 .footer-bottom { padding-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
-.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.35); margin: 0; }
-.footer-bottom a { color: var(--gold); }
+.footer-bottom p { font-size: 0.8rem; color: rgba(255,255,255,0.7); margin: 0; }
+.footer-bottom a { color: var(--gold-light); }
 
 /* ── WhatsApp ── */
 .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
