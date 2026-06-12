@@ -156,6 +156,7 @@ const roles = [
     skills: ['Sales Operations', 'Key Account Management', 'Target Achievement', 'Team Coordination', 'Real Estate'],
   },
 ]
+
 const perks = [
   { Icon: IconCurrency, title: 'Competitive Pay', desc: 'Industry-leading salaries with performance-linked incentives and annual bonuses.' },
   { Icon: IconTrendingUp, title: 'Growth Path', desc: 'Clear career progression with mentorship from senior leadership and industry experts.' },
@@ -179,25 +180,15 @@ export default function CareersPage() {
 
       {/* ── HERO ── */}
       <section className="careers-hero" aria-label="Careers at Haute World Developers">
-        <div className="careers-hero-bg" aria-hidden="true" />
+        <img
+          src="https://i.postimg.cc/tRfTxsdt/portrait-business-people-worker-team-outside-(1).webp"
+          alt="Careers at Haute World Developers"
+          className="careers-hero-fullbg"
+        />
         <div className="careers-hero-overlay" aria-hidden="true" />
-        <div className="container">
-          <div className="careers-hero-content">
-            <div className="hero-badge" style={{ marginBottom: '1.5rem' }}>
-              <span />
-            </div>
-            <h1 className="careers-hero-title">
-              Build Your Career at<br />
-              <em>Haute World Developers</em>
-            </h1>
-            <p className="careers-hero-desc">
-              Join a team redefining premium real estate across India. We are looking for passionate,
-              driven professionals who want to grow with a company that has been delivering excellence since 2011.
-            </p>
-            <a href="#open-roles" className="btn-primary" style={{ display: 'inline-flex', marginTop: '0.5rem' }}>
-              View Open Roles →
-            </a>
-          </div>
+        <div className="careers-hero-bottom">
+          <h1 className="careers-hero-title">Careers</h1>
+          <a href="/" className="careers-hero-home">← HOME</a>
         </div>
       </section>
 
@@ -224,20 +215,6 @@ export default function CareersPage() {
                 When you join Haute World Developers, you join a culture that values integrity, ownership, and
                 ambition. Our people are our greatest asset — and we invest in them as much as we invest in our projects.
               </p>
-              <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
-                <div className="careers-stat">
-                  <strong style={{ fontFamily: "var(--font-number)" }}>15+</strong>
-                  <span>Years of Excellence</span>
-                </div>
-                <div className="careers-stat">
-                  <strong style={{ fontFamily: "var(--font-number)" }}>1000+</strong>
-                  <span>Families Served</span>
-                </div>
-                <div className="careers-stat">
-                  <strong style={{ fontFamily: "var(--font-number)" }}>6+</strong>
-                  <span>Cities Active</span>
-                </div>
-              </div>
             </div>
 
             <div className="careers-values">
@@ -320,7 +297,7 @@ export default function CareersPage() {
                   </div>
                   <a
                     href={`mailto:hr@hautedevelopers.com?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Haute World Developers Team,%0A%0AI would like to apply for the ${encodeURIComponent(role.title)} position.%0A%0APlease find my details below:%0AName:%0APhone:%0AExperience:%0A%0ALooking forward to hearing from you.`}
-                    className="btn-primary careers-apply-btn"
+                    className="btn-primary careers-apply-btn careers-apply-desktop"
                     aria-label={`Apply for ${role.title}`}
                   >
                     Apply Now →
@@ -328,6 +305,14 @@ export default function CareersPage() {
                 </div>
 
                 <p className="careers-role-desc" itemProp="description">{role.desc}</p>
+
+                <a
+                  href={`mailto:hr@hautedevelopers.com?subject=Application: ${encodeURIComponent(role.title)}&body=Hi Haute World Developers Team,%0A%0AI would like to apply for the ${encodeURIComponent(role.title)} position.%0A%0APlease find my details below:%0AName:%0APhone:%0AExperience:%0A%0ALooking forward to hearing from you.`}
+                  className="btn-primary careers-apply-btn careers-apply-mobile"
+                  aria-label={`Apply for ${role.title}`}
+                >
+                  Apply Now →
+                </a>
 
                 <div className="careers-role-skills">
                   {role.skills.map(s => (

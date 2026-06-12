@@ -643,13 +643,14 @@ section { padding: 6rem 0; }
 /* ═══════════════════════════════════════════
    CAREERS PAGE
 ═══════════════════════════════════════════ */
-.careers-hero { min-height: 65vh; background: linear-gradient(135deg,var(--forest-dark) 0%,var(--forest) 55%,#2d5a44 100%); position: relative; display: flex; align-items: center; padding-top: 72px; overflow: hidden; }
-.careers-hero-bg { position: absolute; inset: 0; opacity: 0.04; background-image: repeating-linear-gradient(45deg,var(--gold) 0,var(--gold) 1px,transparent 0,transparent 50%); background-size: 40px 40px; }
-.careers-hero-overlay { position: absolute; inset: 0; background: radial-gradient(ellipse at 60% 50%,rgba(201,144,26,0.1) 0%,transparent 65%); }
-.careers-hero-content { position: relative; z-index: 2; max-width: 760px; padding: 4rem 0; animation: fadeInUp 0.7s ease both; }
-.careers-hero-title { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,4rem); font-weight: 600; color: var(--white); line-height: 1.1; margin-bottom: 1.4rem; }
-.careers-hero-title em { font-style: italic; color: var(--gold-pale); }
-.careers-hero-desc { color: rgba(255,255,255,0.7); font-size: 1.05rem; line-height: 1.75; margin-bottom: 2rem; max-width: 580px; }
+.careers-hero { position: relative; height: 75vh; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; padding-top: 72px; }
+.careers-hero-fullbg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 0; }
+.careers-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.68) 100%); }
+.careers-hero-bottom { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; width: 100%; display: flex; align-items: flex-end; justify-content: center; padding: 2rem 3rem; }
+.careers-hero-title { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,4rem); font-weight: 700; color: var(--white); margin: 0; line-height: 1; text-align: center; }
+.careers-hero-home { position: absolute; right: 3rem; bottom: 2.5rem; font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.75); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
+.careers-hero-home:hover { color: var(--gold); }
+@media (max-width: 768px) { .careers-hero-bottom { padding: 1.5rem; } .careers-hero-title { font-size: 2rem; } .careers-hero-home { right: 1.5rem; bottom: 1.5rem; } }
 .careers-about { background: var(--white); padding: 6rem 0; }
 .careers-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 .careers-about-grid > div > h2 { font-size: clamp(1.8rem,2.8vw,2.4rem); line-height: 1.15; margin-bottom: 0.5rem; }
@@ -677,17 +678,22 @@ section { padding: 6rem 0; }
 .careers-roles { background: var(--cream); padding: 6rem 0; }
 .careers-roles-list { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 3rem; }
 .careers-role-card { background: var(--white); border: 1px solid rgba(0,0,0,0.07); border-radius: var(--radius-lg); padding: 2rem 2.2rem; transition: var(--transition); position: relative; overflow: hidden; }
+@media (max-width: 768px) { .careers-role-card { display: flex; flex-direction: column; } }
 .careers-role-card::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; background: linear-gradient(to bottom,var(--gold),var(--gold-light)); border-radius: 4px 0 0 4px; transform: scaleY(0); transform-origin: top; transition: transform var(--transition); }
 .careers-role-card:hover { border-color: rgba(201,144,26,0.25); box-shadow: 0 8px 32px rgba(26,74,58,0.1); transform: translateY(-3px); }
 .careers-role-card:hover::before { transform: scaleY(1); }
 .careers-role-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 2rem; margin-bottom: 1rem; }
+@media (max-width: 768px) { .careers-role-header { flex-direction: column; gap: 0.8rem; } .careers-apply-btn { order: 4 !important; width: 100%; justify-content: center; margin-top: 1rem; } }
 .careers-role-dept { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.35rem; }
 .careers-role-card h3 { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; color: var(--charcoal); margin-bottom: 0.5rem; }
 .careers-role-meta { display: flex; gap: 1.2rem; flex-wrap: wrap; }
 .careers-role-meta span { font-size: 0.78rem; color: var(--gray); font-weight: 500; }
 .careers-apply-btn { flex-shrink: 0; align-self: center; }
+.careers-apply-mobile { display: none; }
 .careers-role-desc { font-size: 0.88rem; color: var(--gray); line-height: 1.75; margin-bottom: 1.2rem; }
+@media (max-width: 768px) { .careers-role-desc { order: 2; } .careers-apply-btn { order: 3 !important; } }
 .careers-role-skills { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+@media (max-width: 768px) { .careers-role-skills { display: none; } }
 .careers-skill-tag { font-size: 0.72rem; font-weight: 600; color: var(--forest); background: rgba(26,74,58,0.07); border: 1px solid rgba(26,74,58,0.12); padding: 0.25rem 0.7rem; border-radius: 999px; }
 .careers-cta { background: var(--white); padding: 5rem 0; }
 .careers-cta-inner { background: linear-gradient(135deg,var(--forest-dark),var(--forest)); border-radius: 20px; padding: 4rem; display: flex; justify-content: space-between; align-items: center; gap: 3rem; position: relative; overflow: hidden; }
@@ -743,7 +749,8 @@ section { padding: 6rem 0; }
   .careers-about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
   .careers-perks-grid { grid-template-columns: 1fr 1fr; }
   .careers-role-header { flex-direction: column; gap: 1rem; }
-  .careers-apply-btn { width: 100%; justify-content: center; }
+  .careers-apply-desktop { display: none; }
+  .careers-apply-mobile { display: flex; width: 100%; justify-content: center; margin-top: 0.5rem; }
   .careers-cta-inner { flex-direction: column; padding: 2.5rem; text-align: center; }
   .careers-cta-inner p { max-width: 100%; }
   .stats-strip-inner { flex-wrap: wrap; }
