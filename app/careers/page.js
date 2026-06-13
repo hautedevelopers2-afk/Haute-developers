@@ -111,33 +111,6 @@ const IconBriefcase = ({ size = 15, color = "currentColor" }) => (
 
 const roles = [
   {
-    title: 'Director Sales',
-    dept: 'Sales & Leadership',
-    type: 'Full-Time',
-    location: 'Sector 63, Noida',
-    exp: '10+ Years',
-    desc: 'Lead the entire sales division with a strategic vision. Drive revenue targets, build high-performance sales teams, and manage key client relationships across premium projects in Ghaziabad and NCR.',
-    skills: ['Sales Leadership', 'Team Building', 'Revenue Strategy', 'Client Relations', 'Real Estate Expertise'],
-  },
-  {
-    title: 'VP Sales',
-    dept: 'Sales & Leadership',
-    type: 'Full-Time',
-    location: 'Sector 63, Noida',
-    exp: '10+ Years',
-    desc: 'Drive sales operations and strategy at a senior level. Oversee regional sales performance, mentor sales managers, and ensure consistent achievement of business targets across all Haute projects.',
-    skills: ['Sales Operations', 'Strategic Planning', 'Mentorship', 'Target Management', 'Real Estate Sales'],
-  },
-  {
-    title: 'Project Head',
-    dept: 'Project Management',
-    type: 'Full-Time',
-    location: 'Sector 63, Noida',
-    exp: '10+ Years',
-    desc: 'Oversee end-to-end project sales and operations for premium residential developments. Coordinate between sales, marketing, and construction teams to ensure seamless project delivery and customer satisfaction.',
-    skills: ['Project Management', 'Sales Coordination', 'Team Leadership', 'Client Management', 'Real Estate'],
-  },
-  {
     title: 'GM Sales',
     dept: 'Sales & Business Development',
     type: 'Full-Time',
@@ -154,6 +127,15 @@ const roles = [
     exp: '10+ Years',
     desc: 'Support the GM Sales in managing day-to-day sales operations. Drive team performance, handle key accounts, and contribute to achieving monthly and quarterly sales targets across Haute projects.',
     skills: ['Sales Operations', 'Key Account Management', 'Target Achievement', 'Team Coordination', 'Real Estate'],
+  },
+  {
+    title: 'Sales Manager',
+    dept: 'Sales & Business Development',
+    type: 'Full-Time',
+    location: 'Sector 63, Noida',
+    exp: '9+ Years',
+    desc: 'Drive on-ground sales for Haute World Developers premium residential projects across NCR, Ghaziabad, and beyond. Manage a team of sales executives, conduct site visits, handle client relationships from first inquiry to final booking, and consistently achieve monthly sales targets. The ideal candidate brings proven real estate sales experience, strong communication skills, and a passion for delivering exceptional buyer experiences.',
+    skills: ['Sales Execution', 'Client Relationship Management', 'Site Visit Handling', 'Team Leadership', 'Real Estate', 'Target Achievement'],
   },
 ]
 
