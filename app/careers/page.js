@@ -251,7 +251,6 @@ export default function CareersPage() {
               <a href="mailto:hr@hautedevelopers.com" style={{ color: 'var(--gold)', fontWeight: 600 }}> hr@hautedevelopers.com</a>
             </p>
           </div>
-
           <div className="careers-roles-list" role="list">
             {roles.map((role, i) => (
               <article

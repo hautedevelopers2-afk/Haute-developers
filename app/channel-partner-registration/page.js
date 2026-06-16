@@ -54,7 +54,7 @@ const POLICY_SECTIONS = [
     bullets: [
       'A lead will be considered mapped to the channel partner only after written registration through Haute Developer\'s prescribed process.',
       'The customer\'s first interaction, site visit, or lead registration proof may be used to determine partner entitlement.',
-      'A lead may remain mapped for a fixed period of 90 days, unless otherwise extended in writing.',
+      'A lead may remain mapped for a fixed period of 45 days, unless otherwise extended in writing.',
       'In case of overlap between two partners, Haute Developer may apply a pre-defined sharing rule or allocate commission based on proof of first introduction.',
     ],
   },
