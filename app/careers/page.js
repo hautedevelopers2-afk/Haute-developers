@@ -111,31 +111,22 @@ const IconBriefcase = ({ size = 15, color = "currentColor" }) => (
 
 const roles = [
   {
-    title: 'GM Sales',
+    title: 'Relationship Manager',
     dept: 'Sales & Business Development',
     type: 'Full-Time',
     location: 'Sector 63, Noida',
-    exp: '10+ Years',
-    desc: 'Manage and scale the sales function across multiple projects. Set targets, build sales processes, and lead a large team to achieve business goals for our premium projects in Ghaziabad and NCR.',
+    exp: '4–5 Years',
+    desc: 'Candidates should have experience in a reputed real estate or builder firm, strong communication skills, a professional personality, and a customer-focused approach with the ability to build lasting client relationships.',
     skills: ['Sales Management', 'Business Development', 'Process Building', 'Team Handling', 'Real Estate'],
   },
   {
-    title: 'AGM Sales',
+    title: 'Head of Sales (HOD Sales)',
     dept: 'Sales & Business Development',
     type: 'Full-Time',
     location: 'Sector 63, Noida',
-    exp: '10+ Years',
-    desc: 'Support the GM Sales in managing day-to-day sales operations. Drive team performance, handle key accounts, and contribute to achieving monthly and quarterly sales targets across Haute projects.',
+    exp: '4–5 Years',
+    desc: 'Candidates should have proven experience in a reputed builder firm or real estate company, along with strong leadership, team management, communication, negotiation, and closing skills. The ideal candidate should possess a professional personality, a solid understanding of the real estate market, and the ability to drive sales performance and revenue growth.',
     skills: ['Sales Operations', 'Key Account Management', 'Target Achievement', 'Team Coordination', 'Real Estate'],
-  },
-  {
-    title: 'Sales Manager',
-    dept: 'Sales & Business Development',
-    type: 'Full-Time',
-    location: 'Sector 63, Noida',
-    exp: '9+ Years',
-    desc: 'Drive on-ground sales for Haute World Developers premium residential projects across NCR, Ghaziabad, and beyond. Manage a team of sales executives, conduct site visits, handle client relationships from first inquiry to final booking, and consistently achieve monthly sales targets. The ideal candidate brings proven real estate sales experience, strong communication skills, and a passion for delivering exceptional buyer experiences.',
-    skills: ['Sales Execution', 'Client Relationship Management', 'Site Visit Handling', 'Team Leadership', 'Real Estate', 'Target Achievement'],
   },
 ]
 
