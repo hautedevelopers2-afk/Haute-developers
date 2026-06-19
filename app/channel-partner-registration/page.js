@@ -367,6 +367,10 @@ joxlXpQXA/HzB3zMQFiftw==
     `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1`,
     { headers: { Authorization: `Bearer ${accessToken}` } }
   )
+  if (!checkRes.ok) {
+    const errBody = await checkRes.json().catch(() => ({}))
+    throw new Error(errBody.error?.message || `Failed to read sheet header (status ${checkRes.status})`)
+  }
   const checkData = await checkRes.json()
   const hasHeader = checkData.values?.[0]?.[0] === 'Date'
 
@@ -375,7 +379,7 @@ joxlXpQXA/HzB3zMQFiftw==
   ['Date', 'Employee Name', 'Employee ID', 'Partner Name', 'Status', 'Registered Address',
    'Email', 'Mobile', 'RERA Licensed', 'RERA Number', 'PAN / TAN', 'Bank Account No.', 'IFSC Code', 'GST Number']
 ]
-    await fetch(
+    const headerRes = await fetch(
      `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}/values/Sheet1!A1:N1?valueInputOption=USER_ENTERED`,
       {
         method: 'PUT',
@@ -383,6 +387,10 @@ joxlXpQXA/HzB3zMQFiftw==
         body: JSON.stringify({ values: HEADERS }),
       }
     )
+    if (!headerRes.ok) {
+      const errBody = await headerRes.json().catch(() => ({}))
+      throw new Error(errBody.error?.message || `Failed to write header row (status ${headerRes.status})`)
+    }
   }
 
   // ── Append data row ────────────────────────────────────────────────────────
@@ -395,9 +403,16 @@ joxlXpQXA/HzB3zMQFiftw==
     }
   )
 
+  const result = await sheetsRes.json().catch(() => null)
+
   if (!sheetsRes.ok) {
-    const err = await sheetsRes.json()
-    throw new Error(err.error?.message || 'Sheets API error')
+    throw new Error(result?.error?.message || `Sheets API error (status ${sheetsRes.status})`)
+  }
+
+  // 🔑 Confirm Google actually reported an updated row — don't trust HTTP status alone
+  const updatedRows = result?.updates?.updatedRows
+  if (!updatedRows || updatedRows < 1) {
+    throw new Error('Sheets API returned success but reported no rows updated. Please retry.')
   }
 
   return true
@@ -814,6 +829,7 @@ export default function ChannelPartnerRegistration() {
 
   async function handleSubmit(e) {
     e.preventDefault()
+    if (submitting) return // hard guard against double-tap race
     if (!accepted) {
       setError('Please confirm that you have read and accepted the declaration before proceeding.')
       return
