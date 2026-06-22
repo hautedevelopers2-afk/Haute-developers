@@ -782,7 +782,7 @@ export default function ChannelPartnerRegistration() {
   const [error, setError] = useState('')
   const [fieldErrors, setFieldErrors] = useState({})
 
-  const UPPERCASE_FIELDS = ['panTan', 'ifsc', 'gst', 'reraNumber']
+  const UPPERCASE_FIELDS = ['panTan', 'ifsc', 'gst', 'reraNumber', 'employeeId']
   const set = (k) => (e) => {
     const val = UPPERCASE_FIELDS.includes(k) ? e.target.value.toUpperCase() : e.target.value
     setForm(f => ({ ...f, [k]: val }))
@@ -817,6 +817,11 @@ export default function ChannelPartnerRegistration() {
     // Mobile: must be 10 digits
     if (!/^[6-9]\d{9}$/.test(form.mobile)) {
       errors.mobile = 'Enter a valid 10-digit Indian mobile number.'
+    }
+
+    // Employee ID: must follow HD/EMP/000 format exactly (3 digits)
+    if (!/^HD\/EMP\/\d{3}$/.test(form.employeeId)) {
+      errors.employeeId = 'Invalid format. Expected format: HD/EMP/000'
     }
 
     // RERA number: must be non-empty if RERA licensed
@@ -1057,13 +1062,15 @@ export default function ChannelPartnerRegistration() {
       onChange={set('employeeName')}
     />
   </Field>
-  <Field label="Employee ID" required>
+  <Field label="Employee ID" required hint="Format: HD/EMP/000">
     <input
-      style={inputStyle} required
-      placeholder="e.g. HD-1001"
+      style={fieldErrors.employeeId ? inputErrorStyle : inputStyle} required
+      placeholder="e.g. HD/EMP/000"
       value={form.employeeId}
       onChange={set('employeeId')}
+      maxLength={10}
     />
+    <FieldError msg={fieldErrors.employeeId} />
   </Field>
 </div>
 
