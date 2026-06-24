@@ -60,7 +60,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@HauteDevelopers"
+                href="https://youtube.com/@hauteworlddevelopers?si=MnecxWvx2FpfFHra"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="social-btn"
