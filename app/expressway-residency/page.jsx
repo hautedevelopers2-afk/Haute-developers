@@ -181,7 +181,6 @@ const projectDetails = [
   { label: "Developer",    value: "Haute World Developers World Pvt ltd" },
   { label: "Location",     value: "Near Hawa Hawai Restaurant, Delhi–Meerut Expressway, Ghaziabad" },
   { label: "Plot Sizes",   value: "100 sq. yd. & above" },
-  { label: "Ownership",    value: "Freehold Property" },
   { label: "Registry",     value: "As per applicable process" },
 ];
 
