@@ -63,7 +63,7 @@ const IconMapPin = ({ size = 22, color = "var(--gold)" }) => (
 )
 
 const IconShield = ({ size = 20, color = "var(--gold)" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+  <svg width={size} height={size} viewBox="-1 -1 26 26" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M12 2L3 7v6c0 5.25 3.75 10.15 9 11.25C17.25 23.15 21 18.25 21 13V7L12 2z"/>
     <polyline points="9 12 11 14 15 10"/>
   </svg>
@@ -79,8 +79,9 @@ const IconRocket = ({ size = 20, color = "var(--gold)" }) => (
 
 const IconLeaf = ({ size = 20, color = "var(--gold)" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M17 8C8 10 5.9 16.17 3.82 19.34A1 1 0 0 0 4.7 21C13 19 20.36 9.68 17 8z"/>
-    <path d="M3.82 19.34C3 14 6 8 17 8"/>
+    <path d="M11 20A7 7 0 0 1 4 13c0-4 3-9 9-11 1 5 5 6 5 11a7 7 0 0 1-7 7z"/>
+    <path d="M11 20v-7"/>
+    <path d="M11 13c0-3 2-5 5-6"/>
   </svg>
 )
 
@@ -154,7 +155,7 @@ export default function CareersPage() {
       {/* ── HERO ── */}
       <section className="careers-hero" aria-label="Careers at Haute World Developers">
         <img
-          src="https://i.postimg.cc/tRfTxsdt/portrait-business-people-worker-team-outside-(1).webp"
+          src="https://i.postimg.cc/m2sps5Vy/SM715889-2.webp"
           alt="Careers at Haute World Developers"
           className="careers-hero-fullbg"
         />
@@ -195,7 +196,7 @@ export default function CareersPage() {
               {coreValues.map(v => (
                 <div className="careers-value-card" key={v.title}>
                   <span className="careers-value-icon">
-                    <v.Icon size={20} color="var(--gold)" />
+                    <v.Icon size={35} color="var(--gold)" />
                   </span>
                   <div>
                     <h4>{v.title}</h4>
@@ -220,7 +221,7 @@ export default function CareersPage() {
             {perks.map((p, i) => (
               <div className="careers-perk-card animate-fade-up" key={p.title} style={{ animationDelay: `${i * 0.08}s` }}>
                 <span className="careers-perk-icon">
-                  <p.Icon size={22} />
+                  <p.Icon size={40} />
                 </span>
                 <h4>{p.title}</h4>
                 <p>{p.desc}</p>
