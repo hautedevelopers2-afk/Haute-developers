@@ -1,4 +1,5 @@
 import './globals.css'
+import Script from 'next/script'
 
 export const metadata = {
   metadataBase: new URL('https://www.hautedevelopers.com'),
@@ -101,6 +102,20 @@ export default function RootLayout({ children }) {
             }),
           }}
         />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-18216224281"
+          strategy="afterInteractive"
+        />
+        <Script id="google-tag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-18216224281');
+          `}
+        </Script>
       </head>
       <body>{children}</body>
     </html>
