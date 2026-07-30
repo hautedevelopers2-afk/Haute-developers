@@ -113,23 +113,65 @@ const IconBriefcase = ({ size = 15, color = "currentColor" }) => (
 const roles = [
   {
     title: 'Relationship Manager',
-    dept: 'Sales & Business Development',
+    dept: 'Sales',
     type: 'Full-Time',
     location: 'Sector 63, Noida',
-    exp: '4–5 Years',
-    desc: 'Candidates should have experience in a reputed real estate or builder firm, strong communication skills, a professional personality, and a customer-focused approach with the ability to build lasting client relationships.',
-    skills: ['Sales Management', 'Business Development', 'Process Building', 'Team Handling', 'Real Estate'],
+    exp: '4–6 Years',
+    desc: 'Seeking a dynamic and customer-focused professional with experience in real estate sales or relationship management. The ideal candidate should have excellent communication, negotiation, and interpersonal skills, a target-driven mindset, and the ability to build strong client relationships while managing the complete sales cycle from lead generation to property booking.',
+    skills: [
+      'Real Estate Sales',
+      'Relationship Management',
+      'Lead Generation',
+      'Client Handling',
+      'Negotiation',
+      'CRM Software',
+      'MS Office',
+      'Site Visits',
+      'Sales Closing',
+      'Customer Relationship'
+    ],
   },
   {
-    title: 'Head of Sales (HOD Sales)',
-    dept: 'Sales & Business Development',
+    title: 'Senior Relationship Manager',
+    dept: 'Sales',
     type: 'Full-Time',
     location: 'Sector 63, Noida',
-    exp: '4–5 Years',
-    desc: 'Candidates should have proven experience in a reputed builder firm or real estate company, along with strong leadership, team management, communication, negotiation, and closing skills. The ideal candidate should possess a professional personality, a solid understanding of the real estate market, and the ability to drive sales performance and revenue growth.',
-    skills: ['Sales Operations', 'Key Account Management', 'Target Achievement', 'Team Coordination', 'Real Estate'],
+    exp: '4–8 Years',
+    desc: 'Looking for an experienced and result-oriented real estate sales professional with a proven track record of achieving revenue targets. The ideal candidate should possess strong leadership, communication, negotiation, and client management skills, with the ability to handle high-value clients, mentor junior team members, and drive business growth.',
+    skills: [
+      'Real Estate Sales',
+      'Relationship Management',
+      'Leadership',
+      'High-Value Client Management',
+      'Sales Strategy',
+      'Negotiation',
+      'CRM Software',
+      'MS Office',
+      'Team Mentoring',
+      'Revenue Growth'
+    ],
   },
-]
+  {
+    title: 'Sales Manager',
+    dept: 'Sales',
+    type: 'Full-Time',
+    location: 'Sector 63, Noida',
+    exp: '6–8 Years',
+    desc: 'Seeking a highly motivated Sales Manager with proven experience in leading real estate sales teams. The ideal candidate should have strong leadership, strategic sales planning, communication, negotiation, and analytical skills, along with the ability to coach teams, drive revenue growth, and consistently achieve business targets.',
+    skills: [
+      'Sales Leadership',
+      'Team Management',
+      'Strategic Sales Planning',
+      'Revenue Growth',
+      'CRM Software',
+      'MS Office',
+      'Performance Management',
+      'Negotiation',
+      'Business Development',
+      'Real Estate Sales'
+    ],
+  },
+];
 
 const perks = [
   { Icon: IconCurrency, title: 'Competitive Pay', desc: 'Industry-leading salaries with performance-linked incentives and annual bonuses.' },
