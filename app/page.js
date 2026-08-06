@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
@@ -183,15 +184,14 @@ export default function Home() {
             { end: "7", suffix: "+", label: "Cities" },
             { end: "5000", suffix: "+", label: "Happy Families" },
           ].map((s, i) => (
-            <>
+            <Fragment key={s.label}>
               {i > 0 && (
                 <div
                   className="stats-strip-divider"
-                  key={`div-${i}`}
                   aria-hidden="true"
                 />
               )}
-              <div className="stats-strip-item" key={s.label}>
+              <div className="stats-strip-item">
                 <div className="stats-strip-inner-cell">
                   <div className="stats-strip-num">
                     <CountUp end={s.end} suffix={s.suffix} duration={2000} />
@@ -199,7 +199,7 @@ export default function Home() {
                   <div className="stats-strip-label">{s.label}</div>
                 </div>
               </div>
-            </>
+            </Fragment>
           ))}
         </div>
       </section>

@@ -1,6 +1,14 @@
+'use client'
 import Link from "next/link";
+import { useState, useEffect } from "react";
 
 export default function Footer() {
+  const [year, setYear] = useState("");
+
+  useEffect(() => {
+    setYear(new Date().getFullYear());
+  }, []);
+
   return (
     <footer className="footer" aria-label="Site footer">
       <div className="container">
@@ -206,7 +214,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <p>
-            © {new Date().getFullYear()} Haute World Developers Pvt. Ltd. All rights reserved.
+            © {year} Haute World Developers Pvt. Ltd. All rights reserved.
           </p>
           <p>
             <a href="/privacy-policy">Privacy Policy</a>
