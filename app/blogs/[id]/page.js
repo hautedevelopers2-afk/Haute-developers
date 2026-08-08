@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, use } from 'react'
 import Link from 'next/link'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
@@ -23,7 +23,7 @@ function readTime(content) {
 }
 
 export default function BlogDetailPage({ params }) {
-  const { id } = params
+  const { id } = use(params)
   const [blog, setBlog]           = useState(null)
   const [related, setRelated]     = useState([])
   const [allBlogs, setAllBlogs]   = useState([])

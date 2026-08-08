@@ -123,6 +123,14 @@ const upcomingProjects = [
     desc: "A serene residential retreat in the sacred city of Vrindavan...",
     image: "/assets/vrindavan.png",
   },
+  {
+    name: "Haute Eden Valley",
+    location: "Jaipur",
+    status: "Upcoming",
+    href: "/haute-eden-valley",
+    desc: "A theme-based luxury hill farm estate on the Delhi–Jaipur Highway...",
+    image: "/assets/vrindavan.png",
+  },
 ];
 
 export default function Home() {

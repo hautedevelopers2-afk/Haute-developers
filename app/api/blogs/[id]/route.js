@@ -14,7 +14,7 @@ export async function OPTIONS() {
 
 export async function GET(req, { params }) {
   try {
-    const { id } = params;
+    const { id } = await params;
 
     if (!ObjectId.isValid(id)) {
       return NextResponse.json({ error: 'Invalid post ID' }, { status: 400, headers: CORS });

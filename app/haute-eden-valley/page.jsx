@@ -1,12 +1,14 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 // Adjust this import path to match where Navbar.jsx actually lives relative
 // to this file (e.g. if this page is at src/app/page.jsx, "../components/Navbar"
 // is correct; if it's nested one level deeper, use "../../components/Navbar").
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
+import ContactForm from "../../components/ContactForm";
 
 /* ─────────────────────────────────────────
    SVG ICON COMPONENTS
@@ -21,25 +23,10 @@ const IconArrowRight = ({ size = 16, color = "currentColor" }) => (
     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
   </svg>
 );
-const IconArrowUpRight = ({ size = 16, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <line x1="7" y1="17" x2="17" y2="7" /><polyline points="7 7 17 7 17 17" />
-  </svg>
-);
 const IconLeaf = ({ size = 20, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M11 20A7 7 0 0 1 4 13c0-5 4-10 10-11 1 6-1 10-3 13" />
     <path d="M11 20a7 7 0 0 0 7-7c0-2 0-4-1-6" />
-  </svg>
-);
-const IconTicket = ({ size = 20, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M3 8a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-2a2 2 0 0 0 0-4z" />
-  </svg>
-);
-const IconCrown = ({ size = 20, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M2 8l4 4 6-8 6 8 4-4-2 12H4L2 8z" />
   </svg>
 );
 const IconMapPin = ({ size = 16, color = "currentColor" }) => (
@@ -91,28 +78,10 @@ const IconFork = ({ size = 22, color = "currentColor" }) => (
     <path d="M6 2v8a2 2 0 0 0 4 0V2" /><path d="M8 10v12" /><path d="M17 2c-1.5 0-3 1.5-3 4v4h3v10" />
   </svg>
 );
-const IconWaves = ({ size = 22, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M2 10c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 5 0" />
-    <path d="M2 16c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 5 0" />
-  </svg>
-);
-const IconTrail = ({ size = 22, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M4 20c4-6 2-8 6-10s2-6 6-8" strokeDasharray="1 4" />
-    <circle cx="4" cy="20" r="1.4" fill={color} /><circle cx="16" cy="2" r="1.4" fill={color} />
-  </svg>
-);
 const IconStars = ({ size = 22, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <path d="M12 3l1.6 3.9L18 8l-3.9 1.6L12 14l-1.6-4.4L6 8l4.4-1.1z" />
     <circle cx="19" cy="17" r="1" fill={color} /><circle cx="4" cy="15" r="1" fill={color} />
-  </svg>
-);
-const IconSun = ({ size = 22, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="4" />
-    <path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
   </svg>
 );
 const IconBook = ({ size = 22, color = "currentColor" }) => (
@@ -121,20 +90,16 @@ const IconBook = ({ size = 22, color = "currentColor" }) => (
     <path d="M20 4.5A2.5 2.5 0 0 0 17.5 3H12v18h5.5a2.5 2.5 0 0 0 2.5-2.5z" />
   </svg>
 );
-const IconBell = ({ size = 22, color = "currentColor" }) => (
+const IconTrail = ({ size = 22, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M18 8a6 6 0 1 0-12 0c0 6-2 8-2 8h16s-2-2-2-8" /><path d="M10 20a2 2 0 0 0 4 0" />
+    <path d="M4 20c4-6 2-8 6-10s2-6 6-8" strokeDasharray="1 4" />
+    <circle cx="4" cy="20" r="1.4" fill={color} /><circle cx="16" cy="2" r="1.4" fill={color} />
   </svg>
 );
-const IconBolt = ({ size = 22, color = "currentColor" }) => (
+const IconWaves = ({ size = 22, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <polygon points="13 2 4 14 12 14 11 22 20 10 12 10" />
-  </svg>
-);
-const IconCompass = ({ size = 22, color = "currentColor" }) => (
-  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="9.5" />
-    <polygon points="14.5 9.5 12 16 9.5 14.5 11 8" fill={color} stroke="none" />
+    <path d="M2 10c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 5 0" />
+    <path d="M2 16c1.5-2 3.5-2 5 0s3.5 2 5 0 3.5-2 5 0 3.5 2 5 0" />
   </svg>
 );
 const IconShield = ({ size = 22, color = "currentColor" }) => (
@@ -150,15 +115,23 @@ const IconTrophy = ({ size = 22, color = "currentColor" }) => (
     <path d="M7 5H4a3 3 0 0 0 3 5" /><path d="M17 5h3a3 3 0 0 1-3 5" />
   </svg>
 );
+const IconCheck = ({ size = 14, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="20 6 9 17 4 12" />
+  </svg>
+);
+const IconChevron = ({ size = 18, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <polyline points="6 9 12 15 18 9" />
+  </svg>
+);
 
 /* ─────────────────────────────────────────
    MOCK IMAGES (swap for real photography later)
 ───────────────────────────────────────── */
-/* Real Haute Eden Valley renders, reused across the sections below.
-   Swap for on-site drone/render photography as it becomes available. */
 const img = {
-  promoBg: "https://i.postimg.cc/G28ZnWZF/real-(3)-a96ff1469ef1488e81be.webp",
   locationMap: "https://i.postimg.cc/tC5zqnBK/Whats-App-Image-2026-08-01-at-6-07-54-PM.webp",
+  faqBg: "https://i.postimg.cc/G28ZnWZF/real-(3)-a96ff1469ef1488e81be.webp",
 };
 
 /* Hero slideshow images — Haute Eden Valley renders, rotate every 3 seconds */
@@ -175,34 +148,50 @@ const heroImages = [
   "https://i.postimg.cc/yNrw51rR/real-(5)-e1596fc47a39144fb195.webp",
 ];
 
+/* Single showcase image kept for the About section */
+const aboutImage = heroImages[2];
+
+/* ─────────────────────────────────────────
+   BLOG HELPERS
+───────────────────────────────────────── */
+function stripHtml(html) {
+  if (!html) return "";
+  return html.replace(/<[^>]*>/g, "").replace(/&nbsp;/g, " ").trim();
+}
+function formatBlogDate(dateStr) {
+  const d = new Date(dateStr);
+  return d.toLocaleDateString("en-IN", { day: "2-digit", month: "long", year: "numeric" });
+}
+function blogReadTime(content) {
+  return Math.max(1, Math.ceil(stripHtml(content).split(" ").length / 200));
+}
+
 /* ─────────────────────────────────────────
    DATA
 ───────────────────────────────────────── */
 const navLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
+  { label: "Highlights", href: "#highlights" },
   { label: "Master Plan", href: "#project" },
   { label: "Amenities", href: "#amenities" },
-  { label: "Themed Zones", href: "#zones" },
-  { label: "Location", href: "#location" },
+  { label: "Blog", href: "#blogs" },
+  { label: "FAQ", href: "#faq" },
   { label: "Enquire", href: "/#contact" },
 ];
 
-const aboutBlocks = [
-  { type: "image", src: heroImages[2], alt: "Aerial view of Haute Eden Valley luxury farm plots in the Aravalli hills, Shahpura" },
-  {
-    type: "card",
-    dark: true,
-    title: "Delivering Since 2011",
-    body: "Haute World Developers has spent over a decade building well-documented, community-first developments. Haute Eden Valley brings that same discipline to a theme-based luxury farm estate on the Delhi–Jaipur Highway.",
-  },
-  { type: "image", src: heroImages[7], alt: "Landscaped pathway through farm plots at Haute Eden Valley, a gated hill farm community near Shahpura" },
-  {
-    type: "card",
-    dark: false,
-    title: "Own Your Nature. Own Your Legacy.",
-    body: "Spread across 20 acres with 75 premium farmhouse plots, a fully gated community, and resort-style amenities — designed as a private estate, a weekend villa destination, and an asset for the next generation.",
-  },
+// ── Project Highlights ── replaces the old themed-zones grid, now sits right after About
+const highlights = [
+  { title: "20-Acre Luxury Farm Estate", body: "A thoughtfully planned farm estate designed for spacious, private and nature-inspired living." },
+  { title: "Prime Location Near Jaipur", body: "Strategically located at Shahpura, offering convenient connectivity to Jaipur and the Delhi-NCR region." },
+  { title: "On the Delhi–Jaipur Highway (NH-48)", body: "Excellent road connectivity through one of North India's key highway corridors." },
+  { title: "500 Sq. Yd. Farmhouse Plots", body: "Spacious plots planned for creating your own private farmhouse and weekend retreat." },
+  { title: "Aravalli-Inspired Setting", body: "Surrounded by the natural character of the Aravalli landscape, offering a peaceful escape from urban surroundings." },
+  { title: "Gated Farm Estate", body: "A planned and secure community offering a defined environment for private farm living." },
+  { title: "Nature-Led Planning", body: "Designed around open spaces, greenery and a low-density farm estate concept." },
+  { title: "Ideal for Weekend Living", body: "A convenient destination for weekend getaways, family retreats and private celebrations." },
+  { title: "Well Connected to Jaipur & NCR", body: "Positioned to provide accessibility for both Jaipur and Delhi-NCR residents." },
+  { title: "A Lifestyle & Land Ownership Opportunity", body: "Combining spacious land ownership with the experience of a premium nature-oriented retreat." },
 ];
 
 // ── Project Details ── the factual spec sheet for the estate itself
@@ -284,52 +273,6 @@ const amenities = [
   },
 ];
 
-// ── Themed Living Zones ── the signature micro-landscapes planned across the estate
-const zones = [
-  { name: "Bali Inspired Landscape", excerpt: "Lush tropical planting, thatched pavilions, and stone pathways inspired by the gardens of Bali.", image: heroImages[0] },
-  { name: "European Style Boulevard", excerpt: "A grand, tree-lined boulevard entry modelled on classic European estate driveways.", image: heroImages[1] },
-  { name: "Tuscany Inspired Vineyard Corner*", excerpt: "A vineyard-style corner plot echoing the rolling greens of the Tuscan countryside.", image: heroImages[3] },
-  { name: "Eco Luxury Farm Villas Zone*", excerpt: "A cluster of eco-conscious luxury villa plots set among working farmland.", image: heroImages[4] },
-  { name: "Forest Meditation Trail", excerpt: "A shaded trail through planted forest cover, designed for slow walks and quiet reflection.", image: heroImages[5] },
-  { name: "Private Orchard Plantation", excerpt: "Individually plotted orchard sections for residents who want fruit trees of their own.", image: heroImages[6] },
-];
-
-const activities = [
-  { title: "Horse Riding Trail*", image: heroImages[8] },
-  { title: "Luxury Glamping Under The Stars", image: heroImages[9] },
-  { title: "Bonfire & BBQ Evenings", image: heroImages[2] },
-  { title: "Open Air Movie Nights", image: heroImages[0] },
-];
-
-const promoPerks = [
-  { icon: IconTicket, label: "Pre-Launch Pricing" },
-  { icon: IconCrown, label: "Limited Signature Plots" },
-  { icon: IconLeaf, label: "High Appreciation Potential" },
-];
-
-// ── Location & Connectivity ── straight drive-time context from the estate
-const connectivityRoutes = [
-  {
-    title: "From Delhi & Gurugram",
-    excerpt: "A straight run down NH-48 via Neemrana and Kotputli — roughly 3 hours from Delhi and 2 hours from Gurugram.",
-  },
-  {
-    title: "From Jaipur & Shahpura",
-    excerpt: "The closest weekend escape from Jaipur — about 1 hour away, with Shahpura town just 15 minutes from the gate.",
-  },
-];
-
-const distances = [
-  { title: "Delhi–Jaipur Highway (NH-48)", date: "5 Minutes", image: heroImages[1] },
-  { title: "Shahpura", date: "15 Minutes", image: heroImages[4] },
-  { title: "Kotputli", date: "Approx. 30 Minutes", image: heroImages[5] },
-  { title: "Jaipur", date: "Approx. 1 Hour", image: heroImages[9] },
-  { title: "Neemrana", date: "Approx. 1 Hour", image: heroImages[7] },
-  { title: "Alwar", date: "Approx. 1.5 Hours", image: heroImages[3] },
-  { title: "Gurugram", date: "Approx. 2 Hours", image: heroImages[6] },
-  { title: "Delhi", date: "Approx. 3 Hours", image: heroImages[0] },
-];
-
 // ── FAQ ── common questions buyers search around Haute Eden Valley
 const faqs = [
   {
@@ -337,12 +280,16 @@ const faqs = [
     a: "Haute Eden Valley is located at Shahpura on the Delhi–Jaipur Highway (NH-48) — about 5 minutes from the highway, 1 hour from Jaipur, and 3 hours from Delhi via Gurugram, Neemrana, and Kotputli.",
   },
   {
+    q: "Is Haute Eden Valley a good option for Delhi NCR buyers?",
+    a: "Yes. Sitting directly on the Delhi–Jaipur Highway (NH-48), Haute Eden Valley is designed as a weekend-home and long-term land-ownership option for Delhi NCR families — an easy drive via Gurugram, Neemrana and Kotputli, with the peace of a gated farmhouse community near Jaipur.",
+  },
+  {
     q: "How big is the estate and how many farmhouses are there?",
     a: "Haute Eden Valley is spread across 20 acres, with 75 premium farmhouse plots planned across the estate.",
   },
   {
     q: "What is the plot size and starting price?",
-    a: "Premium farm plots start at 500 sq. yd., with pre-launch pricing starting from ₹40 Lakhs*.",
+    a: "Premium farmhouse plots near Jaipur start at 500 sq. yd., with pre-launch pricing starting from ₹40 Lakhs*.",
   },
   {
     q: "Is Haute Eden Valley a gated community?",
@@ -358,11 +305,37 @@ const faqs = [
   },
 ];
 
+/* ── FAQ accordion row (same interaction pattern used across our other project sites) ── */
+function FaqRow({ q, a, isOpen, onToggle }) {
+  return (
+    <div style={{ borderBottom: "1px solid rgba(22,35,28,0.1)", background: isOpen ? "var(--wc-mist)" : "var(--wc-canvas)", transition: "background 0.2s ease" }}>
+      <button
+        onClick={onToggle}
+        style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "1.1rem 1.4rem", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
+      >
+        <span style={{ fontFamily: "var(--wc-font-body)", fontWeight: 600, fontSize: "0.95rem", color: "var(--wc-ink)", lineHeight: 1.5 }}>{q}</span>
+        <span style={{ flexShrink: 0, color: "var(--wc-clay)", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease" }}>
+          <IconChevron size={17} />
+        </span>
+      </button>
+      {isOpen && (
+        <div style={{ padding: "0 1.4rem 1.3rem" }}>
+          <p style={{ margin: 0, fontFamily: "var(--wc-font-body)", fontSize: "0.87rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>{a}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
 export default function Home() {
   const [heroSlide, setHeroSlide] = useState(0);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
+
+  const [blogs, setBlogs] = useState([]);
+  const [blogsLoading, setBlogsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -370,6 +343,20 @@ export default function Home() {
     }, 3000);
     return () => clearInterval(timer);
   }, []);
+
+  useEffect(() => {
+    fetch("/api/blogs")
+      .then((r) => r.json())
+      .then((data) => {
+        setBlogs(data.posts || []);
+        setBlogsLoading(false);
+      })
+      .catch(() => setBlogsLoading(false));
+  }, []);
+
+  const latestBlogs = [...blogs]
+    .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    .slice(0, 3);
 
   return (
     <>
@@ -413,6 +400,7 @@ export default function Home() {
         .wc-btn-gold svg { transition: transform 0.25s ease; }
         .wc-btn-gold:hover { background: var(--wc-clay-light); border-color: var(--wc-clay-light); transform: translateY(-2px); box-shadow: 0 12px 28px -8px rgba(0,0,0,0.5); }
         .wc-btn-gold:hover svg { transform: translateX(3px); }
+        .wc-btn-gold:disabled { opacity: 0.7; cursor: not-allowed; transform: none; }
         .wc-page a.wc-btn-outline {
           display: inline-flex; align-items: center; gap: 0.6rem; background: rgba(22,35,28,0.55); color: #f7f2e6 !important;
           padding: 1rem 2.1rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.02em;
@@ -434,24 +422,30 @@ export default function Home() {
         .wc-section { padding: 6rem 0; }
         .wc-section-head { max-width: 660px; }
         .wc-project .wc-section-head { max-width: 100%; }
-        section#about .wc-section-head { max-width: 100%; }
-        section#zones .wc-section-head { max-width: 100%; }
+        section#about .wc-about-text { max-width: 100%; }
+        section#highlights .wc-section-head { max-width: 100%; }
         .wc-h2 { font-family: var(--wc-font-display); font-weight: 500; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.2; margin: 0.7rem 0 0; -webkit-text-stroke: 1px currentColor; }
 
         /* About */
-        .wc-about-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 3.2rem; }
-        .wc-about-image { position: relative; height: 280px; overflow: hidden; }
-        .wc-about-image img { width: 100%; height: 100%; object-fit: cover; }
-        .wc-about-card { height: 280px; padding: 2rem; display: flex; flex-direction: column; justify-content: center; }
-        .wc-about-card h3 { font-family: var(--wc-font-display); font-weight: 500; font-size: 1.3rem; margin: 0; line-height: 1.35; color: #f7f2e6 !important; }
-        .wc-about-card p { margin: 1rem 0 0; font-size: 0.9rem; line-height: 1.65; color: #f7f2e6 !important; opacity: 0.85; }
-
-        @media (min-width: 640px) {
-          .wc-about-grid { grid-template-columns: 1fr 1fr; }
-        }
+        .wc-about-flex { display: grid; grid-template-columns: 1fr; gap: 2.6rem; align-items: center; margin-top: 1rem; }
+        .wc-about-single-image { width: 100%; height: 360px; overflow: hidden; flex-shrink: 0; }
+        .wc-about-single-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
         @media (min-width: 992px) {
-          .wc-about-grid { grid-template-columns: repeat(4, 1fr); }
-          .wc-about-image, .wc-about-card { height: 380px; }
+          .wc-about-flex { grid-template-columns: 1.05fr 0.95fr; gap: 3.5rem; }
+          .wc-about-single-image { height: 520px; }
+        }
+        @media (max-width: 640px) {
+          .wc-about-single-image { height: 260px; }
+        }
+
+        /* Project Highlights */
+        .wc-highlight-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(22,35,28,0.1); border: 1px solid rgba(22,35,28,0.1); margin-top: 3rem; }
+        .wc-highlight-item { background: var(--wc-canvas); padding: 1.6rem 1.7rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .wc-highlight-mark { flex-shrink: 0; width: 30px; height: 30px; border-radius: 50%; background: var(--wc-ink); color: var(--wc-brass-light); display: flex; align-items: center; justify-content: center; }
+        .wc-highlight-item h3 { font-family: var(--wc-font-display); font-weight: 500; font-size: 1.08rem; margin: 0 0 0.4rem; color: var(--wc-ink); -webkit-text-stroke: 0.4px currentColor; }
+        .wc-highlight-item p { margin: 0; font-size: 0.86rem; color: var(--wc-stone); line-height: 1.65; }
+        @media (min-width: 768px) {
+          .wc-highlight-grid { grid-template-columns: 1fr 1fr; }
         }
 
         /* Project details / site plan */
@@ -495,28 +489,46 @@ export default function Home() {
           .wc-amenity-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* Cottages */
-        .wc-cottage-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 3.2rem; }
-        .wc-cottage-card { position: relative; display: block; height: 340px; overflow: hidden; }
-        .wc-cottage-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .wc-cottage-card:hover img { transform: scale(1.05); }
-        .wc-cottage-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(22,35,28,0.94), rgba(22,35,28,0.08) 55%, transparent); }
-        .wc-cottage-tag { position: absolute; top: 1rem; left: 1rem; font-family: var(--wc-font-mono); font-size: 0.68rem; letter-spacing: 0.08em; color: rgba(247,242,230,0.8); border: 1px solid rgba(247,242,230,0.4); padding: 0.3rem 0.6rem; text-transform: uppercase; }
-        .wc-cottage-info { position: absolute; left: 1.2rem; right: 1.2rem; bottom: 1.2rem; display: flex; align-items: flex-end; justify-content: space-between; gap: 0.8rem; }
-        .wc-cottage-info h3 { font-family: var(--wc-font-display); font-weight: 500; font-size: 1.2rem; color: #f7f2e6; margin: 0; }
-        .wc-cottage-info p { font-size: 0.78rem; color: rgba(247,242,230,0.78); margin: 0.35rem 0 0; line-height: 1.45; max-width: 260px; }
-        .wc-cottage-arrow { flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--wc-brass); display: flex; align-items: center; justify-content: center; color: var(--wc-brass-light); }
-
+        /* Blog preview cards */
+        .wc-blog-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3.2rem; }
+        .wc-blog-card { background: var(--wc-canvas); border: 1px solid rgba(22,35,28,0.12); display: flex; flex-direction: column; overflow: hidden; }
+        .wc-blog-image { position: relative; height: 190px; overflow: hidden; background: var(--wc-canvas-2); }
+        .wc-blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .wc-blog-card:hover .wc-blog-image img { transform: scale(1.06); }
+        .wc-blog-body { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; gap: 0.6rem; }
+        .wc-blog-meta { font-family: var(--wc-font-mono); font-size: 0.66rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--wc-clay); }
+        .wc-blog-card h3 { font-family: var(--wc-font-display); font-weight: 500; font-size: 1.08rem; margin: 0; line-height: 1.35; -webkit-text-stroke: 0.4px currentColor; }
+        .wc-blog-card p { font-size: 0.85rem; color: var(--wc-stone); line-height: 1.6; margin: 0; }
+        .wc-blog-read { margin-top: 0.3rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 600; color: var(--wc-clay); }
+        .wc-blog-empty { margin-top: 3.2rem; padding: 2.5rem; text-align: center; border: 1px dashed rgba(22,35,28,0.2); color: var(--wc-stone); font-size: 0.9rem; }
         @media (min-width: 640px) {
-          .wc-cottage-grid { grid-template-columns: 1fr 1fr; }
+          .wc-blog-grid { grid-template-columns: 1fr 1fr; }
         }
         @media (min-width: 992px) {
-          .wc-cottage-grid { grid-template-columns: repeat(3, 1fr); }
+          .wc-blog-grid { grid-template-columns: repeat(3, 1fr); }
         }
 
-        /* Booking */
-        .wc-booking-wrap { border: 1px solid rgba(22,35,28,0.14); overflow: hidden; display: grid; grid-template-columns: 1fr; }
-        .wc-booking-form-panel { position: relative; padding: 2.2rem 1.5rem; background: var(--wc-canvas-2); }
+        /* FAQ */
+        .wc-faq-section { position: relative; overflow: hidden; }
+        .wc-faq-bg-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .wc-faq-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(22,35,28,0.62) 0%, rgba(22,35,28,0.58) 55%, rgba(22,35,28,0.3) 100%); }
+        .wc-faq-inner { position: relative; z-index: 1; }
+        .wc-faq-box { max-width: 620px; background: var(--wc-canvas); border: 1px solid rgba(0,0,0,0.06); overflow: hidden; margin-top: 1.8rem; }
+        @media (max-width: 640px) {
+          .wc-faq-overlay { background: rgba(22,35,28,0.6); }
+        }
+
+        /* Visit / Location + Enquire (merged) */
+        .wc-visit-wrap { border: 1px solid rgba(22,35,28,0.14); overflow: hidden; display: grid; grid-template-columns: 1fr; }
+        .wc-visit-map { position: relative; min-height: 340px; background: var(--wc-canvas-2); }
+        .wc-visit-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: sepia(8%) saturate(92%) contrast(96%); }
+        .wc-visit-form-panel { background: var(--wc-canvas); color: var(--wc-ink); padding: 2.2rem 1.5rem; }
+        @media (min-width: 992px) {
+          .wc-visit-wrap { grid-template-columns: 1fr 1fr; }
+          .wc-visit-map { min-height: 100%; }
+          .wc-visit-form-panel { padding: 3rem; }
+        }
+
         .wc-booking-form { position: relative; z-index: 1; display: grid; grid-template-columns: 1fr; gap: 1rem; }
         .wc-field label { display: block; font-family: var(--wc-font-mono); font-size: 0.68rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--wc-stone); margin-bottom: 0.5rem; }
         .wc-field input, .wc-field select, .wc-field textarea {
@@ -526,81 +538,10 @@ export default function Home() {
         .wc-field input:focus, .wc-field select:focus, .wc-field textarea:focus {
           outline: none; border-color: var(--wc-clay); box-shadow: 0 0 0 3px rgba(156,74,47,0.15);
         }
-        .wc-booking-info-panel { background: var(--wc-ink); color: #f7f2e6; padding: 2.2rem 1.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; }
-        .wc-booking-info-panel img { width: 100%; height: 190px; object-fit: cover; }
-
         @media (min-width: 640px) {
           .wc-booking-form { grid-template-columns: 1fr 1fr; }
           .wc-field-full { grid-column: 1 / -1; }
         }
-        @media (min-width: 992px) {
-          .wc-booking-wrap { grid-template-columns: 1fr 1fr; }
-          .wc-booking-form-panel, .wc-booking-info-panel { padding: 3rem; }
-        }
-
-        /* About the developer */
-        .wc-developer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: center; }
-        .wc-dev-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-        .wc-dev-stat-card { position: relative; background: var(--wc-canvas); border: 1px solid rgba(22,35,28,0.14); padding: 1.6rem 1.2rem; text-align: center; overflow: hidden; }
-        .wc-dev-stat-card::before { content: ""; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--wc-clay), var(--wc-brass), transparent); }
-        .wc-dev-stat-num { font-family: var(--wc-font-display); font-weight: 500; font-size: 2.1rem; color: var(--wc-ink); margin: 0; line-height: 1; }
-        .wc-dev-stat-label { font-family: var(--wc-font-mono); font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--wc-stone); margin: 0.6rem 0 0; }
-
-        @media (min-width: 992px) {
-          .wc-developer-grid { grid-template-columns: 1.2fr 1fr; gap: 3.5rem; }
-        }
-
-        /* Activities */
-        .wc-activity-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-top: 3.2rem; }
-        .wc-activity-card { position: relative; display: block; height: 230px; overflow: hidden; }
-        .wc-activity-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .wc-activity-card:hover img { transform: scale(1.05); }
-        .wc-activity-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(22,35,28,0.9), transparent 60%); }
-        .wc-activity-icon { position: absolute; top: 0.7rem; right: 0.7rem; width: 34px; height: 34px; border-radius: 50%; border: 1px solid var(--wc-brass); display: flex; align-items: center; justify-content: center; color: var(--wc-brass-light); }
-        .wc-activity-label { position: absolute; left: 0.7rem; right: 0.7rem; bottom: 0.7rem; font-family: var(--wc-font-display); font-size: 0.95rem; font-weight: 500; color: #f7f2e6; }
-
-        @media (min-width: 768px) {
-          .wc-activity-grid { grid-template-columns: repeat(4, 1fr); }
-        }
-
-        /* Promo */
-        .wc-promo-card { position: relative; overflow: hidden; }
-        .wc-promo-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
-        .wc-promo-tint { position: absolute; inset: 0; background: linear-gradient(120deg, rgba(22,35,28,0.94), rgba(22,35,28,0.6) 60%, rgba(22,35,28,0.2)); }
-        .wc-promo-inner { position: relative; z-index: 1; padding: 2.8rem 1.5rem; display: grid; grid-template-columns: 1fr; gap: 2rem; }
-        .wc-promo-title { font-family: var(--wc-font-display); font-weight: 500; font-size: clamp(1.8rem, 3vw, 2.4rem); color: #f7f2e6; margin: 0.7rem 0 1.6rem; max-width: 420px; line-height: 1.25; }
-        .wc-promo-actions { display: flex; flex-wrap: wrap; gap: 1rem; }
-        .wc-promo-perks { display: flex; flex-direction: column; gap: 0.7rem; border: 1px solid rgba(247,242,230,0.18); padding: 1.1rem; }
-        .wc-perk { display: flex; align-items: center; gap: 0.8rem; background: rgba(247,242,230,0.06); padding: 0.75rem 1rem; }
-        .wc-perk-icon { width: 32px; height: 32px; border-radius: 50%; border: 1px solid var(--wc-brass); display: flex; align-items: center; justify-content: center; color: var(--wc-brass-light); flex-shrink: 0; }
-        .wc-perk span { font-size: 0.85rem; font-weight: 600; color: #f7f2e6; }
-
-        @media (min-width: 992px) {
-          .wc-promo-inner { grid-template-columns: 1.3fr 1fr; align-items: center; padding: 4rem; }
-        }
-
-        /* Location & Connectivity */
-        .wc-location-head { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1.2rem; }
-        .wc-location-grid { display: grid; grid-template-columns: 1fr; gap: 1.6rem; margin-top: 2.2rem; }
-        .wc-location-routes { display: grid; grid-template-columns: 1fr; gap: 1.2rem; margin: 1.6rem 0 0; }
-        .wc-location-routes h4 { font-family: var(--wc-font-display); font-weight: 500; font-size: 1rem; margin: 0; }
-        .wc-location-routes p { font-size: 0.86rem; color: var(--wc-stone); line-height: 1.65; margin: 0.35rem 0 0; }
-        .wc-location-map { position: relative; border: 1px solid rgba(22,35,28,0.14); background: var(--wc-canvas-2); overflow: hidden; }
-        .wc-location-map img { width: 100%; height: auto; display: block; }
-        .wc-location-map-caption { display: flex; align-items: center; justify-content: space-between; padding: 0.9rem 1.1rem; border-top: 1px solid rgba(22,35,28,0.14); font-family: var(--wc-font-mono); font-size: 0.7rem; letter-spacing: 0.06em; color: var(--wc-stone); text-transform: uppercase; }
-        .wc-popular { background: var(--wc-ink); color: #f7f2e6; padding: 1.7rem; }
-        .wc-popular h3 { font-family: var(--wc-font-display); font-weight: 500; font-size: 1.1rem; margin: 0 0 1.2rem; }
-        .wc-popular-item { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 1.1rem; padding-bottom: 1.1rem; border-bottom: 1px solid rgba(247,242,230,0.12); }
-        .wc-popular-item:last-child { margin-bottom: 0; border-bottom: none; padding-bottom: 0; }
-        .wc-popular-item img { width: 44px; height: 44px; object-fit: cover; flex-shrink: 0; border-radius: 2px; }
-        .wc-popular-item p { font-size: 0.82rem; font-weight: 600; margin: 0; line-height: 1.4; }
-        .wc-popular-item span { display: block; font-family: var(--wc-font-mono); font-size: 0.68rem; color: rgba(247,242,230,0.5); margin-top: 0.3rem; }
-
-        @media (min-width: 992px) {
-          .wc-location-grid { grid-template-columns: 1.35fr 1fr; align-items: start; }
-        }
-
-        /* FAQ (uses inline styles for the accordion rows) */
 
         /* Footer */
         .wc-footer { background: var(--wc-ink); color: #f7f2e6; padding-top: 4rem; }
@@ -633,7 +574,8 @@ export default function Home() {
             "@type": "RealEstateListing",
             name: "Haute Eden Valley",
             description:
-              "Haute Eden Valley is a theme-based luxury hill farm community at Shahpura, 5 minutes off the Delhi–Jaipur Highway (NH-48). Spread across 20 acres with 75 premium 500 sq. yd. farmhouse plots starting ₹40 Lakhs*, by Haute World Developers.",
+              "Haute Eden Valley offers premium farmhouse plots near Jaipur on the Delhi–Jaipur Highway (NH-48) at Shahpura — a gated luxury farm estate designed for Delhi NCR families seeking a weekend home. Spread across 20 acres with 75 premium 500 sq. yd. farmhouse plots starting ₹40 Lakhs*, by Haute World Developers.",
+            keywords: "farmhouse plots near Jaipur, farmhouse plots in Jaipur, farm land near Jaipur, farmhouse plots near Delhi Jaipur highway, NH-48 farmhouse plots, weekend home near Delhi NCR, gated farmhouse community near Jaipur, luxury farm estate near Jaipur, farmhouse plots Shahpura, investment in Aravalli hills property",
             // TODO: replace with the live production domain before launch
             url: "https://www.hauteedenvalley.com",
             image: heroImages[0],
@@ -653,6 +595,22 @@ export default function Home() {
         }}
       />
 
+      {/* FAQ structured data — eligible for Google rich results */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
+
       <Navbar />
 
       <div className="wc-page">
@@ -668,17 +626,18 @@ export default function Home() {
           ))}
           <div className="wc-hero-overlay" />
           <div className="wc-container wc-hero-inner">
-            <p className="wc-eyebrow wc-hero-kicker">Pre-Launch • Delhi–Jaipur Highway, 5 Minutes</p>
+            <p className="wc-eyebrow wc-hero-kicker">Farmhouse Plots Near Jaipur • On NH-48, 5 Minutes From The Highway</p>
             <h1 className="wc-hero-title">
               Haute Eden Valley — A Nature Inspired{" "}
               <span className="wc-italic" style={{ color: "var(--wc-brass-light)" }}>Luxury Farm Estate</span>
             </h1>
             <p style={{ maxWidth: "640px", margin: "-1rem auto 2rem", color: "rgba(247,242,230,0.85)", fontSize: "1rem", lineHeight: 1.7 }}>
-              20 acres, 75 premium hill-view farmhouse plots at Shahpura, on the Delhi–Jaipur Highway (NH-48) — starting ₹40 Lakhs*.
+              20 acres, 75 premium farmhouse plots near Jaipur at Shahpura, right on the Delhi–Jaipur Highway
+              (NH-48) — a gated weekend-home destination built for Delhi NCR families, starting ₹40 Lakhs*.
             </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
-              <a href="#zones" className="wc-btn-gold">
-                Explore Farm Plots <IconArrowRight size={14} />
+              <a href="#highlights" className="wc-btn-gold">
+                Explore The Estate <IconArrowRight size={14} />
               </a>
               <a href="#project" className="wc-btn-outline">
                 View Master Plan <IconArrowRight size={14} />
@@ -690,38 +649,64 @@ export default function Home() {
         {/* ══════════════ ABOUT ══════════════ */}
         <section id="about" className="wc-section" style={{ background: "var(--wc-canvas)" }}>
           <div className="wc-container">
+            <div className="wc-about-flex">
+              <div className="wc-about-text">
+                <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Farmhouse Plots Near Jaipur</p>
+                <h2 className="wc-h2">
+                  A Theme-Based Luxury Hill Farm{" "}
+                  <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Community, Built For Legacy</span>
+                </h2>
+                <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
+                  Haute Eden Valley is a nature-inspired luxury farm estate offering premium farmhouse plots near
+                  Jaipur, located at Shahpura on the Delhi–Jaipur Highway (NH-48) — an easy weekend drive for Delhi
+                  NCR families. Designed for those seeking a peaceful escape from city life, the development brings
+                  together spacious farm plots, landscaped surroundings and thoughtfully planned lifestyle amenities.
+                </p>
+                <p style={{ marginTop: "1rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
+                  Set against the natural beauty of the Aravalli landscape, Haute Eden Valley offers an opportunity to
+                  experience luxury living close to nature while remaining well connected to Jaipur and the Delhi-NCR
+                  region. The project is designed for weekend retreats, private farmhouse living and long-term land
+                  ownership.
+                </p>
+                <p style={{ marginTop: "1rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
+                  With its strategic location, spacious plots and nature-focused environment, Haute Eden Valley
+                  brings together the idea of a modern farm estate with the tranquillity of countryside living —
+                  creating a distinctive destination for those looking for farmhouse plots near Jaipur.
+                </p>
+              </div>
+
+              <div className="wc-about-single-image">
+                <img src={aboutImage} alt="Farmhouse plots near Jaipur — aerial view of Haute Eden Valley on the Delhi–Jaipur Highway (NH-48), Shahpura" loading="lazy" />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════ PROJECT HIGHLIGHTS ══════════════ */}
+        <section id="highlights" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
+          <div className="wc-container">
             <div className="wc-section-head">
-              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>About Haute Eden Valley</p>
+              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Project Highlights</p>
               <h2 className="wc-h2">
-                A Theme-Based Luxury Hill Farm{" "}
-                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Community, Built For Legacy</span>
+                What Sets{" "}
+                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Haute Eden Valley Apart</span>
               </h2>
               <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
-                Haute Eden Valley is a nature-inspired luxury farm estate rising in the Aravalli hills,
-                just 5 minutes off the Delhi–Jaipur Highway (NH-48) at Shahpura. Spread across 20 acres
-                and planned as a fully gated community of 75 premium 500 sq. yd. farmhouse plots, it
-                pairs modern infrastructure with organic living and resort-style amenities — a private
-                estate, a weekend villa destination, and a generational asset in one address.
+                A quick look at what makes this 20-acre gated farmhouse community on NH-48 a standout choice for
+                Delhi NCR families searching for farmhouse plots near Jaipur.
               </p>
             </div>
 
-            <div className="wc-about-grid">
-              {aboutBlocks.map((b, i) =>
-                b.type === "image" ? (
-                  <div key={i} className="wc-about-image">
-                    <img src={b.src} alt={b.alt} loading="lazy" />
+            <div className="wc-highlight-grid">
+              {highlights.map((h) => (
+                <div key={h.title} className="wc-highlight-item">
+                  <span className="wc-highlight-mark"><IconCheck size={13} /></span>
+                  <div>
+                    <h3>{h.title}</h3>
+                    <p>{h.body}</p>
                   </div>
-                ) : (
-                  <div
-                    key={i}
-                    className="wc-about-card"
-                    style={{ background: b.dark ? "var(--wc-ink)" : "var(--wc-moss)", color: "#f7f2e6" }}
-                  >
-                    <h3>{b.title}</h3>
-                    <p>{b.body}</p>
-                  </div>
-                )
-              )}
+                </div>
+              ))}
             </div>
           </div>
         </section>
@@ -760,15 +745,13 @@ export default function Home() {
                   loading="lazy"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
-                
               </div>
             </div>
-
           </div>
         </section>
 
         {/* ══════════════ AMENITIES ══════════════ */}
-        <section id="amenities" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
+        <section id="amenities" className="wc-section" style={{ background: "var(--wc-canvas)" }}>
           <div className="wc-container">
             <div className="wc-section-head">
               <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Amenities</p>
@@ -801,225 +784,116 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ══════════════ THEMED ZONES ══════════════ */}
-        <section id="zones" className="wc-section" style={{ background: "var(--wc-canvas)" }}>
+        {/* ══════════════ BLOG ══════════════ */}
+        <section id="blogs" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
           <div className="wc-container">
-            <div className="wc-section-head">
-              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Themed Living Zones</p>
-              <h2 className="wc-h2">
-                Choose Your Signature{" "}
-                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Corner Of The Valley</span>
-              </h2>
-              <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
-                Haute Eden Valley is planned as a series of themed micro-landscapes across the hillside
-                — each with its own character, from a Bali-inspired garden to a private orchard corner.
-              </p>
-            </div>
-
-            <div className="wc-cottage-grid">
-              {zones.map((z, i) => (
-                <a key={z.name} href="/#contact" className="wc-cottage-card">
-                  <img src={z.image} alt={`${z.name} — themed zone at Haute Eden Valley luxury farm estate, Shahpura`} loading="lazy" />
-                  <div className="wc-cottage-overlay" />
-                  <span className="wc-cottage-tag">{String(i + 1).padStart(2, "0")}</span>
-                  <div className="wc-cottage-info">
-                    <div>
-                      <h3>{z.name}</h3>
-                      <p>{z.excerpt}</p>
-                    </div>
-                    <span className="wc-cottage-arrow"><IconArrowRight /></span>
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════ ACTIVITIES ══════════════ */}
-        <section id="activities" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
-          <div className="wc-container" style={{ textAlign: "center" }}>
-            <div className="wc-section-head" style={{ margin: "0 auto" }}>
-              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)", justifyContent: "center" }}>Estate Experiences</p>
-              <h2 className="wc-h2">
-                Ways To Spend Your{" "}
-                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Weekend Here</span>
-              </h2>
-              <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
-                From bonfire evenings to a quiet horse ride at sunset, every experience is built
-                around the hills — pick what fits the mood of your stay.
-              </p>
-            </div>
-
-            <div className="wc-activity-grid">
-              {activities.map((a) => (
-                <a key={a.title} href="/#contact" className="wc-activity-card">
-                  <img src={a.image} alt={`${a.title} at Haute Eden Valley`} loading="lazy" />
-                  <div className="wc-activity-overlay" />
-                  <span className="wc-activity-icon"><IconArrowUpRight size={14} /></span>
-                  <span className="wc-activity-label">{a.title}</span>
-                </a>
-              ))}
-            </div>
-
-            <a href="/#contact" className="wc-btn-gold" style={{ marginTop: "2.5rem", display: "inline-flex" }}>
-              View All Activities <IconArrowRight size={14} />
-            </a>
-          </div>
-        </section>
-
-        {/* ══════════════ PROMO ══════════════ */}
-        <section className="wc-section" style={{ background: "var(--wc-canvas)" }}>
-          <div className="wc-container">
-            <div className="wc-promo-card">
-              <div className="wc-promo-bg" style={{ backgroundImage: `url(${img.promoBg})` }} />
-              <div className="wc-promo-tint" />
-              <div className="wc-promo-inner">
-                <div>
-                  <p className="wc-eyebrow" style={{ color: "var(--wc-brass-light)" }}>Pre-Launch Booking Open</p>
-                  <h2 className="wc-promo-title">
-                    Own A Signature Farm Plot{" "}
-                    <span className="wc-italic" style={{ color: "var(--wc-brass-light)" }}>From ₹40 Lakhs*</span>
-                  </h2>
-                  <div className="wc-promo-actions">
-                    <a href="/#contact" className="wc-btn-gold">Book A Site Visit</a>
-                    <a href="/#contact" className="wc-btn-outline">Request Brochure & Pricing</a>
-                  </div>
-                </div>
-
-                <div className="wc-promo-perks">
-                  {promoPerks.map((p) => (
-                    <div key={p.label} className="wc-perk">
-                      <span className="wc-perk-icon"><p.icon size={15} /></span>
-                      <span>{p.label}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════ ABOUT THE DEVELOPER ══════════════ */}
-        <section id="developer" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
-          <div className="wc-container">
-            <div className="wc-developer-grid">
+            <div className="wc-section-head" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "1.2rem", maxWidth: "100%" }}>
               <div>
-                <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>About The Developer</p>
+                <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Farmhouse Plots in Jaipur — Guides & Insights</p>
                 <h2 className="wc-h2">
-                  Built By <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Haute World Developers</span>
+                  Stories From{" "}
+                  <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>The Valley</span>
                 </h2>
-                <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.85, fontSize: "0.93rem" }}>
-                  Haute World Developers has been delivering premium, well-documented community
-                  projects since 2011 — built on clear titles, transparent payment structures,
-                  and community-first planning.
-                </p>
-                <p style={{ marginTop: "1rem", color: "var(--wc-stone)", lineHeight: 1.85, fontSize: "0.93rem" }}>
-                  Haute Eden Valley continues that legacy — bringing the same structured, transparent
-                  approach to a 20-acre, 75-farmhouse theme-based luxury estate in the Aravalli hills.
-                </p>
-                <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap", marginTop: "1.6rem" }}>
-                  <a href="/#about" className="wc-btn-outline" style={{ color: "var(--wc-ink)", borderColor: "rgba(22,35,28,0.3)" }}>
-                    About Haute World Developers
-                  </a>
-                  <a href="/#contact" className="wc-btn-gold">Get in Touch <IconArrowRight size={14} /></a>
-                </div>
               </div>
+              <Link href="/blogs" className="wc-btn-outline" style={{ color: "var(--wc-ink)", borderColor: "rgba(22,35,28,0.3)" }}>
+                View All Articles <IconArrowRight size={14} />
+              </Link>
+            </div>
 
-              <div className="wc-dev-stats">
-                {[
-                  { label: "Delivering Since", value: "2011" },
-                  { label: "Total Land", value: "20 Acres" },
-                  { label: "Farmhouses", value: "75 Units" },
-                  { label: "To NH-48", value: "5 Min" },
-                ].map((s) => (
-                  <div key={s.label} className="wc-dev-stat-card">
-                    <p className="wc-dev-stat-num">{s.value}</p>
-                    <p className="wc-dev-stat-label">{s.label}</p>
-                  </div>
+            {blogsLoading ? (
+              <div className="wc-blog-empty">Loading the latest articles…</div>
+            ) : latestBlogs.length === 0 ? (
+              <div className="wc-blog-empty">New stories are on their way — check back soon.</div>
+            ) : (
+              <div className="wc-blog-grid">
+                {latestBlogs.map((b) => (
+                  <Link key={b._id} href={`/blogs/${b._id}`} className="wc-blog-card">
+                    <div className="wc-blog-image">
+                      {b.coverImage ? (
+                        <img src={b.coverImage} alt={b.title} loading="lazy" />
+                      ) : (
+                        <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                          <span style={{ fontFamily: "var(--wc-font-display)", fontSize: "3rem", color: "rgba(22,35,28,0.15)" }}>{b.title?.[0]}</span>
+                        </div>
+                      )}
+                    </div>
+                    <div className="wc-blog-body">
+                      <span className="wc-blog-meta">{b.category} · {formatBlogDate(b.createdAt)} · {blogReadTime(b.content)} Min Read</span>
+                      <h3>{b.title}</h3>
+                      <p>{stripHtml(b.content).slice(0, 110)}...</p>
+                      <span className="wc-blog-read">Read More <IconArrowRight size={12} /></span>
+                    </div>
+                  </Link>
                 ))}
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ══════════════ LOCATION & CONNECTIVITY ══════════════ */}
-        <section id="location" className="wc-section" style={{ background: "var(--wc-canvas)" }}>
-          <div className="wc-container">
-            <div className="wc-location-head">
-              <div>
-                <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Location & Connectivity</p>
-                <h2 className="wc-h2">
-                  5 Minutes Off NH-48, A World{" "}
-                  <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Away From The City</span>
-                </h2>
-                <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.75, maxWidth: "640px" }}>
-                  Haute Eden Valley sits directly off NH-48, the main Delhi–Jaipur corridor —
-                  reachable via Gurugram, Neemrana, and Kotputli from the north, or Shahpura from
-                  Jaipur in the south.
-                </p>
-              </div>
-              <a href="/#contact" className="wc-btn-gold">Get Directions</a>
-            </div>
-
-            <div className="wc-location-grid">
-              <div>
-                <div className="wc-location-map">
-                  <img
-                    src={img.locationMap}
-                    alt="Haute Eden Valley location map showing the NH-48 route from Gurugram, Neemrana, Kotputli, Shahpura, Jaipur, and Alwar"
-                    loading="lazy"
-                  />
-                  <div className="wc-location-map-caption">
-                    <span>Fig. 02 — Route Map</span>
-                    <span>NH-48 Corridor</span>
-                  </div>
-                </div>
-
-                <div className="wc-location-routes">
-                  {connectivityRoutes.map((route) => (
-                    <div key={route.title}>
-                      <h4>{route.title}</h4>
-                      <p>{route.excerpt}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="wc-popular">
-                <h3>Distances At A Glance</h3>
-                {distances.map((d) => (
-                  <div key={d.title} className="wc-popular-item">
-                    <img src={d.image} alt={d.title} loading="lazy" />
-                    <p>{d.title}<span>{d.date}</span></p>
-                  </div>
-                ))}
-              </div>
-            </div>
+            )}
           </div>
         </section>
 
         {/* ══════════════ FAQ ══════════════ */}
-        <section id="faq" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
-          <div className="wc-container">
-            <div className="wc-section-head" style={{ margin: "0 auto", textAlign: "center", maxWidth: "700px" }}>
-              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)", justifyContent: "center" }}>FAQ</p>
-              <h2 className="wc-h2">
-                Frequently Asked{" "}
-                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Questions</span>
-              </h2>
-            </div>
+        <section id="faq" className="wc-faq-section">
+          <video
+            className="wc-faq-bg-video"
+            src="https://res.cloudinary.com/dpbitfczf/video/upload/v1786172304/new.b958fedfa9c540383d09_aqya78.mp4"
+            poster={img.faqBg}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="wc-faq-overlay" />
+          <div className="wc-container wc-faq-inner" style={{ padding: "2.5rem 1.5rem 1.75rem" }}>
+            <p className="wc-eyebrow" style={{ color: "var(--wc-brass-light)" }}>FAQ</p>
+            <h2 className="wc-h2" style={{ color: "#f7f2e6" }}>
+              Frequently Asked{" "}
+              <span className="wc-italic" style={{ color: "var(--wc-brass-light)" }}>Questions</span>
+            </h2>
 
-            <div style={{ maxWidth: "820px", margin: "3rem auto 0", display: "flex", flexDirection: "column", gap: "1px", background: "rgba(22,35,28,0.1)", border: "1px solid rgba(22,35,28,0.12)" }}>
-              {faqs.map((f) => (
-                <div key={f.q} style={{ background: "var(--wc-canvas)", padding: "1.6rem 1.8rem" }}>
-                  <p style={{ margin: 0, fontFamily: "var(--wc-font-display)", fontSize: "1.1rem", color: "var(--wc-ink)" }}>{f.q}</p>
-                  <p style={{ margin: "0.6rem 0 0", fontSize: "0.9rem", color: "var(--wc-stone)", lineHeight: 1.7 }}>{f.a}</p>
-                </div>
+            <div className="wc-faq-box">
+              {faqs.map((f, i) => (
+                <FaqRow
+                  key={f.q}
+                  q={f.q}
+                  a={f.a}
+                  isOpen={openFaqIndex === i}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === i ? -1 : i)}
+                />
               ))}
             </div>
           </div>
         </section>
 
+        {/* ══════════════ VISIT — LOCATION MAP + ENQUIRE FORM (merged) ══════════════ */}
+        <section id="contact" className="wc-section" style={{ background: "var(--wc-canvas)" }}>
+          <div className="wc-container">
+            <div className="wc-section-head">
+              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Visit The Valley</p>
+              <h2 className="wc-h2">
+                Book A Site Visit Or{" "}
+                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Request The Brochure</span>
+              </h2>
+              <p style={{ marginTop: "1.2rem", color: "var(--wc-stone)", lineHeight: 1.75 }}>
+                Shahpura, Delhi–Jaipur Highway (NH-48), Rajasthan — 5 minutes from the highway, 1 hour from
+                Jaipur, 3 hours from Delhi. Leave your details and our team will call you within 24 hours.
+              </p>
+            </div>
+
+            <div className="wc-visit-wrap" style={{ marginTop: "3.2rem" }}>
+              <div className="wc-visit-map">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4022.486831479149!2d76.04056250000001!3d27.3838125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x396d0d5c84b9ee27%3A0x8dfd8d445324c0b2!2sHaute%20Eden%20Valley!5e1!3m2!1sen!2sin!4v1786021347950!5m2!1sen!2sin"
+                  title="Haute Eden Valley location on Google Maps"
+                  loading="lazy"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+              <div className="wc-visit-form-panel">
+                <ContactForm />
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
       <Footer />
     </>
