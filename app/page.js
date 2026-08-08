@@ -129,7 +129,7 @@ const upcomingProjects = [
     status: "Upcoming",
     href: "/haute-eden-valley",
     desc: "A theme-based luxury hill farm estate on the Delhi–Jaipur Highway...",
-    image: "/assets/vrindavan.png",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786180137/Haute-eden-valley_2_1_tsk3b2.webp",
   },
 ];
 

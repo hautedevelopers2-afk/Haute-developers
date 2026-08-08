@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 
 // Adjust this import path to match where Navbar.jsx actually lives relative
@@ -125,6 +125,12 @@ const IconChevron = ({ size = 18, color = "currentColor" }) => (
     <polyline points="6 9 12 15 18 9" />
   </svg>
 );
+const IconPlusMinus = ({ size = 18, color = "currentColor", isOpen = false }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12" />
+    {!isOpen && <line x1="12" y1="5" x2="12" y2="19" />}
+  </svg>
+);
 
 /* ─────────────────────────────────────────
    MOCK IMAGES (swap for real photography later)
@@ -178,6 +184,30 @@ const navLinks = [
   { label: "Blog", href: "#blogs" },
   { label: "FAQ", href: "#faq" },
   { label: "Enquire", href: "/#contact" },
+];
+
+// ── Why Choose Us ── image set
+const whyChoseImages = [
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786193185/Landscape_imenwo.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786191424/SM1123755_1_-compressed_1_1_xkfkiu.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786191423/Gatted_comunity_ppspaw.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786191423/Treee_wkuqv2.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786194684/WhatsApp_Image_2026-08-08_at_6.39.02_PM_xjvqdv.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786191423/Expressway_road_bretn9.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786191423/Water-bodies_opnpul.webp",
+  "https://res.cloudinary.com/dpbitfczf/image/upload/v1786191423/Road_2_r3ufu0.webp"
+];
+
+// ── Why Choose Us ── 8-card feature grid with image + overlay
+const whyChooseUs = [
+  { title: "Nestled In Between The Aravallis", desc: "Premium location at Shahpura, nestled amid the Aravalli hills with natural forest cover surrounding the estate.", image: whyChoseImages[0] },
+  { title: "Seamless Entry To Ownership", desc: "Affordable entry into a gated luxury farm estate, without the premium price tags seen elsewhere.", image: whyChoseImages[1] },
+  { title: "20 Acre Gated Community", desc: "A single, 20-acre integrated farm estate, not scattered parcels — planned as one cohesive community.", image: whyChoseImages[2] },
+  { title: "Breathing Life With 1,00,000 Trees", desc: "A dense tree-planting initiative creating a forest-like, breathing environment across the estate.", image: whyChoseImages[3] },
+  { title: "Part Of Delhi-Jaipur Corridor", desc: "Located directly on the Delhi–Jaipur Highway (NH-48), placing the estate on one of North India's key growth corridors.", image: whyChoseImages[4] },
+  { title: "Easy Delhi-NCR Access", desc: "A convenient drive from Delhi and Gurugram via Neemrana and Kotputli, yet far from the noise and chaos.", image: whyChoseImages[5] },
+  { title: "Landscape With Water Bodies", desc: "A natural lake and cascading waterfall at the heart of the estate, creating a calming landscaped environment.", image: whyChoseImages[6] },
+  { title: "30 Ft. Wide Internal Roads", desc: "30 ft. wide internal roads for easy accessibility and smooth connectivity across the estate.", image: whyChoseImages[7] },
 ];
 
 // ── Project Highlights ── replaces the old themed-zones grid, now sits right after About
@@ -314,8 +344,8 @@ function FaqRow({ q, a, isOpen, onToggle }) {
         style={{ width: "100%", display: "flex", alignItems: "center", justifyContent: "space-between", gap: 16, padding: "1.1rem 1.4rem", background: "none", border: "none", cursor: "pointer", textAlign: "left" }}
       >
         <span style={{ fontFamily: "var(--wc-font-body)", fontWeight: 600, fontSize: "0.95rem", color: "var(--wc-ink)", lineHeight: 1.5 }}>{q}</span>
-        <span style={{ flexShrink: 0, color: "var(--wc-clay)", transform: isOpen ? "rotate(180deg)" : "rotate(0deg)", transition: "transform 0.3s ease" }}>
-          <IconChevron size={17} />
+        <span style={{ flexShrink: 0, color: "var(--wc-clay)" }}>
+          <IconPlusMinus size={17} isOpen={isOpen} />
         </span>
       </button>
       {isOpen && (
@@ -336,6 +366,38 @@ export default function Home() {
 
   const [blogs, setBlogs] = useState([]);
   const [blogsLoading, setBlogsLoading] = useState(true);
+
+  const whyUsRef = useRef(null);
+  const highlightsRef = useRef(null);
+  const amenitiesRef = useRef(null);
+  const [whyUsInView, setWhyUsInView] = useState(false);
+  const [highlightsInView, setHighlightsInView] = useState(false);
+  const [amenitiesInView, setAmenitiesInView] = useState(false);
+
+  useEffect(() => {
+    const setup = (ref, setInView) => {
+      if (!ref.current) return;
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.05, rootMargin: "0px 0px -15% 0px" }
+      );
+      observer.observe(ref.current);
+      return observer;
+    };
+    const o0 = setup(whyUsRef, setWhyUsInView);
+    const o1 = setup(highlightsRef, setHighlightsInView);
+    const o2 = setup(amenitiesRef, setAmenitiesInView);
+    return () => {
+      o0 && o0.disconnect();
+      o1 && o1.disconnect();
+      o2 && o2.disconnect();
+    };
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -364,7 +426,7 @@ export default function Home() {
           SCOPED STYLES — .wc-* prefix (retained from base template; safe to rename project-wide to hev-* later)
       ══════════════════════════════════════════ */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Italiana&family=Poppins:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Mulish:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
         :root {
           --wc-ink: #16231c;
@@ -378,8 +440,8 @@ export default function Home() {
           --wc-brass-light: #ddbd77;
           --wc-mist: #e4e8dc;
           --wc-stone: #5c6459;
-          --wc-font-display: 'Italiana', Georgia, serif;
-          --wc-font-body: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+          --wc-font-display: 'Playfair Display', Georgia, serif;
+          --wc-font-body: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
           --wc-font-mono: 'JetBrains Mono', 'Courier New', monospace;
         }
 
@@ -424,6 +486,7 @@ export default function Home() {
         .wc-project .wc-section-head { max-width: 100%; }
         section#about .wc-about-text { max-width: 100%; }
         section#highlights .wc-section-head { max-width: 100%; }
+        section#contact .wc-section-head { max-width: 100%; }
         .wc-h2 { font-family: var(--wc-font-display); font-weight: 500; font-size: clamp(1.9rem, 3.2vw, 2.7rem); line-height: 1.2; margin: 0.7rem 0 0; -webkit-text-stroke: 1px currentColor; }
 
         /* About */
@@ -436,6 +499,21 @@ export default function Home() {
         }
         @media (max-width: 640px) {
           .wc-about-single-image { height: 260px; }
+        }
+
+        /* Why Choose Us */
+        .wc-why-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3.2rem; }
+        .wc-why-card { position: relative; border-radius: 16px; overflow: hidden; aspect-ratio: 1 / 1; background: var(--wc-ink); }
+        .wc-why-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .wc-why-card:hover img { transform: scale(1.06); }
+        .wc-why-overlay { position: absolute; left: 0; right: 0; bottom: 0; padding: 1.5rem 1.3rem 1.3rem; background: linear-gradient(180deg, transparent 0%, rgba(22,35,28,0.68) 32%, rgba(22,35,28,0.96) 100%); }
+        .wc-why-card h3 { font-family: var(--wc-font-display); font-weight: 600; font-size: 1.05rem; color: #f7f2e6; margin: 0 0 0.5rem; line-height: 1.3; }
+        .wc-why-card p { font-family: var(--wc-font-body); font-size: 0.82rem; color: rgba(247,242,230,0.82); line-height: 1.55; margin: 0; }
+        @media (min-width: 640px) {
+          .wc-why-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (min-width: 992px) {
+          .wc-why-grid { grid-template-columns: repeat(4, 1fr); }
         }
 
         /* Project Highlights */
@@ -523,6 +601,17 @@ export default function Home() {
         .wc-visit-map { position: relative; min-height: 340px; background: var(--wc-canvas-2); }
         .wc-visit-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: sepia(8%) saturate(92%) contrast(96%); }
         .wc-visit-form-panel { background: var(--wc-canvas); color: var(--wc-ink); padding: 2.2rem 1.5rem; }
+        .wc-visit-form-panel .contact-form-card {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+        }
+        @media (max-width: 640px) {
+          .wc-visit-form-panel { padding: 1.6rem 1rem; }
+        }
+        
         @media (min-width: 992px) {
           .wc-visit-wrap { grid-template-columns: 1fr 1fr; }
           .wc-visit-map { min-height: 100%; }
@@ -562,6 +651,35 @@ export default function Home() {
 
         @media (min-width: 768px) {
           .wc-footer-grid { grid-template-columns: 1.4fr 1fr 1fr 1.2fr; }
+        }
+
+        /* Scroll-triggered entrance animations */
+        .wc-anim-left, .wc-anim-right {
+          opacity: 0;
+          transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .wc-anim-left { transform: translateX(-40px); }
+        .wc-anim-right { transform: translateX(40px); }
+        .wc-inview .wc-anim-left,
+        .wc-inview .wc-anim-right { opacity: 1; transform: translateX(0); }
+
+        .wc-block-anim {
+          opacity: 0;
+          transform: translateY(20px);
+          transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .wc-inview .wc-block-anim { opacity: 1; transform: translateY(0); }
+
+        @media (max-width: 640px) {
+          .wc-anim-left { transform: translateX(-24px); }
+          .wc-anim-right { transform: translateX(24px); }
+          .wc-block-anim { transform: translateY(14px); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .wc-anim-left, .wc-anim-right, .wc-block-anim {
+            opacity: 1 !important; transform: none !important; transition: none !important;
+          }
         }
       `}</style>
 
@@ -683,9 +801,9 @@ export default function Home() {
         </section>
 
         {/* ══════════════ PROJECT HIGHLIGHTS ══════════════ */}
-        <section id="highlights" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
+        <section id="highlights" ref={highlightsRef} className={`wc-section${highlightsInView ? " wc-inview" : ""}`} style={{ background: "var(--wc-canvas-2)" }}>
           <div className="wc-container">
-            <div className="wc-section-head">
+            <div className="wc-section-head wc-anim-left">
               <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Project Highlights</p>
               <h2 className="wc-h2">
                 What Sets{" "}
@@ -698,8 +816,8 @@ export default function Home() {
             </div>
 
             <div className="wc-highlight-grid">
-              {highlights.map((h) => (
-                <div key={h.title} className="wc-highlight-item">
+              {highlights.map((h, i) => (
+                <div key={h.title} className="wc-highlight-item wc-block-anim" style={{ transitionDelay: `${i * 60}ms` }}>
                   <span className="wc-highlight-mark"><IconCheck size={13} /></span>
                   <div>
                     <h3>{h.title}</h3>
@@ -751,9 +869,9 @@ export default function Home() {
         </section>
 
         {/* ══════════════ AMENITIES ══════════════ */}
-        <section id="amenities" className="wc-section" style={{ background: "var(--wc-canvas)" }}>
+        <section id="amenities" ref={amenitiesRef} className={`wc-section${amenitiesInView ? " wc-inview" : ""}`} style={{ background: "var(--wc-canvas)" }}>
           <div className="wc-container">
-            <div className="wc-section-head">
+            <div className="wc-section-head wc-anim-right">
               <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Amenities</p>
               <h2 className="wc-h2">
                 Everything The Estate{" "}
@@ -766,8 +884,8 @@ export default function Home() {
             </div>
 
             <div className="wc-amenity-grid">
-              {amenities.map((a) => (
-                <div key={a.title} className="wc-amenity-card">
+              {amenities.map((a, i) => (
+                <div key={a.title} className="wc-amenity-card wc-block-anim" style={{ transitionDelay: `${i * 60}ms` }}>
                   <div className="wc-amenity-image">
                     <img src={a.image} alt={`${a.title} at Haute Eden Valley, Shahpura`} loading="lazy" />
                   </div>
@@ -784,15 +902,72 @@ export default function Home() {
           </div>
         </section>
 
+        {/* ══════════════ WHY CHOOSE US ══════════════ */}
+        <section id="why-us" ref={whyUsRef} className={`wc-section${whyUsInView ? " wc-inview" : ""}`} style={{ background: "var(--wc-canvas)" }}>
+          <div className="wc-container">
+            <div className="wc-section-head wc-anim-left" style={{ maxWidth: "100%", textAlign: "center", margin: "0 auto" }}>
+              <p className="wc-eyebrow" style={{ color: "var(--wc-moss)", justifyContent: "center" }}>Why Choose Us</p>
+              <h2 className="wc-h2">
+                Why Choose{" "}
+                <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Haute Eden Valley</span>
+              </h2>
+            </div>
+
+            <div className="wc-why-grid">
+              {whyChooseUs.map((w, i) => (
+                <div key={w.title} className="wc-why-card wc-block-anim" style={{ transitionDelay: `${i * 60}ms` }}>
+                  <img src={w.image} alt={`${w.title} — Haute Eden Valley`} loading="lazy" />
+                  <div className="wc-why-overlay">
+                    <h3>{w.title}</h3>
+                    <p>{w.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ══════════════ FAQ ══════════════ */}
+        <section id="faq" className="wc-faq-section">
+          <video
+            className="wc-faq-bg-video"
+            src="https://res.cloudinary.com/dpbitfczf/video/upload/v1786172304/new.b958fedfa9c540383d09_aqya78.mp4"
+            poster={img.faqBg}
+            autoPlay
+            muted
+            loop
+            playsInline
+          />
+          <div className="wc-faq-overlay" />
+          <div className="wc-container wc-faq-inner" style={{ padding: "2.5rem 1.5rem 1.75rem" }}>
+            <p className="wc-eyebrow" style={{ color: "var(--wc-brass-light)" }}>FAQ</p>
+            <h2 className="wc-h2" style={{ color: "#f7f2e6" }}>
+              Frequently Asked{" "}
+              <span className="wc-italic" style={{ color: "var(--wc-brass-light)" }}>Questions</span>
+            </h2>
+
+            <div className="wc-faq-box">
+              {faqs.map((f, i) => (
+                <FaqRow
+                  key={f.q}
+                  q={f.q}
+                  a={f.a}
+                  isOpen={openFaqIndex === i}
+                  onToggle={() => setOpenFaqIndex(openFaqIndex === i ? -1 : i)}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* ══════════════ BLOG ══════════════ */}
         <section id="blogs" className="wc-section" style={{ background: "var(--wc-canvas-2)" }}>
           <div className="wc-container">
             <div className="wc-section-head" style={{ display: "flex", flexWrap: "wrap", justifyContent: "space-between", alignItems: "flex-end", gap: "1.2rem", maxWidth: "100%" }}>
               <div>
-                <p className="wc-eyebrow" style={{ color: "var(--wc-moss)" }}>Farmhouse Plots in Jaipur — Guides & Insights</p>
                 <h2 className="wc-h2">
-                  Stories From{" "}
-                  <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>The Valley</span>
+                  Our Recent{" "}
+                  <span className="wc-italic" style={{ color: "var(--wc-clay)" }}>Blogs</span>
                 </h2>
               </div>
               <Link href="/blogs" className="wc-btn-outline" style={{ color: "var(--wc-ink)", borderColor: "rgba(22,35,28,0.3)" }}>
@@ -827,39 +1002,6 @@ export default function Home() {
                 ))}
               </div>
             )}
-          </div>
-        </section>
-
-        {/* ══════════════ FAQ ══════════════ */}
-        <section id="faq" className="wc-faq-section">
-          <video
-            className="wc-faq-bg-video"
-            src="https://res.cloudinary.com/dpbitfczf/video/upload/v1786172304/new.b958fedfa9c540383d09_aqya78.mp4"
-            poster={img.faqBg}
-            autoPlay
-            muted
-            loop
-            playsInline
-          />
-          <div className="wc-faq-overlay" />
-          <div className="wc-container wc-faq-inner" style={{ padding: "2.5rem 1.5rem 1.75rem" }}>
-            <p className="wc-eyebrow" style={{ color: "var(--wc-brass-light)" }}>FAQ</p>
-            <h2 className="wc-h2" style={{ color: "#f7f2e6" }}>
-              Frequently Asked{" "}
-              <span className="wc-italic" style={{ color: "var(--wc-brass-light)" }}>Questions</span>
-            </h2>
-
-            <div className="wc-faq-box">
-              {faqs.map((f, i) => (
-                <FaqRow
-                  key={f.q}
-                  q={f.q}
-                  a={f.a}
-                  isOpen={openFaqIndex === i}
-                  onToggle={() => setOpenFaqIndex(openFaqIndex === i ? -1 : i)}
-                />
-              ))}
-            </div>
           </div>
         </section>
 
