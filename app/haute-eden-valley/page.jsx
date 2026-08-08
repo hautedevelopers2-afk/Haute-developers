@@ -251,55 +251,55 @@ const amenities = [
     icon: IconTrophy,
     title: "Sports Plaza",
     body: "A dedicated sports plaza with a tennis court, badminton court, and cricket practice pitch for residents of all ages.",
-    image: "https://i.postimg.cc/W4fZPS3X/Whats-App-Image-2026-08-02-at-12-11-00-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195963/Whats-App-Image-2026-08-02-at-12-11-00-PM_zu0ilp.webp",
   },
   {
     icon: IconTrail,
     title: "Nature Walking & Cycling Track",
     body: "A 15 ft. landscaped track winding through the valley for morning walks, cycling, and evening strolls.",
-    image: "https://i.postimg.cc/DZZSjGPv/Chat-GPT-Image-Aug-2-2026-12-18-12-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195963/Chat-GPT-Image-Aug-2-2026-12-18-12-PM_mhwngi.webp",
   },
   {
     icon: IconSteam,
     title: "Yoga & Spa",
     body: "An open-air yoga and meditation deck paired with a wellness spa for massages and steam therapy — sunrise stretches and a slow reset, all in one zone.",
-    image: "https://i.postimg.cc/SssnT9fN/Chat-GPT-Image-Aug-2-2026-12-22-24-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195962/Chat-GPT-Image-Aug-2-2026-12-22-24-PM_hbjklr.webp",
   },
   {
     icon: IconFork,
     title: "Open-Air Café & Fine Dining Deck",
     body: "A café and dining deck overlooking the valley, serving fresh, seasonal food through the day.",
-    image: "https://i.postimg.cc/R0G3LdKF/Chat-GPT-Image-Aug-2-2026-12-32-15-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195962/Chat-GPT-Image-Aug-2-2026-12-32-15-PM_jzrawi.webp",
   },
   {
     icon: IconStars,
     title: "Bonfire, BBQ & Movie Nights",
     body: "A courtyard for bonfire evenings, BBQ dinners, and open-air movie screenings under a clear hill sky.",
-    image: "https://i.postimg.cc/yddDQRyK/Chat-GPT-Image-Aug-2-2026-12-44-12-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195962/Chat-GPT-Image-Aug-2-2026-12-44-12-PM_smuy6k.webp",
   },
   {
     icon: IconBook,
     title: "Amphitheatre & Cultural Plaza",
     body: "An open-air amphitheatre for community gatherings, live music, and cultural evenings.",
-    image: "https://i.postimg.cc/cHHv93Bs/Chat-GPT-Image-Aug-2-2026-12-48-15-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195962/Chat-GPT-Image-Aug-2-2026-12-48-15-PM_ssvjd4.webp",
   },
   {
     icon: IconWaves,
     title: "Waterfall",
     body: "A cascading man-made waterfall feeding the natural lake — a calming visual anchor at the heart of the estate.",
-    image: "https://i.postimg.cc/d11hHCjJ/Chat-GPT-Image-Aug-2-2026-01-06-21-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195962/Chat-GPT-Image-Aug-2-2026-01-06-21-PM_vrua4m.webp",
   },
   {
     icon: IconShield,
     title: "24×7 Camera Security",
     body: "Round-the-clock CCTV surveillance across the estate for a safe, well-monitored living environment.",
-    image: "https://i.postimg.cc/NMMKJXkY/Security-1.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786195961/Security-1_1_wxunrm.webp",
   },
   {
     icon: IconTree,
     title: "Gated Community",
     body: "A fully gated layout with controlled entry and exit points for a secure, low-maintenance estate.",
-    image: "https://i.postimg.cc/gjMFMw43/Whats-App-Image-2026-08-02-at-1-25-04-PM.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786196163/Whats-App-Image-2026-08-02-at-1-25-04-PM_mlnwtm.webp",
   },
 ];
 
@@ -445,7 +445,7 @@ export default function Home() {
           --wc-font-mono: 'JetBrains Mono', 'Courier New', monospace;
         }
 
-        html, body { margin: 0; padding: 0; }
+        html, body { margin: 0; padding: 0; background: var(--wc-ink); }
         .wc-page { font-family: var(--wc-font-body); background: var(--wc-canvas); color: var(--wc-ink); }
         .wc-page a { text-decoration: none; color: inherit; }
         .wc-page * { box-sizing: border-box; }
@@ -477,6 +477,9 @@ export default function Home() {
         .wc-hero-slide.wc-hero-slide-active { opacity: 1; }
         .wc-hero-overlay { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,35,28,0.55) 0%, rgba(22,35,28,0.35) 35%, rgba(22,35,28,0.92) 100%); z-index: 1; }
         .wc-hero-inner { position: relative; z-index: 2; width: 100%; padding: 8rem 0 4rem; display: flex; flex-direction: column; align-items: center; text-align: center; }
+        @media (max-width: 640px) {
+          .wc-hero-inner.wc-container { padding: 0 1.4rem; }
+        }
         .wc-hero-kicker { color: var(--wc-brass-light); justify-content: center; }
         .wc-hero-title { font-family: var(--wc-font-display); font-weight: 500; font-size: clamp(2.3rem, 5.4vw, 4rem); line-height: 1.1; color: #f7f2e6; max-width: 760px; margin: 0.8rem 0 2rem; -webkit-text-stroke: 1px #f7f2e6; }
 

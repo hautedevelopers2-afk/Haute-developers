@@ -168,6 +168,7 @@ export default function ContactForm({ darkMode = false }) {
             <option value="Expressway Residency, Ghaziabad" style={darkMode ? { background: "#0d2f24" } : undefined}>Expressway Residency (Ghaziabad)</option>
             <option value="Haute world City, Dholera" style={darkMode ? { background: "#0d2f24" } : undefined}>Haute world City (Dholera, Gujarat)</option>
             <option value="Haute Pearl Residency, Vrindavan" style={darkMode ? { background: "#0d2f24" } : undefined}>Haute Pearl Residency (Vrindavan, UP)</option>
+            <option value="Haute Eden Valley, Shahpura" style={darkMode ? { background: "#0d2f24" } : undefined}>Haute Eden Valley (Shahpura, Jaipur)</option>
             <option value="General Inquiry" style={darkMode ? { background: "#0d2f24" } : undefined}>General Inquiry</option>
           </select>
         </div>
