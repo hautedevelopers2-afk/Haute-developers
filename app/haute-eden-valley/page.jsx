@@ -357,6 +357,33 @@ function FaqRow({ q, a, isOpen, onToggle }) {
   );
 }
 
+/* ── Reveals a card the moment IT scrolls into view (not the section) ── */
+function RevealItem({ className = "", style = {}, children }) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -12% 0px" }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`${className} wc-block-anim${inView ? " wc-inview-item" : ""}`} style={style}>
+      {children}
+    </div>
+  );
+}
+
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
@@ -384,7 +411,7 @@ export default function Home() {
             observer.disconnect();
           }
         },
-        { threshold: 0.05, rootMargin: "0px 0px -15% 0px" }
+        { threshold: 0, rootMargin: "-20% 0px -40% 0px" }
       );
       observer.observe(ref.current);
       return observer;
@@ -668,10 +695,10 @@ export default function Home() {
 
         .wc-block-anim {
           opacity: 0;
-          transform: translateY(20px);
+          transform: translateY(24px);
           transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
         }
-        .wc-inview .wc-block-anim { opacity: 1; transform: translateY(0); }
+        .wc-block-anim.wc-inview-item { opacity: 1; transform: translateY(0); }
 
         @media (max-width: 640px) {
           .wc-anim-left { transform: translateX(-24px); }
@@ -819,14 +846,14 @@ export default function Home() {
             </div>
 
             <div className="wc-highlight-grid">
-              {highlights.map((h, i) => (
-                <div key={h.title} className="wc-highlight-item wc-block-anim" style={{ transitionDelay: `${i * 60}ms` }}>
+              {highlights.map((h) => (
+                <RevealItem key={h.title} className="wc-highlight-item">
                   <span className="wc-highlight-mark"><IconCheck size={13} /></span>
                   <div>
                     <h3>{h.title}</h3>
                     <p>{h.body}</p>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -887,8 +914,8 @@ export default function Home() {
             </div>
 
             <div className="wc-amenity-grid">
-              {amenities.map((a, i) => (
-                <div key={a.title} className="wc-amenity-card wc-block-anim" style={{ transitionDelay: `${i * 60}ms` }}>
+              {amenities.map((a) => (
+                <RevealItem key={a.title} className="wc-amenity-card">
                   <div className="wc-amenity-image">
                     <img src={a.image} alt={`${a.title} at Haute Eden Valley, Shahpura`} loading="lazy" />
                   </div>
@@ -899,7 +926,7 @@ export default function Home() {
                     </div>
                     <p>{a.body}</p>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
@@ -917,14 +944,14 @@ export default function Home() {
             </div>
 
             <div className="wc-why-grid">
-              {whyChooseUs.map((w, i) => (
-                <div key={w.title} className="wc-why-card wc-block-anim" style={{ transitionDelay: `${i * 60}ms` }}>
+              {whyChooseUs.map((w) => (
+                <RevealItem key={w.title} className="wc-why-card">
                   <img src={w.image} alt={`${w.title} — Haute Eden Valley`} loading="lazy" />
                   <div className="wc-why-overlay">
                     <h3>{w.title}</h3>
                     <p>{w.desc}</p>
                   </div>
-                </div>
+                </RevealItem>
               ))}
             </div>
           </div>
