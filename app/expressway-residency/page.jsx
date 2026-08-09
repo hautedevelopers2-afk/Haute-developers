@@ -1,22 +1,26 @@
 // Place this file at: src/app/expressway-residency/page.jsx
 
 import Navbar from "../../components/Navbar";
-import GallerySlider from "../../components/GallerySlider";
 import SitePlanLightbox from "../../components/SitePlanLightbox";
+import GallerySlider from "../../components/GallerySlider";
+import ExpresswayAmenities from "../../components/ExpresswayAmenities";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
+import ContactForm from "../../components/ContactForm";
+import ExpresswayFAQ from "../../components/ExpresswayFAQ";
+import ExpresswayBlog from "../../components/ExpresswayBlog";
 
 export const metadata = {
   title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway | Haute World Developers",
   description:
     "Government-approved residential plots (100–300 sq. yd.) at Expressway Residency on NH-24 Delhi–Meerut Expressway, Ghaziabad. Freehold titles, transparent pricing & 24×7 security. Developed by Haute World Developers since 2011.",
   keywords:
-    "Expressway Residency plots, Delhi Meerut Expressway plots, NH-24 Ghaziabad plots, residential plots Ghaziabad, Haute World Developers, freehold plots NCR, investment plots expressway",
+    "Expressway Residency plots, Delhi Meerut Expressway plots, NH-24 Ghaziabad plots, residential plots Ghaziabad, Haute World Developers, freehold plots NCR, investment plots expressway, plots near Bhojpur Industrial Area, Ghaziabad Masterplan 2041, New Ghaziabad plots, DME corridor plots, Delhi Meerut Expressway DME",
   alternates: { canonical: "https://www.hautedevelopers.com/expressway-residency" },
   openGraph: {
     title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway",
     description:
-      "Government-approved freehold residential plots along the 16-lane Delhi–Meerut Expressway. Developed by Haute World Developers. Book your site visit today.",
+      "Government-approved freehold residential plots along the 14-lane Delhi–Meerut Expressway. Developed by Haute World Developers. Book your site visit today.",
     url: "https://www.hautedevelopers.com/expressway-residency",
     siteName: "Haute World Developers",
     images: [{ url: "/assets/expressway-front.png", width: 1200, height: 630, alt: "Expressway Residency aerial view" }],
@@ -147,38 +151,22 @@ const IconCity = ({ size = 20, color = "currentColor" }) => (
   </svg>
 );
 
-/* ─────────────────────────────────────────
-   DATA
-───────────────────────────────────────── */
-const amenities = [
-  { Icon: IconBuilding, label: "Club House" },
-  { Icon: IconTree,     label: "Landscaped Park" },
-  { Icon: IconPool,     label: "Swimming Pool" },
-  { Icon: IconCamera,   label: "CCTV with Drone Surveillance" },
-  { Icon: IconGate,     label: "Separate Entry & Exit Gate" },
-  { Icon: IconShield,   label: "24×7 Secured Living" },
-  { Icon: IconRun,      label: "Jogging Track" },
-  { Icon: IconKids,     label: "Kids Play Area" },
-  { Icon: IconShop,     label: "Retail Shops" },
-  { Icon: IconFood,     label: "Food Court" },
-  { Icon: IconYoga,     label: "Yoga / Meditation Area" },
-  { Icon: IconSport,    label: "Badminton Court" },
-];
+
 
 const advantages = [
   "Clear-title plots with complete due diligence support",
   "Transparent pricing aligned with expressway corridor benchmarks",
   "End-to-end guidance from site visit to registration",
-  "Low rise township Living ",
-  "Plots offer customisable home solutions ",
-  "Lifestyle living ",
-  "Strong appreciation and growth potential ",
+  "Low rise township living",
+  "Plots offer customisable home solutions",
+  "Lifestyle living",
+  "Strong appreciation and growth potential",
   "Superior and comfortable connectivity",
 ];
 
 const projectDetails = [
   { label: "Project Type", value: "Residential township" },
-  { label: "Developer",    value: "Haute World Developers World Pvt ltd" },
+  { label: "Developer",    value: "Haute World Developers Pvt Ltd" },
   { label: "Location",     value: "Near Hawa Hawai Restaurant, Delhi–Meerut Expressway, Ghaziabad" },
   { label: "Plot Sizes",   value: "100 sq. yd. & above" },
   { label: "Registry",     value: "As per applicable process" },
@@ -198,6 +186,20 @@ const proximityBullets = [
   "25 Minutes from Akshardham Metro Station",
   "15 Minutes from Ghaziabad Railway Station",
   "45 Minutes from Jewar International Airport",
+  "10 Minutes from Bhojpur Industrial Area",
+  "30 Minutes from Indirapuram, Ghaziabad",
+];
+
+// ── Project Highlights ── shown right after About
+const projectHighlights = [
+  { title: "100-Acre Integrated Township", body: "A single, master-planned 100-acre development on the Delhi–Meerut Expressway, not scattered parcels." },
+  { title: "14-Lane Expressway Frontage", body: "Direct access from the operational Delhi–Meerut Expressway (NH-24), connecting Delhi, Ghaziabad, Noida and Meerut today." },
+  { title: "100 Sq. Yd. & Above Residential Plots", body: "Clear-title, Residential plots with complete due diligence support at every stage." },
+  { title: "50+ Modern Amenities", body: "A complete lifestyle ecosystem — from clubhouse and pool to retail, food court, and dedicated wellness zones." },
+  { title: "Vastu-Compliant Layout", body: "Plot orientation planned in line with Vastu principles across the township." },
+  { title: "Wide Internal Roads", body: "30 ft. and 40 ft. wide internal roads for smooth, comfortable connectivity within the community." },
+  { title: "Low-Rise Township Living", body: "A low-density township designed for space, privacy, and a comfortable pace of life." },
+  { title: "Customisable Home Solutions", body: "Plots that give owners the freedom to design and build a home suited to their needs." },
 ];
 
 /* ─────────────────────────────────────────
@@ -224,24 +226,109 @@ export default function ExpresswayResidencyPage() {
         .er-2col-map  { display: grid; grid-template-columns: 1fr 1.15fr;   gap: 4rem; align-items: center; }
         .er-2col-dev  { display: grid; grid-template-columns: 1fr 1fr;      gap: 4rem; align-items: center; }
 
+        /* ── About image ── */
+        .er-about-img-wrap { border-radius: 20px; overflow: hidden; height: 420px; box-shadow: 0 8px 40px rgba(26,74,58,0.08); }
+        .er-about-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        @media (max-width: 900px) { .er-about-img-wrap { height: 300px; } }
+
+        /* ── Location/route image (fits without cropping) ── */
+        .er-route-img-wrap { border-radius: 20px; overflow: hidden; height: auto; background: var(--white); box-shadow: 0 8px 40px rgba(0,0,0,0.25); }
+        .er-route-img-wrap img { width: 100%; height: auto; object-fit: contain; display: block; }
+
         /* ── At-a-Glance table ── */
-        .er-glance       { max-width: 860px; margin: 0 auto; border: 1px solid rgba(201,144,26,0.2); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,74,58,0.06); }
+        .er-glance       { max-width: 860px; margin: 2.5rem auto 0; border: 1px solid rgba(201,144,26,0.2); border-radius: 20px; overflow: hidden; box-shadow: 0 8px 40px rgba(26,74,58,0.06); }
         .er-glance-row   { display: grid; grid-template-columns: 200px 1fr; border-bottom: 1px solid rgba(201,144,26,0.1); }
         .er-glance-row:last-child { border-bottom: none; }
         .er-glance-lbl   { padding: 1.1rem 1.5rem; background: var(--cream); font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); display: flex; align-items: center; border-right: 1px solid rgba(201,144,26,0.1); }
         .er-glance-val   { padding: 1.1rem 1.5rem; font-size: 0.92rem; color: var(--charcoal); font-weight: 500; line-height: 1.6; }
 
-        /* ── Map ── */
-        .er-map-card   { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.2); position: relative; height: 420px; flex-shrink: 0; }
+        /* ── Project Highlights ── */
+        .er-highlight-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(13,47,36,0.08); border: 1px solid rgba(13,47,36,0.08); margin-top: 2.5rem; }
+        .er-highlight-item { background: var(--white); padding: 1.5rem 1.6rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .er-highlight-mark { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: #fff; display: flex; align-items: center; justify-content: center; }
+        .er-highlight-item h3 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--charcoal); margin: 0 0 0.35rem; }
+        .er-highlight-item p { margin: 0; font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+        @media (min-width: 768px) { .er-highlight-grid { grid-template-columns: 1fr 1fr; } }
 
-        /* ── Amenities ── */
-        .er-amenities  { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        /* ── Amenities — photo cards (3:2) ── */
+        .er-amenity-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
+        .er-amenity-card { background: var(--forest-dark); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+        .er-amenity-image { position: relative; aspect-ratio: 3 / 2; overflow: hidden; }
+        .er-amenity-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+        .er-amenity-card:hover .er-amenity-image img { transform: scale(1.06); }
+        .er-amenity-body { padding: 1.4rem 1.4rem 1.6rem; display: flex; align-items: flex-start; gap: 1rem; }
+        .er-amenity-icon { flex-shrink: 0; width: 72px; height: 72px; border-radius: 14px; background: rgba(201,144,26,0.15); border: 1px solid rgba(201,144,26,0.3); display: flex; align-items: center; justify-content: center; }
+        .er-amenity-text { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+        .er-amenity-card h4 { font-family: var(--font-body); font-size: 0.92rem; font-weight: 700; color: #fff; margin: 0; }
+        .er-amenity-card p { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.6; margin: 0; }
+        @media (min-width: 640px) { .er-amenity-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 992px) { .er-amenity-grid { grid-template-columns: repeat(3, 1fr); } }
 
-        /* ── Layout highlights ── */
+        /* ── Scroll reveal (matches Eden Valley) ── */
+        .er-block-anim { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .er-block-anim.er-inview-item { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+          .er-block-anim { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+
+        /* ── Layout highlights (site plan) ── */
         .er-highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
 
         /* ── Stats (developer) ── */
         .er-stats      { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+        /* ── FAQ — full-bleed photo background, card floats on top ── */
+        .er-faq-section { position: relative; overflow: hidden; padding: clamp(4rem, 8vw, 6rem) 0; }
+        .er-faq-bg      { position: absolute; inset: 0; background-size: cover; background-position: center; }
+        .er-faq-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,47,36,0.94) 0%, rgba(13,47,36,0.88) 45%, rgba(13,47,36,0.4) 75%, rgba(13,47,36,0.15) 100%); }
+        .er-faq-inner   { position: relative; z-index: 1; }
+        .er-faq-heading { color: #fff; font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 0.6rem 0 2.2rem; line-height: 1.15; }
+
+        .er-faq-box  { max-width: 620px; border-radius: 18px; overflow: hidden; background: var(--white); box-shadow: 0 20px 60px rgba(0,0,0,0.35); }
+        .er-faq-row  { border-bottom: 1px solid rgba(201,144,26,0.14); }
+        .er-faq-row:last-child { border-bottom: none; }
+        .er-faq-btn  { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.5rem; background: none; border: none; cursor: pointer; text-align: left; }
+        .er-faq-q    { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; color: var(--charcoal); }
+        .er-faq-a    { padding: 0 1.5rem 1.35rem; font-size: 0.87rem; color: var(--gray); line-height: 1.75; }
+
+        @media (max-width: 640px) {
+          .er-faq-overlay { background: rgba(13,47,36,0.9); }
+        }
+
+        /* ── Blog ── */
+        .er-blog-head  { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.2rem; margin-bottom: 1rem; }
+        .er-blog-grid  { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+        .er-blog-card  { background: var(--white); border: 1px solid rgba(201,144,26,0.18); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; text-decoration: none; box-shadow: 0 4px 20px rgba(26,74,58,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .er-blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,74,58,0.12); }
+        .er-blog-image { position: relative; height: 190px; overflow: hidden; background: var(--cream); }
+        .er-blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .er-blog-card:hover .er-blog-image img { transform: scale(1.06); }
+        .er-blog-body  { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; gap: 0.6rem; }
+        .er-blog-meta  { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+        .er-blog-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0; line-height: 1.35; color: var(--charcoal); }
+        .er-blog-card p  { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin: 0; }
+        .er-blog-read  { margin-top: 0.3rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--gold); }
+        .er-blog-empty { margin-top: 2rem; padding: 2.5rem; text-align: center; border: 1px dashed rgba(201,144,26,0.25); color: var(--gray); font-size: 0.9rem; border-radius: 12px; }
+        @media (min-width: 640px) { .er-blog-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 992px) { .er-blog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        /* ── Contact + Map ── */
+        .er-contact-wrap { border: 1px solid rgba(201,144,26,0.2); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1fr; box-shadow: 0 8px 40px rgba(26,74,58,0.08); }
+        .er-contact-map  { position: relative; min-height: 340px; background: var(--cream); }
+        .er-contact-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: saturate(0.85) contrast(1.05); }
+        .er-contact-form-panel { background: var(--white); padding: 2.2rem 1.5rem; }
+        .er-contact-form-panel .contact-form-card {
+          background: transparent !important;
+          border: none !important;
+          box-shadow: none !important;
+          padding: 0 !important;
+          border-radius: 0 !important;
+        }
+        @media (min-width: 992px) {
+          .er-contact-wrap { grid-template-columns: 1fr 1fr; }
+          .er-contact-map { min-height: 100%; }
+          .er-contact-form-panel { padding: 3rem; }
+        }
 
         /* ── CTA ── */
         .er-cta-wrap   { background: linear-gradient(135deg, var(--forest-dark), var(--forest)); border-radius: 24px; padding: 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 16px 64px rgba(13,47,36,0.3); }
@@ -254,9 +341,7 @@ export default function ExpresswayResidencyPage() {
           .er-2col,
           .er-2col-map,
           .er-2col-dev  { grid-template-columns: 1fr; gap: 2.5rem; }
-          .er-amenities { grid-template-columns: repeat(3, 1fr); }
           .er-highlights{ grid-template-columns: repeat(2, 1fr); }
-          .er-map-card  { height: 360px; }
           .er-cta-wrap  { padding: 3rem 2rem; }
         }
 
@@ -273,9 +358,7 @@ export default function ExpresswayResidencyPage() {
           .er-glance-lbl { border-right: none; border-bottom: 1px solid rgba(201,144,26,0.1); padding: 0.65rem 1rem; }
           .er-glance-val { padding: 0.7rem 1rem; }
 
-          .er-amenities  { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
           .er-highlights { grid-template-columns: 1fr 1fr; gap: 0.7rem; }
-          .er-map-card   { height: 270px; }
 
           /* CTA: full-width stack */
           .er-cta-wrap   { padding: 2rem 1rem; flex-direction: column; }
@@ -298,7 +381,6 @@ export default function ExpresswayResidencyPage() {
            TINY  ≤ 380px
         ══════════════════════════ */
         @media (max-width: 380px) {
-          .er-amenities  { grid-template-columns: 1fr 1fr; }
           .er-highlights { grid-template-columns: 1fr; }
         }
       `}</style>
@@ -335,6 +417,29 @@ export default function ExpresswayResidencyPage() {
               name: "Haute World Developers",
               url: "https://www.hautedevelopers.com",
             },
+          }),
+        }}
+      />
+
+      {/* FAQ structured data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: [
+              {
+                "@type": "Question",
+                name: "Where is Expressway Residency located?",
+                acceptedAnswer: { "@type": "Answer", text: "Expressway Residency is located near Hawa Hawai Restaurant on the Delhi–Meerut Expressway (NH-24), Ghaziabad, Uttar Pradesh." },
+              },
+              {
+                "@type": "Question",
+                name: "What plot sizes are available?",
+                acceptedAnswer: { "@type": "Answer", text: "Freehold residential plots starting at 100 sq. yd. and above are available." },
+              },
+            ],
           }),
         }}
       />
@@ -394,7 +499,7 @@ export default function ExpresswayResidencyPage() {
               className="hero-desc--stacked"
               style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}
             >
-              Expressway Residency is an upcoming 75 acres township with 50+
+              Expressway Residency is an upcoming 100 acres township with 50+
               modern amenities and a perfect blend of luxury, lifestyle and
               comfort offering investors with a choice to book plots and luxury
               villas
@@ -402,10 +507,10 @@ export default function ExpresswayResidencyPage() {
           </div>
           <div className="hero-col-btns">
             <div className="hero-actions">
-              <a href="/#contact" className="btn-primary">
+              <a href="#contact" className="btn-primary">
                 Book a Site Visit →
               </a>
-              <a href="/#contact" className="btn-outline">
+              <a href="#contact" className="btn-outline">
                 Get Pricing Details
               </a>
             </div>
@@ -419,26 +524,287 @@ export default function ExpresswayResidencyPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          PROJECT DETAILS — AT A GLANCE
+          ABOUT
       ══════════════════════════════════════════ */}
       <section
+        id="about"
         className="er-section"
-        aria-labelledby="project-details-heading"
+        aria-labelledby="about-heading"
+        style={{ background: "var(--white)" }}
+      >
+        <div className="er-container">
+          <div className="er-2col">
+            <div>
+              <span className="section-label">About The Project</span>
+              <h2
+                id="about-heading"
+                style={{
+                  fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)",
+                  lineHeight: 1.15,
+                  marginBottom: "0.5rem",
+                }}
+              >
+                A 100-Acre Township on the Delhi–Meerut Expressway
+              </h2>
+              <div className="divider" />
+              <p
+                style={{
+                  fontSize: "0.95rem",
+                  color: "var(--gray)",
+                  lineHeight: 1.85,
+                  marginBottom: "1.2rem",
+                }}
+              >
+                Expressway Residency is an upcoming integrated township spread
+                across 100 acres, directly fronting the operational 14-lane
+                Delhi–Meerut Expressway (NE-3) in Ghaziabad. Designed as a
+                complete residential destination, it brings Plotted Development with 50+ modern amenities within one
+                master-planned Community.
+              </p>
+              <p
+                style={{
+                  fontSize: "0.95rem",
+                  color: "var(--gray)",
+                  lineHeight: 1.85,
+                  marginBottom: "2rem",
+                }}
+              >
+                Every plot is backed by clear-title documentation and complete
+                due diligence support, giving buyers a transparent, low-rise
+                township built for comfortable, long-term living — with strong
+                connectivity to Delhi, Noida, and Meerut.
+              </p>
+              <a href="#contact" className="btn-primary">
+                Register Interest &amp; Get a Callback →
+              </a>
+            </div>
+
+            <div className="er-about-img-wrap">
+              <img
+                src="/assets/expressway-front.png"
+                alt="Expressway Residency — aerial view of the township on the Delhi–Meerut Expressway"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          PROJECT HIGHLIGHTS
+      ══════════════════════════════════════════ */}
+      <section
+        id="highlights"
+        className="er-section"
+        aria-labelledby="project-highlights-heading"
+        style={{ background: "var(--cream)" }}
+      >
+        <div className="er-container">
+          <div className="er-center">
+            <span className="section-label">Project Highlights</span>
+            <h2
+              id="project-highlights-heading"
+              style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}
+            >
+              What Sets Expressway Residency Apart
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+          </div>
+
+          <div className="er-highlight-grid">
+            {projectHighlights.map((h) => (
+              <div key={h.title} className="er-highlight-item">
+                <span className="er-highlight-mark"><IconCheck size={13} /></span>
+                <div>
+                  <h3>{h.title}</h3>
+                  <p>{h.body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          LOCATION CONNECTIVITY
+      ══════════════════════════════════════════ */}
+      <section
+        id="location"
+        className="er-section"
+        aria-labelledby="location-heading"
+        style={{ background: "var(--forest-dark)" }}
+      >
+        <div className="er-container">
+          <div className="er-2col-map">
+            <div>
+              <div
+                style={{
+                  display: "inline-block",
+                  borderLeft: "3px solid var(--gold)",
+                  paddingLeft: "1rem",
+                  marginBottom: "1.4rem",
+                  textAlign: "left",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-display)",
+                    fontStyle: "italic",
+                    fontSize: "1.1rem",
+                    color: "var(--gold)",
+                    margin: 0,
+                    fontWeight: 500,
+                  }}
+                >
+                  Location Advantage
+                </p>
+              </div>
+              <h2
+                id="location-heading"
+                style={{
+                  fontSize: "clamp(1.65rem, 3vw, 2.6rem)",
+                  fontFamily: "var(--font-display)",
+                  fontWeight: 700,
+                  color: "#fff",
+                  lineHeight: 1.2,
+                  marginBottom: "1.6rem",
+                }}
+              >
+                Expressway Residency enjoys a prime location at NH-24,
+                Ghaziabad, Uttar Pradesh
+              </h2>
+
+              <ul
+                style={{
+                  listStyle: "none",
+                  padding: 0,
+                  margin: 0,
+                  display: "grid",
+                  gridTemplateColumns: "1fr 1fr",
+                  gap: "1rem 2rem",
+                }}
+              >
+                {proximityBullets.map((item) => (
+                  <li
+                    key={item}
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "0.75rem",
+                      fontSize: "0.95rem",
+                      color: "rgba(255,255,255,0.85)",
+                      fontWeight: 500,
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <svg
+                      width="15"
+                      height="15"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="var(--gold)"
+                      strokeWidth="2.4"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      style={{ flexShrink: 0 }}
+                      aria-hidden="true"
+                    >
+                      <line x1="5" y1="12" x2="19" y2="12" />
+                      <polyline points="12 5 19 12 12 19" />
+                    </svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="er-route-img-wrap">
+              <img
+                src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786281082/ER_Route_z38mpy.webp"
+                alt="Expressway Residency — location and connectivity"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          AMENITIES
+      ══════════════════════════════════════════ */}
+      <section
+        id="amenities"
+        className="er-section"
+        aria-labelledby="amenities-heading"
+        style={{
+          background: "var(--cream)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          aria-hidden="true"
+          style={{
+            position: "absolute",
+            inset: 0,
+            backgroundImage:
+              "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)",
+            backgroundSize: "40px 40px",
+          }}
+        />
+        <div
+          className="er-container"
+          style={{ position: "relative", zIndex: 1 }}
+        >
+          <div className="er-center" style={{ maxWidth: 720 }}>
+            <span className="section-label" style={{ color: "var(--gold)" }}>
+              Expressway Residency Amenities
+            </span>
+            <h2 id="amenities-heading" style={{ color: "var(--charcoal)" }}>
+              Future-Ready Infrastructure
+              <br />
+              Designed for Modern Living
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p
+              style={{
+                color: "var(--gray)",
+                fontSize: "0.92rem",
+                lineHeight: 1.8,
+              }}
+            >
+              Every amenity is planned to support a complete, comfortable
+              lifestyle — from daily wellness to community recreation.
+            </p>
+          </div>
+
+          <ExpresswayAmenities />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          MASTER PLAN
+      ══════════════════════════════════════════ */}
+      <section
+        id="masterplan"
+        className="er-section"
+        aria-labelledby="masterplan-heading"
         style={{ background: "var(--white)" }}
       >
         <div className="er-container">
           <div className="er-center">
-            <span className="section-label">Project Details</span>
-            <h2
-              id="project-details-heading"
+            <span className="section-label">Layout Overview</span>
+            <h2 id="masterplan-heading">Project Master Plan</h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p
               style={{
-                fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)",
-                marginBottom: "0.5rem",
+                fontSize: "0.92rem",
+                color: "var(--gray)",
+                lineHeight: 1.8,
               }}
             >
-              At a Glance
-            </h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
+              Designed for practical residential use, long-term access, and
+              future utility integration — with wide internal roads, green
+              buffers, and dedicated amenity zones.
+            </p>
           </div>
 
           <div className="er-glance">
@@ -450,18 +816,81 @@ export default function ExpresswayResidencyPage() {
             ))}
           </div>
 
-          <div style={{ textAlign: "center", marginTop: "2.4rem", padding: "0 1rem" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "3rem 0 2.5rem" }}>
+            <div style={{ flex: 1, height: "1px", background: "rgba(201,144,26,0.25)" }} />
+            <span style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)" }}>
+              Site Layout
+            </span>
+            <div style={{ flex: 1, height: "1px", background: "rgba(201,144,26,0.25)" }} />
+          </div>
+
+          <div>
+            <SitePlanLightbox
+              src="https://i.postimg.cc/d39kzcXF/expressway-layout.webp"
+              alt="Expressway Residency master plan and site layout — Delhi Meerut Expressway Ghaziabad"
+            />
+          </div>
+
+          <div style={{ marginTop: "1.8rem" }}>
             <a
-              href="/#contact"
+              href="#contact"
               className="btn-primary"
               style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
+                display: "block",
+                width: "100%",
+                textAlign: "center",
+                padding: "1.2rem 2rem",
+                fontSize: "1rem",
+                boxSizing: "border-box",
               }}
             >
-              Register Interest &amp; Get a Callback →
+              Receive a Return Call →
             </a>
+          </div>
+
+          <div className="er-highlights">
+            {layoutHighlights.map((h) => (
+              <div
+                key={h.label}
+                style={{
+                  background: "var(--white)",
+                  border: "1px solid rgba(201,144,26,0.2)",
+                  borderRadius: "14px",
+                  padding: "1.2rem",
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.85rem",
+                }}
+              >
+                <div
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    minWidth: "40px",
+                    background: "rgba(201,144,26,0.1)",
+                    border: "1px solid rgba(201,144,26,0.25)",
+                    borderRadius: "10px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <h.Icon size={20} color="var(--gold)" />
+                </div>
+                <p
+                  style={{
+                    margin: 0,
+                    fontSize: "0.82rem",
+                    color: "var(--charcoal)",
+                    fontWeight: 600,
+                    lineHeight: 1.5,
+                    paddingTop: "0.2rem",
+                  }}
+                >
+                  {h.label}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -470,6 +899,7 @@ export default function ExpresswayResidencyPage() {
           WHY INVEST
       ══════════════════════════════════════════ */}
       <section
+        id="why-invest"
         className="er-section"
         aria-labelledby="why-invest-heading"
         style={{
@@ -514,7 +944,7 @@ export default function ExpresswayResidencyPage() {
                   marginBottom: "1.2rem",
                 }}
               >
-                Investing in plots at Expressway Residency is fundamentally different from speculative real estate buying. Value here is driven by verified infrastructure growth, expressway-led development, and planned urban expansion along the Delhi–Meerut corridor — a region emerging as a primary residential and commercial belt, backed by strong government focus and sustained demand.
+                Investing in plots at Expressway Residency is fundamentally different from speculative real estate buying. The township sits next to the Bhojpur Industrial Area and falls within the Ghaziabad Masterplan 2041, which is set to bring the region into the fold of New Ghaziabad — placing early investors ahead of a wave of verified infrastructure growth and planned urban expansion along the Delhi–Meerut Expressway (DME) corridor.
               </p>
               <p
                 style={{
@@ -524,7 +954,7 @@ export default function ExpresswayResidencyPage() {
                   marginBottom: "2rem",
                 }}
               >
-               With the 16-lane Delhi–Meerut Expressway already operational, connectivity to Delhi, Ghaziabad, Noida, and Meerut is a reality today. Upcoming metro extensions, logistics hubs, and industrial zones are steadily transforming this corridor into a future-ready urban destination.
+               With the 14-lane Delhi–Meerut Expressway (DME) already operational, connectivity to Delhi, Ghaziabad, Noida, and Meerut is a reality today. As part of an integrated township offering 50+ luxury amenities, Expressway Residency is positioned at the center of a corridor that upcoming metro extensions, logistics hubs, and industrial zones are steadily transforming into a future-ready urban destination.
               </p>
               <blockquote
                 style={{
@@ -542,7 +972,7 @@ export default function ExpresswayResidencyPage() {
                 infrastructure, metro connectivity, and commercial developments
                 move from expansion to full-scale utilization."
               </blockquote>
-              <a href="/#contact" className="btn-dark">
+              <a href="#contact" className="btn-dark">
                 Talk to Our Investment Team →
               </a>
             </div>
@@ -621,450 +1051,9 @@ export default function ExpresswayResidencyPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          LOCATION ADVANTAGE
-          Left: italic accent label + bold heading + bullet list
-          Right: Google Map card
-      ══════════════════════════════════════════ */}
-      <section
-        className="er-section"
-        aria-labelledby="location-heading"
-        style={{ background: "var(--cream)" }}
-      >
-        <div className="er-container">
-          <div className="er-2col-map">
-            {/* LEFT */}
-            <div>
-              <div
-                style={{
-                  borderLeft: "3px solid var(--gold)",
-                  paddingLeft: "1rem",
-                  marginBottom: "1.4rem",
-                }}
-              >
-                <p
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontStyle: "italic",
-                    fontSize: "1.1rem",
-                    color: "var(--gold)",
-                    margin: 0,
-                    fontWeight: 500,
-                  }}
-                >
-                  Location Advantage
-                </p>
-              </div>
-              <h2
-                id="location-heading"
-                style={{
-                  fontSize: "clamp(1.65rem, 3vw, 2.6rem)",
-                  fontFamily: "var(--font-display)",
-                  fontWeight: 700,
-                  color: "var(--charcoal)",
-                  lineHeight: 1.2,
-                  marginBottom: "1.8rem",
-                }}
-              >
-                Expressway Residency enjoys a prime location at NH-24,
-                Ghaziabad, Uttar Pradesh
-              </h2>
-              <ul
-                style={{
-                  listStyle: "none",
-                  padding: 0,
-                  margin: 0,
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.8rem",
-                }}
-              >
-                {proximityBullets.map((item) => (
-                  <li
-                    key={item}
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "0.75rem",
-                      fontSize: "0.95rem",
-                      color: "var(--charcoal)",
-                      fontWeight: 500,
-                      lineHeight: 1.5,
-                    }}
-                  >
-                    <span
-                      style={{
-                        width: "7px",
-                        height: "7px",
-                        minWidth: "7px",
-                        borderRadius: "50%",
-                        background: "var(--gold)",
-                        display: "inline-block",
-                      }}
-                    />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* RIGHT — Map */}
-            <div className="er-map-card">
-              <div/>
-              <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.123456789!2d77.4850!3d28.7050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf33ebb2a7351%3A0x4e08c11e7abf3002!2sExpressway%20Residency!5e0!3m2!1sen!2sin!4v1775802565878!5m2!1sen!2sin"
-                allowFullScreen=""
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title="Expressway Residency Location Map — NH-24 Delhi Meerut Expressway, Ghaziabad, Uttar Pradesh"
-                style={{
-                  width: "100%",
-                  height: "100%",
-                  border: 0,
-                  display: "block",
-                  filter: "saturate(0.85) contrast(1.05)",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          SITE PLAN
-      ══════════════════════════════════════════ */}
-      <section
-        className="er-section"
-        aria-labelledby="layout-heading"
-        style={{ background: "var(--white)" }}
-      >
-        <div className="er-container">
-          <div className="er-center">
-            <span className="section-label">Layout Overview</span>
-            <h2 id="layout-heading">Project Site Plan</h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
-            <p
-              style={{
-                fontSize: "0.92rem",
-                color: "var(--gray)",
-                lineHeight: 1.8,
-              }}
-            >
-              Designed for practical residential use, long-term access, and
-              future utility integration — with wide internal roads, green
-              buffers, and dedicated amenity zones.
-            </p>
-          </div>
-
-          <SitePlanLightbox
-            src="https://i.postimg.cc/d39kzcXF/expressway-layout.webp"
-            alt="Expressway Residency master plan and site layout — Delhi Meerut Expressway Ghaziabad"
-          />
-
-          <div style={{ marginTop: "1.8rem" }}>
-            <a
-              href="/#contact"
-              className="btn-primary"
-              style={{
-                display: "block",
-                width: "100%",
-                textAlign: "center",
-                padding: "1.2rem 2rem",
-                fontSize: "1rem",
-                boxSizing: "border-box",
-              }}
-            >
-              Receive a Return Call →
-            </a>
-          </div>
-
-          <div className="er-highlights">
-            {layoutHighlights.map((h) => (
-              <div
-                key={h.label}
-                style={{
-                  background: "var(--white)",
-                  border: "1px solid rgba(201,144,26,0.2)",
-                  borderRadius: "14px",
-                  padding: "1.2rem",
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "0.85rem",
-                }}
-              >
-                <div
-                  style={{
-                    width: "40px",
-                    height: "40px",
-                    minWidth: "40px",
-                    background: "rgba(201,144,26,0.1)",
-                    border: "1px solid rgba(201,144,26,0.25)",
-                    borderRadius: "10px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <h.Icon size={20} color="var(--gold)" />
-                </div>
-                <p
-                  style={{
-                    margin: 0,
-                    fontSize: "0.82rem",
-                    color: "var(--charcoal)",
-                    fontWeight: 600,
-                    lineHeight: 1.5,
-                    paddingTop: "0.2rem",
-                  }}
-                >
-                  {h.label}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          AMENITIES
-      ══════════════════════════════════════════ */}
-      <section
-        className="er-section"
-        aria-labelledby="amenities-heading"
-        style={{
-          background: "var(--forest-dark)",
-          position: "relative",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div
-          className="er-container"
-          style={{ position: "relative", zIndex: 1 }}
-        >
-          <div className="er-center" style={{ maxWidth: 560 }}>
-            <span className="section-label" style={{ color: "var(--gold)" }}>
-              Expressway Residency Amenities
-            </span>
-            <h2 id="amenities-heading" style={{ color: "#fff" }}>
-              Future-Ready Infrastructure Designed for Modern Living
-            </h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
-            <p
-              style={{
-                color: "rgba(255,255,255,0.55)",
-                fontSize: "0.92rem",
-                lineHeight: 1.8,
-              }}
-            >
-              Every amenity is planned to support a complete, comfortable
-              lifestyle — from daily wellness to community recreation.
-            </p>
-          </div>
-
-          <div className="er-amenities">
-            {amenities.map((a) => (
-              <article
-                key={a.label}
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(255,255,255,0.08)",
-                  borderRadius: "16px",
-                  padding: "1.5rem 1.2rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  gap: "0.8rem",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <div
-                  style={{
-                    position: "absolute",
-                    bottom: 0,
-                    left: 0,
-                    right: 0,
-                    height: "2px",
-                    background:
-                      "linear-gradient(90deg, var(--gold), transparent)",
-                    opacity: 0.5,
-                  }}
-                />
-                <div
-                  style={{
-                    width: "44px",
-                    height: "44px",
-                    background: "rgba(201,144,26,0.15)",
-                    border: "1px solid rgba(201,144,26,0.3)",
-                    borderRadius: "12px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    flexShrink: 0,
-                  }}
-                >
-                  <a.Icon size={20} color="var(--gold)" />
-                </div>
-                <h4
-                  style={{
-                    fontFamily: "var(--font-body)",
-                    fontSize: "0.85rem",
-                    fontWeight: 700,
-                    color: "#fff",
-                    margin: 0,
-                    lineHeight: 1.3,
-                  }}
-                >
-                  {a.label}
-                </h4>
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
-          ABOUT DEVELOPER
-      ══════════════════════════════════════════ */}
-      <section
-        className="er-section"
-        aria-labelledby="developer-heading"
-        style={{ background: "var(--white)" }}
-      >
-        <div className="er-container">
-          <div className="er-2col-dev">
-            <div>
-              <span className="section-label">About the Developer</span>
-              <h2
-                id="developer-heading"
-                style={{
-                  fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Built by{" "}
-                <em style={{ color: "var(--gold)", fontStyle: "italic" }}>
-                  Haute World Developers
-                </em>
-              </h2>
-              <div className="divider" />
-              <p
-                style={{
-                  fontSize: "0.93rem",
-                  color: "var(--gray)",
-                  lineHeight: 1.85,
-                  marginBottom: "1.2rem",
-                }}
-              >
-                With over 15 years of experience developing premium residential
-                communities across NCR, Dehradun, Vrindavan, and Dholera, Haute
-                Developers has earned the trust of more than 5,000 families.
-                Every project is backed by clear documentation, community-first
-                planning, and a commitment to on-time delivery.
-              </p>
-              <p
-                style={{
-                  fontSize: "0.93rem",
-                  color: "var(--gray)",
-                  lineHeight: 1.85,
-                  marginBottom: "2rem",
-                }}
-              >
-                Expressway Residency continues that legacy — bringing
-                structured, transparent plot development to one of NCR's
-                highest-growth corridors.
-              </p>
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <a href="/#about" className="btn-dark">
-                  About Haute World Developers →
-                </a>
-                <a href="/#contact" className="btn-primary">
-                  Get in Touch →
-                </a>
-              </div>
-            </div>
-
-            <div className="er-stats">
-              {[
-                { Icon: IconTrendUp, num: "15+", label: "Years of Experience" },
-                { Icon: IconKids, num: "5000+", label: "Happy Families" },
-                { Icon: IconCity, num: "500+", label: "Acres Developed" },
-                { Icon: IconPin, num: "7+", label: "Cities" },
-              ].map((s) => (
-                <div
-                  key={s.label}
-                  style={{
-                    background: "var(--cream)",
-                    border: "1px solid rgba(201,144,26,0.2)",
-                    borderRadius: "16px",
-                    padding: "1.6rem 1.2rem",
-                    textAlign: "center",
-                    position: "relative",
-                    overflow: "hidden",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      right: 0,
-                      height: "2px",
-                      background:
-                        "linear-gradient(90deg, var(--gold), var(--gold-light), transparent)",
-                    }}
-                  />
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      marginBottom: "0.6rem",
-                    }}
-                  >
-                    <s.Icon size={20} color="var(--gold)" />
-                  </div>
-                  <div
-                    style={{
-                      fontFamily: "var(--font-number)",
-                      fontSize: "2.2rem",
-                      fontWeight: 700,
-                      color: "var(--forest)",
-                      lineHeight: 1,
-                    }}
-                  >
-                    {s.num}
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "0.7rem",
-                      color: "var(--gray)",
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      marginTop: "0.4rem",
-                    }}
-                  >
-                    {s.label}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════════════════════════════
           IMAGE GALLERY
       ══════════════════════════════════════════ */}
-      <section className="er-section" aria-labelledby="gallery-heading" style={{ background: '#f0ece3' }}>
+      <section id="gallery" className="er-section" aria-labelledby="gallery-heading" style={{ background: '#f0ece3' }}>
         <div className="er-container">
           <div className="er-center">
             <span className="section-label">Project Visuals</span>
@@ -1076,103 +1065,81 @@ export default function ExpresswayResidencyPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          FINAL CTA BANNER
+          FAQ
+      ══════════════════════════════════════════ */}
+      <section id="faq" className="er-faq-section" aria-labelledby="faq-heading">
+        <div
+          className="er-faq-bg"
+          style={{ backgroundImage: "url('/assets/expressway-front.png')" }}
+          aria-hidden="true"
+        />
+        <div className="er-faq-overlay" aria-hidden="true" />
+        <div className="er-container er-faq-inner">
+          <span className="section-label" style={{ color: "var(--gold)" }}>Got Questions?</span>
+          <h2 id="faq-heading" className="er-faq-heading">
+            Frequently Asked{" "}
+            <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Questions</em>
+          </h2>
+
+          <ExpresswayFAQ />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          BLOG
+      ══════════════════════════════════════════ */}
+      <section id="blogs" className="er-section" aria-labelledby="blogs-heading" style={{ background: "var(--cream)" }}>
+        <div className="er-container">
+          <ExpresswayBlog />
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          CONTACT + GOOGLE MAP
       ══════════════════════════════════════════ */}
       <section
+        id="contact"
         className="er-section"
-        aria-label="Final call to action"
-        style={{ background: "var(--cream)", paddingBottom: "5rem" }}
+        aria-labelledby="contact-heading"
+        style={{ background: "var(--white)" }}
       >
         <div className="er-container">
-          <div className="er-cta-wrap">
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                inset: 0,
-                backgroundImage:
-                  "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)",
-                backgroundSize: "40px 40px",
-              }}
-            />
-            <div
-              aria-hidden="true"
-              style={{
-                position: "absolute",
-                top: "-80px",
-                right: "-80px",
-                width: "400px",
-                height: "400px",
-                background:
-                  "radial-gradient(circle, rgba(201,144,26,0.12) 0%, transparent 70%)",
-                pointerEvents: "none",
-              }}
-            />
-
-            <div style={{ position: "relative", zIndex: 1, maxWidth: "560px" }}>
-              <p
-                style={{
-                  fontSize: "0.78rem",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "var(--gold)",
-                  fontWeight: 700,
-                  marginBottom: "0.8rem",
-                  fontFamily: "var(--font-body)",
-                }}
-              >
-                Limited Inventory — Register Now
-              </p>
-              <h2
-                style={{
-                  color: "#fff",
-                  fontSize: "clamp(1.6rem, 2.8vw, 2.6rem)",
-                  marginBottom: "0.8rem",
-                  lineHeight: 1.15,
-                }}
-              >
-                Ready to Invest in{" "}
-                <em style={{ color: "var(--gold-pale)", fontStyle: "italic" }}>
-                  Expressway Residency?
-                </em>
-              </h2>
-              <p
-                style={{
-                  color: "rgba(255,255,255,0.65)",
-                  fontSize: "0.95rem",
-                  lineHeight: 1.8,
-                  margin: 0,
-                }}
-              >
-                Speak to our team for pricing details, payment plans, and to
-                schedule your complimentary site visit. Our advisors guide you
-                through every step — from plot selection to registration.
-              </p>
-            </div>
-
-            <div className="er-cta-btns">
-              <a
-                href="/#contact"
-                className="btn-primary"
-                style={{ fontSize: "0.95rem", padding: "1rem 2.2rem" }}
-              >
-                Book a Site Visit →
-              </a>
+          <div className="er-center" style={{ maxWidth: 640 }}>
+            <span className="section-label" style={{ color: "var(--gold)" }}>
+              Limited Inventory — Register Now
+            </span>
+            <h2 id="contact-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}>
+              Ready to Invest in{" "}
+              <em style={{ color: "var(--gold)", fontStyle: "italic" }}>
+                Expressway Residency?
+              </em>
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.8 }}>
+              Speak to our team for pricing details, payment plans, and to
+              schedule your complimentary site visit. Or call us directly at{" "}
               <a
                 href="tel:+918383073291"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "0.5rem",
-                  color: "rgba(255,255,255,0.65)",
-                  fontSize: "0.85rem",
-                  fontWeight: 600,
-                  textDecoration: "none",
-                }}
+                style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}
               >
-                <IconPhone size={15} color="rgba(255,255,255,0.65)" /> +91 83830
-                73291 — Call directly
+                +91 83830 73291
               </a>
+              .
+            </p>
+          </div>
+
+          <div className="er-contact-wrap" style={{ marginTop: "3rem" }}>
+            <div className="er-contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3499.123456789!2d77.4850!3d28.7050!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf33ebb2a7351%3A0x4e08c11e7abf3002!2sExpressway%20Residency!5e0!3m2!1sen!2sin!4v1775802565878!5m2!1sen!2sin"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Expressway Residency Location Map — NH-24 Delhi Meerut Expressway, Ghaziabad, Uttar Pradesh"
+              />
+            </div>
+            <div className="er-contact-form-panel">
+              <ContactForm />
             </div>
           </div>
         </div>

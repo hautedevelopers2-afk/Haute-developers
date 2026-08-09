@@ -643,14 +643,36 @@ section { padding: 6rem 0; }
 /* ═══════════════════════════════════════════
    CAREERS PAGE
 ═══════════════════════════════════════════ */
+.careers-block-anim { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+.careers-block-anim.careers-inview-item { opacity: 1; transform: translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .careers-block-anim { opacity: 1 !important; transform: none !important; transition: none !important; }
+}
 .careers-hero { position: relative; height: 75vh; min-height: 560px; overflow: hidden; display: flex; align-items: flex-end; padding-top: 72px; }
 .careers-hero-fullbg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center center; z-index: 0; }
 .careers-hero-overlay { position: absolute; inset: 0; z-index: 1; background: linear-gradient(to bottom, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.68) 100%); }
 .careers-hero-bottom { position: absolute; bottom: 0; left: 0; right: 0; z-index: 2; width: 100%; display: flex; align-items: flex-end; justify-content: center; padding: 2rem 3rem; }
-.careers-hero-title { font-family: var(--font-display); font-size: clamp(2.4rem,5vw,4rem); font-weight: 700; color: var(--white); margin: 0; line-height: 1; text-align: center; }
+.careers-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem,5vw,4rem);
+  font-weight: 700;
+  color: var(--white);
+  margin: 0;
+  line-height: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateX(60px);
+  animation: slideInRight 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+}
 .careers-hero-home { position: absolute; right: 3rem; bottom: 2.5rem; font-family: var(--font-body); font-size: 0.78rem; font-weight: 600; color: rgba(255,255,255,0.75); letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: color 0.2s; }
 .careers-hero-home:hover { color: var(--gold); }
-@media (max-width: 768px) { .careers-hero-bottom { padding: 1.5rem; } .careers-hero-title { font-size: 2rem; } .careers-hero-home { right: 1.5rem; bottom: 1.5rem; } }
+@media (max-width: 768px) {
+  .careers-hero { height: auto; min-height: 0; aspect-ratio: 4 / 3; }
+  .careers-hero-fullbg { object-position: center 20%; }
+  .careers-hero-bottom { padding: 1.5rem; }
+  .careers-hero-title { font-size: 2rem; }
+  .careers-hero-home { right: 1.5rem; bottom: 1.5rem; }
+}
 .careers-about { background: var(--white); padding: 6rem 0; }
 .careers-about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: start; }
 .careers-about-grid > div > h2 { font-size: clamp(1.8rem,2.8vw,2.4rem); line-height: 1.15; margin-bottom: 0.5rem; }
