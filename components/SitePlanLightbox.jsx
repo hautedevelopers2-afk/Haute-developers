@@ -22,7 +22,7 @@ export default function SitePlanLightbox({ src, alt }) {
           src={src}
           alt={alt}
           onClick={() => setOpen(true)}
-          style={{ width: '100%', display: 'block', objectFit: 'cover', minHeight: '220px', maxHeight: '520px', cursor: 'zoom-in' }}
+          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', cursor: 'zoom-in' }}
         />
         {/* Click to enlarge button */}
         <button
@@ -68,13 +68,13 @@ export default function SitePlanLightbox({ src, alt }) {
             onMouseMove={handleMouseMove}
             onMouseUp={handleMouseUp}
             onMouseLeave={handleMouseUp}
-            style={{ cursor: zoom > 1 ? (dragging ? 'grabbing' : 'grab') : 'default', userSelect: 'none', maxWidth: '90vw', maxHeight: '85vh', overflow: 'hidden', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
+            style={{ cursor: zoom > 1 ? (dragging ? 'grabbing' : 'grab') : 'default', userSelect: 'none', width: '90vw', height: '85vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}
           >
             <img
               src={src}
               alt={alt}
               draggable={false}
-              style={{ transform: `scale(${zoom}) translate(${pos.x / zoom}px, ${pos.y / zoom}px)`, transformOrigin: 'center center', transition: dragging ? 'none' : 'transform 0.2s ease', maxWidth: '90vw', maxHeight: '85vh', display: 'block', objectFit: 'contain' }}
+              style={{ transform: `scale(${zoom}) translate(${pos.x / zoom}px, ${pos.y / zoom}px)`, transformOrigin: 'center center', transition: dragging ? 'none' : 'transform 0.2s ease', maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain' }}
             />
           </div>
         </div>

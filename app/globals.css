@@ -144,13 +144,14 @@ section { padding: 6rem 0; }
 
 /* ── Hero base ── */
 .hero {
-  min-height: 100vh;
+  height: 100vh;
+  min-height: 640px;
   background: linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%);
   position: relative;
   display: flex;
   align-items: flex-end;
   padding-top: 88px;
-  overflow: visible;
+  overflow: hidden;
   padding-bottom: 3rem;
 }
 
@@ -286,10 +287,11 @@ section { padding: 6rem 0; }
 
 /* Scroll indicator */
 .scroll-indicator {
-  position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+  position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 0.5rem;
   color: rgba(255,255,255,0.45); font-size: 0.7rem; letter-spacing: 0.1em;
   text-transform: uppercase; animation: fadeIn 1s 0.8s ease both;
+  z-index: 5;
 }
 
 @media (max-width: 768px) {
@@ -306,7 +308,7 @@ section { padding: 6rem 0; }
 /* ── Stats Strip ── */
 .stats-strip { background: var(--white); border-bottom: 1px solid rgba(0,0,0,0.07); padding: 0; }
 .stats-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: stretch; }
-.stats-strip-item { display: flex; align-items: center; flex: 1; padding: 2.8rem 0; }
+.stats-strip-item { display: flex; align-items: center; justify-content: center; flex: 1; padding: 2.8rem 0; }
 .stats-strip-divider { width: 1px; height: 64px; background: rgba(0,0,0,0.1); margin-right: 3rem; flex-shrink: 0; align-self: center; }
 .stats-strip-inner-cell { display: flex; flex-direction: column; gap: 0.4rem; }
 .stats-strip-num { font-family: var(--font-number); font-size: clamp(2rem,3.2vw,3rem); font-weight: 600; color: var(--charcoal); line-height: 1; }
@@ -725,6 +727,25 @@ section { padding: 6rem 0; }
 .careers-cta-inner .btn-primary { flex-shrink: 0; position: relative; z-index: 1; }
 
 /* ── Responsive ── */
+@media (min-width: 901px) {
+  .hero-content--new { position: relative !important; }
+
+  .hero-col-btns {
+    grid-column: unset !important;
+    position: absolute !important;
+    right: 0 !important;
+    bottom: 5.5rem !important;
+    width: auto !important;
+    align-items: flex-end !important;
+  }
+
+  .hero-col-btns .hero-actions {
+    width: auto !important;
+    display: flex !important;
+    justify-content: flex-end !important;
+  }
+}
+
 @media (max-width: 1024px) {
   .why-us-grid { grid-template-columns: repeat(3,1fr); }
   .projects-grid { grid-template-columns: 1fr 1fr; }
@@ -732,8 +753,8 @@ section { padding: 6rem 0; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .careers-perks-grid { grid-template-columns: 1fr 1fr; }
   .careers-about-grid { gap: 3rem; }
-  .hero-content--new { grid-template-columns: 1fr 1fr; padding-top: 55vh; }
-  .hero-col-btns { grid-column: 1 / -1; align-items: flex-start; }
+  .hero-content--new { grid-template-columns: 1fr 1fr; padding-top: 42vh; }
+  .hero-col-btns { grid-column: 1 / -1; align-items: flex-start; margin-top: 0.75rem; }
 }
 
 @media (max-width: 900px) {
@@ -841,36 +862,6 @@ section { padding: 6rem 0; }
   color: var(--gold);
 }
 
-.stats-strip-inner {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 1.5rem;
-  display: flex;
-  align-items: center;
-}
-
-.stats-strip-divider {
-  width: 1px;
-  height: 64px;
-  background: rgba(0,0,0,0.1);
-  flex-shrink: 0;
-}
-
-.stats-strip-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  padding: 2.8rem 0;
-}
-
-.stats-strip-inner-cell {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-  align-items: center;
-  text-align: center;
-}
 
 @media (max-width: 900px) {
   /* Why Us grid: 5 cols → 3 */
@@ -966,3 +957,14 @@ section { padding: 6rem 0; }
   transition: color 0.2s;
 }
 .contact-link-light:hover { color: var(--gold); }
+
+/* Disable hover-reveal gold accent lines on touch devices — prevents them
+   getting stuck "on" after a tap, since touch has no true hover state */
+@media (hover: none) {
+  .project-card::after,
+  .why-card::before,
+  .careers-perk-card::before,
+  .careers-role-card::before {
+    transform: none !important;
+  }
+}

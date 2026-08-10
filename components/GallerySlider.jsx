@@ -2,17 +2,18 @@
 import { useState, useEffect } from 'react'
 
 const slides = [
-  { src: 'https://i.postimg.cc/m2JQxV0K/Screenshot-2026-06-04-151930.webp', label: 'Township Entry' },
-  { src: 'https://i.postimg.cc/MKNykthC/Screenshot-2026-06-04-152029.webp', label: 'Villa Exterior' },
-  { src: 'https://i.postimg.cc/W1Z0sgvK/Screenshot-2026-06-04-152104.webp', label: 'Green Landscape' },
-  { src: 'https://i.postimg.cc/kXzxrwkk/Screenshot-2026-06-04-152124.webp', label: 'Amenity Zone' },
-  { src: 'https://i.postimg.cc/Fs8jtG26/Screenshot-2026-06-04-152219.webp', label: 'Club House View' },
-  { src: 'https://i.postimg.cc/7YdgvXpB/Screenshot-2026-06-04-152231.webp', label: 'Swimming Pool Area' },
-  { src: 'https://i.postimg.cc/NjXRQmtG/Screenshot-2026-06-04-152306.webp', label: 'Plot Layout' },
-  { src: 'https://i.postimg.cc/Lsc92gHp/Screenshot-2026-06-04-152231.png', label: 'Street View' },
-  { src: 'https://i.postimg.cc/N09s3kvV/Screenshot-2026-06-04-152306.png', label: 'Master Plan' },
-  { src: 'https://i.postimg.cc/vmJYbxQd/Screenshot-2026-06-04-152334.png', label: 'Community Zone' },
-  { src: '/assets/expressway-front.png', label: 'Expressway Front' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353483/Senior-citizer_usxm9p.webp', label: 'Senior Citizen Park' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353482/Shuttle_nztcrp.webp', label: 'Shuttle Service' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353480/Aerial-ER_bjap8t.webp', label: 'Areal View' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353481/Interal_Roads_2_wh7c9n.webp', label: 'Internal Roads' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353481/Internal_Roads_nd1vhu.webp', label: 'Internal Roads 2' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353480/gym_cuxp5a.webp', label: 'gymnesium' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264525/Temple_gf9j2m.webp', label: 'Temple' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264524/Lake_ye1yj7.webp', label: 'Artificial Lake' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264524/Park_qfvax4.webp', label: 'Kids Play Area' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264524/Jogging-track_rwsojt.webp', label: 'Jogging Track' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264524/Mini-Hospital_agqmbj.webp', label: 'Hospital Front' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353925/Digital_Library_kajs2t.webp', label:'Digital Library'} 
 ]
 
 export default function GallerySlider() {

@@ -237,6 +237,34 @@ export default function Footer() {
                   +91 83830 73291
                 </a>
               </li>
+              <li>
+                <a
+                  href="mailto:support@hautedevelopers.com"
+                  style={{
+                    color: "rgba(255,255,255,0.85)",
+                    fontSize: "0.88rem",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "0.6rem",
+                  }}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    style={{ flexShrink: 0, opacity: 1 }}
+                  >
+                    <rect x="2" y="4" width="20" height="16" rx="2" />
+                    <path d="M2 6l10 7 10-7" />
+                  </svg>
+                  support@hautedevelopers.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>

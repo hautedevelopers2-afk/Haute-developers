@@ -117,6 +117,7 @@ export default function ProjectSlider({ projects }) {
       <style>{`
         .project-slide {
           perspective: 1000px;
+          -webkit-perspective: 1000px;
           position: relative;
         }
         .flip-card-inner {
@@ -124,17 +125,14 @@ export default function ProjectSlider({ projects }) {
           width: 100%;
           height: 100%;
           transform-style: preserve-3d;
-          transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .flip-card-inner {
-          position: relative;
-          width: 100%;
-          height: 100%;
-          transform-style: preserve-3d;
+          -webkit-transform-style: preserve-3d;
+          transform: rotateY(0deg) translateZ(0);
+          -webkit-transform: rotateY(0deg) translateZ(0);
           transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
         }
         .project-slide:hover .flip-card-inner {
-          transform: rotateY(180deg);
+          transform: rotateY(180deg) translateZ(0);
+          -webkit-transform: rotateY(180deg) translateZ(0);
         }
         .flip-front,
         .flip-back {
@@ -144,11 +142,14 @@ export default function ProjectSlider({ projects }) {
           height: 100%;
           backface-visibility: hidden;
           -webkit-backface-visibility: hidden;
+          transform: translateZ(0);
+          -webkit-transform: translateZ(0);
           border-radius: 14px;
           overflow: hidden;
         }
         .flip-back {
-          transform: rotateY(180deg);
+          transform: rotateY(180deg) translateZ(0);
+          -webkit-transform: rotateY(180deg) translateZ(0);
           background: linear-gradient(145deg, #0d2f24, #1a4a3a);
           display: flex;
           flex-direction: column;

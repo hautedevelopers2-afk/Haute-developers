@@ -46,7 +46,7 @@ export default function ExpresswayBlog() {
           Our Recent{" "}
           <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Blogs</em>
         </h2>
-        <Link href="/blogs" className="btn-outline" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+        <Link href="/blogs" className="er-blog-cta" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
           View All Articles <IconArrowRight size={14} />
         </Link>
       </div>
@@ -78,6 +78,32 @@ export default function ExpresswayBlog() {
           ))}
         </div>
       )}
+
+      <style jsx>{`
+        :global(.er-blog-cta) {
+          background: transparent;
+          color: var(--gold);
+          padding: 0.85rem 2rem;
+          font-family: var(--font-body);
+          font-size: 0.9rem;
+          font-weight: 600;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+          border: 1.5px solid var(--gold);
+          border-radius: var(--radius);
+          cursor: pointer;
+          transition: background 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            color 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+            box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        :global(.er-blog-cta:hover) {
+          background: var(--gold);
+          color: #fff;
+          transform: translateY(-2px);
+          box-shadow: var(--shadow-gold);
+        }
+      `}</style>
     </>
   );
 }

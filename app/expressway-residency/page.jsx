@@ -9,6 +9,7 @@ import WhatsAppButton from "../../components/WhatsAppButton";
 import ContactForm from "../../components/ContactForm";
 import ExpresswayFAQ from "../../components/ExpresswayFAQ";
 import ExpresswayBlog from "../../components/ExpresswayBlog";
+import ExpresswayHighlightItem from "../../components/ExpresswayHighlightItem";
 
 export const metadata = {
   title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway | Haute World Developers",
@@ -216,6 +217,8 @@ export default function ExpresswayResidencyPage() {
           into global styles.
       ══════════════════════════════════════════ */}
       <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&display=swap');
+
         /* ── Shared helpers ── */
         .er-section   { padding: 4.5rem 0; }
         .er-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
@@ -246,9 +249,62 @@ export default function ExpresswayResidencyPage() {
         .er-highlight-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(13,47,36,0.08); border: 1px solid rgba(13,47,36,0.08); margin-top: 2.5rem; }
         .er-highlight-item { background: var(--white); padding: 1.5rem 1.6rem; display: flex; gap: 1rem; align-items: flex-start; }
         .er-highlight-mark { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: #fff; display: flex; align-items: center; justify-content: center; }
-        .er-highlight-item h3 { font-family: var(--font-display); font-size: 1.02rem; font-weight: 600; color: var(--charcoal); margin: 0 0 0.35rem; }
+        .er-highlight-item h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 500; font-size: 1.08rem; margin: 0 0 0.4rem; color: var(--charcoal); -webkit-text-stroke: 0.4px currentColor; }
         .er-highlight-item p { margin: 0; font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
         @media (min-width: 768px) { .er-highlight-grid { grid-template-columns: 1fr 1fr; } }
+
+        /* ── Key Advantages card ── */
+        .er-adv-card {
+          position: relative;
+          background: linear-gradient(155deg, var(--forest-dark) 0%, var(--forest) 100%);
+          border-radius: 24px;
+          padding: 2.6rem 2.2rem;
+          overflow: hidden;
+          box-shadow: 0 24px 64px rgba(13,47,36,0.35), inset 0 1px 0 rgba(255,255,255,0.06);
+          border: 1px solid rgba(201,144,26,0.25);
+        }
+        .er-adv-card::before {
+          content: '';
+          position: absolute; top: -40%; right: -30%;
+          width: 70%; height: 70%;
+          background: radial-gradient(circle, rgba(201,144,26,0.22) 0%, transparent 70%);
+          pointer-events: none;
+        }
+        .er-adv-card::after {
+          content: '';
+          position: absolute; inset: 0;
+          background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.025) 0, rgba(255,255,255,0.025) 1px, transparent 0, transparent 50%);
+          background-size: 34px 34px;
+          pointer-events: none;
+        }
+        .er-adv-eyebrow {
+          position: relative; z-index: 1;
+          font-family: var(--font-body); font-size: 0.68rem; font-weight: 700;
+          letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-pale);
+          opacity: 0.85; margin-bottom: 0.6rem; display: block;
+        }
+        .er-adv-title {
+          position: relative; z-index: 1;
+          font-family: 'Playfair Display', Georgia, serif; font-style: italic; font-weight: 600;
+          font-size: 1.65rem; color: #fff; margin-bottom: 1.6rem;
+        }
+        .er-adv-list { position: relative; z-index: 1; display: flex; flex-direction: column; }
+        .er-adv-row {
+          display: flex; align-items: flex-start; gap: 1.1rem;
+          padding: 0.95rem 0; border-bottom: 1px solid rgba(255,255,255,0.09);
+          transition: padding-left 0.3s ease;
+        }
+        .er-adv-row:last-child { border-bottom: none; }
+        .er-adv-row:hover { padding-left: 0.4rem; }
+        .er-adv-num {
+          flex-shrink: 0; font-family: var(--font-display); font-weight: 700;
+          font-size: 1rem; color: var(--gold); min-width: 26px;
+          opacity: 0.9;
+        }
+        .er-adv-row p {
+          margin: 0; font-size: 0.92rem; color: rgba(255,255,255,0.88);
+          line-height: 1.6; font-weight: 500;
+        }
 
         /* ── Amenities — photo cards (3:2) ── */
         .er-amenity-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 3rem; }
@@ -280,7 +336,8 @@ export default function ExpresswayResidencyPage() {
         /* ── FAQ — full-bleed photo background, card floats on top ── */
         .er-faq-section { position: relative; overflow: hidden; padding: clamp(4rem, 8vw, 6rem) 0; }
         .er-faq-bg      { position: absolute; inset: 0; background-size: cover; background-position: center; }
-        .er-faq-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,47,36,0.94) 0%, rgba(13,47,36,0.88) 45%, rgba(13,47,36,0.4) 75%, rgba(13,47,36,0.15) 100%); }
+        .er-faq-video   { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+        .er-faq-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,47,36,0.55) 0%, rgba(13,47,36,0.35) 40%, rgba(13,47,36,0.12) 70%, rgba(13,47,36,0) 100%); }
         .er-faq-inner   { position: relative; z-index: 1; }
         .er-faq-heading { color: #fff; font-size: clamp(1.9rem, 4vw, 2.8rem); margin: 0.6rem 0 2.2rem; line-height: 1.15; }
 
@@ -292,7 +349,7 @@ export default function ExpresswayResidencyPage() {
         .er-faq-a    { padding: 0 1.5rem 1.35rem; font-size: 0.87rem; color: var(--gray); line-height: 1.75; }
 
         @media (max-width: 640px) {
-          .er-faq-overlay { background: rgba(13,47,36,0.9); }
+          .er-faq-overlay { background: linear-gradient(to bottom, rgba(13,47,36,0.55) 0%, rgba(13,47,36,0.72) 100%); }
         }
 
         /* ── Blog ── */
@@ -366,7 +423,7 @@ export default function ExpresswayResidencyPage() {
           .er-cta-btns a { text-align: center; justify-content: center; }
 
           /* Why invest box padding */
-          .er-why-box    { padding: 1.4rem !important; }
+          .er-adv-card   { padding: 1.8rem !important; }
 
           /* Prevent buttons from overflowing on mobile */
           .btn-primary, .btn-dark, .btn-outline {
@@ -382,6 +439,66 @@ export default function ExpresswayResidencyPage() {
         ══════════════════════════ */
         @media (max-width: 380px) {
           .er-highlights { grid-template-columns: 1fr; }
+        }
+
+        /* ── Hero: swap to mobile-specific image, fit fully without side-cropping ── */
+        @media (max-width: 768px) {
+          .hero-slide {
+            background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786341641/ER-Elev-Mobile-Night_osb3pb.webp') !important;
+            background-size: contain !important;
+            background-position: top center !important;
+            background-repeat: no-repeat !important;
+            background-color: var(--forest-dark);
+          }
+
+          .hero {
+            height: auto !important;
+            min-height: 0 !important;
+            aspect-ratio: 1 / 1.15;
+            align-items: flex-start !important;
+            padding-top: 78px !important;
+            padding-bottom: 1.2rem !important;
+          }
+
+          .hero-content--new {
+            padding-top: 0.3rem !important;
+            padding-bottom: 0 !important;
+          }
+
+          .hero-eyebrow {
+            font-size: 0.62rem !important;
+            margin-bottom: 0.4rem !important;
+          }
+
+          .hero-title {
+            font-size: 1.7rem !important;
+            line-height: 1.1 !important;
+          }
+
+          .hero-desc--stacked {
+            font-size: 12.5px !important;
+            line-height: 1.55 !important;
+            margin-top: 0.6rem !important;
+          }
+
+          .hero-col-btns {
+            width: 100% !important;
+            align-items: center !important;
+          }
+
+          .hero-col-btns .hero-actions {
+            width: 100% !important;
+            display: flex !important;
+            justify-content: center !important;
+            margin-top: -1.2rem !important;
+          }
+
+          .hero-btns button,
+          .hero-btns a,
+          .hero-col-btns .btn-primary {
+            padding: 12px 22px !important;
+            font-size: 13px !important;
+          }
         }
       `}</style>
 
@@ -505,13 +622,10 @@ export default function ExpresswayResidencyPage() {
               villas
             </p>
           </div>
-          <div className="hero-col-btns">
+          =<div className="hero-col-btns">
             <div className="hero-actions">
               <a href="#contact" className="btn-primary">
                 Book a Site Visit →
-              </a>
-              <a href="#contact" className="btn-outline">
-                Get Pricing Details
               </a>
             </div>
           </div>
@@ -612,13 +726,13 @@ export default function ExpresswayResidencyPage() {
 
           <div className="er-highlight-grid">
             {projectHighlights.map((h) => (
-              <div key={h.title} className="er-highlight-item">
+              <ExpresswayHighlightItem key={h.title}>
                 <span className="er-highlight-mark"><IconCheck size={13} /></span>
                 <div>
                   <h3>{h.title}</h3>
                   <p>{h.body}</p>
                 </div>
-              </div>
+              </ExpresswayHighlightItem>
             ))}
           </div>
         </div>
@@ -791,8 +905,8 @@ export default function ExpresswayResidencyPage() {
       >
         <div className="er-container">
           <div className="er-center">
-            <span className="section-label">Layout Overview</span>
-            <h2 id="masterplan-heading">Project Master Plan</h2>
+            <span className="section-label">Project Layout</span>
+            <h2 id="masterplan-heading">Expressway Residency Layout</h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p
               style={{
@@ -805,23 +919,6 @@ export default function ExpresswayResidencyPage() {
               future utility integration — with wide internal roads, green
               buffers, and dedicated amenity zones.
             </p>
-          </div>
-
-          <div className="er-glance">
-            {projectDetails.map((d) => (
-              <div key={d.label} className="er-glance-row">
-                <div className="er-glance-lbl">{d.label}</div>
-                <div className="er-glance-val">{d.value}</div>
-              </div>
-            ))}
-          </div>
-
-          <div style={{ display: "flex", alignItems: "center", gap: "1rem", margin: "3rem 0 2.5rem" }}>
-            <div style={{ flex: 1, height: "1px", background: "rgba(201,144,26,0.25)" }} />
-            <span style={{ fontFamily: "var(--font-body)", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", color: "var(--gold)" }}>
-              Site Layout
-            </span>
-            <div style={{ flex: 1, height: "1px", background: "rgba(201,144,26,0.25)" }} />
           </div>
 
           <div>
@@ -978,69 +1075,14 @@ export default function ExpresswayResidencyPage() {
             </div>
 
             <div>
-              <div
-                className="er-why-box"
-                style={{
-                  background: "var(--white)",
-                  border: "1px solid rgba(201,144,26,0.2)",
-                  borderRadius: "20px",
-                  padding: "2.2rem",
-                  boxShadow: "0 8px 40px rgba(26,74,58,0.08)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontFamily: "var(--font-display)",
-                    fontSize: "1.3rem",
-                    fontWeight: 600,
-                    color: "var(--charcoal)",
-                    marginBottom: "1.4rem",
-                  }}
-                >
-                  Key Advantages
-                </h3>
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.9rem",
-                  }}
-                >
-                  {advantages.map((a) => (
-                    <div
-                      key={a}
-                      style={{
-                        display: "flex",
-                        alignItems: "flex-start",
-                        gap: "0.8rem",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "28px",
-                          height: "28px",
-                          background: "var(--forest)",
-                          borderRadius: "8px",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          flexShrink: 0,
-                          marginTop: "0.05rem",
-                        }}
-                      >
-                        <IconCheck size={14} color="white" />
-                      </div>
-                      <p
-                        style={{
-                          margin: 0,
-                          fontSize: "0.9rem",
-                          color: "var(--charcoal)",
-                          lineHeight: 1.65,
-                          fontWeight: 500,
-                        }}
-                      >
-                        {a}
-                      </p>
+              <div className="er-adv-card">
+                <span className="er-adv-eyebrow">Why Choose Us</span>
+                <h3 className="er-adv-title">Key Advantages</h3>
+                <div className="er-adv-list">
+                  {advantages.map((a, i) => (
+                    <div key={a} className="er-adv-row">
+                      <span className="er-adv-num">{String(i + 1).padStart(2, "0")}</span>
+                      <p>{a}</p>
                     </div>
                   ))}
                 </div>
@@ -1068,9 +1110,13 @@ export default function ExpresswayResidencyPage() {
           FAQ
       ══════════════════════════════════════════ */}
       <section id="faq" className="er-faq-section" aria-labelledby="faq-heading">
-        <div
-          className="er-faq-bg"
-          style={{ backgroundImage: "url('/assets/expressway-front.png')" }}
+        <video
+          className="er-faq-video"
+          src="https://res.cloudinary.com/dpbitfczf/video/upload/v1786351870/DME-_Drone_View_rgbp0s.mp4"
+          autoPlay
+          muted
+          loop
+          playsInline
           aria-hidden="true"
         />
         <div className="er-faq-overlay" aria-hidden="true" />
@@ -1078,7 +1124,7 @@ export default function ExpresswayResidencyPage() {
           <span className="section-label" style={{ color: "var(--gold)" }}>Got Questions?</span>
           <h2 id="faq-heading" className="er-faq-heading">
             Frequently Asked{" "}
-            <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Questions</em>
+            <em style={{ color: "#fff", fontStyle: "italic" }}>Questions</em>
           </h2>
 
           <ExpresswayFAQ />

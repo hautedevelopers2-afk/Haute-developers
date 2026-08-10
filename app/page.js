@@ -666,20 +666,6 @@ export default function Home() {
               <article className="project-card" key={p.name}>
                 <div className="project-card-img">
                   <img src={p.image} alt={p.name} />
-                  <div className="project-card-img-overlay" />
-                  <span className="project-location-badge">{p.location}</span>
-                  {/*
-                    status-delivered = green (reusing existing CSS)
-                    status-upcoming  = amber (existing CSS)
-                  */}
-                  <span
-                    className={`project-status-badge ${p.status === "Ongoing" ? "status-delivered" : "status-upcoming"}`}
-                  >
-                    {p.status}
-                  </span>
-                  <div className="project-card-title-overlay">
-                    <h3>{p.name}</h3>
-                  </div>
                 </div>
                 <div className="project-card-body">
                   <p>{p.desc}</p>
