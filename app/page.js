@@ -102,7 +102,6 @@ const upcomingProjects = [
   {
     name: "Expressway Residency",
     location: "Ghaziabad",
-    status: "upcoming",
     href: "/expressway-residency",
     desc: "Delhi NCR's first AI-enabled township on the Delhi–Meerut Expressway...",
     image: "/assets/expressway.png",
@@ -110,7 +109,6 @@ const upcomingProjects = [
   {
     name: "Haute world City",
     location: "Dholera",
-    status: "Upcoming",
     href: "/haute-world-city",
     desc: "A landmark investment opportunity in Dholera Smart City...",
     image: "/assets/dholera.png",
@@ -118,7 +116,6 @@ const upcomingProjects = [
   {
     name: "Haute Pearl Residency",
     location: "Vrindavan",
-    status: "Upcoming",
     href: "/haute-residency",
     desc: "A serene residential retreat in the sacred city of Vrindavan...",
     image: "/assets/vrindavan.png",
@@ -126,7 +123,6 @@ const upcomingProjects = [
   {
     name: "Haute Eden Valley",
     location: "Jaipur",
-    status: "Upcoming",
     href: "/haute-eden-valley",
     desc: "A theme-based luxury hill farm estate on the Delhi–Jaipur Highway...",
     image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786180137/Haute-eden-valley_2_1_tsk3b2.webp",
@@ -144,6 +140,7 @@ export default function Home() {
           <div className="hero-slide hero-slide--1" />
           <div className="hero-slide hero-slide--2" />
           <div className="hero-slide hero-slide--3" />
+          <div className="hero-slide hero-slide--4" />
         </div>
         <div className="hero-img-overlay" aria-hidden="true" />
         <div className="hero-bottom-shadow" aria-hidden="true" />
@@ -668,6 +665,28 @@ export default function Home() {
                   <img src={p.image} alt={p.name} />
                 </div>
                 <div className="project-card-body">
+                  <div
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "space-between",
+                      gap: "0.75rem",
+                      marginBottom: "0.6rem",
+                    }}
+                  >
+                    <h3
+                      style={{
+                        fontFamily: "var(--font-display)",
+                        fontSize: "1.15rem",
+                        fontWeight: 600,
+                        color: "var(--charcoal)",
+                        margin: 0,
+                        lineHeight: 1.3,
+                      }}
+                    >
+                      {p.name}
+                    </h3>
+                  </div>
                   <p>{p.desc}</p>
                   <div className="project-card-footer">
                     <a href={p.href} className="project-detail-btn">
@@ -905,355 +924,49 @@ export default function Home() {
       {/* ── TESTIMONIALS ── */}
       <TestimonialsSection />
 
-      {/* ── CONTACT + MAP ── */}
+      {/* ── CONTACT + MAP (Register Now, same style as Expressway) ── */}
       <section
         id="contact"
+        className="er-section"
         aria-labelledby="contact-heading"
-        style={{
-          background: "var(--cream)",
-          padding: "5rem 0",
-          position: "relative",
-          overflow: "hidden",
-        }}
+        style={{ background: "var(--white)" }}
       >
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage:
-              "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)",
-            backgroundSize: "40px 40px",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            top: "-120px",
-            right: "-120px",
-            width: "500px",
-            height: "500px",
-            background:
-              "radial-gradient(circle, rgba(201,144,26,0.13) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-        <div
-          aria-hidden="true"
-          style={{
-            position: "absolute",
-            bottom: "-100px",
-            left: "-100px",
-            width: "400px",
-            height: "400px",
-            background:
-              "radial-gradient(circle, rgba(201,144,26,0.09) 0%, transparent 70%)",
-            pointerEvents: "none",
-          }}
-        />
-
-        <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div
-            style={{
-              textAlign: "center",
-              maxWidth: 600,
-              margin: "0 auto 3rem",
-            }}
-          >
+        <div className="er-container">
+          <div className="er-center" style={{ maxWidth: 640 }}>
             <span className="section-label" style={{ color: "var(--gold)" }}>
-              Get In Touch
+              Limited Inventory — Register Now
             </span>
-            <h2 id="contact-heading" style={{ color: "var(--charcoal)" }}>
-              Let's Find Your{" "}
+            <h2 id="contact-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}>
+              Ready to Invest with{" "}
               <em style={{ color: "var(--gold)", fontStyle: "italic" }}>
-                Perfect Home
+                Haute World Developers?
               </em>
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
-            <p style={{ color: "var(--gray)", fontSize: "0.95rem" }}>
-              Visit us, call us, or fill in the form — our team is ready to
-              guide you every step of the way.
+            <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.8 }}>
+              Speak to our team for pricing details, payment plans, and to
+              schedule your complimentary site visit. Or call us directly at{" "}
+              <a
+                href="tel:+918383073291"
+                style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}
+              >
+                +91 83830 73291
+              </a>
+              .
             </p>
           </div>
 
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr 1fr",
-              gap: "2rem",
-              alignItems: "start",
-            }}
-          >
-            {/* LEFT col */}
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "1.5rem",
-              }}
-            >
-              {/* Map */}
-              <div
-                style={{
-                  borderRadius: "20px",
-                  overflow: "hidden",
-                  boxShadow:
-                    "0 8px 32px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.25)",
-                  position: "relative",
-                  height: "300px",
-                }}
-              >
-                <div/>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.3!2d77.3793752!3d28.6245126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef7d9d90e765%3A0x6fb20d3fc097c88!2sHaute%20Developers!5e0!3m2!1sen!2sin!4v1700000000000"
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title="Haute World Developers Corporate Office Location"
-                  style={{
-                    width: "100%",
-                    height: "100%",
-                    border: 0,
-                    display: "block",
-                    filter: "saturate(0.8) contrast(1.05)",
-                  }}
-                />
-              </div>
-
-              {/* BOX 1 — both addresses */}
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.05)",
-                  border: "1px solid rgba(201,144,26,0.25)",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Corporate */}
-                <div
-                  style={{
-                    padding: "1.4rem 1.6rem",
-                    position: "relative",
-                    borderBottom: "1px solid rgba(201,144,26,0.15)",
-                  }}
-                >
-                  <div
-                    style={{
-                      position: "absolute",
-                      top: 0,
-                      left: 0,
-                      bottom: 0,
-                      width: "3px",
-                      background:
-                        "linear-gradient(to bottom, var(--gold), rgba(201,144,26,0.2))",
-                    }}
-                  />
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "flex-start",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        flexShrink: 0,
-                        background: "rgba(201,144,26,0.12)",
-                        border: "1px solid rgba(201,144,26,0.3)",
-                        borderRadius: "10px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <IconMapPin size={18} color="var(--gold)" />
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: "0.6rem",
-                          fontWeight: 700,
-                          letterSpacing: "0.18em",
-                          textTransform: "uppercase",
-                          color: "var(--gold)",
-                          marginBottom: "0.3rem",
-                        }}
-                      >
-                        Corporate Office
-                      </div>
-                      <div
-                        style={{
-                          fontSize: "0.88rem",
-                          color: "var(--charcoal)",
-                          fontWeight: 600,
-                          lineHeight: 1.4,
-                        }}
-                      >
-                        Ground Floor, H-214, Sector 63
-                      </div>
-                      <div
-                        style={{
-                          fontSize: "0.82rem",
-                          color: "var(--gray)",
-                          lineHeight: 1.5,
-                        }}
-                      >
-                        Noida, Uttar Pradesh 201301
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* BOX 2 — phone & email, CSS-only hover via .contact-link class */}
-              <div
-                style={{
-                  background: "rgba(255,255,255,0.04)",
-                  border: "1px solid rgba(201,144,26,0.2)",
-                  borderRadius: "16px",
-                  overflow: "hidden",
-                }}
-              >
-                {/* Phone row */}
-                <div
-                  style={{
-                    padding: "1.2rem 1.6rem",
-                    borderBottom: "1px solid rgba(201,144,26,0.12)",
-                  }}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        flexShrink: 0,
-                        background: "rgba(201,144,26,0.08)",
-                        border: "1px solid rgba(201,144,26,0.25)",
-                        borderRadius: "10px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <IconPhone size={17} color="var(--gold)" />
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: "0.6rem",
-                          fontWeight: 700,
-                          letterSpacing: "0.16em",
-                          textTransform: "uppercase",
-                          color: "rgba(201,144,26,0.7)",
-                          marginBottom: "0.2rem",
-                        }}
-                      >
-                        Phone
-                      </div>
-                      <a href="tel:+918383073291" className="contact-link">
-                        +91 83830 73291
-                      </a>
-                    </div>
-                  </div>
-                </div>
-                {/* Email row */}
-                <div style={{ padding: "1.2rem 1.6rem" }}>
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "1rem",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "40px",
-                        height: "40px",
-                        flexShrink: 0,
-                        background: "rgba(201,144,26,0.1)",
-                        border: "1px solid rgba(201,144,26,0.25)",
-                        borderRadius: "10px",
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                      }}
-                    >
-                      <IconMail size={17} color="var(--gold)" />
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: "0.6rem",
-                          fontWeight: 700,
-                          letterSpacing: "0.16em",
-                          textTransform: "uppercase",
-                          color: "rgba(201,144,26,0.7)",
-                          marginBottom: "0.2rem",
-                        }}
-                      >
-                        Email
-                      </div>
-                      <a
-                        href="mailto:support@hautedevelopers.com"
-                        className="contact-link"
-                      >
-                        support@hautedevelopers.com
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Get Directions */}
-              <a
-                href="https://maps.google.com/?q=Haute+Developers+Sector+63+Noida"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.6rem",
-                  background:
-                    "linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%)",
-                  color: "var(--forest-dark)",
-                  padding: "0.9rem 1.5rem",
-                  borderRadius: "12px",
-                  fontSize: "0.8rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.08em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  boxShadow: "0 4px 20px rgba(201,144,26,0.3)",
-                }}
-              >
-                <span>Get Directions</span>
-                <svg
-                  width="15"
-                  height="15"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg>
-              </a>
+          <div className="er-contact-wrap" style={{ marginTop: "3rem" }}>
+            <div className="er-contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3502.3!2d77.3793752!3d28.6245126!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cef7d9d90e765%3A0x6fb20d3fc097c88!2sHaute%20Developers!5e0!3m2!1sen!2sin!4v1700000000000"
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Haute World Developers Corporate Office Location — Sector 63, Noida"
+              />
             </div>
-
-            {/* RIGHT col */}
-            <div>
+            <div className="er-contact-form-panel">
               <ContactForm darkMode={false} />
             </div>
           </div>

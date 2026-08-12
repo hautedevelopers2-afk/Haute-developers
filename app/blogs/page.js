@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Navbar from '../../components/Navbar'
+import Footer from '../../components/Footer'
 import './blogs.css'
 
 const CATEGORIES = ['All', 'Real Estate', 'Investment', 'Market Trends', 'Lifestyle', 'News', 'Tips & Advice']
@@ -261,6 +262,7 @@ export default function BlogsPage() {
           </aside>
         </div>
       </div>
+      <Footer />
     </>
   )
 }

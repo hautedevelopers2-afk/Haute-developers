@@ -185,15 +185,21 @@ section { padding: 6rem 0; }
 }
 
 .hero-slide--2 { 
-  background-image: url('/assets/hgc-right.png'); 
+  background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786180137/Haute-eden-valley_2_1_tsk3b2.webp'); 
   background-position: center top;
   animation-delay: 3s; 
 }
 
 .hero-slide--3 { 
-  background-image: url('/assets/dholera.png'); 
+  background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786515693/HWC-Elevation_pllrt9.webp'); 
   background-position: center top;
   animation-delay: 6s; 
+}
+
+.hero-slide--4 { 
+  background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786515101/Haute_City_1st_Avenue_1_pqk33t.webp'); 
+  background-position: center top;
+  animation-delay: 9s; 
 }
 
 @keyframes heroSlide {
@@ -310,7 +316,7 @@ section { padding: 6rem 0; }
 .stats-strip-inner { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; display: flex; align-items: stretch; }
 .stats-strip-item { display: flex; align-items: center; justify-content: center; flex: 1; padding: 2.8rem 0; }
 .stats-strip-divider { width: 1px; height: 64px; background: rgba(0,0,0,0.1); margin-right: 3rem; flex-shrink: 0; align-self: center; }
-.stats-strip-inner-cell { display: flex; flex-direction: column; gap: 0.4rem; }
+.stats-strip-inner-cell { display: flex; flex-direction: column; gap: 0.4rem; align-items: center; text-align: center; }
 .stats-strip-num { font-family: var(--font-number); font-size: clamp(2rem,3.2vw,3rem); font-weight: 600; color: var(--charcoal); line-height: 1; }
 .stats-strip-label { font-family: var(--font-body); font-size: 0.8rem; color: var(--gray); letter-spacing: 0.04em; }
 
@@ -814,6 +820,10 @@ section { padding: 6rem 0; }
     background-position: center 15% !important;
   }
 
+  .hero-slide--4 {
+    background-position: center 15% !important;
+  }
+
   .hero {
     align-items: flex-end;
     min-height: 85vh;
@@ -836,7 +846,7 @@ section { padding: 6rem 0; }
   .footer-grid { grid-template-columns: 1fr; }
   .careers-perks-grid { grid-template-columns: 1fr; }
   .careers-role-meta { flex-direction: column; gap: 0.4rem; }
-  .stats-strip-item { flex: 0 0 100%; }
+  .stats-strip-item { flex: 0 0 50%; padding: 1.4rem 0; }
 }
 
 /* .nav-logo img {
@@ -967,4 +977,28 @@ section { padding: 6rem 0; }
   .careers-role-card::before {
     transform: none !important;
   }
+}
+
+/* ═══════════════════════════════════════════
+   CONTACT SECTION (shared with Expressway Residency page)
+═══════════════════════════════════════════ */
+.er-section   { padding: 4.5rem 0; }
+.er-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
+.er-center    { text-align: center; max-width: 580px; margin: 0 auto 3rem; }
+
+.er-contact-wrap { border: 1px solid rgba(201,144,26,0.2); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1fr; box-shadow: 0 8px 40px rgba(26,74,58,0.08); }
+.er-contact-map  { position: relative; min-height: 340px; background: var(--cream); }
+.er-contact-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: saturate(0.85) contrast(1.05); }
+.er-contact-form-panel { background: var(--white); padding: 2.2rem 1.5rem; }
+.er-contact-form-panel .contact-form-card {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+@media (min-width: 992px) {
+  .er-contact-wrap { grid-template-columns: 1fr 1fr; }
+  .er-contact-map { min-height: 100%; }
+  .er-contact-form-panel { padding: 3rem; }
 }
