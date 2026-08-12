@@ -1,4 +1,5 @@
 import Navbar from "../../components/Navbar";
+import PopupLeadModal from "../../components/PopupLeadModal";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import Link from "next/link";
@@ -67,6 +68,7 @@ export default function HauteResidency() {
   return (
     <>
       <Navbar />
+      <PopupLeadModal pageName="Haute Pearl Residency" />
 
       <style suppressHydrationWarning>{`
         .hr-about-grid {

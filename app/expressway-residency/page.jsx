@@ -1,6 +1,7 @@
 // Place this file at: src/app/expressway-residency/page.jsx
 
 import Navbar from "../../components/Navbar";
+import PopupLeadModal from "../../components/PopupLeadModal";
 import SitePlanLightbox from "../../components/SitePlanLightbox";
 import GallerySlider from "../../components/GallerySlider";
 import ExpresswayAmenities from "../../components/ExpresswayAmenities";
@@ -182,13 +183,13 @@ const layoutHighlights = [
 
 const proximityBullets = [
   "Close to NH-24, Delhi-Hapur Expressway",
-  "5 Minutes from Lalkuan Ghaziabad",
-  "20 Minutes from Sector 62 Noida",
+  "7 Minutes from Lalkuan Ghaziabad",
+  "15 Minutes from Sector 62 Noida",
   "25 Minutes from Akshardham Metro Station",
   "15 Minutes from Ghaziabad Railway Station",
-  "45 Minutes from Jewar International Airport",
-  "10 Minutes from Bhojpur Industrial Area",
-  "30 Minutes from Indirapuram, Ghaziabad",
+  "7 Minutes from Bhojpur Industrial Area",
+  "15 Minutes from Indirapuram, Ghaziabad",
+  "30 Minutes from Hindon Airport"
 ];
 
 // ── Project Highlights ── shown right after About
@@ -210,6 +211,7 @@ export default function ExpresswayResidencyPage() {
   return (
     <>
       <Navbar />
+      <PopupLeadModal pageName="Expressway Residency" />
 
       {/* ══════════════════════════════════════════
           RESPONSIVE STYLES

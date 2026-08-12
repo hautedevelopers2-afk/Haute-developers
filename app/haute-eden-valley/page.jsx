@@ -7,6 +7,7 @@ import Link from "next/link";
 // to this file (e.g. if this page is at src/app/page.jsx, "../components/Navbar"
 // is correct; if it's nested one level deeper, use "../../components/Navbar").
 import Navbar from "../../components/Navbar";
+import PopupLeadModal from "../../components/PopupLeadModal";
 import Footer from "../../components/Footer";
 import ContactForm from "../../components/ContactForm";
 
@@ -760,6 +761,7 @@ export default function Home() {
       />
 
       <Navbar />
+      <PopupLeadModal pageName="Haute Eden Valley" />
 
       <div className="wc-page">
         {/* ══════════════ HERO ══════════════ */}

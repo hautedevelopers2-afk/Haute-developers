@@ -175,7 +175,7 @@ section { padding: 6rem 0; }
   background-position: center;
   background-repeat: no-repeat;
   opacity: 0;
-  animation: heroSlide 9s infinite;
+  animation: heroSlide 15s infinite;
   will-change: opacity;
 }
 .hero-slide--1 { 
@@ -200,6 +200,12 @@ section { padding: 6rem 0; }
   background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786515101/Haute_City_1st_Avenue_1_pqk33t.webp'); 
   background-position: center top;
   animation-delay: 9s; 
+}
+
+.hero-slide--5 { 
+  background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786525346/Haute-Pearl-Elevation_ssdin4.webp'); 
+  background-position: center 30%;
+  animation-delay: 12s; 
 }
 
 @keyframes heroSlide {
@@ -733,6 +739,8 @@ section { padding: 6rem 0; }
 .careers-cta-inner .btn-primary { flex-shrink: 0; position: relative; z-index: 1; }
 
 /* ── Responsive ── */
+
+
 @media (min-width: 901px) {
   .hero-content--new { position: relative !important; }
 
@@ -772,10 +780,19 @@ section { padding: 6rem 0; }
 
 @media (max-width: 768px) {
   section { padding: 4rem 0; }
-  .hero-content--new { grid-template-columns: 1fr; padding-top: 45vh; gap: 1.4rem; }
+  .hero-content--new {
+    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    gap: 1.2rem;
+    max-width: 560px;
+  }
+  .hero-col-title { align-items: flex-start; text-align: left; }
   .hero-col-btns { align-items: flex-start; }
-  .hero-col-btns .hero-actions { flex-direction: row; flex-wrap: wrap; }
-  .hero-desc--stacked { max-width: 100%; }
+  .hero-col-btns .hero-actions { flex-direction: row; flex-wrap: wrap; justify-content: flex-start; }
+  .hero-desc--stacked { max-width: 100%; text-align: left; }
   .nav-links { display: none; }
   .nav-mobile-toggle { display: flex; }
   .about-grid { grid-template-columns: 1fr; }
@@ -787,6 +804,14 @@ section { padding: 6rem 0; }
   .expressway-inner { grid-template-columns: 1fr; }
   .expressway-content { padding: 2.5rem; }
   .expressway-visual { padding: 2rem; }
+.expressway-feature-img-wrap {
+    height: auto !important;
+    aspect-ratio: 4 / 3;
+  }
+  .expressway-feature-img {
+    object-fit: cover !important;
+    object-position: center 30% !important;
+  }
   .contact-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
@@ -824,20 +849,19 @@ section { padding: 6rem 0; }
     background-position: center 15% !important;
   }
 
+  .hero-slide--5 {
+    background-position: center 15% !important;
+  }
+
   .hero {
     align-items: flex-end;
     min-height: 85vh;
   }
 
   .hero-content--new {
-    grid-template-columns: 1fr;
-    padding-top: 40vh;
-    padding-bottom: 2rem;
+    padding-top: 0;
+    padding-bottom: 3rem;
     margin-top: auto;
-  }
-
-  .hero-col-btns {
-    align-items: flex-start;
   }
 }
 

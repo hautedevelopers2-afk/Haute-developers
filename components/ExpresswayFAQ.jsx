@@ -20,7 +20,7 @@ const faqs = [
   },
   {
     q: "How well connected is the project to Delhi and Noida?",
-    a: "The project is close to NH-24, about 20 minutes from Sector 62 Noida, 25 minutes from Akshardham Metro Station, 15 minutes from Ghaziabad Railway Station, and 45 minutes from Jewar International Airport.",
+    a: "The project is close to NH-24, about 15 Minutes from Sector 62 Noida, 25 minutes from Akshardham Metro Station, 15 minutes from Ghaziabad Railway Station, and 45 minutes from Jewar International Airport.",
   },
   {
     q: "What amenities are planned at Expressway Residency?",

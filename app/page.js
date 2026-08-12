@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import Navbar from "../components/Navbar";
+import PopupLeadModal from "../components/PopupLeadModal";
 import Footer from "../components/Footer";
 import WhatsAppButton from "../components/WhatsAppButton";
 import ContactForm from "../components/ContactForm";
@@ -133,6 +134,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <PopupLeadModal pageName="Home" />
 
       {/* ── HERO ── */}
       <section className="hero" aria-label="Hero section" style={{ overflow: "visible" }}>
@@ -141,6 +143,7 @@ export default function Home() {
           <div className="hero-slide hero-slide--2" />
           <div className="hero-slide hero-slide--3" />
           <div className="hero-slide hero-slide--4" />
+          <div className="hero-slide hero-slide--5" />
         </div>
         <div className="hero-img-overlay" aria-hidden="true" />
         <div className="hero-bottom-shadow" aria-hidden="true" />
@@ -734,6 +737,7 @@ export default function Home() {
             }}
           >
             <div
+              className="expressway-feature-img-wrap"
               style={{
                 position: "relative",
                 height: "420px",
@@ -743,6 +747,7 @@ export default function Home() {
               <img
                 src="/assets/expressway-front.png"
                 alt="Expressway Residency — Delhi NCR's first AI-enabled township in Ghaziabad"
+                className="expressway-feature-img"
                 style={{
                   width: "100%",
                   height: "100%",
@@ -880,6 +885,9 @@ export default function Home() {
                     >
                       <span
                         style={{
+                          display: "inline-flex",
+                          alignItems: "center",
+                          gap: "0.3rem",
                           fontFamily: "var(--font-number)",
                           fontSize: "1.4rem",
                           fontWeight: 700,
@@ -891,9 +899,9 @@ export default function Home() {
                           end={s.num}
                           suffix={s.suffix}
                           duration={2000}
-                        />{" "}
+                        />
                         <small
-                          style={{ fontSize: "0.9rem", color: "var(--gold)" }}
+                          style={{ fontSize: "0.9rem", color: "var(--gold)", lineHeight: 1 }}
                         >
                           {s.unit}
                         </small>
