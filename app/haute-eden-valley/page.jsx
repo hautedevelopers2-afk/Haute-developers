@@ -761,7 +761,7 @@ export default function Home() {
       />
 
       <Navbar />
-      <PopupLeadModal pageName="Haute Eden Valley" />
+      <PopupLeadModal pageName="Haute Eden Valley" projectName="Haute Eden Valley, Shahpura" />
 
       <div className="wc-page">
         {/* ══════════════ HERO ══════════════ */}

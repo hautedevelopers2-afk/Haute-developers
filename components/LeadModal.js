@@ -1,10 +1,10 @@
 'use client'
 import { useState, useEffect } from 'react'
 
-const WEB3FORMS_ACCESS_KEY = 'ff40f076-e0bd-4853-ba94-e43a82886ce3'
+const WEB3FORMS_ACCESS_KEY = 'b8b6f2a1-68cd-4728-b1f9-b03aaf615900'
 const plotSizes = ['100 Sq. Yd.', '150 Sq. Yd.', '200 Sq. Yd.', '300 Sq. Yd.', 'Custom / Not Sure Yet']
 
-export default function LeadModal({ isOpen, onClose, triggerText = '', inline = false }) {
+export default function LeadModal({ isOpen, onClose, triggerText = '', inline = false, projectName = 'General Inquiry' }) {
   const [form, setForm] = useState({ name: '', email: '', mobile: '', plotSize: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -45,14 +45,10 @@ export default function LeadModal({ isOpen, onClose, triggerText = '', inline = 
     try {
       const payload = {
         access_key: WEB3FORMS_ACCESS_KEY,
-        subject: `New Lead – Expressway Residency | ${triggerText || 'Website Enquiry'}`,
-        from_name: 'Expressway Residency Website',
         name: form.name,
-        mobile: form.mobile,
-        email: form.email || 'Not provided',
-        plot_size_interest: form.plotSize,
-        message: form.message || 'No message provided',
-        source: triggerText || 'Lead Modal',
+        phone: form.mobile,
+        email: form.email,
+        project: projectName,
       }
 
       const res = await fetch('https://api.web3forms.com/submit', {

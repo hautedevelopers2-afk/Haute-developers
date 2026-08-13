@@ -240,7 +240,7 @@ export default function HauteGrandCity() {
           {/* CTA Buttons */}
           <div className="hgc-cta-row" style={{ marginTop: "0.5rem" }}>
             <Link href="/#contact" className="btn-primary">Register Your Interest →</Link>
-            <a href="tel:+918383073291" className="btn-outline">Call Us Now</a>
+            <a href="tel:+919911807193" className="btn-outline">Call Us Now</a>
           </div>
 
           {/* Stat pills */}
@@ -367,7 +367,7 @@ export default function HauteGrandCity() {
 
             <div className="hgc-cta-row">
               <Link href="/#contact" className="btn-primary">Register Interest →</Link>
-              <a href="tel:+918383073291" className="btn-outline">+91 83830 73291</a>
+              <a href="tel:+919911807193" className="btn-outline">+91 99118 07193</a>
             </div>
 
             <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>

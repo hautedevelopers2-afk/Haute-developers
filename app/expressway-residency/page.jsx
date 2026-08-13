@@ -211,7 +211,7 @@ export default function ExpresswayResidencyPage() {
   return (
     <>
       <Navbar />
-      <PopupLeadModal pageName="Expressway Residency" />
+      <PopupLeadModal pageName="Expressway Residency" projectName="Expressway Residency, Ghaziabad" />
 
       {/* ══════════════════════════════════════════
           RESPONSIVE STYLES
@@ -624,7 +624,7 @@ export default function ExpresswayResidencyPage() {
               villas
             </p>
           </div>
-          =<div className="hero-col-btns">
+          <div className="hero-col-btns">
             <div className="hero-actions">
               <a href="#contact" className="btn-primary">
                 Book a Site Visit →
@@ -1167,10 +1167,10 @@ export default function ExpresswayResidencyPage() {
               Speak to our team for pricing details, payment plans, and to
               schedule your complimentary site visit. Or call us directly at{" "}
               <a
-                href="tel:+918383073291"
+                href="tel:+919911807193"
                 style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}
               >
-                +91 83830 73291
+                +91 99118 07193
               </a>
               .
             </p>

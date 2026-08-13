@@ -2,36 +2,13 @@
 
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import PopupLeadModal from "../../components/PopupLeadModal";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
-
-// export const metadata = {
-//   title: "Haute World City – Premium Plots in Dholera Smart City | Haute World Developers",
-//   description:
-//     "Invest in Haute World City — Haute World Developers' landmark residential township in Dholera Smart City (SIR), Gujarat. Freehold plotted units in India's first greenfield smart city on the Delhi–Mumbai Industrial Corridor. Book your plot today.",
-//   keywords:
-//     "Haute World City Dholera, Dholera Smart City plots, Dholera SIR investment, DMIC plots Gujarat, residential plots Dholera, Haute World Developers Dholera, Dholera greenfield smart city, freehold plots Gujarat",
-//   alternates: { canonical: "https://www.hautedevelopers.com/haute-world-city" },
-//   openGraph: {
-//     title: "Haute World City – Premium Plots in Dholera Smart City",
-//     description:
-//       "India's first greenfield smart city. Freehold residential plots by Haute World Developers in Dholera SIR, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
-//     url: "https://www.hautedevelopers.com/haute-world-city",
-//     siteName: "Haute World Developers",
-//     images: [
-//       {
-//         url: "/assets/dholera.png",
-//         width: 1200,
-//         height: 630,
-//         alt: "Haute World City — Dholera Smart City aerial view",
-//       },
-//     ],
-//     type: "website",
-//   },
-// };
+import ContactForm from "../../components/ContactForm";
+import ExpresswayBlog from "../../components/ExpresswayBlog";
 
 /* ─────────────────────────────────────────
    SVG ICON COMPONENTS
@@ -46,7 +23,6 @@ const IconBriefcase = ({ size = 22, color = "currentColor" }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
     <rect x="2" y="7" width="20" height="14" rx="2"/>
     <path d="M16 7V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v2"/>
-    <line x1="12" y1="12" x2="12" y2="12"/>
     <path d="M2 12h20"/>
   </svg>
 );
@@ -180,6 +156,17 @@ const IconShop = ({ size = 22, color = "currentColor" }) => (
     <line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/>
   </svg>
 );
+const IconArrowRight = ({ size = 16, color = "currentColor" }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+  </svg>
+);
+const IconPlusMinus = ({ size = 18, color = "currentColor", isOpen = false }) => (
+  <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <line x1="5" y1="12" x2="19" y2="12"/>
+    {!isOpen && <line x1="12" y1="5" x2="12" y2="19"/>}
+  </svg>
+);
 
 /* ─────────────────────────────────────────
    LIGHTBOX COMPONENT
@@ -189,40 +176,22 @@ function Lightbox({ src, alt, onClose }) {
     <div
       onClick={onClose}
       style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 9999,
-        background: "rgba(0,0,0,0.88)",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "2rem",
-        cursor: "zoom-out",
+        position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.88)",
+        display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem", cursor: "zoom-out",
       }}
       role="dialog"
       aria-modal="true"
-      aria-label="Location map fullscreen view"
+      aria-label="Fullscreen image view"
     >
       <button
         onClick={onClose}
         style={{
-          position: "absolute",
-          top: "1.2rem",
-          right: "1.2rem",
-          background: "rgba(255,255,255,0.1)",
-          border: "1px solid rgba(255,255,255,0.25)",
-          borderRadius: "50%",
-          width: "44px",
-          height: "44px",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          cursor: "pointer",
-          color: "#fff",
-          fontSize: "1.3rem",
-          lineHeight: 1,
+          position: "absolute", top: "1.2rem", right: "1.2rem", background: "rgba(255,255,255,0.1)",
+          border: "1px solid rgba(255,255,255,0.25)", borderRadius: "50%", width: "44px", height: "44px",
+          display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff",
+          fontSize: "1.3rem", lineHeight: 1,
         }}
-        aria-label="Close fullscreen map"
+        aria-label="Close fullscreen view"
       >
         ✕
       </button>
@@ -231,14 +200,60 @@ function Lightbox({ src, alt, onClose }) {
         alt={alt}
         onClick={(e) => e.stopPropagation()}
         style={{
-          maxWidth: "90vw",
-          maxHeight: "85vh",
-          objectFit: "contain",
-          borderRadius: "12px",
-          boxShadow: "0 24px 80px rgba(0,0,0,0.6)",
-          cursor: "default",
+          maxWidth: "90vw", maxHeight: "85vh", objectFit: "contain", borderRadius: "12px",
+          boxShadow: "0 24px 80px rgba(0,0,0,0.6)", cursor: "default",
         }}
       />
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────
+   REVEAL-ON-SCROLL WRAPPER
+───────────────────────────────────────── */
+function RevealItem({ className = "", style = {}, children }) {
+  const ref = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setInView(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0, rootMargin: "0px 0px -10% 0px" }
+    );
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={ref} className={`${className} hwc-block-anim${inView ? " hwc-inview-item" : ""}`} style={style}>
+      {children}
+    </div>
+  );
+}
+
+/* ─────────────────────────────────────────
+   FAQ ROW
+───────────────────────────────────────── */
+function FaqRow({ q, a, isOpen, onToggle }) {
+  return (
+    <div className="hwc-faq-row">
+      <button onClick={onToggle} className="hwc-faq-btn" aria-expanded={isOpen}>
+        <span className="hwc-faq-q">{q}</span>
+        <span style={{ flexShrink: 0, color: "var(--gold)" }}>
+          <IconPlusMinus size={17} isOpen={isOpen} />
+        </span>
+      </button>
+      {isOpen && (
+        <div className="hwc-faq-a">
+          <p style={{ margin: 0 }}>{a}</p>
+        </div>
+      )}
     </div>
   );
 }
@@ -247,18 +262,29 @@ function Lightbox({ src, alt, onClose }) {
    DATA
 ───────────────────────────────────────── */
 const amenities = [
-  { Icon: IconBuilding,  label: "Grand Club House" },
-  { Icon: IconTree,      label: "Landscaped Gardens & Parks" },
-  { Icon: IconPool,      label: "Swimming Pool" },
-  { Icon: IconCamera,    label: "AI-Enabled Smart Surveillance" },
-  { Icon: IconGate,      label: "Secured Gated Entry & Exit" },
-  { Icon: IconShield,    label: "24×7 Security" },
-  { Icon: IconRun,       label: "Jogging & Cycling Track" },
-  { Icon: IconKids,      label: "Kids Play Zone" },
-  { Icon: IconShop,      label: "Retail & Commercial Zone" },
-  { Icon: IconWifi,      label: "Fibre-Optic Connectivity" },
-  { Icon: IconYoga,      label: "Yoga & Wellness Centre" },
-  { Icon: IconSun,       label: "Solar-Powered Infrastructure" },
+  { Icon: IconBuilding, label: "Grand Club House", body: "A central clubhouse for community events, celebrations, and everyday gathering." },
+  { Icon: IconTree, label: "Landscaped Gardens & Parks", body: "Curated green spaces and walking gardens woven through the township." },
+  { Icon: IconPool, label: "Swimming Pool", body: "A dedicated pool zone for residents to unwind and stay active." },
+  { Icon: IconCamera, label: "AI-Enabled Smart Surveillance", body: "Intelligent camera coverage across common areas for round-the-clock monitoring." },
+  { Icon: IconGate, label: "Secured Gated Entry & Exit", body: "Controlled, single-point entry and exit for a safer, quieter community." },
+  { Icon: IconShield, label: "24×7 Security", body: "On-ground security personnel supported by surveillance infrastructure." },
+  { Icon: IconRun, label: "Jogging & Cycling Track", body: "A dedicated track for morning runs, walks, and cycling within the township." },
+  { Icon: IconKids, label: "Kids Play Zone", body: "A safe, dedicated play area designed for younger residents." },
+  { Icon: IconShop, label: "Retail & Commercial Zone", body: "Everyday retail and services planned within easy walking distance." },
+  { Icon: IconWifi, label: "Fibre-Optic Connectivity", body: "High-speed digital infrastructure built in from day one, in step with Dholera's smart-city backbone." },
+  { Icon: IconYoga, label: "Yoga & Wellness Centre", body: "A calm, dedicated space for yoga, meditation, and wellness routines." },
+  { Icon: IconSun, label: "Solar-Powered Infrastructure", body: "Renewable-energy-backed common infrastructure, aligned with the region's solar push." },
+];
+
+const projectHighlights = [
+  { title: "Freehold Plots, Clear Title", body: "Every plot at Haute World City is freehold, with complete title documentation and due-diligence support." },
+  { title: "Inside India's First Greenfield Smart City", body: "Located within Dholera SIR — a smart city planned from the ground up, not retrofitted onto an existing town." },
+  { title: "Backed by the DMIC", body: "Part of the central and state government-backed Delhi–Mumbai Industrial Corridor initiative." },
+  { title: "Near the Upcoming International Airport", body: "Positioned to benefit from Dholera International Airport as passenger and cargo operations come online." },
+  { title: "Direct Expressway & Highway Access", speed: true, body: "High-speed road connectivity via the Ahmedabad–Dholera corridor, cutting travel time to Ahmedabad." },
+  { title: "Semiconductor & Industrial Investment Influx", body: "Large-scale manufacturing and semiconductor investment in DSIR is expected to drive long-term demand for land." },
+  { title: "Smart City ICT Infrastructure", body: "Underground utilities, fibre connectivity, and intelligent traffic and utility management built into the region's design." },
+  { title: "Plots From 200 Sq. Yd.", body: "Flexible plot sizes to suit first-time buyers, long-term investors, and end users planning a future home." },
 ];
 
 const advantages = [
@@ -267,73 +293,72 @@ const advantages = [
   "Backed by central & state government DMIC project",
   "Proximity to upcoming Dholera International Airport",
   "High-speed national highway & expressway access",
-  "Massive industrial & semiconductor investment influx",
+  "Growing industrial & semiconductor investment influx",
   "Future-proof smart city ICT infrastructure",
-  "Long-term appreciation in a rapidly developing SIR",
+  "Long-term appreciation potential in a planned SIR",
 ];
 
 const projectDetails = [
-  { label: "Project Type",  value: "Residential Township — Plotted Development" },
-  { label: "Developer",     value: "Haute World Developers World Pvt Ltd" },
-  { label: "Location",      value: "Dholera Special Investment Region (SIR), Ahmedabad District, Gujarat" },
-  { label: "Plot Sizes",    value: "200 sq. yd. & above" },
-  { label: "Ownership",     value: "Freehold Property" },
-  { label: "Registry",      value: "As per applicable process" },
-  { label: "Approvals",     value: "NA / NOC / Title Clear" },
+  { label: "Project Type", value: "Residential Township — Plotted Development" },
+  { label: "Developer", value: "Haute World Developers World Pvt Ltd" },
+  { label: "Location", value: "Dholera Special Investment Region (SIR), Ahmedabad District, Gujarat" },
+  { label: "Plot Sizes", value: "200 sq. yd. & above" },
+  { label: "Ownership", value: "Freehold Property" },
+  { label: "Registry", value: "As per applicable process" },
+  { label: "Approvals", value: "NA / NOC / Title Clear" },
 ];
 
 const layoutHighlights = [
-  { Icon: IconRoad,    label: "30 ft & 40 ft Wide Internal Roads" },
-  { Icon: IconTree,    label: "Landscaped Green Buffers" },
-  { Icon: IconBolt,    label: "Underground Utility Ducting" },
+  { Icon: IconRoad, label: "30 ft & 40 ft Wide Internal Roads" },
+  { Icon: IconTree, label: "Landscaped Green Buffers" },
+  { Icon: IconBolt, label: "Underground Utility Ducting" },
   { Icon: IconCompass, label: "Vastu-Compliant Plot Orientation" },
 ];
 
 const dholeraMilestones = [
-  {
-    Icon: IconPlane,
-    title: "International Airport",
-    desc: "Dholera International Airport — under construction — will become one of India's largest Greenfield airports, transforming the region into a global aviation hub.",
-  },
-  {
-    Icon: IconFactory,
-    title: "Semiconductor Hub",
-    desc: "Tata Electronics & global giants are setting up chip fabrication plants in Dholera SIR, making it India's answer to Taiwan's semiconductor ecosystem.",
-  },
-  {
-    Icon: IconRoad,
-    title: "DMIC Expressway",
-    desc: "The dedicated Delhi–Mumbai Industrial Corridor freight and expressway network provides direct, high-speed access to two of India's biggest economic centres.",
-  },
-  {
-    Icon: IconWifi,
-    title: "Smart ICT Infrastructure",
-    desc: "100% underground utilities, city-wide fibre optic network, intelligent traffic management, and smart metering — all built into Dholera's DNA from day one.",
-  },
-  {
-    Icon: IconSun,
-    title: "Renewable Energy Zone",
-    desc: "Gujarat's abundant solar corridor powers Dholera with clean energy, making it one of the world's first smart cities designed around renewable energy from the ground up.",
-  },
-  {
-    Icon: IconDroplet,
-    title: "World-Class Utilities",
-    desc: "Planned water supply, sewage treatment, and drainage systems designed for a city of 2 million residents — future-ready and built to global standards.",
-  },
-  {
-    Icon: IconBriefcase,
-    title: "10 Lakh+ Employment Hub",
-    desc: "Dholera SIR is projected to generate over 10 lakh direct and indirect jobs across manufacturing, semiconductors, logistics, IT, and services — making it one of India's largest planned employment corridors.",
-  },
+  { Icon: IconPlane, title: "International Airport", desc: "Dholera International Airport — under construction — is set to become one of India's largest Greenfield airports, connecting the region to global markets." },
+  { Icon: IconFactory, title: "Semiconductor Hub", desc: "Major semiconductor and electronics manufacturers are establishing fabrication plants within Dholera SIR, anchoring the region's industrial identity." },
+  { Icon: IconRoad, title: "DMIC Expressway", desc: "The dedicated Delhi–Mumbai Industrial Corridor freight and expressway network provides direct, high-speed access to two of India's biggest economic centres." },
+  { Icon: IconWifi, title: "Smart ICT Infrastructure", desc: "Underground utilities, city-wide fibre, intelligent traffic management, and smart metering are built into Dholera's design from day one." },
+  { Icon: IconSun, title: "Renewable Energy Zone", desc: "A large-scale solar park powers Dholera with clean energy, positioning it among the first smart cities built around renewables from the ground up." },
+  { Icon: IconDroplet, title: "World-Class Utilities", desc: "Planned water supply, sewage treatment, and drainage systems designed for a city of two million residents." },
+  { Icon: IconBriefcase, title: "Large-Scale Employment Hub", desc: "Dholera SIR is projected to generate hundreds of thousands of direct and indirect jobs across manufacturing, electronics, logistics, and services." },
 ];
 
 const proximityBullets = [
   "Located in Dholera Special Investment Region (SIR), Gujarat",
   "~100 km from Ahmedabad City Centre",
-  "Approx. 30 Minutes from Dholera International Airport (upcoming)",
-  "Direct access via Ahmedabad–Dholera Expressway (SH-70A)",
+  "Direct access via the Ahmedabad–Dholera corridor",
   "On the Delhi–Mumbai Industrial Corridor (DMIC)",
-  "Near the Bhavnagar–Ahmedabad Rail Corridor",
+  "Positioned near the upcoming Dholera International Airport",
+  "Near the Bhavnagar–Ahmedabad rail corridor",
+];
+
+const faqs = [
+  {
+    q: "Where exactly is Haute World City located?",
+    a: "Haute World City is located inside the Dholera Special Investment Region (SIR) in Ahmedabad District, Gujarat — roughly 100 km from Ahmedabad, on India's Delhi–Mumbai Industrial Corridor.",
+  },
+  {
+    q: "Are the plots at Haute World City freehold?",
+    a: "Yes. Every plot is freehold property, backed by clear-title documentation and due-diligence support at every stage of the booking process.",
+  },
+  {
+    q: "What plot sizes are available?",
+    a: "Plots start at 200 sq. yd. and above, giving buyers flexibility whether they're investing, planning a future home, or looking for a larger parcel.",
+  },
+  {
+    q: "Why is Dholera considered a strong long-term investment location?",
+    a: "Dholera is India's first planned Greenfield smart city, backed by the central and state governments under the DMIC. It combines an upcoming international airport, expressway connectivity, and a growing wave of industrial and semiconductor investment — factors that typically support land value appreciation over the long term.",
+  },
+  {
+    q: "Is Haute World City a gated, secured community?",
+    a: "Yes. The township is planned with secured gated entry and exit, 24×7 security personnel, and AI-enabled smart surveillance across common areas.",
+  },
+  {
+    q: "Who is developing Haute World City?",
+    a: "Haute World City is developed by Haute World Developers, extending their track record of residential communities into Dholera Smart City.",
+  },
 ];
 
 /* ─────────────────────────────────────────
@@ -341,13 +366,13 @@ const proximityBullets = [
 ───────────────────────────────────────── */
 export default function HauteWorldCityPage() {
   const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   return (
     <>
       <Navbar />
-      <PopupLeadModal pageName="Haute World City" />
+      <PopupLeadModal pageName="Haute World City" projectName="Haute World City, Dholera" />
 
-      {/* Lightbox */}
       {lightboxOpen && (
         <Lightbox
           src="/assets/dholera-map.png"
@@ -362,7 +387,7 @@ export default function HauteWorldCityPage() {
       <style>{`
         .hwc-section   { padding: 4.5rem 0; }
         .hwc-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
-        .hwc-center    { text-align: center; max-width: 580px; margin: 0 auto 3rem; }
+        .hwc-center    { text-align: center; max-width: 620px; margin: 0 auto 3rem; }
 
         .hwc-2col      { display: grid; grid-template-columns: 1fr 1fr;     gap: 4rem; align-items: start; }
         .hwc-2col-map  { display: grid; grid-template-columns: 1fr 1.15fr;  gap: 4rem; align-items: center; }
@@ -376,42 +401,34 @@ export default function HauteWorldCityPage() {
         .hwc-glance-val   { padding: 1.1rem 1.5rem; font-size: 0.92rem; color: var(--charcoal); font-weight: 500; line-height: 1.6; }
 
         /* Map image card */
-        .hwc-map-card {
-          border-radius: 16px;
-          overflow: hidden;
-          box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.2);
-          height: 420px;
-          cursor: zoom-in;
-          position: relative;
-        }
-        .hwc-map-card img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
-          display: block;
-          filter: saturate(0.85) contrast(1.05);
-          transition: transform 0.35s ease;
-        }
+        .hwc-map-card { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.2); height: 420px; cursor: zoom-in; position: relative; }
+        .hwc-map-card img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.85) contrast(1.05); transition: transform 0.35s ease; }
         .hwc-map-card:hover img { transform: scale(1.03); }
-        .hwc-map-hint {
-          position: absolute;
-          bottom: 1rem;
-          right: 1rem;
-          background: rgba(0,0,0,0.55);
-          color: #fff;
-          font-size: 0.72rem;
-          font-weight: 600;
-          letter-spacing: 0.08em;
-          padding: 0.35rem 0.85rem;
-          border-radius: 999px;
-          pointer-events: none;
-          display: flex;
-          align-items: center;
-          gap: 0.4rem;
-        }
+        .hwc-map-hint { position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.35rem 0.85rem; border-radius: 999px; pointer-events: none; display: flex; align-items: center; gap: 0.4rem; }
+
+        /* Project Highlights */
+        .hwc-highlight-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(13,47,36,0.08); border: 1px solid rgba(13,47,36,0.08); margin-top: 2.5rem; }
+        .hwc-highlight-item { background: var(--white); padding: 1.5rem 1.6rem; display: flex; gap: 1rem; align-items: flex-start; }
+        .hwc-highlight-mark { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: #fff; display: flex; align-items: center; justify-content: center; }
+        .hwc-highlight-item h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; margin: 0 0 0.4rem; color: var(--charcoal); }
+        .hwc-highlight-item p { margin: 0; font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
+        @media (min-width: 768px) { .hwc-highlight-grid { grid-template-columns: 1fr 1fr; } }
+
+        /* Key Advantages card */
+        .hwc-adv-card { position: relative; background: linear-gradient(155deg, var(--forest-dark) 0%, var(--forest) 100%); border-radius: 24px; padding: 2.6rem 2.2rem; overflow: hidden; box-shadow: 0 24px 64px rgba(13,47,36,0.35), inset 0 1px 0 rgba(255,255,255,0.06); border: 1px solid rgba(201,144,26,0.25); }
+        .hwc-adv-card::before { content: ''; position: absolute; top: -40%; right: -30%; width: 70%; height: 70%; background: radial-gradient(circle, rgba(201,144,26,0.22) 0%, transparent 70%); pointer-events: none; }
+        .hwc-adv-eyebrow { position: relative; z-index: 1; font-family: var(--font-body); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-pale); opacity: 0.85; margin-bottom: 0.6rem; display: block; }
+        .hwc-adv-title { position: relative; z-index: 1; font-family: var(--font-display); font-style: italic; font-weight: 600; font-size: 1.65rem; color: #fff; margin-bottom: 1.6rem; }
+        .hwc-adv-list { position: relative; z-index: 1; display: flex; flex-direction: column; }
+        .hwc-adv-row { display: flex; align-items: flex-start; gap: 1.1rem; padding: 0.95rem 0; border-bottom: 1px solid rgba(255,255,255,0.09); }
+        .hwc-adv-row:last-child { border-bottom: none; }
+        .hwc-adv-num { flex-shrink: 0; font-family: var(--font-display); font-weight: 700; font-size: 1rem; color: var(--gold); min-width: 26px; opacity: 0.9; }
+        .hwc-adv-row p { margin: 0; font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.6; font-weight: 500; }
 
         /* Amenities */
         .hwc-amenities { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
+        .hwc-amenity-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem 1.2rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; position: relative; overflow: hidden; }
+        .hwc-amenity-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); opacity: 0.5; }
 
         /* Dholera milestones */
         .hwc-milestones{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -422,15 +439,57 @@ export default function HauteWorldCityPage() {
         /* Stats */
         .hwc-stats     { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
 
+        /* FAQ */
+        .hwc-faq-box  { max-width: 720px; margin: 1.8rem auto 0; border-radius: 18px; overflow: hidden; background: var(--white); box-shadow: 0 20px 60px rgba(0,0,0,0.08); border: 1px solid rgba(201,144,26,0.14); }
+        .hwc-faq-row  { border-bottom: 1px solid rgba(201,144,26,0.14); }
+        .hwc-faq-row:last-child { border-bottom: none; }
+        .hwc-faq-btn  { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1.15rem 1.5rem; background: none; border: none; cursor: pointer; text-align: left; }
+        .hwc-faq-q    { font-family: var(--font-body); font-weight: 600; font-size: 0.95rem; color: var(--charcoal); }
+        .hwc-faq-a    { padding: 0 1.5rem 1.35rem; font-size: 0.87rem; color: var(--gray); line-height: 1.75; }
+
+        /* Contact + Map */
+        .hwc-contact-wrap { border: 1px solid rgba(201,144,26,0.2); border-radius: 20px; overflow: hidden; display: grid; grid-template-columns: 1fr; box-shadow: 0 8px 40px rgba(26,74,58,0.08); }
+        .hwc-contact-map  { position: relative; min-height: 340px; background: var(--cream); }
+        .hwc-contact-map iframe { width: 100%; height: 100%; min-height: 340px; border: 0; display: block; filter: saturate(0.85) contrast(1.05); }
+        .hwc-contact-form-panel { background: var(--white); padding: 2.2rem 1.5rem; }
+        .hwc-contact-form-panel .contact-form-card { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; border-radius: 0 !important; }
+        @media (min-width: 992px) {
+          .hwc-contact-wrap { grid-template-columns: 1fr 1fr; }
+          .hwc-contact-map { min-height: 100%; }
+          .hwc-contact-form-panel { padding: 3rem; }
+        }
+
         /* CTA */
         .hwc-cta-wrap  { background: linear-gradient(135deg, var(--forest-dark), var(--forest)); border-radius: 24px; padding: 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 2.5rem; position: relative; overflow: hidden; box-shadow: 0 16px 64px rgba(13,47,36,0.3); }
         .hwc-cta-btns  { position: relative; z-index: 1; display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
 
+        /* Blog (styles required by the imported ExpresswayBlog component) */
+        .er-blog-head  { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.2rem; margin-bottom: 1rem; }
+        .er-blog-grid  { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+        .er-blog-card  { background: var(--white); border: 1px solid rgba(201,144,26,0.18); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; text-decoration: none; box-shadow: 0 4px 20px rgba(26,74,58,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .er-blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,74,58,0.12); }
+        .er-blog-image { position: relative; height: 190px; overflow: hidden; background: var(--cream); }
+        .er-blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .er-blog-card:hover .er-blog-image img { transform: scale(1.06); }
+        .er-blog-body  { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; gap: 0.6rem; }
+        .er-blog-meta  { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+        .er-blog-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0; line-height: 1.35; color: var(--charcoal); }
+        .er-blog-card p  { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin: 0; }
+        .er-blog-read  { margin-top: 0.3rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--gold); }
+        .er-blog-empty { margin-top: 2rem; padding: 2.5rem; text-align: center; border: 1px dashed rgba(201,144,26,0.25); color: var(--gray); font-size: 0.9rem; border-radius: 12px; }
+        @media (min-width: 640px) { .er-blog-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 992px) { .er-blog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+        /* Scroll reveal */
+        .hwc-block-anim { opacity: 0; transform: translateY(20px); transition: opacity 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+        .hwc-block-anim.hwc-inview-item { opacity: 1; transform: translateY(0); }
+        @media (prefers-reduced-motion: reduce) {
+          .hwc-block-anim { opacity: 1 !important; transform: none !important; transition: none !important; }
+        }
+
         /* ══ TABLET ≤ 900px ══ */
         @media (max-width: 900px) {
-          .hwc-2col,
-          .hwc-2col-map,
-          .hwc-2col-dev  { grid-template-columns: 1fr; gap: 2.5rem; }
+          .hwc-2col, .hwc-2col-map, .hwc-2col-dev { grid-template-columns: 1fr; gap: 2.5rem; }
           .hwc-amenities { grid-template-columns: repeat(3, 1fr); }
           .hwc-milestones{ grid-template-columns: repeat(2, 1fr); }
           .hwc-highlights{ grid-template-columns: repeat(2, 1fr); }
@@ -453,7 +512,7 @@ export default function HauteWorldCityPage() {
           .hwc-cta-wrap  { padding: 2rem 1rem; flex-direction: column; }
           .hwc-cta-btns  { align-items: stretch; width: 100%; }
           .hwc-cta-btns a{ text-align: center; justify-content: center; }
-          .hwc-why-box   { padding: 1.4rem !important; }
+          .hwc-adv-card  { padding: 1.8rem !important; }
         }
 
         @media (max-width: 380px) {
@@ -462,14 +521,14 @@ export default function HauteWorldCityPage() {
         }
       `}</style>
 
-      {/* JSON-LD */}
+      {/* JSON-LD: RealEstateListing */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateListing",
-            name: "Haute World City – Premium Residential Plots in Dholera Smart City",
+            name: "Haute World City – Freehold Plots in Dholera Smart City",
             description:
               "Freehold residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
             url: "https://www.hautedevelopers.com/haute-world-city",
@@ -496,26 +555,49 @@ export default function HauteWorldCityPage() {
         }}
       />
 
+      {/* JSON-LD: FAQPage */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            mainEntity: faqs.map((f) => ({
+              "@type": "Question",
+              name: f.q,
+              acceptedAnswer: { "@type": "Answer", text: f.a },
+            })),
+          }),
+        }}
+      />
+
+      {/* JSON-LD: Breadcrumb */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Home", item: "https://www.hautedevelopers.com/" },
+              { "@type": "ListItem", position: 2, name: "Haute World City", item: "https://www.hautedevelopers.com/haute-world-city" },
+            ],
+          }),
+        }}
+      />
+
       {/* ══════════════════════════════════════════
           HERO
       ══════════════════════════════════════════ */}
       <section
         className="hero"
         aria-label="Haute World City hero"
-        style={{
-          background:
-            "linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%)",
-        }}
+        style={{ background: "linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%)" }}
       >
         <div className="hero-slides" aria-hidden="true">
           <div
             className="hero-slide"
-            style={{
-              backgroundImage: "url('/assets/dholera.png')",
-              backgroundPosition: "center 40%",
-              opacity: 1,
-              animation: "none",
-            }}
+            style={{ backgroundImage: "url('/assets/dholera.png')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
           />
         </div>
         <div className="hero-img-overlay" aria-hidden="true" />
@@ -523,22 +605,6 @@ export default function HauteWorldCityPage() {
 
         <div className="hero-content hero-content--new">
           <div className="hero-col-title">
-            <div style={{ display: "flex", gap: "0.6rem", marginBottom: "1.1rem", flexWrap: "wrap" }}>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", background: "rgba(201,144,26,0.9)", color: "#fff", padding: "0.28rem 0.8rem", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em" }}>
-                <IconPin size={12} color="#fff" /> Dholera SIR, Gujarat
-              </span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", background: "rgba(34,197,94,0.85)", color: "#fff", padding: "0.28rem 0.8rem", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em" }}>
-                ● Pre Launch
-              </span>
-              <span style={{ display: "inline-flex", alignItems: "center", gap: "0.35rem", background: "rgba(59,130,246,0.85)", color: "#fff", padding: "0.28rem 0.8rem", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.08em" }}>
-                ★ India's First Smart City
-              </span>
-            </div>
-
-            <p style={{ fontSize: "0.76rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", marginBottom: "0.6rem", fontFamily: "var(--font-body)", fontWeight: 600 }}>
-              Residential Township · Dholera Smart City
-            </p>
-
             <h1 className="hero-title" style={{ opacity: 1, transform: "none", animation: "none" }}>
               <span className="line line-1" style={{ opacity: 1, transform: "none", animation: "none" }}>
                 Haute <em>World City</em>
@@ -546,14 +612,15 @@ export default function HauteWorldCityPage() {
             </h1>
 
             <p className="hero-desc--stacked" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
-              Haute World City is Haute World Developers' landmark investment in India's most ambitious project — the Dholera Special Investment Region. Freehold residential plots inside India's first planned Greenfield smart city, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
+              Haute World City is Haute World Developers' landmark investment in India's most ambitious project —
+              the Dholera Special Investment Region. Freehold residential plots inside India's first planned
+              Greenfield smart city, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
             </p>
           </div>
 
           <div className="hero-col-btns">
             <div className="hero-actions">
-              <a href="/#contact" className="btn-primary">Book a Site Visit →</a>
-              <a href="/#contact" className="btn-outline">Get Pricing Details</a>
+              <a href="#contact" className="btn-primary">Book a Site Visit →</a>
             </div>
           </div>
         </div>
@@ -567,29 +634,41 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════════════════════════════
           PROJECT DETAILS — AT A GLANCE
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="project-details-heading" style={{ background: "var(--white)" }}>
+      <section id="about" className="hwc-section" aria-labelledby="project-details-heading" style={{ background: "var(--white)" }}>
         <div className="hwc-container">
-          <div className="hwc-center">
-            <span className="section-label">Project Details</span>
-            <h2 id="project-details-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}>
-              At a Glance
-            </h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
-          </div>
+          <div className="hwc-2col">
+            <div>
+              <span className="section-label">Project Details</span>
+              <h2 id="project-details-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "1rem" }}>
+                At a Glance
+              </h2>
+              <div className="divider" style={{ margin: "1rem 0" }} />
 
-          <div className="hwc-glance">
-            {projectDetails.map((d) => (
-              <div key={d.label} className="hwc-glance-row">
-                <div className="hwc-glance-lbl">{d.label}</div>
-                <div className="hwc-glance-val">{d.value}</div>
-              </div>
-            ))}
-          </div>
+              <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "1.2rem" }}>
+                Haute World City is a residential township — plotted development — brought to you by
+                <strong style={{ color: "var(--charcoal)" }}> Haute World Developers World Pvt Ltd</strong>, located
+                inside the Dholera Special Investment Region (SIR) in Ahmedabad District, Gujarat. The project
+                offers freehold plots starting at <strong style={{ color: "var(--charcoal)" }}>200 sq. yd. and above</strong>,
+                giving buyers the flexibility to choose a size that fits their investment goals or future home plans.
+              </p>
+              <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "2rem" }}>
+                Every plot at Haute World City is <strong style={{ color: "var(--charcoal)" }}>freehold property</strong>,
+                backed by complete registry documentation as per the applicable process, and clear
+                NA / NOC / Title Clear approvals — ensuring a transparent, hassle-free ownership experience from day one.
+              </p>
 
-          <div style={{ textAlign: "center", marginTop: "2.4rem" }}>
-            <a href="/#contact" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-              Register Interest &amp; Get a Callback →
-            </a>
+              <a href="#contact" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+                Register Interest &amp; Get a Callback →
+              </a>
+            </div>
+
+            <div style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)" }}>
+              <img
+                src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
+                alt="Haute World City — Project Details, Dholera Smart City, Gujarat"
+                style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
+              />
+            </div>
           </div>
         </div>
       </section>
@@ -597,7 +676,7 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════════════════════════════
           DHOLERA SMART CITY — WHY IT'S DIFFERENT
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="dholera-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
+      <section id="dholera" className="hwc-section" aria-labelledby="dholera-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
 
         <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
@@ -608,37 +687,62 @@ export default function HauteWorldCityPage() {
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.85 }}>
-              Dholera Special Investment Region (SIR) is a 920 sq. km. Greenfield smart city developed under India's flagship Delhi–Mumbai Industrial Corridor (DMIC) initiative. Planned to house 2 million residents and generate over 800,000 jobs, it is already attracting semiconductor giants, global manufacturers, and billions in FDI.
+              Dholera Special Investment Region (SIR) is a Greenfield smart city developed under India's flagship
+              Delhi–Mumbai Industrial Corridor (DMIC) initiative. Planned to house millions of residents and generate
+              large-scale employment, it is already attracting semiconductor investment, global manufacturers, and
+              major infrastructure spending.
             </p>
           </div>
 
           <div className="hwc-milestones">
             {dholeraMilestones.map((m) => (
-              <article
-                key={m.title}
-                style={{
-                  background: "var(--white)",
-                  border: "1px solid rgba(201,144,26,0.2)",
-                  borderRadius: "16px",
-                  padding: "1.8rem 1.5rem",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.85rem",
-                  position: "relative",
-                  overflow: "hidden",
-                }}
-              >
-                <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, var(--gold), transparent)", opacity: 0.6 }} />
-                <div style={{ width: "46px", height: "46px", background: "rgba(201,144,26,0.1)", border: "1px solid rgba(201,144,26,0.25)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <m.Icon size={22} color="var(--gold)" />
+              <RevealItem key={m.title}>
+                <article
+                  style={{
+                    background: "var(--white)", border: "1px solid rgba(201,144,26,0.2)", borderRadius: "16px",
+                    padding: "1.8rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.85rem",
+                    position: "relative", overflow: "hidden", height: "100%", boxSizing: "border-box",
+                  }}
+                >
+                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, var(--gold), transparent)", opacity: 0.6 }} />
+                  <div style={{ width: "46px", height: "46px", background: "rgba(201,144,26,0.1)", border: "1px solid rgba(201,144,26,0.25)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <m.Icon size={22} color="var(--gold)" />
+                  </div>
+                  <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", fontWeight: 700, color: "var(--charcoal)", margin: 0, lineHeight: 1.3 }}>
+                    {m.title}
+                  </h3>
+                  <p style={{ margin: 0, fontSize: "0.83rem", color: "var(--gray)", lineHeight: 1.7 }}>
+                    {m.desc}
+                  </p>
+                </article>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════════════════════════════
+          PROJECT HIGHLIGHTS
+      ══════════════════════════════════════════ */}
+      <section id="highlights" className="hwc-section" aria-labelledby="highlights-heading" style={{ background: "var(--white)" }}>
+        <div className="hwc-container">
+          <div className="hwc-center">
+            <span className="section-label">Project Highlights</span>
+            <h2 id="highlights-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}>
+              What Sets Haute World City Apart
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+          </div>
+
+          <div className="hwc-highlight-grid">
+            {projectHighlights.map((h) => (
+              <RevealItem key={h.title} className="hwc-highlight-item">
+                <span className="hwc-highlight-mark"><IconCheck size={13} /></span>
+                <div>
+                  <h3>{h.title}</h3>
+                  <p>{h.body}</p>
                 </div>
-                <h4 style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", fontWeight: 700, color: "var(--charcoal)", margin: 0, lineHeight: 1.3 }}>
-                  {m.title}
-                </h4>
-                <p style={{ margin: 0, fontSize: "0.83rem", color: "var(--gray)", lineHeight: 1.7 }}>
-                  {m.desc}
-                </p>
-              </article>
+              </RevealItem>
             ))}
           </div>
         </div>
@@ -647,10 +751,10 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════════════════════════════
           WHY INVEST
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="why-invest-heading" style={{ background: "var(--white)", position: "relative", overflow: "hidden" }}>
-        <div className="hwc-container">
+      <section id="why-invest" className="hwc-section" aria-labelledby="why-invest-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
+        <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
           <div className="hwc-2col">
-            {/* LEFT */}
             <div>
               <span className="section-label">Why Invest</span>
               <h2 id="why-invest-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)", lineHeight: 1.15, marginBottom: "0.5rem" }}>
@@ -658,33 +762,31 @@ export default function HauteWorldCityPage() {
               </h2>
               <div className="divider" />
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "1.2rem" }}>
-                Dholera SIR represents a once-in-a-generation real estate opportunity. With the Indian government committing over ₹60,000 crore in infrastructure investment, and the private sector adding tens of thousands of crores more through semiconductor fabs, logistics parks, and commercial zones, land values in Dholera are on an irreversible upward trajectory.
+                Dholera SIR represents a rare real estate opportunity: significant government infrastructure
+                investment, combined with private-sector spending on semiconductor fabs, logistics parks, and
+                commercial zones, is steadily shaping land demand across the region.
               </p>
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "2rem" }}>
-                Plots purchased today in Haute World City are investments in a city that does not yet exist at full scale — but whose foundations, approvals, and government backing are firmly in place. Early entrants consistently capture the highest long-term returns in planned smart city developments worldwide.
+                Plots purchased today in Haute World City are an investment in a city whose foundations, approvals,
+                and government backing are already in place. As with most planned smart-city developments, early
+                entrants typically have the longest runway to benefit from infrastructure completion.
               </p>
               <blockquote style={{ borderLeft: "3px solid var(--gold)", paddingLeft: "1.4rem", margin: "0 0 2rem", fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.05rem", color: "var(--charcoal)", lineHeight: 1.65 }}>
-                "Dholera is not a future plan — it is an unfolding reality. Those who invest in its early chapters will write the most rewarding stories."
+                "Dholera is not a future plan — it is an unfolding reality. Those who invest in its early chapters
+                stand to benefit the most as infrastructure moves from construction to full-scale use."
               </blockquote>
-              <a href="/#contact" className="btn-dark">Talk to Our Investment Team →</a>
+              <a href="#contact" className="btn-dark">Talk to Our Investment Team →</a>
             </div>
 
-            {/* RIGHT */}
             <div>
-              <div
-                className="hwc-why-box"
-                style={{ background: "var(--cream)", border: "1px solid rgba(201,144,26,0.2)", borderRadius: "20px", padding: "2.2rem", boxShadow: "0 8px 40px rgba(26,74,58,0.08)" }}
-              >
-                <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.3rem", fontWeight: 600, color: "var(--charcoal)", marginBottom: "1.4rem" }}>
-                  Key Advantages
-                </h3>
-                <div style={{ display: "flex", flexDirection: "column", gap: "0.9rem" }}>
-                  {advantages.map((a) => (
-                    <div key={a} style={{ display: "flex", alignItems: "flex-start", gap: "0.8rem" }}>
-                      <div style={{ width: "28px", height: "28px", background: "var(--forest)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "0.05rem" }}>
-                        <IconCheck size={14} color="white" />
-                      </div>
-                      <p style={{ margin: 0, fontSize: "0.9rem", color: "var(--charcoal)", lineHeight: 1.65, fontWeight: 500 }}>{a}</p>
+              <div className="hwc-adv-card">
+                <span className="hwc-adv-eyebrow">Why Choose Us</span>
+                <h3 className="hwc-adv-title">Key Advantages</h3>
+                <div className="hwc-adv-list">
+                  {advantages.map((a, i) => (
+                    <div key={a} className="hwc-adv-row">
+                      <span className="hwc-adv-num">{String(i + 1).padStart(2, "0")}</span>
+                      <p>{a}</p>
                     </div>
                   ))}
                 </div>
@@ -697,54 +799,37 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════════════════════════════
           LOCATION ADVANTAGE
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="location-heading" style={{ background: "var(--cream)" }}>
+      <section id="location" className="hwc-section" aria-labelledby="location-heading" style={{ background: "var(--forest-dark)" }}>
         <div className="hwc-container">
           <div className="hwc-2col-map">
-            {/* LEFT */}
             <div>
               <div style={{ borderLeft: "3px solid var(--gold)", paddingLeft: "1rem", marginBottom: "1.4rem" }}>
                 <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--gold)", margin: 0, fontWeight: 500 }}>
                   Location Advantage
                 </p>
               </div>
-              <h2 id="location-heading" style={{ fontSize: "clamp(1.65rem, 3vw, 2.6rem)", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--charcoal)", lineHeight: 1.2, marginBottom: "1.8rem" }}>
+              <h2 id="location-heading" style={{ fontSize: "clamp(1.65rem, 3vw, 2.6rem)", fontFamily: "var(--font-display)", fontWeight: 700, color: "#fff", lineHeight: 1.2, marginBottom: "1.8rem" }}>
                 Haute World City sits inside Dholera SIR — Gujarat's most strategically placed growth zone
               </h2>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
                 {proximityBullets.map((item) => (
-                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontSize: "0.95rem", color: "var(--charcoal)", fontWeight: 500, lineHeight: 1.5 }}>
+                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontSize: "0.95rem", color: "rgba(255,255,255,0.85)", fontWeight: 500, lineHeight: 1.5 }}>
                     <span style={{ width: "7px", height: "7px", minWidth: "7px", borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
                     {item}
                   </li>
                 ))}
               </ul>
-              {/* "Get Exact Location Details" button removed */}
             </div>
 
-            {/* RIGHT — Clickable map image with lightbox */}
             <div
               className="hwc-map-card"
               onClick={() => setLightboxOpen(true)}
               role="button"
               tabIndex={0}
               aria-label="View location map in fullscreen"
-              onKeyDown={(e) => {
-                if (e.key === "Enter" || e.key === " ") setLightboxOpen(true);
-              }}
+              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLightboxOpen(true); }}
             >
-              <img
-                src="/assets/dholera-map.png"
-                alt="Haute World City location map — Dholera Special Investment Region, Gujarat"
-              />
-              <div className="hwc-map-hint">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8"/>
-                  <line x1="21" y1="21" x2="16.65" y2="16.65"/>
-                  <line x1="11" y1="8" x2="11" y2="14"/>
-                  <line x1="8" y1="11" x2="14" y2="11"/>
-                </svg>
-                Click to enlarge
-              </div>
+              <img src="/assets/dholera-map.png" alt="Haute World City location map — Dholera Special Investment Region, Gujarat" />
             </div>
           </div>
         </div>
@@ -753,34 +838,24 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════════════════════════════
           SITE PLAN / LAYOUT
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="layout-heading" style={{ background: "var(--white)" }}>
+      <section id="masterplan" className="hwc-section" aria-labelledby="layout-heading" style={{ background: "var(--white)" }}>
         <div className="hwc-container">
           <div className="hwc-center">
             <span className="section-label">Layout Overview</span>
             <h2 id="layout-heading">Project Site Plan</h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ fontSize: "0.92rem", color: "var(--gray)", lineHeight: 1.8 }}>
-              A thoughtfully planned residential township designed for smart city living — with wide internal roads, green buffers, underground utilities, and a lifestyle-focused amenity zone.
+              A thoughtfully planned residential township designed for smart city living — with wide internal roads,
+              green buffers, underground utilities, and a lifestyle-focused amenity zone.
             </p>
           </div>
 
           <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(201,144,26,0.2)", boxShadow: "0 8px 48px rgba(26,74,58,0.1)" }}>
             <img
-              src="/assets/dholera.png"
+              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786612020/Haute-World-City-Layout_zxtpqp.webp"
               alt="Haute World City master plan and site layout — Dholera Smart City, Gujarat"
-              style={{ width: "100%", display: "block", objectFit: "cover", minHeight: "220px", maxHeight: "520px" }}
+              style={{ width: "100%", display: "block", objectFit: "contain" }}
             />
-            <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, background: "linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 100%)", padding: "2rem 1.5rem 1.5rem", display: "flex", alignItems: "flex-end", justifyContent: "space-between", flexWrap: "wrap", gap: "1rem" }}>
-              <div>
-                <p style={{ color: "var(--gold)", fontSize: "0.72rem", letterSpacing: "0.15em", textTransform: "uppercase", fontWeight: 700, margin: 0 }}>
-                  Vastu-Friendly · Smart City Compliant
-                </p>
-                <h3 style={{ color: "#fff", fontFamily: "var(--font-display)", fontSize: "clamp(1rem, 2.5vw, 1.4rem)", margin: "0.3rem 0 0" }}>
-                  Haute World City Layout
-                </h3>
-              </div>
-              <a href="/#contact" className="btn-primary">Request Detailed Layout →</a>
-            </div>
           </div>
 
           <div className="hwc-highlights">
@@ -799,7 +874,7 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════════════════════════════
           AMENITIES
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="amenities-heading" style={{ background: "var(--forest-dark)", position: "relative", overflow: "hidden" }}>
+      <section id="amenities" className="hwc-section" aria-labelledby="amenities-heading" style={{ background: "var(--forest-dark)", position: "relative", overflow: "hidden" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
         <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
           <div className="hwc-center" style={{ maxWidth: 560 }}>
@@ -809,107 +884,112 @@ export default function HauteWorldCityPage() {
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8 }}>
-              Every amenity is designed to complement Dholera's smart city vision — delivering modern comfort, wellness, and community living within a secure, self-sufficient township.
+              Every amenity is designed to complement Dholera's smart city vision — delivering modern comfort,
+              wellness, and community living within a secure, self-sufficient township.
             </p>
           </div>
 
           <div className="hwc-amenities">
             {amenities.map((a) => (
-              <article
-                key={a.label}
-                style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "16px", padding: "1.5rem 1.2rem", display: "flex", flexDirection: "column", alignItems: "flex-start", gap: "0.8rem", position: "relative", overflow: "hidden" }}
-              >
-                <div style={{ position: "absolute", bottom: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, var(--gold), transparent)", opacity: 0.5 }} />
+              <RevealItem key={a.label} className="hwc-amenity-card">
                 <div style={{ width: "44px", height: "44px", background: "rgba(201,144,26,0.15)", border: "1px solid rgba(201,144,26,0.3)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
                   <a.Icon size={20} color="var(--gold)" />
                 </div>
-                <h4 style={{ fontFamily: "var(--font-body)", fontSize: "0.85rem", fontWeight: 700, color: "#fff", margin: 0, lineHeight: 1.3 }}>
+                <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.85rem", fontWeight: 700, color: "#fff", margin: 0, lineHeight: 1.3 }}>
                   {a.label}
-                </h4>
-              </article>
+                </h3>
+                <p style={{ margin: 0, fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
+                  {a.body}
+                </p>
+              </RevealItem>
             ))}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          ABOUT DEVELOPER
+          FAQ
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-labelledby="developer-heading" style={{ background: "var(--white)" }}>
-        <div className="hwc-container">
-          <div className="hwc-2col-dev">
-            <div>
-              <span className="section-label">About the Developer</span>
-              <h2 id="developer-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}>
-                Built by{" "}
-                <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Haute World Developers</em>
-              </h2>
-              <div className="divider" />
-              <p style={{ fontSize: "0.93rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "1.2rem" }}>
-                With over 15 years of experience developing premium residential communities across NCR, Dehradun, Vrindavan, and now Dholera, Haute World Developers has earned the trust of more than 5,000 families. Every project is backed by clear documentation, community-first planning, and a commitment to on-time delivery.
-              </p>
-              <p style={{ fontSize: "0.93rem", color: "var(--gray)", lineHeight: 1.85, marginBottom: "2rem" }}>
-                Haute World City marks our most ambitious step yet — taking our track record of delivering quality residential communities into India's most transformational infrastructure project: Dholera Smart City.
-              </p>
-              <div style={{ display: "flex", gap: "1rem", flexWrap: "wrap" }}>
-                <a href="/#about" className="btn-dark">About Haute World Developers →</a>
-                <a href="/#contact" className="btn-primary">Get in Touch →</a>
-              </div>
-            </div>
+      <section id="faq" className="hwc-section" aria-labelledby="faq-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, overflow: "hidden", zIndex: 0 }}>
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            style={{ position: "absolute", top: "50%", left: "50%", width: "100%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%) scale(1.25)" }}
+          >
+            <source src="https://res.cloudinary.com/dpbitfczf/video/upload/v1786616177/Dholera_video_view_xe2xlu.mp4" type="video/mp4" />
+          </video>
+        </div>
 
-            <div className="hwc-stats">
-              {[
-                { Icon: IconTrendUp, num: "15+", label: "Years of Experience" },
-                { Icon: IconKids,    num: "5000+", label: "Happy Families" },
-                { Icon: IconCity,    num: "500+", label: "Acres Developed" },
-                { Icon: IconPin,     num: "7+", label: "Cities" },
-              ].map((s) => (
-                <div key={s.label} style={{ background: "var(--cream)", border: "1px solid rgba(201,144,26,0.2)", borderRadius: "16px", padding: "1.6rem 1.2rem", textAlign: "center", position: "relative", overflow: "hidden" }}>
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, var(--gold), var(--gold-light), transparent)" }} />
-                  <div style={{ display: "flex", justifyContent: "center", marginBottom: "0.6rem" }}>
-                    <s.Icon size={20} color="var(--gold)" />
-                  </div>
-                  <div style={{ fontFamily: "var(--font-display)", fontSize: "2.2rem", fontWeight: 700, color: "var(--forest)", lineHeight: 1 }}>{s.num}</div>
-                  <div style={{ fontSize: "0.7rem", color: "var(--gray)", letterSpacing: "0.1em", textTransform: "uppercase", marginTop: "0.4rem" }}>{s.label}</div>
-                </div>
-              ))}
-            </div>
+        <div className="hwc-container" style={{ position: "relative", zIndex: 2 }}>
+          <div style={{ textAlign: "left", maxWidth: 620, margin: "0 0 1.5rem" }}>
+            <span style={{ display: "inline-flex", alignItems: "center", gap: "0.6rem", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.15em", textTransform: "uppercase", color: "var(--gold)" }}>
+              <span style={{ width: "28px", height: "2px", background: "var(--gold)", display: "inline-block" }} />
+              Got Questions?
+            </span>
+            <h2 id="faq-heading" style={{ margin: "0.5rem 0 0", color: "#fff", textShadow: "0 2px 20px rgba(0,0,0,0.35)" }}>
+              Frequently Asked <em style={{ fontStyle: "italic", color: "var(--gold-pale, #f0dca8)" }}>Questions</em>
+            </h2>
+          </div>
+
+          <div className="hwc-faq-box" style={{ margin: "1.8rem 0 0" }}>
+            {faqs.map((f, i) => (
+              <FaqRow
+                key={f.q}
+                q={f.q}
+                a={f.a}
+                isOpen={openFaqIndex === i}
+                onToggle={() => setOpenFaqIndex(openFaqIndex === i ? -1 : i)}
+              />
+            ))}
           </div>
         </div>
       </section>
 
       {/* ══════════════════════════════════════════
-          FINAL CTA
+          BLOG
       ══════════════════════════════════════════ */}
-      <section className="hwc-section" aria-label="Final call to action" style={{ background: "var(--cream)", paddingBottom: "5rem" }}>
+      <section id="blogs" className="hwc-section" aria-labelledby="blogs-heading" style={{ background: "var(--cream)", borderTop: "1px solid rgba(201,144,26,0.18)" }}>
         <div className="hwc-container">
-          <div className="hwc-cta-wrap">
-            <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
-            <div aria-hidden="true" style={{ position: "absolute", top: "-80px", right: "-80px", width: "400px", height: "400px", background: "radial-gradient(circle, rgba(201,144,26,0.12) 0%, transparent 70%)", pointerEvents: "none" }} />
+          <ExpresswayBlog />
+        </div>
+      </section>
+      
 
-            <div style={{ position: "relative", zIndex: 1, maxWidth: "560px" }}>
-              <p style={{ fontSize: "0.78rem", letterSpacing: "0.2em", textTransform: "uppercase", color: "var(--gold)", fontWeight: 700, marginBottom: "0.8rem", fontFamily: "var(--font-body)" }}>
-                Limited Pre-Launch Inventory — Register Now
-              </p>
-              <h2 style={{ color: "#fff", fontSize: "clamp(1.6rem, 2.8vw, 2.6rem)", marginBottom: "0.8rem", lineHeight: 1.15 }}>
-                Ready to Own a Plot in{" "}
-                <em style={{ color: "var(--gold-pale)", fontStyle: "italic" }}>India's Smart City?</em>
-              </h2>
-              <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.95rem", lineHeight: 1.8, margin: 0 }}>
-                Speak to our Dholera investment specialists for pricing details, payment plans, and to schedule your complimentary site visit. Be among the first to secure your plot in Haute World City before prices appreciate further.
-              </p>
+      {/* ══════════════════════════════════════════
+          CONTACT + MAP
+      ══════════════════════════════════════════ */}
+      <section id="contact" className="hwc-section" aria-labelledby="contact-heading" style={{ background: "var(--white)" }}>
+        <div className="hwc-container">
+          <div className="hwc-center" style={{ maxWidth: 640 }}>
+            <span className="section-label" style={{ color: "var(--gold)" }}>Limited Inventory — Register Now</span>
+            <h2 id="contact-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}>
+              Ready to Invest in <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Haute World City?</em>
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.8 }}>
+              Speak to our team for pricing details, payment plans, and to schedule your complimentary site visit —
+              or call us directly at{" "}
+              <a href="tel:+919911807193" style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}>
+                +91 99118 07193
+              </a>.
+            </p>
+          </div>
+
+          <div className="hwc-contact-wrap" style={{ marginTop: "3rem" }}>
+            <div className="hwc-contact-map">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.244006931797!2d72.0967483!3d22.000527599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395f377700fa687f%3A0xe9521a2d868d8afb!2sHaute%20World%20City!5e1!3m2!1sen!2sin!4v1786614222376!5m2!1sen!2sin"
+                title="Haute World City Location Map — Dholera Special Investment Region, Gujarat"
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </div>
-
-            <div className="hwc-cta-btns">
-              <a href="/#contact" className="btn-primary" style={{ fontSize: "0.95rem", padding: "1rem 2.2rem" }}>
-                Book a Site Visit →
-              </a>
-              <a
-                href="tel:+918383073291"
-                style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", color: "rgba(255,255,255,0.65)", fontSize: "0.85rem", fontWeight: 600, textDecoration: "none" }}
-              >
-                <IconPhone size={15} color="rgba(255,255,255,0.65)" /> +91 83830 73291 — Call directly
-              </a>
+            <div className="hwc-contact-form-panel">
+              <ContactForm />
             </div>
           </div>
         </div>

@@ -134,7 +134,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <PopupLeadModal pageName="Home" />
+      <PopupLeadModal pageName="Home" projectName="General Inquiry" />
 
       {/* ── HERO ── */}
       <section className="hero" aria-label="Hero section" style={{ overflow: "visible" }}>
@@ -955,10 +955,10 @@ export default function Home() {
               Speak to our team for pricing details, payment plans, and to
               schedule your complimentary site visit. Or call us directly at{" "}
               <a
-                href="tel:+918383073291"
+                href="tel:+919911807193"
                 style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}
               >
-                +91 83830 73291
+                +91 99118 07193
               </a>
               .
             </p>

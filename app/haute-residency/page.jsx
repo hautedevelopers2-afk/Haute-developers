@@ -68,7 +68,7 @@ export default function HauteResidency() {
   return (
     <>
       <Navbar />
-      <PopupLeadModal pageName="Haute Pearl Residency" />
+      <PopupLeadModal pageName="Haute Pearl Residency" projectName="Haute Pearl Residency, Vrindavan" />
 
       <style suppressHydrationWarning>{`
         .hr-about-grid {
@@ -242,7 +242,7 @@ export default function HauteResidency() {
             <Link href="/#contact" className="btn-primary">
               Register Your Interest →
             </Link>
-            <a href="tel:+918383073291" className="btn-outline">
+            <a href="tel:+919911807193" className="btn-outline">
               Call Us Now
             </a>
           </div>
@@ -360,7 +360,7 @@ export default function HauteResidency() {
 
             <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
               <Link href="/#contact" className="btn-primary">Register Interest →</Link>
-              <a href="tel:+918383073291" className="btn-outline">+91 83830 73291</a>
+              <a href="tel:+919911807193" className="btn-outline">+91 99118 07193</a>
             </div>
 
             <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center", flexWrap: "wrap", marginTop: "2rem" }}>

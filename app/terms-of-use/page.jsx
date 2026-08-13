@@ -171,7 +171,7 @@ const sections = [
           "Haute World Developers",
           "Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301",
           "Email: support@hautedevelopers.com",
-          "Phone: +91 83830 73291",
+          "Phone: +91 99118 07193",
         ],
       },
     ],
