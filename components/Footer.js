@@ -164,13 +164,16 @@ export default function Footer() {
             <h5>Our Projects</h5>
             <ul className="footer-links">
               <li>
-                <Link href="/#upcoming">Expressway Residency</Link>
+                <Link href="/expressway-residency">Expressway Residency</Link>
               </li>
               <li>
-                <Link href="/#upcoming">Haute World City</Link>
+                <Link href="/haute-world-city">Haute World City</Link>
               </li>
               <li>
-                <Link href="/#upcoming">Haute Pearl Residency</Link>
+                <Link href="/haute-eden-valley">Haute Eden Valley</Link>
+              </li>
+                <li>
+                <Link href="/haute-residency">Haute Pearl Residency</Link>
               </li>
               <li>
                 <Link href="/#projects">Delivered Projects</Link>

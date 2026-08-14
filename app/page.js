@@ -8,6 +8,7 @@ import CountUp from "../components/CountUp";
 import Link from "next/link";
 import ProjectSlider from "../components/ProjectSlider";
 import TestimonialsSection from "../components/TestimonialsSection";
+import ExpresswayBlog from "../components/ExpresswayBlog";
 
 export const metadata = {
   title: "Haute World Developers | Premium Real Estate — Plots, Villas & Apartments in NCR",
@@ -931,6 +932,33 @@ export default function Home() {
 
       {/* ── TESTIMONIALS ── */}
       <TestimonialsSection />
+
+      {/* ══════════════════════════════════════════
+          BLOG
+      ══════════════════════════════════════════ */}
+      <style>{`
+        .er-blog-head  { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.2rem; margin-bottom: 1rem; }
+        .er-blog-grid  { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
+        .er-blog-card  { background: var(--white); border: 1px solid rgba(201,144,26,0.18); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; text-decoration: none; box-shadow: 0 4px 20px rgba(26,74,58,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .er-blog-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,74,58,0.12); }
+        .er-blog-image { position: relative; height: 190px; overflow: hidden; background: var(--cream); }
+        .er-blog-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .er-blog-card:hover .er-blog-image img { transform: scale(1.06); }
+        .er-blog-body  { padding: 1.5rem 1.5rem 1.7rem; display: flex; flex-direction: column; gap: 0.6rem; }
+        .er-blog-meta  { font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; color: var(--gold); font-weight: 700; }
+        .er-blog-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0; line-height: 1.35; color: var(--charcoal); }
+        .er-blog-card p  { font-size: 0.85rem; color: var(--gray); line-height: 1.6; margin: 0; }
+        .er-blog-read  { margin-top: 0.3rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.78rem; font-weight: 700; color: var(--gold); }
+        .er-blog-empty { margin-top: 2rem; padding: 2.5rem; text-align: center; border: 1px dashed rgba(201,144,26,0.25); color: var(--gray); font-size: 0.9rem; border-radius: 12px; }
+        @media (min-width: 640px) { .er-blog-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 992px) { .er-blog-grid { grid-template-columns: repeat(3, 1fr); } }
+      `}</style>
+      <section id="blogs" className="er-section" aria-labelledby="blogs-heading" style={{ background: "var(--cream)", borderTop: "1px solid rgba(201,144,26,0.18)" }}>
+        <div className="er-container">
+          <ExpresswayBlog />
+        </div>
+      </section>
+
 
       {/* ── CONTACT + MAP (Register Now, same style as Expressway) ── */}
       <section

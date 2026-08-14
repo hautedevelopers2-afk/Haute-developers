@@ -15,9 +15,9 @@ import ExpresswayHighlightItem from "../../components/ExpresswayHighlightItem";
 export const metadata = {
   title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway | Haute World Developers",
   description:
-    "Government-approved residential plots (100–300 sq. yd.) at Expressway Residency on NH-24 Delhi–Meerut Expressway, Ghaziabad. Freehold titles, transparent pricing & 24×7 security. Developed by Haute World Developers since 2011.",
+    "Government-approved residential plots (100–300 sq. yd.) at Expressway Residency on NE-3 Delhi–Meerut Expressway, Ghaziabad. Freehold titles, transparent pricing & 24×7 security. Developed by Haute World Developers since 2011.",
   keywords:
-    "Expressway Residency plots, Delhi Meerut Expressway plots, NH-24 Ghaziabad plots, residential plots Ghaziabad, Haute World Developers, freehold plots NCR, investment plots expressway, plots near Bhojpur Industrial Area, Ghaziabad Masterplan 2041, New Ghaziabad plots, DME corridor plots, Delhi Meerut Expressway DME",
+    "Expressway Residency plots, Delhi Meerut Expressway plots, NE-3 Ghaziabad plots, residential plots Ghaziabad, Haute World Developers, freehold plots NCR, investment plots expressway, plots near Bhojpur Industrial Area, Ghaziabad Masterplan 2041, New Ghaziabad plots, DME corridor plots, Delhi Meerut Expressway DME",
   alternates: { canonical: "https://www.hautedevelopers.com/expressway-residency" },
   openGraph: {
     title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway",
@@ -195,7 +195,7 @@ const proximityBullets = [
 // ── Project Highlights ── shown right after About
 const projectHighlights = [
   { title: "100-Acre Integrated Township", body: "A single, master-planned 100-acre development on the Delhi–Meerut Expressway, not scattered parcels." },
-  { title: "14-Lane Expressway Frontage", body: "Direct access from the operational Delhi–Meerut Expressway (NH-24), connecting Delhi, Ghaziabad, Noida and Meerut today." },
+  { title: "14-Lane Expressway Frontage", body: "Direct access from the operational Delhi–Meerut Expressway (NE-3), connecting Delhi, Ghaziabad, Noida and Meerut today." },
   { title: "100 Sq. Yd. & Above Residential Plots", body: "Clear-title, Residential plots with complete due diligence support at every stage." },
   { title: "50+ Modern Amenities", body: "A complete lifestyle ecosystem — from clubhouse and pool to retail, food court, and dedicated wellness zones." },
   { title: "Vastu-Compliant Layout", body: "Plot orientation planned in line with Vastu principles across the township." },
@@ -513,7 +513,7 @@ export default function ExpresswayResidencyPage() {
             "@type": "RealEstateListing",
             name: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway",
             description:
-              "Government-approved freehold residential plots on the Delhi–Meerut Expressway (NH-24), Ghaziabad. Developed by Haute World Developers.",
+              "Government-approved freehold residential plots on the Delhi–Meerut Expressway (NE-3), Ghaziabad. Developed by Haute World Developers.",
             url: "https://www.hautedevelopers.com/expressway-residency",
             image:
               "https://www.hautedevelopers.com/assets/expressway-front.png",
@@ -551,7 +551,7 @@ export default function ExpresswayResidencyPage() {
               {
                 "@type": "Question",
                 name: "Where is Expressway Residency located?",
-                acceptedAnswer: { "@type": "Answer", text: "Expressway Residency is located near Hawa Hawai Restaurant on the Delhi–Meerut Expressway (NH-24), Ghaziabad, Uttar Pradesh." },
+                acceptedAnswer: { "@type": "Answer", text: "Expressway Residency is located near Hawa Hawai Restaurant on the Delhi–Meerut Expressway (NE-3), Ghaziabad, Uttar Pradesh." },
               },
               {
                 "@type": "Question",
@@ -785,7 +785,7 @@ export default function ExpresswayResidencyPage() {
                   marginBottom: "1.6rem",
                 }}
               >
-                Expressway Residency enjoys a prime location at NH-24,
+                Expressway Residency enjoys a prime location at NE-3,
                 Ghaziabad, Uttar Pradesh
               </h2>
 
@@ -1183,7 +1183,7 @@ export default function ExpresswayResidencyPage() {
                 allowFullScreen=""
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
-                title="Expressway Residency Location Map — NH-24 Delhi Meerut Expressway, Ghaziabad, Uttar Pradesh"
+                title="Expressway Residency Location Map — NE-3 Delhi Meerut Expressway, Ghaziabad, Uttar Pradesh"
               />
             </div>
             <div className="er-contact-form-panel">

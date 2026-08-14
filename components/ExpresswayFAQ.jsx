@@ -12,7 +12,7 @@ const IconPlusMinus = ({ size = 18, color = "currentColor", isOpen = false }) =>
 const faqs = [
   {
     q: "Where is Expressway Residency located?",
-    a: "Expressway Residency is located near Hawa Hawai Restaurant on the Delhi–Meerut Expressway (NH-24), Ghaziabad, Uttar Pradesh — with direct frontage on the operational 16-lane expressway.",
+    a: "Expressway Residency is located near Hawa Hawai Restaurant on the Delhi–Meerut Expressway (NE-3), Ghaziabad, Uttar Pradesh — with direct frontage on the operational 16-lane expressway.",
   },
   {
     q: "What plot sizes are available?",

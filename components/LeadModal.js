@@ -246,7 +246,7 @@ export default function LeadModal({ isOpen, onClose, triggerText = '', inline = 
     <div
       onClick={e => { if (e.target === e.currentTarget) onClose() }}
       style={{
-        position: 'fixed', inset: 0, zIndex: 50,
+        position: 'fixed', inset: 0, zIndex: 2000,
         background: 'rgba(13,47,36,0.85)',
         backdropFilter: 'blur(6px)',
         display: 'flex', alignItems: 'center', justifyContent: 'center',

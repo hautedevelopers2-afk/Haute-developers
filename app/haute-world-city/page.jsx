@@ -262,18 +262,18 @@ function FaqRow({ q, a, isOpen, onToggle }) {
    DATA
 ───────────────────────────────────────── */
 const amenities = [
-  { Icon: IconBuilding, label: "Grand Club House", body: "A central clubhouse for community events, celebrations, and everyday gathering." },
-  { Icon: IconTree, label: "Landscaped Gardens & Parks", body: "Curated green spaces and walking gardens woven through the township." },
-  { Icon: IconPool, label: "Swimming Pool", body: "A dedicated pool zone for residents to unwind and stay active." },
-  { Icon: IconCamera, label: "AI-Enabled Smart Surveillance", body: "Intelligent camera coverage across common areas for round-the-clock monitoring." },
-  { Icon: IconGate, label: "Secured Gated Entry & Exit", body: "Controlled, single-point entry and exit for a safer, quieter community." },
-  { Icon: IconShield, label: "24×7 Security", body: "On-ground security personnel supported by surveillance infrastructure." },
-  { Icon: IconRun, label: "Jogging & Cycling Track", body: "A dedicated track for morning runs, walks, and cycling within the township." },
-  { Icon: IconKids, label: "Kids Play Zone", body: "A safe, dedicated play area designed for younger residents." },
-  { Icon: IconShop, label: "Retail & Commercial Zone", body: "Everyday retail and services planned within easy walking distance." },
-  { Icon: IconWifi, label: "Fibre-Optic Connectivity", body: "High-speed digital infrastructure built in from day one, in step with Dholera's smart-city backbone." },
-  { Icon: IconYoga, label: "Yoga & Wellness Centre", body: "A calm, dedicated space for yoga, meditation, and wellness routines." },
-  { Icon: IconSun, label: "Solar-Powered Infrastructure", body: "Renewable-energy-backed common infrastructure, aligned with the region's solar push." },
+  { Icon: IconBuilding, label: "Grand Club House", body: "A central clubhouse for community events, celebrations, and everyday gathering.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786694080/modern_luxury_house_exterior_eukogt.jpg" },
+  { Icon: IconTree, label: "Landscaped Gardens & Parks", body: "Curated green spaces and walking gardens woven through the township.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786694260/landscaped_garden_park_nhbegp.jpg" },
+  { Icon: IconPool, label: "Swimming Pool", body: "A dedicated pool zone for residents to unwind and stay active.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786694345/indoor_swimming_pool_ubdel6.jpg" },
+  { Icon: IconGate, label: "Gated Entry & 24×7 Security", body: "Controlled, single-point entry and exit backed by round-the-clock on-ground security personnel.", image:"https://res.cloudinary.com/dpbitfczf/image/upload/v1786695024/haute_world_city_aerial_view_1_so5m3l.jpg" },
+  { Icon: IconRun, label: "Jogging & Cycling Track", body: "A dedicated track for morning runs, walks, and cycling within the township.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786698555/blue_cycling_track_landscaped_park_jdwnir.jpg" },
+  { Icon: IconKids, label: "Kids Play Zone", body: "A safe, dedicated play area designed for younger residents.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786699535/indoor_kids_ball_pool_qg0ttm.webp" },
+  { Icon: IconShop, label: "Retail & Commercial Zone", body: "Everyday retail and services planned within easy walking distance.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786700801/premium_clothing_store_interior_kvoguj.webp" },
+  { Icon: IconWifi, label: "Fibre-Optic Connectivity", body: "High-speed digital infrastructure built in from day one, in step with Dholera's smart-city backbone.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786700925/fiber_optic_network_technology_trpmeg.webp" },
+  { Icon: IconYoga, label: "Yoga & Wellness Centre", body: "A calm, dedicated space for yoga, meditation, and wellness routines.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786701145/yoga_wellness_studio_bc1lkr.jpg" },
+  { Icon: IconSun, label: "Solar-Powered Infrastructure", body: "Renewable-energy-backed common infrastructure, aligned with the region's solar push.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786701449/rooftop_solar_panel_installation_cpv82u.webp" },
+  { Icon: IconBuilding, label: "Open Amphitheatre", body: "An open-air amphitheatre for community gatherings, performances, and cultural events.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786703030/landscaped_amphitheatre_garden_ctynam.jpg" },
+  { Icon: IconTree, label: "Religious Space", body: "A dedicated space for prayer and reflection, designed for the community's everyday spiritual needs.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786702604/varanasi_temple_architecture_nkxape.webp" },
 ];
 
 const projectHighlights = [
@@ -316,13 +316,12 @@ const layoutHighlights = [
 ];
 
 const dholeraMilestones = [
-  { Icon: IconPlane, title: "International Airport", desc: "Dholera International Airport — under construction — is set to become one of India's largest Greenfield airports, connecting the region to global markets." },
-  { Icon: IconFactory, title: "Semiconductor Hub", desc: "Major semiconductor and electronics manufacturers are establishing fabrication plants within Dholera SIR, anchoring the region's industrial identity." },
-  { Icon: IconRoad, title: "DMIC Expressway", desc: "The dedicated Delhi–Mumbai Industrial Corridor freight and expressway network provides direct, high-speed access to two of India's biggest economic centres." },
-  { Icon: IconWifi, title: "Smart ICT Infrastructure", desc: "Underground utilities, city-wide fibre, intelligent traffic management, and smart metering are built into Dholera's design from day one." },
-  { Icon: IconSun, title: "Renewable Energy Zone", desc: "A large-scale solar park powers Dholera with clean energy, positioning it among the first smart cities built around renewables from the ground up." },
-  { Icon: IconDroplet, title: "World-Class Utilities", desc: "Planned water supply, sewage treatment, and drainage systems designed for a city of two million residents." },
-  { Icon: IconBriefcase, title: "Large-Scale Employment Hub", desc: "Dholera SIR is projected to generate hundreds of thousands of direct and indirect jobs across manufacturing, electronics, logistics, and services." },
+  { Icon: IconPlane, title: "International Airport", desc: "Dholera International Airport — under construction — is set to become one of India's largest Greenfield airports, connecting the region to global markets.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786688620/airport_square_compressed_under_10kb_evewcy.jpg" },
+  { Icon: IconFactory, title: "Semiconductor Hub", desc: "Major semiconductor and electronics manufacturers are establishing fabrication plants within Dholera SIR, anchoring the region's industrial identity.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786688868/semiconductor_wafer_testing_machine_hesl6h.jpg" },
+  { Icon: IconRoad, title: "DMIC Expressway", desc: "The dedicated Delhi–Mumbai Industrial Corridor freight and expressway network provides direct, high-speed access to two of India's biggest economic centres.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786690448/multilevel_highway_interchange_goawxw.jpg" },
+  { Icon: IconSun, title: "Renewable Energy Zone", desc: "A large-scale solar park powers Dholera with clean energy, positioning it among the first smart cities built around renewables from the ground up.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786690790/solar_wind_energy_panels_zto7t6.jpg" },
+  { Icon: IconDroplet, title: "World-Class Utilities", desc: "Planned water supply, sewage treatment, and drainage systems designed for a city of two million residents.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786690075/modern_industrial_city_aerial_ydrd2j.jpg" },
+  { Icon: IconBriefcase, title: "Large-Scale Employment Hub", desc: "Dholera SIR is projected to generate hundreds of thousands of direct and indirect jobs across manufacturing, electronics, logistics, and services.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786690495/modern_business_district_complex_ymsqwc.jpg" },
 ];
 
 const proximityBullets = [
@@ -426,9 +425,12 @@ export default function HauteWorldCityPage() {
         .hwc-adv-row p { margin: 0; font-size: 0.92rem; color: rgba(255,255,255,0.88); line-height: 1.6; font-weight: 500; }
 
         /* Amenities */
-        .hwc-amenities { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
-        .hwc-amenity-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; padding: 1.5rem 1.2rem; display: flex; flex-direction: column; align-items: flex-start; gap: 0.7rem; position: relative; overflow: hidden; }
+        .hwc-amenities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .hwc-amenity-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); border-radius: 16px; display: flex; flex-direction: column; position: relative; overflow: hidden; }
         .hwc-amenity-card::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); opacity: 0.5; }
+        .hwc-amenity-img { width: 100%; height: 170px; overflow: hidden; background: rgba(255,255,255,0.05); }
+        .hwc-amenity-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .hwc-amenity-body { padding: 1.6rem 1.5rem 1.8rem; display: flex; align-items: flex-start; gap: 0.9rem; }
 
         /* Dholera milestones */
         .hwc-milestones{ display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
@@ -490,7 +492,7 @@ export default function HauteWorldCityPage() {
         /* ══ TABLET ≤ 900px ══ */
         @media (max-width: 900px) {
           .hwc-2col, .hwc-2col-map, .hwc-2col-dev { grid-template-columns: 1fr; gap: 2.5rem; }
-          .hwc-amenities { grid-template-columns: repeat(3, 1fr); }
+          .hwc-amenities { grid-template-columns: repeat(2, 1fr); }
           .hwc-milestones{ grid-template-columns: repeat(2, 1fr); }
           .hwc-highlights{ grid-template-columns: repeat(2, 1fr); }
           .hwc-map-card  { height: 360px; }
@@ -505,7 +507,7 @@ export default function HauteWorldCityPage() {
           .hwc-glance-row{ grid-template-columns: 1fr; }
           .hwc-glance-lbl{ border-right: none; border-bottom: 1px solid rgba(201,144,26,0.1); padding: 0.65rem 1rem; }
           .hwc-glance-val{ padding: 0.7rem 1rem; }
-          .hwc-amenities { grid-template-columns: repeat(2, 1fr); gap: 0.7rem; }
+          .hwc-amenities { grid-template-columns: 1fr; gap: 1rem; }
           .hwc-milestones{ grid-template-columns: 1fr; }
           .hwc-highlights{ grid-template-columns: 1fr 1fr; gap: 0.7rem; }
           .hwc-map-card  { height: 270px; }
@@ -516,7 +518,6 @@ export default function HauteWorldCityPage() {
         }
 
         @media (max-width: 380px) {
-          .hwc-amenities  { grid-template-columns: 1fr 1fr; }
           .hwc-highlights { grid-template-columns: 1fr; }
         }
       `}</style>
@@ -700,20 +701,32 @@ export default function HauteWorldCityPage() {
                 <article
                   style={{
                     background: "var(--white)", border: "1px solid rgba(201,144,26,0.2)", borderRadius: "16px",
-                    padding: "1.8rem 1.5rem", display: "flex", flexDirection: "column", gap: "0.85rem",
+                    display: "flex", flexDirection: "column",
                     position: "relative", overflow: "hidden", height: "100%", boxSizing: "border-box",
                   }}
                 >
-                  <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "2px", background: "linear-gradient(90deg, var(--gold), transparent)", opacity: 0.6 }} />
-                  <div style={{ width: "46px", height: "46px", background: "rgba(201,144,26,0.1)", border: "1px solid rgba(201,144,26,0.25)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <m.Icon size={22} color="var(--gold)" />
+                  <div style={{ width: "100%", height: "170px", overflow: "hidden", background: "var(--cream)" }}>
+                    <img
+                      src={m.image}
+                      alt=""
+                      aria-hidden="true"
+                      style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                    />
                   </div>
-                  <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", fontWeight: 700, color: "var(--charcoal)", margin: 0, lineHeight: 1.3 }}>
-                    {m.title}
-                  </h3>
-                  <p style={{ margin: 0, fontSize: "0.83rem", color: "var(--gray)", lineHeight: 1.7 }}>
-                    {m.desc}
-                  </p>
+
+                  <div style={{ padding: "1.6rem 1.5rem 1.8rem", display: "flex", alignItems: "flex-start", gap: "0.9rem" }}>
+                    <div style={{ width: "56px", height: "56px", background: "rgba(201,144,26,0.1)", border: "1px solid rgba(201,144,26,0.25)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                      <m.Icon size={28} color="var(--gold)" />
+                    </div>
+                    <div>
+                      <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.95rem", fontWeight: 700, color: "var(--charcoal)", margin: "0 0 0.4rem", lineHeight: 1.3 }}>
+                        {m.title}
+                      </h3>
+                      <p style={{ margin: 0, fontSize: "0.83rem", color: "var(--gray)", lineHeight: 1.7 }}>
+                        {m.desc}
+                      </p>
+                    </div>
+                  </div>
                 </article>
               </RevealItem>
             ))}
@@ -892,15 +905,24 @@ export default function HauteWorldCityPage() {
           <div className="hwc-amenities">
             {amenities.map((a) => (
               <RevealItem key={a.label} className="hwc-amenity-card">
-                <div style={{ width: "44px", height: "44px", background: "rgba(201,144,26,0.15)", border: "1px solid rgba(201,144,26,0.3)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                  <a.Icon size={20} color="var(--gold)" />
+                {a.image && (
+                  <div className="hwc-amenity-img">
+                    <img src={a.image} alt="" aria-hidden="true" />
+                  </div>
+                )}
+                <div className="hwc-amenity-body">
+                  <div style={{ width: "56px", height: "56px", background: "rgba(201,144,26,0.15)", border: "1px solid rgba(201,144,26,0.3)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <a.Icon size={28} color="var(--gold)" />
+                  </div>
+                  <div>
+                    <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", fontWeight: 700, color: "#fff", margin: "0 0 0.4rem", lineHeight: 1.3 }}>
+                      {a.label}
+                    </h3>
+                    <p style={{ margin: 0, fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
+                      {a.body}
+                    </p>
+                  </div>
                 </div>
-                <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.85rem", fontWeight: 700, color: "#fff", margin: 0, lineHeight: 1.3 }}>
-                  {a.label}
-                </h3>
-                <p style={{ margin: 0, fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
-                  {a.body}
-                </p>
               </RevealItem>
             ))}
           </div>
