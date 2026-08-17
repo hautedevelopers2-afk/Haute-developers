@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react'
 const slides = [
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353483/Senior-citizer_usxm9p.webp', label: 'Senior Citizen Park' },
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353482/Shuttle_nztcrp.webp', label: 'Shuttle Service' },
-  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353480/Aerial-ER_bjap8t.webp', label: 'Areal View' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353480/Aerial-ER_bjap8t.webp', label: 'Aerial View' },
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353481/Interal_Roads_2_wh7c9n.webp', label: 'Internal Roads' },
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353481/Internal_Roads_nd1vhu.webp', label: 'Internal Roads 2' },
-  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353480/gym_cuxp5a.webp', label: 'gymnasium' },
+  { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786353480/gym_cuxp5a.webp', label: 'Gymnasium' },
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264525/Temple_gf9j2m.webp', label: 'Temple' },
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264524/Lake_ye1yj7.webp', label: 'Artificial Lake' },
   { src: 'https://res.cloudinary.com/dpbitfczf/image/upload/v1786264524/Park_qfvax4.webp', label: 'Kids Play Area' },

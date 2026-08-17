@@ -218,7 +218,7 @@ export default function ProjectSlider({ projects }) {
         .project-slide-overlay {
           position: absolute !important;
           inset: 0 !important;
-          background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.65) 45%, transparent 75%) !important;
+          background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.15) 35%, transparent 60%) !important;
           z-index: 1 !important;
           display: block !important;
         }

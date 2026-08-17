@@ -222,7 +222,7 @@ export default function TestimonialsSection() {
           border: 1px solid rgba(201,144,26,0.25);
           border-radius: 18px;
           padding: 1.8rem 1.6rem 1.5rem;
-          box-shadow: 0 12px 40px rgba(0,0,0,0.35);
+          box-shadow: none;
           transition: transform 0.9s cubic-bezier(0.65,0,0.35,1),
                       opacity 0.9s cubic-bezier(0.65,0,0.35,1),
                       filter 0.9s cubic-bezier(0.65,0,0.35,1),
@@ -252,7 +252,7 @@ export default function TestimonialsSection() {
 
         .testi-card--active {
           border-color: rgba(201,144,26,0.55);
-          box-shadow: 0 0 0 1px rgba(201,144,26,0.2), 0 24px 70px rgba(0,0,0,0.5);
+          box-shadow: 0 0 0 1px rgba(201,144,26,0.2);
         }
         .testi-card--active .testi-review { color: rgba(255,255,255,0.92); }
 
