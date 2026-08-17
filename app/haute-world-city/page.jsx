@@ -641,7 +641,7 @@ export default function HauteWorldCityPage() {
             <div>
               <span className="section-label">Project Details</span>
               <h2 id="project-details-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "1rem" }}>
-                At a Glance
+                Haute World City, Residential Plots on Dholera - Bhavnagar Expressway 
               </h2>
               <div className="divider" style={{ margin: "1rem 0" }} />
 
