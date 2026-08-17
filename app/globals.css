@@ -803,6 +803,7 @@ section { padding: 6rem 0; }
   .upcoming-grid { grid-template-columns: 1fr; }
   .expressway-inner { grid-template-columns: 1fr; }
   .expressway-content { padding: 2.5rem; }
+  .expressway .container > div > div[style*="2.5rem 2.8rem 2.8rem"] { padding: 1.75rem 1.25rem 2rem !important; }
   .expressway-visual { padding: 2rem; }
 .expressway-feature-img-wrap {
     height: auto !important;
@@ -931,6 +932,7 @@ section { padding: 6rem 0; }
 
 
 @media (max-width: 768px) {
+  [style*="4rem 3rem"] { padding: 2rem 1.5rem !important; }
   .vm-quote-bar {
     padding: 1.5rem !important;
     gap: 1.5rem !important;
