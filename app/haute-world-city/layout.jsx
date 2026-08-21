@@ -8,9 +8,9 @@
 
 export const metadata = {
   title:
-    "Haute World City – Freehold Plots in Dholera Smart City (SIR), Gujarat | Haute World Developers",
+    "Plots for Sale in Dholera Smart City | Haute World City",
   description:
-    "Book freehold residential plots at Haute World City, inside Dholera Special Investment Region — India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor. Clear-title, 200 sq. yd.+ plots.",
+    "Explore plots for sale in Dholera Smart City with Haute World City. Invest in residential and commercial plots on Dholera Bhavnagar Expressway near Dholera SIR.",
   keywords: [
     "Haute World City Dholera",
     "Dholera Smart City plots",

@@ -13,9 +13,9 @@ import ExpresswayBlog from "../../components/ExpresswayBlog";
 import ExpresswayHighlightItem from "../../components/ExpresswayHighlightItem";
 
 export const metadata = {
-  title: "Expressway Residency – Residential Plots on Delhi–Meerut Expressway | Haute World Developers",
+  title: "RERA Plots on Delhi Meerut Expressway | Expressway Residency",
   description:
-    "Government-approved residential plots (100–300 sq. yd.) at Expressway Residency on NE-3 Delhi–Meerut Expressway, Ghaziabad. Freehold titles, transparent pricing & 24×7 security. Developed by Haute World Developers since 2011.",
+    "Explore plots for sale in Ghaziabad at Expressway Residency. Invest in RERA approved and government approved plots on Delhi Meerut Expressway.",
   keywords:
     "Expressway Residency plots, Delhi Meerut Expressway plots, NE-3 Ghaziabad plots, residential plots Ghaziabad, Haute World Developers, freehold plots NCR, investment plots expressway, plots near Bhojpur Industrial Area, Ghaziabad Masterplan 2041, New Ghaziabad plots, DME corridor plots, Delhi Meerut Expressway DME",
   alternates: { canonical: "https://www.hautedevelopers.com/expressway-residency" },

@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
-import { ObjectId } from 'mongodb';
 import clientPromise from '../../../../models/mongodb-blogs';
+import { getPostBySlugOrId } from '../../../../lib/blog-utils';
 
 const CORS = {
   'Access-Control-Allow-Origin': '*',
@@ -14,17 +14,13 @@ export async function OPTIONS() {
 
 export async function GET(req, { params }) {
   try {
-    const { id } = await params;
-
-    if (!ObjectId.isValid(id)) {
-      return NextResponse.json({ error: 'Invalid post ID' }, { status: 400, headers: CORS });
-    }
+    const { id } = await params; // slug OR legacy ObjectId
 
     const client = await clientPromise;
     const db = client.db('blogs');
     const collection = db.collection('posts');
 
-    const post = await collection.findOne({ _id: new ObjectId(id) });
+    const post = await getPostBySlugOrId(collection, id);
 
     if (!post) {
       return NextResponse.json({ error: 'Post not found' }, { status: 404, headers: CORS });

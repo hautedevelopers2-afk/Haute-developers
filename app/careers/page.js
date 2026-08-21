@@ -1,9 +1,9 @@
 import CareersClient from './CareersClient'
 
 export const metadata = {
-  title: 'Careers at Haute World Developers | Join Our Real Estate Team in Noida NCR',
+  title: 'Careers at Haute World Developers | Jobs in Real Estate NCR',
   description:
-    'Explore career opportunities at Haute World Developers — a premium real estate company delivering excellence since 2011. Join our growing team in Noida, Delhi NCR. Apply now.',
+    'Explore exciting real estate jobs in NCR with Haute World Developers. Join our growing team and build a successful career in sales and real estate',
   keywords: [
     'careers at Haute World Developers',
     'real estate jobs Noida',

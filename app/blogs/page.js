@@ -35,7 +35,6 @@ export default function BlogsPage() {
       .then(data => {
         const posts = data.posts || []
         setBlogs(posts)
-        // Build category counts dynamically
         const counts = {}
         posts.forEach(p => {
           counts[p.category] = (counts[p.category] || 0) + 1
@@ -53,7 +52,6 @@ export default function BlogsPage() {
   const featured = filtered[0]
   const rest     = filtered.slice(1, visibleCount + 1)
 
-  // Recent blogs = latest 5 from all posts
   const recentBlogs = [...blogs]
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
     .slice(0, 5)
@@ -108,7 +106,7 @@ export default function BlogsPage() {
                 {featured && (
                   <>
                     <div className="blogs-featured-label">Featured Story</div>
-                    <Link href={`/blogs/${featured._id}`} className="blogs-featured">
+                    <Link href={`/blogs/${featured.slug || featured._id}`} className="blogs-featured">
                       <div className="blogs-featured-img">
                         {featured.coverImage
                           ? <img src={featured.coverImage} alt={featured.title} />
@@ -130,7 +128,7 @@ export default function BlogsPage() {
                         <p className="blogs-featured-excerpt">
                           {stripHtml(featured.content).slice(0, 200)}...
                         </p>
-                        
+
                         <div className="blogs-featured-read">
                           Read More
                           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -161,7 +159,7 @@ export default function BlogsPage() {
 
                     <div className="blogs-grid">
                       {rest.map((blog) => (
-                        <Link key={blog._id} href={`/blogs/${blog._id}`} className="blog-card">
+                        <Link key={blog._id} href={`/blogs/${blog.slug || blog._id}`} className="blog-card">
                           <div className={blog.coverImage ? 'blog-card-img' : 'blog-card-no-img'}>
                             {blog.coverImage ? (
                               <img src={blog.coverImage} alt={blog.title} />
@@ -242,7 +240,7 @@ export default function BlogsPage() {
                 </div>
                 <div className="blogs-recent-list">
                   {recentBlogs.map(r => (
-                    <Link key={r._id} href={`/blogs/${r._id}`} className="blogs-recent-item">
+                    <Link key={r._id} href={`/blogs/${r.slug || r._id}`} className="blogs-recent-item">
                       <div className="blogs-recent-thumb">
                         {r.coverImage
                           ? <img src={r.coverImage} alt={r.title} />

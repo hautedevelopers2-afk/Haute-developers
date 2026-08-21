@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Navbar from '../../../components/Navbar'
 import Footer from '../../../components/Footer'
@@ -22,8 +22,7 @@ function readTime(content) {
   return Math.max(1, Math.ceil(stripHtml(content).split(' ').length / 200))
 }
 
-export default function BlogDetailPage({ params }) {
-  const { id } = use(params)
+export default function BlogDetailClient({ slug }) {
   const [blog, setBlog]           = useState(null)
   const [related, setRelated]     = useState([])
   const [allBlogs, setAllBlogs]   = useState([])
@@ -33,7 +32,7 @@ export default function BlogDetailPage({ params }) {
 
   useEffect(() => {
     // Fetch the specific blog post
-    fetch(`/api/blogs/${id}`)
+    fetch(`/api/blogs/${slug}`)
       .then(r => r.json())
       .then(data => {
         if (!data.post) { setNotFound(true); setLoading(false); return }
@@ -42,7 +41,7 @@ export default function BlogDetailPage({ params }) {
         // Fetch related by same category
         fetch(`/api/blogs?category=${encodeURIComponent(data.post.category)}&limit=4`)
           .then(r => r.json())
-          .then(d => setRelated((d.posts || []).filter(p => p._id !== id).slice(0, 5)))
+          .then(d => setRelated((d.posts || []).filter(p => p._id !== data.post._id).slice(0, 5)))
           .catch(() => {})
       })
       .catch(() => { setNotFound(true); setLoading(false) })
@@ -58,7 +57,7 @@ export default function BlogDetailPage({ params }) {
         setCatCounts(counts)
       })
       .catch(() => {})
-  }, [id])
+  }, [slug])
 
   const recentBlogs = [...allBlogs]
     .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -163,7 +162,7 @@ export default function BlogDetailPage({ params }) {
                     </div>
                     <div className="bd-recent-list">
                       {recentBlogs.map(r => (
-                        <Link key={r._id} href={`/blogs/${r._id}`} className="bd-recent-item">
+                        <Link key={r._id} href={`/blogs/${r.slug || r._id}`} className="bd-recent-item">
                           <div className="bd-recent-thumb">
                             {r.coverImage
                               ? <img src={r.coverImage} alt={r.title} />

@@ -4,11 +4,11 @@ import Script from 'next/script'
 export const metadata = {
   metadataBase: new URL('https://www.hautedevelopers.com'),
   title: {
-    default: 'Haute World Developers | Premium Real Estate in NCR, Noida, Ghaziabad',
+    default: 'Leading Real Estate Developer in NCR | Haute World Developers',
     template: '%s | Haute World Developers',
   },
   description:
-    'Haute World Developers — Delivering premium residential plots, villas, and apartments since 2011. Projects in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Invest with Haute.',
+    'Explore premium residential properties, luxury villas, plots and investment opportunities with Haute World Developers. Find quality real estate projects in India.',
   keywords: [
     'Haute World Developers',
     'real estate Noida',
