@@ -5,7 +5,6 @@ export const metadata = {
   metadataBase: new URL('https://www.hautedevelopers.com'),
   title: {
     default: 'Leading Real Estate Developer in NCR | Haute World Developers',
-    template: '%s | Haute World Developers',
   },
   description:
     'Explore premium residential properties, luxury villas, plots and investment opportunities with Haute World Developers. Find quality real estate projects in India.',
