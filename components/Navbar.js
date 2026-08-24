@@ -295,7 +295,7 @@ export default function Navbar() {
         </div>
       )}
 
-      <style>{`
+      <style jsx>{`
         .nav-projects-dropdown {
           position: absolute;
           top: calc(100% + 14px);
