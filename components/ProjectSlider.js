@@ -114,7 +114,7 @@ export default function ProjectSlider({ projects }) {
 
   return (
     <>
-      <style>{`
+      <style jsx>{`
         .project-slide {
           perspective: 1000px;
           -webkit-perspective: 1000px;

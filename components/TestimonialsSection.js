@@ -187,7 +187,7 @@ export default function TestimonialsSection() {
         </div>
       </div>
 
-      <style>{`
+      <style jsx>{`
         .testi-viewport-outer {
           width: 100vw;
           position: relative;

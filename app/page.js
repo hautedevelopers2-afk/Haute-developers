@@ -468,7 +468,7 @@ export default function Home() {
             role="list"
           >
             {whyCards.map((c, i) => (
-              <article
+              <div
                 key={c.title}
                 role="listitem"
                 style={{
@@ -526,7 +526,7 @@ export default function Home() {
                 </div>
 
                 {/* Title */}
-                <h4
+                <h3
                   style={{
                     fontFamily: "var(--font-display)",
                     fontSize: "1rem",
@@ -537,7 +537,7 @@ export default function Home() {
                   }}
                 >
                   {c.title}
-                </h4>
+                </h3>
 
                 {/* Desc */}
                 <p
@@ -566,7 +566,7 @@ export default function Home() {
                     }}
                   />
                 )}
-              </article>
+              </div>
             ))}
           </div>
 
@@ -936,7 +936,7 @@ export default function Home() {
       {/* ══════════════════════════════════════════
           BLOG
       ══════════════════════════════════════════ */}
-      <style>{`
+      <style jsx>{`
         .er-blog-head  { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 1.2rem; margin-bottom: 1rem; }
         .er-blog-grid  { display: grid; grid-template-columns: 1fr; gap: 1.5rem; margin-top: 2rem; }
         .er-blog-card  { background: var(--white); border: 1px solid rgba(201,144,26,0.18); border-radius: 16px; display: flex; flex-direction: column; overflow: hidden; text-decoration: none; box-shadow: 0 4px 20px rgba(26,74,58,0.06); transition: transform 0.3s ease, box-shadow 0.3s ease; }
