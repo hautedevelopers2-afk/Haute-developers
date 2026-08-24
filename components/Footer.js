@@ -139,7 +139,7 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div className="footer-col">
-            <h5>Quick Links</h5>
+            <h3>Quick Links</h3>
             <ul className="footer-links">
               <li>
                 <Link href="/">Home</Link>
@@ -161,7 +161,7 @@ export default function Footer() {
 
           {/* Projects */}
           <div className="footer-col">
-            <h5>Our Projects</h5>
+            <h3>Our Projects</h3>
             <ul className="footer-links">
               <li>
                 <Link href="/expressway-residency">Expressway Residency</Link>
@@ -183,7 +183,7 @@ export default function Footer() {
 
           {/* Contact */}
           <div className="footer-col">
-            <h5>Get in touch</h5>
+            <h3>Get in touch</h3>
             <ul className="footer-links footer-contact-list" style={{ gap: "0.8rem" }}>
               <li
                 style={{
@@ -286,13 +286,13 @@ export default function Footer() {
 
       <style jsx>{`
         /* ---------- 1. Underline growing left -> right under column headings ---------- */
-        .footer-col h5 {
+        .footer-col h3 {
           position: relative;
           display: inline-block;
           cursor: default;
         }
 
-        .footer-col h5::after {
+        .footer-col h3::after {
           content: "";
           position: absolute;
           left: 0;
@@ -303,7 +303,7 @@ export default function Footer() {
           transition: width 0.35s ease;
         }
 
-        .footer-col h5:hover::after {
+        .footer-col h3:hover::after {
           width: 100%;
         }
 
