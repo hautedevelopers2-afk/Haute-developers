@@ -10,9 +10,9 @@
 // export, while still rendering the client page underneath untouched.
 
 export const metadata = {
-  title: "Haute Eden Valley | Premium Farmhouse Plots Near Jaipur, Shahpura NH-48",
+  title: "Farmhouse Plots Near Delhi NCR | Haute Eden Valley",
   description:
-    "Haute Eden Valley is a 20-acre nature-inspired luxury farm estate at Shahpura on the Delhi–Jaipur Highway (NH-48). 75 premium 500 sq. yd. farmhouse plots near Jaipur, starting ₹40 Lakhs*. By Haute World Developers.",
+    "Explore luxury farmhouse plots near Delhi NCR at Haute Eden Valley. Invest in premium plots on Delhi Jaipur Highway with strong future growth potential.",
   keywords: [
     "farmhouse plots near Jaipur",
     "farmhouse plots in Jaipur",
@@ -33,9 +33,9 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Haute Eden Valley | Luxury Farmhouse Plots Near Jaipur",
+    title: "Farmhouse Plots Near Delhi NCR | Haute Eden Valley",
     description:
-      "A 20-acre gated farm estate at Shahpura on the Delhi–Jaipur Highway (NH-48). 75 premium farmhouse plots, starting ₹40 Lakhs*. By Haute World Developers.",
+      "Explore luxury farmhouse plots near Delhi NCR at Haute Eden Valley. Invest in premium plots on Delhi Jaipur Highway with strong future growth potential.",
     url: "https://www.hautedevelopers.com/haute-eden-valley",
     siteName: "Haute World Developers",
     images: [
