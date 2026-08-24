@@ -1,4 +1,5 @@
 'use client'
+
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -111,6 +112,25 @@ export default function Navbar() {
                     role="menuitem"
                     className="nav-projects-dropdown-item"
                     onClick={() => setProjectsOpen(false)}
+                    style={{
+                      display: 'block',
+                      padding: '10px 14px',
+                      borderRadius: '5px',
+                      color: 'rgba(255,255,255,0.9)',
+                      fontSize: '13.5px',
+                      fontWeight: 500,
+                      textDecoration: 'none',
+                      whiteSpace: 'nowrap',
+                      transition: 'background 0.15s, color 0.15s',
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.background = 'rgba(196,144,26,0.14)'
+                      e.currentTarget.style.color = '#e8b93a'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.background = 'transparent'
+                      e.currentTarget.style.color = 'rgba(255,255,255,0.9)'
+                    }}
                   >
                     {p.label}
                   </Link>
@@ -321,21 +341,6 @@ export default function Navbar() {
           visibility: visible;
           pointer-events: auto;
           transform: translateX(-50%) translateY(0);
-        }
-        .navbar .nav-projects-dropdown a.nav-projects-dropdown-item {
-          display: block;
-          padding: 10px 14px;
-          border-radius: 5px;
-          color: rgba(255,255,255,0.9) !important;
-          font-size: 13.5px;
-          font-weight: 500;
-          text-decoration: none;
-          white-space: nowrap;
-          transition: background 0.15s, color 0.15s;
-        }
-        .navbar .nav-projects-dropdown a.nav-projects-dropdown-item:hover {
-          background: rgba(196,144,26,0.14);
-          color: #e8b93a !important;
         }
 
         .mobile-projects-accordion {
