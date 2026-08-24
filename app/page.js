@@ -11,8 +11,8 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import ExpresswayBlog from "../components/ExpresswayBlog";
 
 export const metadata = {
-  title: "Haute World Developers | Premium Real Estate — Plots, Villas & Apartments in NCR",
-  description: "Haute World Developers offers premium plots, villas & residential apartments in Noida, Ghaziabad, Dehradun, Vrindavan & Dholera. Delivering excellence since 2011. Invest with Haute.",
+  title: "Leading Real Estate Developer in NCR | Haute World Developers",
+  description: "Explore premium residential properties, luxury villas, plots and investment opportunities with Haute World Developers. Find quality real estate projects in India.",
   alternates: { canonical: "https://www.hautedevelopers.com" },
   icons: {
     icon: "/favicon.ico",

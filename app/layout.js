@@ -27,9 +27,9 @@ export const metadata = {
     locale: 'en_IN',
     url: 'https://www.hautedevelopers.com',
     siteName: 'Haute World Developers',
-    title: 'Haute World Developers | Premium Real Estate Since 2011',
+    title: 'Leading Real Estate Developer in NCR | Haute World Developers',
     description:
-      'Explore premium residential and investment opportunities across NCR, Noida, Ghaziabad, Vrindavan & Dholera with Haute World Developers.',
+      'Explore premium residential properties, luxury villas, plots and investment opportunities with Haute World Developers. Find quality real estate projects in India.',
     images: [
       {
         url: '/og-image.jpg',
@@ -41,9 +41,9 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Haute World Developers | Premium Real Estate Since 2011',
+    title: 'Leading Real Estate Developer in NCR | Haute World Developers',
     description:
-      'Premium residential plots, villas & apartments in Delhi NCR. Invest with Haute.',
+      'Explore premium residential properties, luxury villas, plots and investment opportunities with Haute World Developers. Find quality real estate projects in India.',
     images: ['/og-image.jpg'],
   },
   robots: {
