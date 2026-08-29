@@ -290,6 +290,13 @@ export default function Footer() {
           position: relative;
           display: inline-block;
           cursor: default;
+          color: var(--gold);
+          font-family: var(--font-body);
+          font-size: 0.85rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          margin-bottom: 0.4rem;
         }
 
         .footer-col h3::after {
