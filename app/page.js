@@ -966,10 +966,10 @@ export default function Home() {
               Speak to our team for pricing details, payment plans, and to
               schedule your complimentary site visit. Or call us directly at{" "}
               <a
-                href="tel:+919911807193"
+                href="tel:+918383073291"
                 style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}
               >
-                +91 99118 07193
+                +91 83830 73291
               </a>
               .
             </p>

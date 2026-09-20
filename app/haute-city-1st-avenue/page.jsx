@@ -734,7 +734,7 @@ export default function HauteCityFirstAvenuePage() {
             <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.8 }}>
               NE-3, Delhi–Meerut Expressway, near Hawa Hawai Restaurant. Leave your details and our team will
               call you within 24 hours, or call us directly at{" "}
-              <a href="tel:+919911807193" style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}>+91 99118 07193</a>.
+              <a href="tel:+918383073291" style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}>+91 83830 73291</a>.
             </p>
           </div>
 

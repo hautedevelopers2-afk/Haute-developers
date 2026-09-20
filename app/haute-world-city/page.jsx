@@ -995,8 +995,8 @@ export default function HauteWorldCityPage() {
             <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.8 }}>
               Speak to our team for pricing details, payment plans, and to schedule your complimentary site visit —
               or call us directly at{" "}
-              <a href="tel:+919911807193" style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}>
-                +91 99118 07193
+              <a href="tel:+918383073291" style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}>
+                +91 83830 73291
               </a>.
             </p>
           </div>
