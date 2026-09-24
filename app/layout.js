@@ -86,7 +86,7 @@ export default function RootLayout({ children }) {
               description:
                 'Premium real estate developer specializing in residential plots, villas, and apartments across Delhi NCR and India.',
               url: 'https://www.hautedevelopers.com',
-              telephone: '+918383073291',
+              telephone: '+917005008600',
               email: 'support@hautedevelopers.com',
               address: {
                 '@type': 'PostalAddress',

@@ -140,7 +140,7 @@ export default function LeadModal({ isOpen, onClose, triggerText = '', inline = 
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: 14, lineHeight: 1.7, marginBottom: 20 }}>
             Our team will contact you within 2 hours with pricing details and to schedule your complimentary site visit.
           </p>
-          <p style={{ color: '#f59e0b', fontWeight: 700, fontSize: 16 }}>+91-8383073291</p>
+          <p style={{ color: '#f59e0b', fontWeight: 700, fontSize: 16 }}>+91-7005008600</p>
           {!inline && (
             <button onClick={onClose} style={{ background: 'none', border: 'none', color: 'rgba(255,255,255,0.5)', fontSize: 13, cursor: 'pointer', textDecoration: 'underline', marginTop: 12 }}>Close</button>
           )}

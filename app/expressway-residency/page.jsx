@@ -1167,10 +1167,10 @@ export default function ExpresswayResidencyPage() {
               Speak to our team for pricing details, payment plans, and to
               schedule your complimentary site visit. Or call us directly at{" "}
               <a
-                href="tel:+918383073291"
+                href="tel:+917005008600"
                 style={{ color: "var(--gold)", fontWeight: 700, textDecoration: "none" }}
               >
-                +91 83830 73291
+                +91 70050 08600
               </a>
               .
             </p>
