@@ -240,7 +240,7 @@ function buildContractHTML(data) {
   </div>
   <div class="footer-note">
     This document is computer-generated and constitutes a binding agreement upon submission.<br/>
-    Haute World Developers. | Ground Floor, H-214, Sector 63, Noida, UP 201301 | support@hautedevelopers.com
+    Haute World Developers. | Ground Floor, H-214, Sector 63, Noida, UP 201301 | info@hautedevelopers.co
   </div>
 </body>
 </html>`

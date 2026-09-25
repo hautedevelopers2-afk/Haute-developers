@@ -242,7 +242,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:support@hautedevelopers.com"
+                  href="mailto:info@hautedevelopers.co"
                   style={{
                     color: "rgba(255,255,255,0.85)",
                     fontSize: "0.88rem",
@@ -265,7 +265,7 @@ export default function Footer() {
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="M2 6l10 7 10-7" />
                   </svg>
-                  support@hautedevelopers.com
+                  info@hautedevelopers.co
                 </a>
               </li>
             </ul>

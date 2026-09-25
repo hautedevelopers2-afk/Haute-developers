@@ -65,7 +65,7 @@ haute-developers/
 ## 📝 Content Updates
 
 - **Phone number:** Search for `7005008600` to update
-- **Email:** Search for `support@hautedevelopers.com`
+- **Email:** Search for `info@hautedevelopers.co`
 - **Address:** Search for `H-214, Sector 63`
 - **Google Maps:** Update the iframe `src` in `app/page.js`
 - **Google Search Console verification:** Update `google` value in `app/layout.js`

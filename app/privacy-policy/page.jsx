@@ -181,7 +181,7 @@ const sections = [
         lines: [
           "Haute World Developers",
           "Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301",
-          "Email: support@hautedevelopers.com",
+          "Email: info@hautedevelopers.co",
           "Phone: +91 70050 08600",
         ],
       },
