@@ -2,6 +2,23 @@
 import Link from "next/link";
 import { useState, useEffect } from "react";
 
+const PinIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    width="15"
+    height="15"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    style={{ flexShrink: 0, marginTop: "3px", opacity: 1 }}
+  >
+    <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" />
+    <circle cx="12" cy="10" r="3" />
+  </svg>
+);
+
 export default function Footer() {
   const [year, setYear] = useState("");
 
@@ -185,6 +202,7 @@ export default function Footer() {
           <div className="footer-col">
             <h3>Get in touch</h3>
             <ul className="footer-links footer-contact-list" style={{ gap: "0.8rem" }}>
+              {/* Head Office */}
               <li
                 style={{
                   color: "rgba(255,255,255,0.85)",
@@ -195,24 +213,54 @@ export default function Footer() {
                   alignItems: "flex-start",
                 }}
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="15"
-                  height="15"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  style={{ flexShrink: 0, marginTop: "3px", opacity: 1 }}
-                >
-                  <path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z" />
-                  <circle cx="12" cy="10" r="3" />
-                </svg>
+                <PinIcon />
                 <span>
+                  <strong
+                    style={{
+                      display: "block",
+                      color: "#d4af37",
+                      fontSize: "0.72rem",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      marginBottom: "0.15rem",
+                    }}
+                  >
+                    Head Office
+                  </strong>
                   Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301
                 </span>
               </li>
+
+              {/* Ahmedabad Office */}
+              <li
+                style={{
+                  color: "rgba(255,255,255,0.85)",
+                  fontSize: "0.88rem",
+                  lineHeight: "1.6",
+                  display: "flex",
+                  gap: "0.6rem",
+                  alignItems: "flex-start",
+                }}
+              >
+                <PinIcon />
+                <span>
+                  <strong
+                    style={{
+                      display: "block",
+                      color: "#d4af37",
+                      fontSize: "0.72rem",
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      marginBottom: "0.15rem",
+                    }}
+                  >
+                    Ahmedabad Office
+                  </strong>
+                  804, Rashmi The Prime, Near Vakil Saheb Bridge, SP Ring Road,
+                  Bopal-Ambli Road, Ahmedabad
+                </span>
+              </li>
+
               <li>
                 <a
                   href="tel:+917005008600"
@@ -280,6 +328,8 @@ export default function Footer() {
             <a href="/privacy-policy">Privacy Policy</a>
             {" · "}
             <a href="/terms-of-use">Terms of Use</a>
+            {" · "}
+            <a href="/refund-policy">Refund Policy</a>
           </p>
         </div>
       </div>
@@ -315,15 +365,6 @@ export default function Footer() {
         }
 
         /* ---------- 2. Arrow-in + shift-right on list links ---------- */
-        /* :global() is required here because these <li> items wrap
-           next/link's <Link>, which renders its own <a> tag.
-           styled-jsx only auto-scopes literal HTML tags written
-           directly in this file's JSX, not custom components like
-           <Link> — so plain scoped selectors silently never match it.
-
-           Hover is triggered on the <li> (not the <a>) and everything
-           shifts together via padding-left, so there's no gap between
-           the arrow and the text that could cause hover to flicker. */
         :global(.footer-links li) {
           position: relative;
           padding-left: 0;
@@ -370,12 +411,6 @@ export default function Footer() {
         }
 
         /* ---------- 3. Recolor + resize social icons: white -> gold on hover ---------- */
-        /* Strips any box/background your external .social-btn class
-           may define, to match the flat icon-only reference style.
-           Icons rest white and turn gold on hover.
-           Selector is nested (.footer-social .social-btn) to win
-           specificity over whatever fixed-size box rule already
-           exists for .social-btn in your external stylesheet. */
         :global(.footer-social .social-btn) {
           background: transparent !important;
           background-color: transparent !important;
@@ -397,12 +432,6 @@ export default function Footer() {
           transition: color 0.3s ease, transform 0.3s ease;
         }
 
-        /* Locks the SVG itself to a fixed square so it can't be
-           stretched by any width:100%/height:100% rule already
-           defined for it in your external stylesheet, and forces
-           it to render as a block so it can't be clipped by an
-           inline-element baseline gap or a leftover overflow:hidden
-           on the button. */
         :global(.footer-social .social-btn svg) {
           display: block !important;
           width: 26px !important;
