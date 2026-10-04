@@ -109,7 +109,7 @@ const upcomingProjects = [
     image: "/assets/expressway.png",
   },
   {
-    name: "Haute world City",
+    name: "Haute World City",
     location: "Dholera",
     href: "/haute-world-city",
     desc: "A landmark investment opportunity in Dholera Smart City...",
@@ -657,9 +657,9 @@ export default function Home() {
         <div className="container">
           <div style={{ textAlign: "center", maxWidth: 600, margin: "0 auto" }}>
             <span className="section-label" style={{ color: "var(--gold)" }}>
-              Upcoming Launches
+              New Opportunities
             </span>
-            <h2>New Projects, New Opportunities</h2>
+            <h2>New Landmark, New Destination</h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
           </div>
           <div className="projects-grid">

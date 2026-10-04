@@ -168,7 +168,7 @@ export default function Footer() {
                 <Link href="/#projects">Our Projects</Link>
               </li>
               <li>
-                <Link href="/#upcoming">Upcoming Launches</Link>
+                <Link href="/#upcoming">New Opportunities</Link>
               </li>
               <li>
                 <Link href="/#contact">Contact Us</Link>
