@@ -988,7 +988,7 @@ export default function HauteWorldCityPage() {
             playsInline
             style={{ position: "absolute", top: "50%", left: "50%", width: "100%", height: "100%", objectFit: "cover", transform: "translate(-50%, -50%) scale(1.25)" }}
           >
-            <source src="https://res.cloudinary.com/dpbitfczf/video/upload/v1786616177/Dholera_video_view_xe2xlu.mp4" type="video/mp4" />
+            <source src="https://res.cloudinary.com/dpbitfczf/video/upload/v1791282656/web-clip_1_xqupd2.mp4" type="video/mp4" />
           </video>
         </div>
 
