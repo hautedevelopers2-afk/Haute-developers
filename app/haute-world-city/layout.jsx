@@ -10,18 +10,19 @@ export const metadata = {
   title:
     "Plots for Sale in Dholera Smart City | Haute World City",
   description:
-    "Explore plots for sale in Dholera Smart City with Haute World City. Invest in residential and commercial plots on Dholera Bhavnagar Expressway near Dholera SIR.",
+    "Explore plots for sale in Dholera Smart City with Haute World City. Invest in residential and commercial plots on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District.",
   keywords: [
     "Haute World City Dholera",
     "Dholera Smart City plots",
     "Dholera SIR investment",
     "residential plots Dholera",
-    "freehold plots Dholera Gujarat",
+    "Approved plots Dholera Gujarat",
     "DMIC plots Gujarat",
     "Dholera greenfield smart city",
     "plots near Dholera International Airport",
     "Haute World Developers Dholera",
-    "Ahmedabad Dholera Expressway plots",
+    "Dholera Expressway plots",
+    "plots near Dholera SIR boundary Bhavnagar",
   ].join(", "),
   alternates: {
     canonical: "https://www.hautedevelopers.com/haute-world-city",
@@ -31,9 +32,9 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Haute World City – Premium Freehold Plots in Dholera Smart City",
+    title: "Haute World City – Premium Approved Plots near Dholera Smart City",
     description:
-      "India's first Greenfield smart city. Freehold residential plots by Haute World Developers in Dholera SIR, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
+      "Approved residential and commercial plots by Haute World Developers on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
     url: "https://www.hautedevelopers.com/haute-world-city",
     siteName: "Haute World Developers",
     images: [
@@ -49,9 +50,9 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haute World City – Freehold Plots in Dholera Smart City",
+    title: "Haute World City – Approved Plots near Dholera Smart City",
     description:
-      "India's first Greenfield smart city on the DMIC. Freehold residential plots by Haute World Developers, Dholera SIR, Gujarat.",
+      "Approved plots on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District. By Haute World Developers.",
     images: ["/assets/dholera.png"],
   },
 };

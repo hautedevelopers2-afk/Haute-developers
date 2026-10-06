@@ -160,7 +160,7 @@ const sections = [
           "Head Office: Ground Floor, H-214, Sector 63, Noida, Uttar Pradesh 201301",
           "Ahmedabad Office: 804, Rashmi The Prime, Near Vakil Saheb Bridge, SP Ring Road, Bopal-Ambli Road, Ahmedabad",
           "Email: info@hautedevelopers.co",
-          "Phone: +91 70050 08600",
+          "Phone: +91 99118 07193",
         ],
       },
     ],
