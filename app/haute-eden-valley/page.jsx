@@ -10,6 +10,7 @@ import Navbar from "../../components/Navbar";
 import PopupLeadModal from "../../components/PopupLeadModal";
 import Footer from "../../components/Footer";
 import ContactForm from "../../components/ContactForm";
+import "../mobile-pages.css";
 
 /* ─────────────────────────────────────────
    SVG ICON COMPONENTS
@@ -765,7 +766,8 @@ export default function Home() {
 
       <div className="wc-page">
         {/* ══════════════ HERO ══════════════ */}
-        <section id="home" className="wc-hero" aria-label="Haute Eden Valley hero">
+        <section id="home" className="wc-hero mh-hero" aria-label="Haute Eden Valley hero">
+          <div className="wc-hero-slides mh-media">
           {heroImages.map((src, i) => (
             <div
               key={src}
@@ -774,18 +776,19 @@ export default function Home() {
               aria-hidden={i === heroSlide ? "false" : "true"}
             />
           ))}
-          <div className="wc-hero-overlay" />
-          <div className="wc-container wc-hero-inner">
+          </div>
+          <div className="wc-hero-overlay mh-hide" />
+          <div className="wc-container wc-hero-inner mh-panel">
             <p className="wc-eyebrow wc-hero-kicker">Farmhouse Plots Near Jaipur • On NH-48, 5 Minutes From The Highway</p>
-            <h1 className="wc-hero-title">
+            <h1 className="wc-hero-title mh-title">
               Haute Eden Valley — A Nature Inspired{" "}
               <span className="wc-italic" style={{ color: "var(--wc-brass-light)" }}>Luxury Farm Estate</span>
             </h1>
-            <p style={{ maxWidth: "640px", margin: "-1rem auto 2rem", color: "rgba(247,242,230,0.85)", fontSize: "1rem", lineHeight: 1.7 }}>
+            <p className="mh-desc" style={{ maxWidth: "640px", margin: "-1rem auto 2rem", color: "rgba(247,242,230,0.85)", fontSize: "1rem", lineHeight: 1.7 }}>
               20 acres, 75 premium farmhouse plots near Jaipur at Shahpura, right on the Delhi–Jaipur Highway
               (NH-48) — a gated weekend-home destination built for Delhi NCR families, starting ₹40 Lakhs*.
             </p>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
+            <div className="mh-actions" style={{ display: "flex", flexWrap: "wrap", gap: "1rem", justifyContent: "center" }}>
               <a href="#highlights" className="wc-btn-gold">
                 Explore The Estate <IconArrowRight size={14} />
               </a>

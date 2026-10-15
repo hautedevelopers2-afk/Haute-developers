@@ -11,6 +11,7 @@ import ContactForm from "../../components/ContactForm";
 import ExpresswayFAQ from "../../components/ExpresswayFAQ";
 import ExpresswayBlog from "../../components/ExpresswayBlog";
 import ExpresswayHighlightItem from "../../components/ExpresswayHighlightItem";
+import "../mobile-pages.css";
 
 export const metadata = {
   title: "RERA Plots on Delhi Meerut Expressway | Expressway Residency",
@@ -267,9 +268,9 @@ export default function ExpresswayResidencyPage() {
         }
         .er-adv-card::before {
           content: '';
-          position: absolute; top: -40%; right: -30%;
-          width: 70%; height: 70%;
-          background: radial-gradient(circle, rgba(201,144,26,0.22) 0%, transparent 70%);
+          position: absolute; top: -120px; right: -100px;
+          width: 340px; height: 340px;
+          background: radial-gradient(circle closest-side, rgba(201,144,26,0.22) 0%, transparent 100%);
           pointer-events: none;
         }
         .er-adv-card::after {
@@ -446,9 +447,9 @@ export default function ExpresswayResidencyPage() {
         /* ── Hero: swap to mobile-specific image, fit fully without side-cropping ── */
         @media (max-width: 768px) {
           .hero-slide {
-            background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1786341641/ER-Elev-Mobile-Night_osb3pb.webp') !important;
-            background-size: contain !important;
-            background-position: top center !important;
+            background-image: url('/assets/expressway-front.png') !important;
+            background-size: cover !important;
+            background-position: center 35% !important;
             background-repeat: no-repeat !important;
             background-color: var(--forest-dark);
           }
@@ -567,14 +568,14 @@ export default function ExpresswayResidencyPage() {
           HERO
       ══════════════════════════════════════════ */}
       <section
-        className="hero"
+        className="hero mh-hero"
         aria-label="Expressway Residency hero"
         style={{
           background:
             "linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%)",
         }}
       >
-        <div className="hero-slides" aria-hidden="true">
+        <div className="hero-slides mh-media" aria-hidden="true">
           <div
             className="hero-slide"
             style={{
@@ -585,10 +586,10 @@ export default function ExpresswayResidencyPage() {
             }}
           />
         </div>
-        <div className="hero-img-overlay" aria-hidden="true" />
-        <div className="hero-bottom-shadow" aria-hidden="true" />
+        <div className="hero-img-overlay mh-hide" aria-hidden="true" />
+        <div className="hero-bottom-shadow mh-hide" aria-hidden="true" />
 
-        <div className="hero-content hero-content--new">
+        <div className="hero-content hero-content--new mh-panel">
           <div className="hero-col-title">
             <p
               style={{
@@ -604,7 +605,7 @@ export default function ExpresswayResidencyPage() {
               Upcoming Integrated Township on NE&nbsp;3
             </p>
             <h1
-              className="hero-title"
+              className="hero-title mh-title"
               style={{ opacity: 1, transform: "none", animation: "none" }}
             >
               <span
@@ -615,7 +616,7 @@ export default function ExpresswayResidencyPage() {
               </span>
             </h1>
             <p
-              className="hero-desc--stacked"
+              className="hero-desc--stacked mh-desc"
               style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}
             >
               Expressway Residency is an upcoming 100 acres township with 50+
@@ -625,7 +626,7 @@ export default function ExpresswayResidencyPage() {
             </p>
           </div>
           <div className="hero-col-btns">
-            <div className="hero-actions">
+            <div className="hero-actions mh-actions">
               <a href="#contact" className="btn-primary">
                 Book a Site Visit →
               </a>
@@ -633,7 +634,7 @@ export default function ExpresswayResidencyPage() {
           </div>
         </div>
 
-        <div className="scroll-indicator" aria-hidden="true">
+        <div className="scroll-indicator mh-hide" aria-hidden="true">
           <span>Scroll</span>
           <div className="scroll-line" />
         </div>
@@ -663,6 +664,15 @@ export default function ExpresswayResidencyPage() {
                 A 100-Acre Township on the Delhi–Meerut Expressway
               </h2>
               <div className="divider" />
+
+              {/* Mobile / tablet image: right after the heading */}
+              <div className="er-about-img-wrap er-about-img--mobile">
+                <img
+                  src="/assets/expressway-front.png"
+                  alt="Expressway Residency — aerial view of the township on the Delhi–Meerut Expressway"
+                />
+              </div>
+
               <p
                 style={{
                   fontSize: "0.95rem",
@@ -695,7 +705,8 @@ export default function ExpresswayResidencyPage() {
               </a>
             </div>
 
-            <div className="er-about-img-wrap">
+            {/* Desktop image: beside the text */}
+            <div className="er-about-img-wrap er-about-img--desktop">
               <img
                 src="/assets/expressway-front.png"
                 alt="Expressway Residency — aerial view of the township on the Delhi–Meerut Expressway"

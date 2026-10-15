@@ -1,5 +1,6 @@
 'use client'
 import { useState } from 'react'
+import { sendLeadToCrm } from '../lib/crm'
 
 export default function ContactForm({ darkMode = false }) {
   const [form, setForm] = useState({
@@ -34,32 +35,34 @@ export default function ContactForm({ darkMode = false }) {
   setLoading(true)
 
   try {
-    const res = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "b8b6f2a1-68cd-4728-b1f9-b03aaf615900", // 🔥 PUT YOUR KEY HERE
+    const [w3, crm] = await Promise.allSettled([
+      fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          access_key: "b8b6f2a1-68cd-4728-b1f9-b03aaf615900",
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          project: form.project,
+          message: form.message,
+        }),
+      }).then(r => r.json()),
+      sendLeadToCrm({
         name: form.name,
-        phone: form.phone,
+        mobile: form.phone,
         email: form.email,
         project: form.project,
         message: form.message,
       }),
-    })
+    ])
 
-    const data = await res.json()
+    const w3ok = w3.status === 'fulfilled' && w3.value?.success
+    const crmOk = crm.status === 'fulfilled' && crm.value
 
-    if (data.success) {
+    if (w3ok || crmOk) {
       setSubmitted(true)
-      setForm({
-        name: '',
-        phone: '',
-        email: '',
-        project: '',
-        message: '',
-      })
+      setForm({ name: '', phone: '', email: '', project: '', message: '' })
     } else {
       alert("Something went wrong!")
     }

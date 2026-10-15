@@ -3,6 +3,7 @@ import PopupLeadModal from "../../components/PopupLeadModal";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import Link from "next/link";
+import "../mobile-pages.css";
 
 export const metadata = {
   title: "Haute Pearl Residency | Serene Residential Retreat in Vrindavan — Coming Soon",
@@ -97,6 +98,7 @@ export default function HauteResidency() {
 
       {/* ── HERO / COMING SOON ── */}
       <section
+        className="mh-hero"
         aria-label="Haute Pearl Residency Coming Soon"
         style={{
           height: "100vh",
@@ -110,8 +112,9 @@ export default function HauteResidency() {
           paddingTop: "72px",
         }}
       >
-        {/* Background Image */}
+        {/* Background Image (mobile: becomes the 5:3 image block) */}
         <div
+          className="mh-media"
           aria-hidden="true"
           style={{
             position: "absolute",
@@ -126,6 +129,7 @@ export default function HauteResidency() {
 
         {/* Dark overlay */}
         <div
+          className="mh-hide"
           aria-hidden="true"
           style={{
             position: "absolute",
@@ -137,6 +141,7 @@ export default function HauteResidency() {
 
         {/* Bottom gradient fade */}
         <div
+          className="mh-hide"
           aria-hidden="true"
           style={{
             position: "absolute",
@@ -152,6 +157,7 @@ export default function HauteResidency() {
 
         {/* Gold diagonal pattern overlay */}
         <div
+          className="mh-hide"
           aria-hidden="true"
           style={{
             position: "absolute",
@@ -163,8 +169,9 @@ export default function HauteResidency() {
           }}
         />
 
-        {/* Content */}
+        {/* Content (mobile: dark-green elevated panel) */}
         <div
+          className="mh-panel"
           style={{
             position: "relative",
             zIndex: 3,
@@ -231,6 +238,7 @@ export default function HauteResidency() {
 
           {/* CTA Buttons */}
           <div
+            className="mh-actions"
             style={{
               display: "flex",
               gap: "1rem",
@@ -249,7 +257,7 @@ export default function HauteResidency() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="scroll-indicator" aria-hidden="true" style={{ zIndex: 4 }}>
+        <div className="scroll-indicator mh-hide" aria-hidden="true" style={{ zIndex: 4 }}>
           <span>Scroll</span>
           <div className="scroll-line" />
         </div>
@@ -302,7 +310,7 @@ export default function HauteResidency() {
             </div>
 
             {/* Right: text */}
-            <div>
+            <div className="hr-about-text">
               <span className="section-label" style={{ color: "var(--gold)" }}>About The Project</span>
               <h2 id="hr-about-heading" style={{ color: "#fff", fontSize: "clamp(1.8rem, 2.8vw, 2.5rem)", lineHeight: 1.15, marginBottom: "0.5rem" }}>
                 Sacred Serenity Meets{" "}

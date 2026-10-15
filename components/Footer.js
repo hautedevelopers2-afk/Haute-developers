@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 
 const PinIcon = () => (
   <svg
+    className="footer-pin"
     viewBox="0 0 24 24"
     width="15"
     height="15"
@@ -62,12 +63,7 @@ export default function Footer() {
                 className="social-btn"
                 aria-label="Facebook"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                   <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
                 </svg>
               </a>
@@ -78,23 +74,10 @@ export default function Footer() {
                 className="social-btn"
                 aria-label="Instagram"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
                   <circle cx="12" cy="12" r="4" />
-                  <circle
-                    cx="17.5"
-                    cy="6.5"
-                    r="1"
-                    fill="currentColor"
-                    stroke="none"
-                  />
+                  <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" />
                 </svg>
               </a>
               <a
@@ -104,17 +87,9 @@ export default function Footer() {
                 className="social-btn"
                 aria-label="YouTube"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                   <path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z" />
-                  <polygon
-                    points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"
-                    fill="#0d2b20"
-                  />
+                  <polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0d2b20" />
                 </svg>
               </a>
               <a
@@ -124,12 +99,7 @@ export default function Footer() {
                 className="social-btn"
                 aria-label="LinkedIn"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
                   <rect x="2" y="9" width="4" height="12" />
                   <circle cx="4" cy="4" r="2" />
@@ -142,12 +112,7 @@ export default function Footer() {
                 className="social-btn"
                 aria-label="Pinterest"
               >
-                <svg
-                  viewBox="0 0 24 24"
-                  width="18"
-                  height="18"
-                  fill="currentColor"
-                >
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor">
                   <path d="M12 2C6.48 2 2 6.36 2 11.7c0 4.09 2.56 7.58 6.16 8.96-.08-.76-.16-1.94.03-2.78.17-.75 1.13-4.78 1.13-4.78s-.29-.58-.29-1.44c0-1.35.79-2.36 1.77-2.36.83 0 1.24.62 1.24 1.37 0 .83-.53 2.08-.8 3.24-.23.97.49 1.76 1.45 1.76 1.74 0 3.08-1.83 3.08-4.47 0-2.34-1.68-3.97-4.08-3.97-2.78 0-4.41 2.08-4.41 4.24 0 .84.32 1.74.73 2.23.08.1.09.18.06.28-.07.29-.22.9-.25 1.03-.04.16-.13.2-.3.12-1.12-.52-1.82-2.15-1.82-3.46 0-2.82 2.05-5.41 5.9-5.41 3.1 0 5.51 2.21 5.51 5.16 0 3.08-1.94 5.56-4.64 5.56-.91 0-1.76-.47-2.05-1.03l-.56 2.13c-.2.78-.75 1.75-1.11 2.34.84.26 1.72.4 2.64.4 5.52 0 10-4.36 10-9.7C22 6.36 17.52 2 12 2z" />
                 </svg>
               </a>
@@ -158,21 +123,11 @@ export default function Footer() {
           <div className="footer-col">
             <h3>Quick Links</h3>
             <ul className="footer-links">
-              <li>
-                <Link href="/">Home</Link>
-              </li>
-              <li>
-                <Link href="/#about">About Us</Link>
-              </li>
-              <li>
-                <Link href="/#projects">Our Projects</Link>
-              </li>
-              <li>
-                <Link href="/#upcoming">New Opportunities</Link>
-              </li>
-              <li>
-                <Link href="/#contact">Contact Us</Link>
-              </li>
+              <li><Link href="/">Home</Link></li>
+              <li><Link href="/#about">About Us</Link></li>
+              <li><Link href="/#projects">Our Projects</Link></li>
+              <li><Link href="/#upcoming">New Opportunities</Link></li>
+              <li><Link href="/#contact">Contact Us</Link></li>
             </ul>
           </div>
 
@@ -180,21 +135,11 @@ export default function Footer() {
           <div className="footer-col">
             <h3>Our Projects</h3>
             <ul className="footer-links">
-              <li>
-                <Link href="/expressway-residency">Expressway Residency</Link>
-              </li>
-              <li>
-                <Link href="/haute-world-city">Haute World City</Link>
-              </li>
-              <li>
-                <Link href="/haute-eden-valley">Haute Eden Valley</Link>
-              </li>
-                <li>
-                <Link href="/haute-residency">Haute Pearl Residency</Link>
-              </li>
-              <li>
-                <Link href="/#projects">Delivered Projects</Link>
-              </li>
+              <li><Link href="/expressway-residency">Expressway Residency</Link></li>
+              <li><Link href="/haute-world-city">Haute World City</Link></li>
+              <li><Link href="/haute-eden-valley">Haute Eden Valley</Link></li>
+              <li><Link href="/haute-residency">Haute Pearl Residency</Link></li>
+              <li><Link href="/#projects">Delivered Projects</Link></li>
             </ul>
           </div>
 
@@ -204,6 +149,7 @@ export default function Footer() {
             <ul className="footer-links footer-contact-list" style={{ gap: "0.8rem" }}>
               {/* Head Office */}
               <li
+                className="footer-office"
                 style={{
                   color: "rgba(255,255,255,0.85)",
                   fontSize: "0.88rem",
@@ -214,7 +160,7 @@ export default function Footer() {
                 }}
               >
                 <PinIcon />
-                <span>
+                <span className="footer-office-text">
                   <strong
                     style={{
                       display: "block",
@@ -233,6 +179,7 @@ export default function Footer() {
 
               {/* Ahmedabad Office */}
               <li
+                className="footer-office"
                 style={{
                   color: "rgba(255,255,255,0.85)",
                   fontSize: "0.88rem",
@@ -243,7 +190,7 @@ export default function Footer() {
                 }}
               >
                 <PinIcon />
-                <span>
+                <span className="footer-office-text">
                   <strong
                     style={{
                       display: "block",
@@ -263,6 +210,7 @@ export default function Footer() {
 
               <li>
                 <a
+                  className="footer-contact-link"
                   href="tel:+919911807193"
                   style={{
                     color: "rgba(255,255,255,0.85)",
@@ -272,17 +220,7 @@ export default function Footer() {
                     gap: "0.6rem",
                   }}
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="15"
-                    height="15"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flexShrink: 0, opacity: 1 }}
-                  >
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 1 }}>
                     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.82a16 16 0 0 0 5.55 5.55l1.62-1.62a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7a2 2 0 0 1 1.72 2z" />
                   </svg>
                   +91 99118 07193
@@ -290,6 +228,7 @@ export default function Footer() {
               </li>
               <li>
                 <a
+                  className="footer-contact-link"
                   href="mailto:info@hautedevelopers.co"
                   style={{
                     color: "rgba(255,255,255,0.85)",
@@ -299,17 +238,7 @@ export default function Footer() {
                     gap: "0.6rem",
                   }}
                 >
-                  <svg
-                    viewBox="0 0 24 24"
-                    width="15"
-                    height="15"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flexShrink: 0, opacity: 1 }}
-                  >
+                  <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0, opacity: 1 }}>
                     <rect x="2" y="4" width="20" height="16" rx="2" />
                     <path d="M2 6l10 7 10-7" />
                   </svg>
@@ -321,9 +250,7 @@ export default function Footer() {
         </div>
 
         <div className="footer-bottom">
-          <p>
-            © {year} Haute World Developers Pvt. Ltd. All rights reserved.
-          </p>
+          <p>© {year} Haute World Developers Pvt. Ltd. All rights reserved.</p>
           <p>
             <a href="/privacy-policy">Privacy Policy</a>
             {" · "}
@@ -443,6 +370,89 @@ export default function Footer() {
         :global(.footer-social .social-btn:hover) {
           color: #d4af37;
           transform: translateY(-2px);
+        }
+
+        /* ---------- 4. MOBILE: everything centred ---------- */
+        @media (max-width: 768px) {
+          :global(.footer-grid) {
+            grid-template-columns: 1fr !important;
+            gap: 2.2rem !important;
+            text-align: center;
+          }
+          :global(.footer-brand) {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 0 !important;
+          }
+          :global(.footer-social) {
+            justify-content: center;
+          }
+          :global(.footer-col) {
+            width: 100%;
+            text-align: center;
+          }
+          :global(.footer-links) {
+            align-items: center;
+          }
+          :global(.footer-links li:hover) {
+            padding-left: 0;
+          }
+          :global(.footer-links li::before) {
+            display: none;
+          }
+
+          /* Contact list: every row centred */
+          :global(.footer-contact-list) {
+            align-items: center !important;
+            width: 100%;
+            gap: 1.2rem !important;
+          }
+          :global(.footer-contact-list li) {
+            width: 100%;
+            justify-content: center;
+            text-align: center;
+          }
+
+          /* Office rows: pin icon centred ABOVE the label + address */
+          :global(.footer-contact-list li.footer-office) {
+            flex-direction: column !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: 0.35rem !important;
+          }
+          :global(.footer-office .footer-pin) {
+            margin-top: 0 !important;
+            display: block;
+          }
+          :global(.footer-office .footer-office-text) {
+            display: block;
+            width: 100%;
+            text-align: center;
+          }
+          :global(.footer-office .footer-office-text strong) {
+            text-align: center;
+          }
+
+          /* Phone + email: full width, icon + text centred together */
+          :global(.footer-contact-link) {
+            width: 100%;
+            justify-content: center !important;
+            text-align: center;
+          }
+
+          /* Bottom bar: centred, with room so the WhatsApp button doesn't cover it */
+          :global(.footer-bottom) {
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-bottom: 5rem !important;
+          }
+          :global(.footer-bottom p) {
+            width: 100%;
+            text-align: center;
+          }
         }
       `}</style>
     </footer>

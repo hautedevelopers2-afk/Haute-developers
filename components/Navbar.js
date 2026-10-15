@@ -114,6 +114,7 @@ export default function Navbar() {
                     onClick={() => setProjectsOpen(false)}
                     style={{
                       display: 'block',
+                      textAlign: 'center',              /* ← names centred */
                       padding: '10px 14px',
                       borderRadius: '5px',
                       color: 'rgba(255,255,255,0.9)',
@@ -267,6 +268,18 @@ export default function Navbar() {
                     href={p.href}
                     onClick={() => { setMobileOpen(false); setMobileProjectsOpen(false) }}
                     className="mobile-projects-link"
+                    /* inline styles: styled-jsx can't scope <Link>'s <a>, which is why the text was black */
+                    style={{
+                      display: 'block',
+                      fontFamily: 'var(--font-body)',
+                      fontSize: '1rem',
+                      fontWeight: 500,
+                      color: 'rgba(255,255,255,0.92)',
+                      textDecoration: 'none',
+                      textAlign: 'center',
+                      padding: '12px 16px',
+                      borderRadius: '6px',
+                    }}
                   >
                     {p.label}
                   </Link>
@@ -385,19 +398,8 @@ export default function Navbar() {
           border-radius: 10px;
           padding: 6px;
         }
-        .mobile-projects-panel .mobile-projects-link {
-          font-family: var(--font-body) !important;
-          font-size: 1rem !important;
-          color: rgba(255,255,255,0.82) !important;
-          font-weight: 500 !important;
-          text-decoration: none;
-          padding: 12px 16px;
-          border-radius: 6px;
-          text-align: center;
-          transition: background 0.15s, color 0.15s;
-        }
-        .mobile-projects-panel .mobile-projects-link:active,
-        .mobile-projects-panel .mobile-projects-link:hover {
+        :global(.mobile-projects-panel .mobile-projects-link:active),
+        :global(.mobile-projects-panel .mobile-projects-link:hover) {
           background: rgba(196,144,26,0.14);
           color: #e8b93a !important;
         }

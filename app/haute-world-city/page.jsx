@@ -2,13 +2,15 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { Fragment, useState, useEffect, useRef } from "react";
 import Navbar from "../../components/Navbar";
 import PopupLeadModal from "../../components/PopupLeadModal";
 import Footer from "../../components/Footer";
 import WhatsAppButton from "../../components/WhatsAppButton";
 import ContactForm from "../../components/ContactForm";
 import ExpresswayBlog from "../../components/ExpresswayBlog";
+import CountUp from "../../components/CountUp";
+import "../mobile-pages.css";
 
 /* ─────────────────────────────────────────
    SVG ICON COMPONENTS
@@ -630,18 +632,18 @@ export default function HauteWorldCityPage() {
 
       {/* ══════════════════ HERO ══════════════════ */}
       <section
-        className="hero hwc-hero"
+        className="hero hwc-hero mh-hero"
         aria-label="Haute World City hero"
         style={{ background: "linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%)" }}
       >
-        <div className="hero-slides" aria-hidden="true">
+        <div className="hero-slides mh-media" aria-hidden="true">
           <div
             className="hero-slide"
             style={{ backgroundImage: "url('/assets/dholera.png')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
           />
         </div>
-        <div className="hero-img-overlay" aria-hidden="true" />
-        <div className="hero-bottom-shadow" aria-hidden="true" />
+        <div className="hero-img-overlay mh-hide" aria-hidden="true" />
+        <div className="hero-bottom-shadow mh-hide" aria-hidden="true" />
 
         <div className="hwc-hero-card">
           <img
@@ -650,15 +652,15 @@ export default function HauteWorldCityPage() {
             alt="Haute World City — entrance, Dholera Smart City"
           />
 
-          <div className="hero-content hero-content--new">
+          <div className="hero-content hero-content--new mh-panel">
             <div className="hero-col-title">
-              <h1 className="hero-title" style={{ opacity: 1, transform: "none", animation: "none" }}>
+              <h1 className="hero-title mh-title" style={{ opacity: 1, transform: "none", animation: "none" }}>
                 <span className="line line-1" style={{ opacity: 1, transform: "none", animation: "none" }}>
                   Haute <em>World City</em>
                 </span>
               </h1>
 
-              <p className="hero-desc--stacked" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
+              <p className="hero-desc--stacked mh-desc" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
                 Haute World City is Haute World Developers' landmark investment in India's most ambitious project —
                 Dholera Smart City. Approved residential plots located along the Dholera SIR boundary in Bhavnagar
                 District, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
@@ -666,14 +668,14 @@ export default function HauteWorldCityPage() {
             </div>
 
             <div className="hero-col-btns">
-              <div className="hero-actions">
+              <div className="hero-actions mh-actions">
                 <a href="#contact" className="btn-primary">Book a Site Visit →</a>
               </div>
             </div>
           </div>
         </div>
 
-        <div className="scroll-indicator" aria-hidden="true">
+        <div className="scroll-indicator mh-hide" aria-hidden="true">
           <span>Scroll</span>
           <div className="scroll-line" />
         </div>
@@ -689,6 +691,14 @@ export default function HauteWorldCityPage() {
                 Haute World City, Residential Plots on Dholera - Bhavnagar Expressway 
               </h2>
               <div className="divider" style={{ margin: "1rem 0" }} />
+
+              <div className="hwc-details-img--mobile" style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)", margin: "0 0 1.6rem" }}>
+                <img
+                  src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
+                  alt="Haute World City — Project Details, Dholera Smart City, Gujarat"
+                  style={{ width: "100%", height: "auto", display: "block" }}
+                />
+              </div>
 
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "1.2rem" }}>
                 Haute World City is a residential township — plotted development — brought to you by
@@ -708,7 +718,7 @@ export default function HauteWorldCityPage() {
               </a>
             </div>
 
-            <div style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)" }}>
+            <div className="hwc-details-img--desktop" style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)" }}>
               <img
                 src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
                 alt="Haute World City — Project Details, Dholera Smart City, Gujarat"
@@ -904,7 +914,23 @@ export default function HauteWorldCityPage() {
             />
           </div>
 
-          <div className="hwc-highlights">
+          <div className="stats-strip hwc-stats-strip" aria-label="Project plot statistics">
+            <div className="stats-strip-inner">
+              {layoutStats.map((s, i) => (
+                <Fragment key={s.label}>
+                  {i > 0 && <div className="stats-strip-divider" aria-hidden="true" />}
+                  <div className="stats-strip-item">
+                    <div className="stats-strip-inner-cell">
+                      <div className="stats-strip-num"><CountUp end={s.value} duration={2000} /></div>
+                      <div className="stats-strip-label">{s.label}</div>
+                    </div>
+                  </div>
+                </Fragment>
+              ))}
+            </div>
+          </div>
+
+          <div className="hwc-highlights" style={{ display: "none" }}>
             {layoutStats.map((h) => (
               <div key={h.label} className="hwc-stat-box">
                 <div className="hwc-stat-icon">

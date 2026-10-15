@@ -9,6 +9,7 @@ import Link from "next/link";
 import ProjectSlider from "../components/ProjectSlider";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ExpresswayBlog from "../components/ExpresswayBlog";
+import "./mobile-pages.css";
 
 export const metadata = {
   title: "Leading Real Estate Developer in NCR | Haute World Developers",
@@ -138,21 +139,21 @@ export default function Home() {
       <PopupLeadModal pageName="Home" projectName="General Inquiry" />
 
       {/* ── HERO ── */}
-      <section className="hero" aria-label="Hero section" style={{ overflow: "visible" }}>
-        <div className="hero-slides" aria-hidden="true">
+      <section className="hero mh-hero" aria-label="Hero section" style={{ overflow: "visible" }}>
+        <div className="hero-slides mh-media" aria-hidden="true">
           <div className="hero-slide hero-slide--1" />
           <div className="hero-slide hero-slide--2" />
           <div className="hero-slide hero-slide--3" />
           <div className="hero-slide hero-slide--4" />
           <div className="hero-slide hero-slide--5" />
         </div>
-        <div className="hero-img-overlay" aria-hidden="true" />
-        <div className="hero-bottom-shadow" aria-hidden="true" />
-        <div className="hero-bg-pattern" aria-hidden="true" />
-        <div className="hero-overlay" aria-hidden="true" />
-        <div className="hero-content hero-content--new">
+        <div className="hero-img-overlay mh-hide" aria-hidden="true" />
+        <div className="hero-bottom-shadow mh-hide" aria-hidden="true" />
+        <div className="hero-bg-pattern mh-hide" aria-hidden="true" />
+        <div className="hero-overlay mh-hide" aria-hidden="true" />
+        <div className="hero-content hero-content--new mh-panel">
           <div className="hero-col-title">
-            <h1 className="hero-title">
+            <h1 className="hero-title mh-title">
               <span className="line line-1">
                 Welcome to <em>Haute</em>,
               </span>
@@ -161,14 +162,14 @@ export default function Home() {
                 Welcome to <em>Haute Living.</em>
               </span>
             </h1>
-            <p className="hero-desc--stacked" style={{ marginTop: "1.2rem" }}>
+            <p className="hero-desc--stacked mh-desc" style={{ marginTop: "1.2rem" }}>
               Premium residential and investment opportunities designed for
               modern lifestyles — across Delhi NCR, Vrindavan, Dholera &
               Dehradun.
             </p>
           </div>
           <div className="hero-col-btns">
-            <div className="hero-actions">
+            <div className="hero-actions mh-actions">
               <Link href="/#upcoming" className="btn-primary">
                 Explore Projects →
               </Link>
@@ -178,7 +179,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="scroll-indicator" aria-hidden="true" style={{ bottom: "1.5rem", zIndex: 10 }}>
+        <div className="scroll-indicator mh-hide" aria-hidden="true" style={{ bottom: "1.5rem", zIndex: 10 }}>
           <span>Scroll</span>
           <div className="scroll-line" />
         </div>
@@ -237,7 +238,14 @@ export default function Home() {
             </div>
             <div className="about-content animate-fade-up-1">
               <span className="section-label">Company Overview</span>
-              <h2 id="about-heading">Building homes that you Love! </h2>
+              <h2 id="about-heading">Building Zen Living community! </h2>
+              <div className="about-img-frame about-img-mobile" style={{ padding: 0, overflow: "hidden", borderRadius: "20px" }}>
+                <img
+                  src="/assets/meeting.jpg"
+                  alt="Haute World Developers team planning premium real estate projects"
+                  style={{ width: "100%", display: "block" }}
+                />
+              </div>
               <div className="divider" />
               <p>
                 At Haute World Developers, we believe a home is life's most valuable

@@ -1,0 +1,179 @@
+/* app/mobile-pages.css
+   Imported by: app/page.js, expressway-residency, haute-eden-valley,
+   haute-residency, haute-world-city.  Everything is scoped by class. */
+
+/* ───────── Base (all widths) ───────── */
+.about-img-mobile { display: none; }
+.hwc-details-img--mobile { display: none; }
+.er-about-img--mobile { display: none; }
+.wc-hero-slides { position: absolute; inset: 0; }
+
+/* HWC "why invest" cards – icon centred */
+.hwc-wi-card { text-align: center; }
+.hwc-wi-card .hwc-wi-icon { margin: 0 auto 1.1rem !important; }
+
+/* HWC plots stats – same look as the home-page stats strip */
+.hwc-stats-strip { margin-top: 2rem; border-top: 1px solid rgba(0,0,0,0.07); }
+.hwc-stats-strip .stats-strip-inner { padding: 0; }
+
+/* ───────── ≤ 900px : image swaps ───────── */
+@media (max-width: 900px) {
+  /* HWC project-details image right after heading */
+  .hwc-details-img--desktop { display: none !important; }
+  .hwc-details-img--mobile  { display: block !important; }
+
+  /* Expressway "About The Project" image right after heading */
+  .er-about-img--desktop { display: none !important; }
+  .er-about-img--mobile  { display: block !important; margin: 0 0 1.6rem; }
+}
+
+/* ───────── ≤ 768px ───────── */
+@media (max-width: 768px) {
+
+  /* ===== Shared mobile hero: image on top (5:3), dark-green panel below ===== */
+  section.mh-hero.mh-hero {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: auto !important;
+    padding: 72px 0 0 !important;
+    overflow: visible !important;
+    position: relative !important;
+    z-index: 5 !important;
+    background: #0d2f24 !important;
+  }
+  section.mh-hero .mh-media {
+    position: relative !important;
+    inset: auto !important;
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 5 / 3;
+    display: block !important;
+    z-index: 0 !important;
+  }
+  section.mh-hero .mh-hide { display: none !important; }
+  .hwc-hero-mobile-img { display: none !important; }
+
+  section.mh-hero .mh-panel {
+    position: relative !important;
+    z-index: 3 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    gap: 0.9rem !important;
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 1.9rem 1.25rem 2.3rem !important;
+    text-align: center !important;
+    background: linear-gradient(180deg, #14473a 0%, #0d2f24 48%, #030c08 100%) !important;
+    border-radius: 0 !important;
+    box-shadow:
+      0 -10px 28px rgba(0,0,0,0.45),
+      0 18px 32px rgba(0,0,0,0.5),
+      inset 0 1px 0 rgba(255,255,255,0.08) !important;
+  }
+  section.mh-hero .mh-panel .hero-col-title,
+  section.mh-hero .mh-panel .hero-col-btns {
+    width: 100% !important;
+    align-items: center !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    grid-column: auto !important;
+  }
+  section.mh-hero .mh-title {
+    color: #fff !important;
+    font-size: 1.8rem !important;
+    line-height: 1.15 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    text-align: center !important;
+  }
+  section.mh-hero .mh-title .line { display: block !important; width: 100%; text-align: center !important; }
+  section.mh-hero .mh-title br { display: none; }
+  section.mh-hero .mh-desc {
+    color: rgba(255,255,255,0.82) !important;
+    font-size: 0.92rem !important;
+    line-height: 1.7 !important;
+    margin: 0.8rem 0 0 !important;
+    max-width: 100% !important;
+    text-align: center !important;
+  }
+  section.mh-hero .mh-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    width: 100% !important;
+    gap: 0.7rem !important;
+    margin: 0.4rem 0 0 !important;
+  }
+  section.mh-hero .mh-actions > * {
+    width: 100% !important;
+    justify-content: center !important;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 14px 22px !important;
+    font-size: 13px !important;
+  }
+
+  /* ===== Home stats strip: space between the shadow line and the numbers ===== */
+  .stats-strip:not(.hwc-stats-strip) .stats-strip-inner {
+    padding-top: 1.6rem;
+  }
+
+  /* ===== Home: Company Overview – image after the heading ===== */
+  .about-visual { display: none !important; }
+  .about-img-mobile { display: block; margin: 1.4rem 0 1.6rem; }
+  .about-img-mobile img { aspect-ratio: 4 / 3; object-fit: cover; }
+
+  /* ===== HWC stats strip on mobile: keep 3 across ===== */
+  .hwc-stats-strip .stats-strip-inner { flex-wrap: nowrap; }
+  .hwc-stats-strip .stats-strip-item { flex: 1 1 0; padding: 1.5rem 0.25rem; }
+  .hwc-stats-strip .stats-strip-divider { display: block; margin-right: 0; height: 48px; }
+  .hwc-stats-strip .stats-strip-num { font-size: 1.7rem; }
+  .hwc-stats-strip .stats-strip-label { font-size: 0.68rem; }
+
+  /* ===== Symmetry: centred section headings ===== */
+  /* Home */
+  .about-content > .section-label,
+  .projects-header .section-label { display: flex; justify-content: center; }
+  .about-content h2, .projects-header h2 { text-align: center; }
+  .about-content .divider, .projects-header .divider { margin-left: auto; margin-right: auto; }
+  .projects-header { align-items: center !important; text-align: center; }
+
+  /* Expressway + HWC */
+  .er-section .section-label, .hwc-section .section-label, .er-faq-inner .section-label {
+    display: flex; justify-content: center;
+  }
+  .er-section h2, .hwc-section h2, .er-faq-inner h2 { text-align: center; }
+  .er-section .divider, .hwc-section .divider { margin-left: auto !important; margin-right: auto !important; }
+  .er-blog-head { justify-content: center; text-align: center; }
+  .er-faq-inner { text-align: center; }
+  .er-faq-box { text-align: left; }
+  #faq .hwc-container > div:first-child { text-align: center !important; margin: 0 auto 1.5rem !important; }
+  #location .er-2col-map > div:first-child > div:first-child,
+  #location .hwc-2col-map > div:first-child > div:first-child {
+    display: table !important;
+    margin: 0 auto 1.4rem !important;
+    padding: 0 0 0.4rem !important;
+    border-left: 0 !important;
+    border-bottom: 3px solid var(--gold) !important;
+    text-align: center;
+  }
+
+  /* Haute Eden Valley */
+  .wc-section .wc-eyebrow, .wc-faq-inner .wc-eyebrow, .wc-about-text .wc-eyebrow { justify-content: center; }
+  .wc-section .wc-h2, .wc-faq-inner .wc-h2, .wc-about-text .wc-h2 { text-align: center; }
+  .wc-section .wc-section-head, .wc-faq-inner { text-align: center; }
+  .wc-section .wc-section-head { margin-left: auto; margin-right: auto; }
+  .wc-faq-box { text-align: left; }
+  #blogs .wc-section-head { justify-content: center !important; }
+
+  /* Haute Pearl Residency */
+  .hr-about-text .section-label { display: flex; justify-content: center; }
+  .hr-about-text h2 { text-align: center; }
+  .hr-about-text .divider { margin-left: auto !important; margin-right: auto !important; }
+}

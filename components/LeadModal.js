@@ -1,5 +1,6 @@
 'use client'
 import { useState, useEffect } from 'react'
+import { sendLeadToCrm } from '../lib/crm'
 
 const WEB3FORMS_ACCESS_KEY = 'b8b6f2a1-68cd-4728-b1f9-b03aaf615900'
 const plotSizes = ['100 Sq. Yd.', '150 Sq. Yd.', '200 Sq. Yd.', '300 Sq. Yd.', 'Custom / Not Sure Yet']
@@ -51,15 +52,25 @@ export default function LeadModal({ isOpen, onClose, triggerText = '', inline = 
         project: projectName,
       }
 
-      const res = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      })
+      const [w3, crm] = await Promise.allSettled([
+        fetch('https://api.web3forms.com/submit', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify(payload),
+        }).then(r => r.json()),
+        sendLeadToCrm({
+          name: form.name,
+          mobile: form.mobile,
+          email: form.email,
+          project: projectName,
+          plotSize: form.plotSize,
+        }),
+      ])
 
-      const data = await res.json()
+      const w3ok = w3.status === 'fulfilled' && w3.value?.success
+      const crmOk = crm.status === 'fulfilled' && crm.value
 
-      if (data.success) {
+      if (w3ok || crmOk) {
         setSubmitted(true)
 
         // Google Ads conversion tracking
@@ -71,7 +82,7 @@ export default function LeadModal({ isOpen, onClose, triggerText = '', inline = 
           })
         }
       } else {
-        setServerError(data.message || 'Something went wrong. Please try again.')
+        setServerError('Something went wrong. Please try again.')
       }
     } catch (err) {
       setServerError('Network error. Please check your connection and try again.')
