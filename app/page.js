@@ -112,7 +112,7 @@ const upcomingProjects = [
   {
     name: "Shri Dwarka City",
     location: "Dholera",
-    href: "/haute-world-city",
+    href: "/shri-dwarka-city",
     desc: "A landmark investment opportunity in Dholera Smart City...",
     image: "/assets/dholera.png",
   },

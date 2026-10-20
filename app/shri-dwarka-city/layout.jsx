@@ -25,7 +25,7 @@ export const metadata = {
     "plots near Dholera SIR boundary Bhavnagar",
   ].join(", "),
   alternates: {
-    canonical: "https://www.hautedevelopers.com/haute-world-city",
+    canonical: "https://www.hautedevelopers.com/shri-dwarka-city",
   },
   robots: {
     index: true,
@@ -35,7 +35,7 @@ export const metadata = {
     title: "Shri Dwarka City – Premium Approved Plots near Dholera Smart City",
     description:
       "Approved residential and commercial plots by Haute World Developers on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
-    url: "https://www.hautedevelopers.com/haute-world-city",
+    url: "https://www.hautedevelopers.com/shri-dwarka-city",
     siteName: "Haute World Developers",
     images: [
       {

@@ -576,7 +576,7 @@ export default function HauteWorldCityPage() {
             name: "Shri Dwarka City – Approved Plots in Dholera Smart City",
             description:
               "Approved residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
-            url: "https://www.hautedevelopers.com/haute-world-city",
+            url: "https://www.hautedevelopers.com/shri-dwarka-city",
             image: "https://www.hautedevelopers.com/assets/dholera.png",
             address: {
               "@type": "PostalAddress",
@@ -624,7 +624,7 @@ export default function HauteWorldCityPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.hautedevelopers.com/" },
-              { "@type": "ListItem", position: 2, name: "Shri Dwarka City", item: "https://www.hautedevelopers.com/haute-world-city" },
+              { "@type": "ListItem", position: 2, name: "Shri Dwarka City", item: "https://www.hautedevelopers.com/shri-dwarka-city" },
             ],
           }),
         }}
