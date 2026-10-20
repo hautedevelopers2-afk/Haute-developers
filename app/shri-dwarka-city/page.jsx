@@ -656,7 +656,7 @@ export default function HauteWorldCityPage() {
             <div className="hero-col-title">
               <h1 className="hero-title mh-title" style={{ opacity: 1, transform: "none", animation: "none" }}>
                 <span className="line line-1" style={{ opacity: 1, transform: "none", animation: "none" }}>
-                  Haute <em>World City</em>
+                  Shri <em>Dwarka City</em>
                 </span>
               </h1>
 
