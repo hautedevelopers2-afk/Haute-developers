@@ -169,7 +169,7 @@ const amenities = [
 ];
 
 const projectHighlights = [
-  { title: "Approved Plots, Clear Title", body: "Every plot at Haute World City is Approved, with complete title documentation and due-diligence support." },
+  { title: "Approved Plots, Clear Title", body: "Every plot at Shri Dwarka City is Approved, with complete title documentation and due-diligence support." },
   { title: "Along the Boundary of India's First Greenfield Smart City", body: "Located along the Dholera SIR boundary in Bhavnagar District — next to a smart city planned from the ground up, not retrofitted onto an existing town." },
   { title: "Backed by the DMIC", body: "Part of the central and state government-backed Delhi–Mumbai Industrial Corridor initiative." },
   { title: "Near the Upcoming International Airport", body: "Positioned to benefit from Dholera International Airport as passenger and cargo operations come online." },
@@ -191,7 +191,7 @@ const whyReasons = [
   {
     Icon: IconFactory,
     title: "Industry Is Already Moving In",
-    body: "The Tata Electronics fab is more than halfway built, advanced lithography equipment has been contracted, and a specialty-gas supplier is setting up close by. Haute World City sits in the path of a city that is being filled with real employers, not promises.",
+    body: "The Tata Electronics fab is more than halfway built, advanced lithography equipment has been contracted, and a specialty-gas supplier is setting up close by. Shri Dwarka City sits in the path of a city that is being filled with real employers, not promises.",
   },
   {
     Icon: IconBriefcase,
@@ -206,7 +206,7 @@ const whyReasons = [
   {
     Icon: IconRoad,
     title: "Connectivity That You Can Drive Today",
-    body: "A six-lane expressway now links Ahmedabad to the Dholera region, and Haute World City fronts the Dholera Expressway directly. Reaching the city, the airport belt and the wider corridor does not depend on a future build.",
+    body: "A six-lane expressway now links Ahmedabad to the Dholera region, and Shri Dwarka City fronts the Dholera Expressway directly. Reaching the city, the airport belt and the wider corridor does not depend on a future build.",
   },
   {
     Icon: IconSun,
@@ -254,11 +254,11 @@ const proximityBullets = [
 
 const faqs = [
   {
-    q: "Where exactly is Haute World City located?",
-    a: "Haute World City is located directly on the Dholera Expressway in Bhavnagar District, Gujarat, about 3.5 km from the Dholera SIR boundary.",
+    q: "Where exactly is Shri Dwarka City located?",
+    a: "Shri Dwarka City is located directly on the Dholera Expressway in Bhavnagar District, Gujarat, about 3.5 km from the Dholera SIR boundary.",
   },
   {
-    q: "Is Haute World City approved?",
+    q: "Is Shri Dwarka City approved?",
     a: "Yes. The project layout is approved, the NA and NOC are in place, and the title is clear. Our team also provides complete documentation and due-diligence support at every stage of the booking process.",
   },
   {
@@ -266,16 +266,16 @@ const faqs = [
     a: "Plots start at 200 sq. yd. and go upward, giving you the flexibility to invest, plan a future home, or choose a larger parcel.",
   },
   {
-    q: "Why is Haute World City the best option for investing in Dholera?",
-    a: "Haute World City combines a prime location with a well-documented project. It sits directly on the Dholera Expressway, close to the SIR boundary, in a region that is attracting major semiconductor and industrial investment. The layout is approved with clear title, plot sizes are flexible, and the project is developed by Haute World Developers, a team that has been delivering projects since 2011.",
+    q: "Why is Shri Dwarka City the best option for investing in Dholera?",
+    a: "Shri Dwarka City combines a prime location with a well-documented project. It sits directly on the Dholera Expressway, close to the SIR boundary, in a region that is attracting major semiconductor and industrial investment. The layout is approved with clear title, plot sizes are flexible, and the project is developed by Haute World Developers, a team that has been delivering projects since 2011.",
   },
   {
-    q: "Why is Haute World City an integrated township?",
-    a: "Haute World City is planned as a complete community rather than just a layout of plots. It includes residential and commercial plots, a clubhouse, landscaped gardens, a swimming pool, a jogging and cycling track, a kids' play zone, a wellness centre, and a retail zone. Gated entry with 24×7 security, fibre-optic connectivity and solar-powered common infrastructure complete the township.",
+    q: "Why is Shri Dwarka City an integrated township?",
+    a: "Shri Dwarka City is planned as a complete community rather than just a layout of plots. It includes residential and commercial plots, a clubhouse, landscaped gardens, a swimming pool, a jogging and cycling track, a kids' play zone, a wellness centre, and a retail zone. Gated entry with 24×7 security, fibre-optic connectivity and solar-powered common infrastructure complete the township.",
   },
   {
-    q: "Who is developing Haute World City?",
-    a: "Haute World City is being developed by Haute World Developers, which has been delivering projects since 2011 across North India, including Dehradun, Meerut, Ghaziabad and Noida, and is now expanding into Dholera Smart City.",
+    q: "Who is developing Shri Dwarka City?",
+    a: "Shri Dwarka City is being developed by Haute World Developers, which has been delivering projects since 2011 across North India, including Dehradun, Meerut, Ghaziabad and Noida, and is now expanding into Dholera Smart City.",
   },
 ];
 
@@ -289,12 +289,12 @@ export default function HauteWorldCityPage() {
   return (
     <>
       <Navbar />
-      <PopupLeadModal pageName="Haute World City" projectName="Haute World City, Dholera" />
+      <PopupLeadModal pageName="Shri Dwarka City" projectName="Shri Dwarka City, Dholera" />
 
       {lightboxOpen && (
         <Lightbox
           src="/assets/dholera-map.png"
-          alt="Haute World City location map — Dholera Expressway, Bhavnagar District, Gujarat"
+          alt="Shri Dwarka City location map — Dholera Expressway, Bhavnagar District, Gujarat"
           onClose={() => setLightboxOpen(false)}
         />
       )}
@@ -573,7 +573,7 @@ export default function HauteWorldCityPage() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "RealEstateListing",
-            name: "Haute World City – Approved Plots in Dholera Smart City",
+            name: "Shri Dwarka City – Approved Plots in Dholera Smart City",
             description:
               "Approved residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
             url: "https://www.hautedevelopers.com/haute-world-city",
@@ -624,7 +624,7 @@ export default function HauteWorldCityPage() {
             "@type": "BreadcrumbList",
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://www.hautedevelopers.com/" },
-              { "@type": "ListItem", position: 2, name: "Haute World City", item: "https://www.hautedevelopers.com/haute-world-city" },
+              { "@type": "ListItem", position: 2, name: "Shri Dwarka City", item: "https://www.hautedevelopers.com/haute-world-city" },
             ],
           }),
         }}
@@ -633,7 +633,7 @@ export default function HauteWorldCityPage() {
       {/* ══════════════════ HERO ══════════════════ */}
       <section
         className="hero hwc-hero mh-hero"
-        aria-label="Haute World City hero"
+        aria-label="Shri Dwarka City hero"
         style={{ background: "linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%)" }}
       >
         <div className="hero-slides mh-media" aria-hidden="true">
@@ -649,7 +649,7 @@ export default function HauteWorldCityPage() {
           <img
             className="hwc-hero-mobile-img"
             src="/assets/dholera.png"
-            alt="Haute World City — entrance, Dholera Smart City"
+            alt="Shri Dwarka City — entrance, Dholera Smart City"
           />
 
           <div className="hero-content hero-content--new mh-panel">
@@ -661,7 +661,7 @@ export default function HauteWorldCityPage() {
               </h1>
 
               <p className="hero-desc--stacked mh-desc" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
-                Haute World City is Haute World Developers' landmark investment in India's most ambitious project —
+                Shri Dwarka City is Haute World Developers' landmark investment in India's most ambitious project —
                 Dholera Smart City. Approved residential plots located along the Dholera SIR boundary in Bhavnagar
                 District, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
               </p>
@@ -688,27 +688,27 @@ export default function HauteWorldCityPage() {
             <div>
               <span className="section-label">Project Details</span>
               <h2 id="project-details-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "1rem" }}>
-                Haute World City, Residential Plots on Dholera - Bhavnagar Expressway 
+                Shri Dwarka City, Residential Plots on Dholera - Bhavnagar Expressway 
               </h2>
               <div className="divider" style={{ margin: "1rem 0" }} />
 
               <div className="hwc-details-img--mobile" style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)", margin: "0 0 1.6rem" }}>
                 <img
                   src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
-                  alt="Haute World City — Project Details, Dholera Smart City, Gujarat"
+                  alt="Shri Dwarka City — Project Details, Dholera Smart City, Gujarat"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
 
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "1.2rem" }}>
-                Haute World City is a residential township — plotted development — brought to you by
+                Shri Dwarka City is a residential township — plotted development — brought to you by
                 <strong style={{ color: "var(--charcoal)" }}> Haute World Developers World Pvt Ltd</strong>, located
                 along the Dholera SIR boundary in Bhavnagar District, Gujarat. The project
                 offers Approved plots starting at <strong style={{ color: "var(--charcoal)" }}>200 sq. yd. and above</strong>,
                 giving buyers the flexibility to choose a size that fits their investment goals or future home plans.
               </p>
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "2rem" }}>
-                Every plot at Haute World City is <strong style={{ color: "var(--charcoal)" }}>Approved property</strong>,
+                Every plot at Shri Dwarka City is <strong style={{ color: "var(--charcoal)" }}>Approved property</strong>,
                 backed by complete registry documentation as per the applicable process, and clear
                 NA / NOC / Title Clear approvals — ensuring a transparent, hassle-free ownership experience from day one.
               </p>
@@ -721,7 +721,7 @@ export default function HauteWorldCityPage() {
             <div className="hwc-details-img--desktop" style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)" }}>
               <img
                 src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
-                alt="Haute World City — Project Details, Dholera Smart City, Gujarat"
+                alt="Shri Dwarka City — Project Details, Dholera Smart City, Gujarat"
                 style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
               />
             </div>
@@ -793,7 +793,7 @@ export default function HauteWorldCityPage() {
           <div className="hwc-center">
             <span className="section-label">Project Highlights</span>
             <h2 id="highlights-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}>
-              What Sets Haute World City Apart
+              What Sets Shri Dwarka City Apart
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
           </div>
@@ -824,7 +824,7 @@ export default function HauteWorldCityPage() {
                 </p>
               </div>
               <h2 id="location-heading" style={{ fontSize: "clamp(1.65rem, 3vw, 2.6rem)", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--charcoal)", lineHeight: 1.2, marginBottom: "1.8rem" }}>
-                Haute World City sits along the Dholera SIR boundary — directly on the Dholera Expressway
+                Shri Dwarka City sits along the Dholera SIR boundary — directly on the Dholera Expressway
               </h2>
               <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
                 {proximityBullets.map((item) => (
@@ -844,7 +844,7 @@ export default function HauteWorldCityPage() {
               aria-label="View location map in fullscreen"
               onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLightboxOpen(true); }}
             >
-              <img src="/assets/dholera-map.png" alt="Haute World City location map — Dholera Expressway, Bhavnagar District, Gujarat" />
+              <img src="/assets/dholera-map.png" alt="Shri Dwarka City location map — Dholera Expressway, Bhavnagar District, Gujarat" />
             </div>
           </div>
         </div>
@@ -855,7 +855,7 @@ export default function HauteWorldCityPage() {
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
         <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
           <div className="hwc-center" style={{ maxWidth: 560 }}>
-            <span className="section-label" style={{ color: "var(--gold)" }}>Haute World City Amenities</span>
+            <span className="section-label" style={{ color: "var(--gold)" }}>Shri Dwarka City Amenities</span>
             <h2 id="amenities-heading" style={{ color: "#fff" }}>
               Zen Living Infrastructure for a Future-Ready Community
             </h2>
@@ -909,7 +909,7 @@ export default function HauteWorldCityPage() {
           <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(201,144,26,0.2)", boxShadow: "0 8px 48px rgba(26,74,58,0.1)" }}>
             <img
               src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786612020/Haute-World-City-Layout_zxtpqp.webp"
-              alt="Haute World City master plan and site layout — Dholera Smart City, Gujarat"
+              alt="Shri Dwarka City master plan and site layout — Dholera Smart City, Gujarat"
               style={{ width: "100%", display: "block", objectFit: "contain" }}
             />
           </div>
@@ -953,7 +953,7 @@ export default function HauteWorldCityPage() {
 
           <div className="hwc-center" style={{ maxWidth: 680 }}>
             <h2 id="why-invest-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)", lineHeight: 1.2 }}>
-              A Smart City Is Taking Shape — and Haute World City Is Right on Its Doorstep
+              A Smart City Is Taking Shape — and Shri Dwarka City Is Right on Its Doorstep
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.85 }}>
@@ -1056,7 +1056,7 @@ export default function HauteWorldCityPage() {
           <div className="hwc-center" style={{ maxWidth: 640 }}>
             <span className="section-label" style={{ color: "var(--gold)" }}>Limited Inventory — Register Now</span>
             <h2 id="contact-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}>
-              Ready to Invest in <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Haute World City?</em>
+              Ready to Invest in <em style={{ color: "var(--gold)", fontStyle: "italic" }}>Shri Dwarka City?</em>
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.8 }}>
@@ -1072,7 +1072,7 @@ export default function HauteWorldCityPage() {
             <div className="hwc-contact-map">
               <iframe
                 src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3516.244006931797!2d72.0967483!3d22.000527599999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x395f377700fa687f%3A0xe9521a2d868d8afb!2sHaute%20World%20City!5e1!3m2!1sen!2sin!4v1786614222376!5m2!1sen!2sin"
-                title="Haute World City Location Map — Dholera Expressway, Bhavnagar District, Gujarat"
+                title="Shri Dwarka City Location Map — Dholera Expressway, Bhavnagar District, Gujarat"
                 loading="lazy"
                 referrerPolicy="strict-origin-when-cross-origin"
                 allowFullScreen

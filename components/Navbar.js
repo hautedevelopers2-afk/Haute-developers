@@ -7,7 +7,7 @@ import Image from 'next/image'
 const PROJECTS = [
   { href: '/expressway-residency', label: 'Expressway Residency' },
   { href: '/haute-eden-valley', label: 'Haute Eden Valley' },
-  { href: '/haute-world-city', label: 'Haute World City' },
+  { href: '/haute-world-city', label: 'Shri Dwarka City' },
 ]
 
 export default function Navbar() {

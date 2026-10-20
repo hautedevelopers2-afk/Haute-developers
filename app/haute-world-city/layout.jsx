@@ -8,11 +8,11 @@
 
 export const metadata = {
   title:
-    "Plots for Sale in Dholera Smart City | Haute World City",
+    "Plots for Sale in Dholera Smart City | Shri Dwarka City",
   description:
-    "Explore plots for sale in Dholera Smart City with Haute World City. Invest in residential and commercial plots on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District.",
+    "Explore plots for sale in Dholera Smart City with Shri Dwarka City. Invest in residential and commercial plots on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District.",
   keywords: [
-    "Haute World City Dholera",
+    "Shri Dwarka City Dholera",
     "Dholera Smart City plots",
     "Dholera SIR investment",
     "residential plots Dholera",
@@ -32,7 +32,7 @@ export const metadata = {
     follow: true,
   },
   openGraph: {
-    title: "Haute World City – Premium Approved Plots near Dholera Smart City",
+    title: "Shri Dwarka City – Premium Approved Plots near Dholera Smart City",
     description:
       "Approved residential and commercial plots by Haute World Developers on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District, Gujarat — on the Delhi–Mumbai Industrial Corridor.",
     url: "https://www.hautedevelopers.com/haute-world-city",
@@ -42,7 +42,7 @@ export const metadata = {
         url: "/assets/dholera.png",
         width: 1200,
         height: 630,
-        alt: "Haute World City — Dholera Smart City aerial view",
+        alt: "Shri Dwarka City — Dholera Smart City aerial view",
       },
     ],
     locale: "en_IN",
@@ -50,7 +50,7 @@ export const metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Haute World City – Approved Plots near Dholera Smart City",
+    title: "Shri Dwarka City – Approved Plots near Dholera Smart City",
     description:
       "Approved plots on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District. By Haute World Developers.",
     images: ["/assets/dholera.png"],
