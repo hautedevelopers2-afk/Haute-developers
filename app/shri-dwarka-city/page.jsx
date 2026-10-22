@@ -53,6 +53,7 @@ const IconWifi = (p) => (<Ic {...p}><path d="M5 12.55a11 11 0 0 1 14.08 0"/><pat
 const IconDroplet = (p) => (<Ic {...p}><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></Ic>);
 const IconYoga = (p) => (<Ic {...p}><circle cx="12" cy="4" r="1.5"/><path d="M6 12c0-3 2-5 6-5s6 2 6 5"/><path d="M4 19l4-4 4 3 4-3 4 4"/><path d="M8 15v-3"/><path d="M16 15v-3"/></Ic>);
 const IconShop = (p) => (<Ic {...p}><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></Ic>);
+const IconTrophy = (p) => (<Ic {...p}><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/></Ic>);
 const IconPlusMinus = ({ size = 18, color, isOpen = false }) => (
   <Ic size={size} color={color} sw={2.2}>
     <line x1="5" y1="12" x2="19" y2="12"/>
@@ -154,18 +155,18 @@ function FaqRow({ q, a, isOpen, onToggle }) {
    DATA
 ───────────────────────────────────────── */
 const amenities = [
-  { Icon: IconBuilding, label: "Grand Club House", body: "A central clubhouse for community events, celebrations, and everyday gathering.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786694080/modern_luxury_house_exterior_eukogt.jpg" },
-  { Icon: IconTree, label: "Landscaped Gardens & Parks", body: "Curated green spaces and walking gardens woven through the township.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786694260/landscaped_garden_park_nhbegp.jpg" },
-  { Icon: IconPool, label: "Swimming Pool", body: "A dedicated pool zone for residents to unwind and stay active.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786694345/indoor_swimming_pool_ubdel6.jpg" },
-  { Icon: IconGate, label: "Gated Entry & 24×7 Security", body: "Controlled, single-point entry and exit backed by round-the-clock on-ground security personnel.", image:"https://res.cloudinary.com/dpbitfczf/image/upload/v1786695024/haute_world_city_aerial_view_1_so5m3l.jpg" },
-  { Icon: IconRun, label: "Jogging & Cycling Track", body: "A dedicated track for morning runs, walks, and cycling within the township.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786698555/blue_cycling_track_landscaped_park_jdwnir.jpg" },
-  { Icon: IconKids, label: "Kids Play Zone", body: "A safe, dedicated play area designed for younger residents.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786699535/indoor_kids_ball_pool_qg0ttm.webp" },
-  { Icon: IconShop, label: "Retail & Commercial Zone", body: "Everyday retail and services planned within easy walking distance.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786700801/premium_clothing_store_interior_kvoguj.webp" },
-  { Icon: IconWifi, label: "Fibre-Optic Connectivity", body: "High-speed digital infrastructure built in from day one, in step with Dholera's smart-city backbone.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786700925/fiber_optic_network_technology_trpmeg.webp" },
-  { Icon: IconYoga, label: "Yoga & Wellness Centre", body: "A calm, dedicated space for yoga, meditation, and wellness routines.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786701145/yoga_wellness_studio_bc1lkr.jpg" },
-  { Icon: IconSun, label: "Solar-Powered Infrastructure", body: "Renewable-energy-backed common infrastructure, aligned with the region's solar push.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786701449/rooftop_solar_panel_installation_cpv82u.webp" },
-  { Icon: IconBuilding, label: "Open Amphitheatre", body: "An open-air amphitheatre for community gatherings, performances, and cultural events.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786703030/landscaped_amphitheatre_garden_ctynam.jpg" },
-  { Icon: IconTree, label: "Religious Space", body: "A dedicated space for prayer and reflection, designed for the community's everyday spiritual needs.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1786702604/varanasi_temple_architecture_nkxape.webp" },
+  { Icon: IconBuilding, label: "Grand Club House", body: "A central clubhouse for community events, celebrations, and everyday gathering.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660998/ShriDwarkaCity-Club_House_h6zc9o.webp" },
+  { Icon: IconTree, label: "Landscaped Gardens & Parks", body: "Curated green spaces and walking gardens woven through the township.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660998/ShriDwarkaCity-Park_djinzo.webp" },
+  { Icon: IconPool, label: "Swimming Pool", body: "A dedicated pool zone for residents to unwind and stay active.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792663751/Golden_Hour_Poolside_Retreat_fazmc8.webp" },
+  { Icon: IconGate, label: "Gated Entry & 24×7 Security", body: "Controlled, single-point entry and exit backed by round-the-clock on-ground security personnel.", image:"https://res.cloudinary.com/dpbitfczf/image/upload/v1792663751/Shri_Dwarika_City_Grand_Entrance_jkkvy1.webp" },
+  { Icon: IconRun, label: "Jogging & Cycling Track", body: "A dedicated track for morning runs, walks, and cycling within the township.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660997/ShriDwarkaCity-Jogging_Cycling_track_bbsoar.webp" },
+  { Icon: IconKids, label: "Kids Play Area", body: "A safe, dedicated play area designed for younger residents.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660998/ShriDwarkaCity-Children_play_area_1_1_l1etbu.webp" },
+  { Icon: IconShop, label: "Retail & Commercial Zone", body: "Everyday retail and services planned within easy walking distance.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792663751/Golden-Hour_Retail_Boulevard_wgjbog.webp" },
+  { Icon: IconTrophy, label: "Sports Complex", body: "A dedicated sports complex with courts and play areas, bringing an active, community-first lifestyle to Dholera's smart-city living.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792661004/ShriDwarkaCity-Sports_Area_yajzql.webp" },
+  { Icon: IconYoga, label: "Yoga & Wellness Centre", body: "A calm, dedicated space for yoga, meditation, and wellness routines.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660997/ShriDwarkaCity-Yoga_Area_aqsnsi.webp" },
+  { Icon: IconSun, label: "Solar-Powered Infrastructure", body: "Renewable-energy-backed common infrastructure, aligned with the region's solar push.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660997/ShriDwarkaCity-Solar_Power_plant_fv8gyq.webp" },
+  { Icon: IconBuilding, label: "Open Amphitheatre", body: "An open-air amphitheatre for community gatherings, performances, and cultural events.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660997/ShriDwarkaCity-Amphitheatre_wpo56r.webp" },
+  { Icon: IconTree, label: "Religious Space", body: "A dedicated space for prayer and reflection, designed for the community's everyday spiritual needs.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660996/ShriDwarkaCity-Religious_Area_fl4njk.webp" },
 ];
 
 const projectHighlights = [
@@ -577,7 +578,7 @@ export default function HauteWorldCityPage() {
             description:
               "Approved residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
             url: "https://www.hautedevelopers.com/shri-dwarka-city",
-            image: "https://www.hautedevelopers.com/assets/dholera.webp",
+            image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Dholera Expressway, along the Dholera SIR boundary",
@@ -639,7 +640,7 @@ export default function HauteWorldCityPage() {
         <div className="hero-slides mh-media" aria-hidden="true">
           <div
             className="hero-slide"
-            style={{ backgroundImage: "url('/assets/dholera.webp')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
           />
         </div>
         <div className="hero-img-overlay mh-hide" aria-hidden="true" />
@@ -648,7 +649,7 @@ export default function HauteWorldCityPage() {
         <div className="hwc-hero-card">
           <img
             className="hwc-hero-mobile-img"
-            src="/assets/dholera.webp"
+            src="https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp"
             alt="Shri Dwarka City — entrance, Dholera Smart City"
           />
 
@@ -661,7 +662,7 @@ export default function HauteWorldCityPage() {
               </h1>
 
               <p className="hero-desc--stacked mh-desc" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
-                Shri Dwarka City is Haute World Developers' landmark investment in India's most ambitious project —
+                Shri Dwarka City is Haute World Developers landmark investment in India's most ambitious project —
                 Dholera Smart City. Approved residential plots located along the Dholera SIR boundary in Bhavnagar
                 District, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
               </p>
