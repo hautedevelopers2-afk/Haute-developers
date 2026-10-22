@@ -577,7 +577,7 @@ export default function HauteWorldCityPage() {
             description:
               "Approved residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
             url: "https://www.hautedevelopers.com/shri-dwarka-city",
-            image: "https://www.hautedevelopers.com/assets/dholera.png",
+            image: "https://www.hautedevelopers.com/assets/dholera.webp",
             address: {
               "@type": "PostalAddress",
               streetAddress: "Dholera Expressway, along the Dholera SIR boundary",
@@ -639,7 +639,7 @@ export default function HauteWorldCityPage() {
         <div className="hero-slides mh-media" aria-hidden="true">
           <div
             className="hero-slide"
-            style={{ backgroundImage: "url('/assets/dholera.png')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
+            style={{ backgroundImage: "url('/assets/dholera.webp')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
           />
         </div>
         <div className="hero-img-overlay mh-hide" aria-hidden="true" />
@@ -648,7 +648,7 @@ export default function HauteWorldCityPage() {
         <div className="hwc-hero-card">
           <img
             className="hwc-hero-mobile-img"
-            src="/assets/dholera.png"
+            src="/assets/dholera.webp"
             alt="Shri Dwarka City — entrance, Dholera Smart City"
           />
 

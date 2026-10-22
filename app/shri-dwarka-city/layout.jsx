@@ -39,7 +39,7 @@ export const metadata = {
     siteName: "Haute World Developers",
     images: [
       {
-        url: "/assets/dholera.png",
+        url: "/assets/dholera.webp",
         width: 1200,
         height: 630,
         alt: "Shri Dwarka City — Dholera Smart City aerial view",
@@ -53,7 +53,7 @@ export const metadata = {
     title: "Shri Dwarka City – Approved Plots near Dholera Smart City",
     description:
       "Approved plots on the Dholera Expressway, along the Dholera SIR boundary in Bhavnagar District. By Haute World Developers.",
-    images: ["/assets/dholera.png"],
+    images: ["/assets/dholera.webp"],
   },
 };
 
