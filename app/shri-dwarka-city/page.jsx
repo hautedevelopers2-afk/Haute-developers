@@ -909,7 +909,7 @@ export default function HauteWorldCityPage() {
 
           <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(201,144,26,0.2)", boxShadow: "0 8px 48px rgba(26,74,58,0.1)" }}>
             <img
-              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786612020/Haute-World-City-Layout_zxtpqp.webp"
+              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793274158/Shri-Dwarka-City-Layout_vyssjb.webp"
               alt="Shri Dwarka City master plan and site layout — Dholera Smart City, Gujarat"
               style={{ width: "100%", display: "block", objectFit: "contain" }}
             />
