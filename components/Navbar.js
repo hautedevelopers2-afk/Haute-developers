@@ -146,44 +146,6 @@ export default function Navbar() {
               </li>
             ))}
 
-            {/* ── Channel Partner Button ── */}
-            <li>
-              <Link
-                href="/channel-partner-registration"
-                style={{
-                  display: 'inline-flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                  padding: '7px 16px',
-                  background: 'transparent',
-                  border: '1.5px solid rgba(196,144,26,0.7)',
-                  borderRadius: '6px',
-                  color: 'var(--gold, #c4901a)',
-                  fontSize: '13px',
-                  fontWeight: 600,
-                  letterSpacing: '0.04em',
-                  textDecoration: 'none',
-                  transition: 'all 0.2s',
-                  whiteSpace: 'nowrap',
-                }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.background = 'rgba(196,144,26,0.1)'
-                  e.currentTarget.style.borderColor = '#c4901a'
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.background = 'transparent'
-                  e.currentTarget.style.borderColor = 'rgba(196,144,26,0.7)'
-                }}
-              >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                  <circle cx="9" cy="7" r="4"/>
-                  <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                  <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                </svg>
-                Channel Partner
-              </Link>
-            </li>
 
             <li>
               <Link href="/#contact" className="nav-cta">
@@ -302,21 +264,6 @@ export default function Navbar() {
             </Link>
           ))}
 
-          {/* Mobile Channel Partner Link */}
-          <Link
-            href="/channel-partner-registration"
-            onClick={() => setMobileOpen(false)}
-            style={{
-              display: 'inline-flex', alignItems: 'center', gap: '8px',
-              padding: '12px 28px',
-              border: '1.5px solid rgba(196,144,26,0.7)',
-              borderRadius: '8px', color: '#c4901a',
-              fontFamily: 'var(--font-display)', fontSize: '1.2rem',
-              fontWeight: 600, textDecoration: 'none',
-            }}
-          >
-            Channel Partner
-          </Link>
 
           <Link
             href="/#contact"
