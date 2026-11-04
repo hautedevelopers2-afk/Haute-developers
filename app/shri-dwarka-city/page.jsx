@@ -292,6 +292,11 @@ export default function HauteWorldCityPage() {
         .hwc-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
         .hwc-center    { text-align: center; max-width: 620px; margin: 0 auto 3rem; }
 
+        /* Wider centred heading block (used by Amenities so the h2 doesn't wrap into 4 huge lines) */
+        .hwc-center--wide { max-width: 820px; }
+        .hwc-center--wide h2 { font-size: clamp(1.8rem, 2.8vw, 2.6rem); line-height: 1.2; }
+        .hwc-center--wide > p { max-width: 640px; margin-left: auto; margin-right: auto; }
+
         .hwc-2col      { display: grid; grid-template-columns: 1fr 1fr;     gap: 4rem; align-items: start; }
         .hwc-2col-map  { display: grid; grid-template-columns: 1fr 1.15fr;  gap: 4rem; align-items: center; }
         .hwc-2col-dev  { display: grid; grid-template-columns: 1fr 1fr;     gap: 4rem; align-items: center; }
@@ -428,34 +433,52 @@ export default function HauteWorldCityPage() {
           .hwc-statue-section { padding: 3rem 0 0; }
         }
 
-                /* ═══ PROJECT HIGHLIGHTS (new light design) ═══ */
-        .hwc-ph { position: relative; overflow: hidden; background: #faf8f4; padding: 4.5rem 0; }
-        .hwc-ph-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 3rem; align-items: center; }
+        /* ═══ PROJECT HIGHLIGHTS (dark design) ═══ */
+        .hwc-ph { position: relative; overflow: hidden; padding: 4.5rem 0; background: linear-gradient(160deg, #0d2f24 0%, #123d2f 55%, #0a251c 100%); }
+        /* Desktop: slightly narrower items column so the heading column has room and "Shri Dwarka City" stays on one line */
+        .hwc-ph-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.55fr); gap: 3rem; align-items: center; }
 
-        .hwc-ph-label { display: inline-flex; align-items: center; gap: 0.8rem; font-family: var(--font-body); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a1f; margin-bottom: 1.4rem; }
+        .hwc-ph-label { display: inline-flex; align-items: center; gap: 0.8rem; font-family: var(--font-body); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-pale); margin-bottom: 1.4rem; }
         .hwc-ph-label::after { content: ''; width: 34px; height: 2px; background: var(--gold); }
-        .hwc-ph-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.2rem, 3.4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.01em; color: var(--forest-dark); margin: 0; }
-        .hwc-ph-title em { display: block; font-style: italic; font-weight: 600; color: var(--forest); }
+        .hwc-ph-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(2rem, 3vw, 2.8rem); line-height: 1.1; letter-spacing: -0.01em; color: #fff; margin: 0; }
+        .hwc-ph-title em { display: block; font-style: italic; font-weight: 600; color: var(--gold-pale); }
         .hwc-ph-line { width: 56px; height: 2px; background: var(--gold); margin: 1.6rem 0; }
-        .hwc-ph-text { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: #3d4a43; margin: 0 0 1.8rem; max-width: 330px; }
-        .hwc-ph-btn { display: inline-flex; align-items: center; gap: 0.7rem; background: var(--forest-dark); color: #fff; padding: 0.95rem 1.5rem; border-radius: 4px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; transition: background 0.3s ease, transform 0.3s ease; }
-        .hwc-ph-btn:hover { background: var(--forest); transform: translateY(-2px); }
+        .hwc-ph-text { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: rgba(255,255,255,0.72); margin: 0 0 1.8rem; max-width: 380px; }
+        .hwc-ph-btn { display: inline-flex; align-items: center; gap: 0.7rem; background: var(--gold); color: #fff; padding: 0.95rem 1.5rem; border-radius: 4px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; transition: background 0.3s ease, transform 0.3s ease; }
+        .hwc-ph-btn:hover { background: var(--gold-light); transform: translateY(-2px); }
 
-        .hwc-ph-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-left: 1px solid rgba(13,47,36,0.12); padding-left: 1.5rem; }
+        /* Intro block: LEFT-aligned on desktop (original look). Centred only on tablet/mobile — see media query below. */
+        .hwc-ph-intro { text-align: left; }
+
+        .hwc-ph-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-left: 1px solid rgba(255,255,255,0.14); padding-left: 1.5rem; }
         .hwc-ph-item { position: relative; text-align: center; padding: 2.2rem 1rem; }
-        .hwc-ph-item::before { content: ''; position: absolute; left: 0; top: 14%; bottom: 14%; width: 1px; background: rgba(13,47,36,0.12); }
+        .hwc-ph-item::before { content: ''; position: absolute; left: 0; top: 14%; bottom: 14%; width: 1px; background: rgba(255,255,255,0.14); }
         .hwc-ph-item:nth-child(3n+1)::before { display: none; }
-        .hwc-ph-item:nth-child(n+4) { border-top: 1px solid rgba(13,47,36,0.12); }
-        .hwc-ph-icon { width: 60px; height: 60px; margin: 0 auto 1.1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fbf0d8; border: 1px solid rgba(201,144,26,0.18); box-shadow: 0 6px 18px rgba(201,144,26,0.12); }
-        .hwc-ph-item h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.2; color: var(--forest-dark); margin: 0 0 0.5rem; }
-        .hwc-ph-item p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.6; color: #55605a; margin: 0 auto; max-width: 210px; }
+        .hwc-ph-item:nth-child(n+4) { border-top: 1px solid rgba(255,255,255,0.14); }
+        .hwc-ph-icon { width: 60px; height: 60px; margin: 0 auto 1.1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: rgba(201,144,26,0.14); border: 1px solid rgba(201,144,26,0.4); box-shadow: 0 0 0 6px rgba(201,144,26,0.06); }
+        .hwc-ph-item h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.2; color: #fff; margin: 0 0 0.5rem; }
+        .hwc-ph-item p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.6; color: rgba(255,255,255,0.65); margin: 0 auto; max-width: 210px; }
 
         .hwc-ph-banner { display: block; width: 100%; max-width: 640px; height: auto; margin: 0.5rem auto 0; }
 
+        /* Desktop only: keep "Shri Dwarka City" on one line */
+        @media (min-width: 1025px) {
+          .hwc-ph-title em { white-space: nowrap; }
+        }
+
+        /* Button at the bottom on tablet/mobile */
+        .hwc-ph-btn-mobile { display: none; }
+
+        /* Tablet + mobile: centred intro (this is the part you set up for mobile — now scoped so it no longer leaks onto desktop) */
         @media (max-width: 1024px) {
           .hwc-ph-grid { grid-template-columns: 1fr; gap: 2rem; }
-          .hwc-ph-text { max-width: 520px; }
+          .hwc-ph-intro { text-align: center; }
+          .hwc-ph-label::before { content: ''; width: 34px; height: 2px; background: var(--gold); }
+          .hwc-ph-line { margin-left: auto; margin-right: auto; }
+          .hwc-ph-text { max-width: 520px; margin-left: auto; margin-right: auto; }
           .hwc-ph-items { border-left: none; padding-left: 0; }
+          .hwc-ph-btn--desktop { display: none; }
+          .hwc-ph-btn-mobile { display: flex; justify-content: center; margin-top: 2rem; }
         }
         @media (max-width: 700px) {
           .hwc-ph { padding-top: 3rem; }
@@ -463,36 +486,8 @@ export default function HauteWorldCityPage() {
           .hwc-ph-item { padding: 1.6rem 0.6rem; }
           .hwc-ph-item:nth-child(3n+1)::before { display: block; }
           .hwc-ph-item:nth-child(odd)::before { display: none; }
-          .hwc-ph-item:nth-child(n+3) { border-top: 1px solid rgba(13,47,36,0.12); }
+          .hwc-ph-item:nth-child(n+3) { border-top: 1px solid rgba(255,255,255,0.14); }
           .hwc-ph-item h3 { font-size: 1.15rem; }
-        }
-
-        /* ═══ PROJECT HIGHLIGHTS: dark background override ═══ */
-        .hwc-ph { background: linear-gradient(160deg, #0d2f24 0%, #123d2f 55%, #0a251c 100%); }
-        .hwc-ph-label { color: var(--gold-pale); }
-        .hwc-ph-title { color: #fff; }
-        .hwc-ph-title em { color: var(--gold-pale); }
-        .hwc-ph-text { color: rgba(255,255,255,0.72); }
-        .hwc-ph-btn { background: var(--gold); color: #fff; }
-        .hwc-ph-btn:hover { background: var(--gold-light); }
-        .hwc-ph-items { border-left-color: rgba(255,255,255,0.14); }
-        .hwc-ph-item::before { background: rgba(255,255,255,0.14); }
-        .hwc-ph-item:nth-child(n+4) { border-top-color: rgba(255,255,255,0.14); }
-        .hwc-ph-icon { background: rgba(201,144,26,0.14); border-color: rgba(201,144,26,0.4); box-shadow: 0 0 0 6px rgba(201,144,26,0.06); }
-        .hwc-ph-item h3 { color: #fff; }
-        .hwc-ph-item p { color: rgba(255,255,255,0.65); }
-
-        /* ═══ PROJECT HIGHLIGHTS: centred intro ═══ */
-        .hwc-ph-intro { text-align: center; }
-        .hwc-ph-label::before { content: ''; width: 34px; height: 2px; background: var(--gold); }
-        .hwc-ph-line { margin-left: auto; margin-right: auto; }
-        .hwc-ph-text { margin-left: auto; margin-right: auto; }
-
-        /* ═══ PROJECT HIGHLIGHTS: button at the bottom on mobile ═══ */
-        .hwc-ph-btn-mobile { display: none; }
-        @media (max-width: 1024px) {
-          .hwc-ph-btn--desktop { display: none; }
-          .hwc-ph-btn-mobile { display: flex; justify-content: center; margin-top: 2rem; }
         }
 
         /* WHY INVEST */
@@ -1016,7 +1011,8 @@ export default function HauteWorldCityPage() {
       <section id="amenities" className="hwc-section" aria-labelledby="amenities-heading" style={{ background: "var(--forest-dark)", position: "relative", overflow: "hidden" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
         <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
-          <div className="hwc-center" style={{ maxWidth: 560 }}>
+          {/* hwc-center--wide: wider block + smaller heading so it sits on 2 lines instead of 4 huge ones */}
+          <div className="hwc-center hwc-center--wide">
             <span className="section-label" style={{ color: "var(--gold)" }}>Shri Dwarka City Amenities</span>
             <h2 id="amenities-heading" style={{ color: "#fff" }}>
               Zen Living Infrastructure for a Future-Ready Community

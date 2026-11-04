@@ -132,6 +132,14 @@ const upcomingProjects = [
   },
 ];
 
+// Expressway Residency feature stats — rendered in the same style as the
+// home-page stats strip (big number + label, with dividers)
+const expresswayStats = [
+  { end: "100", suffix: "", label: "Acres of Total Area" },
+  { end: "500", suffix: "+", label: "Premium Villas" },
+  { end: "450", suffix: "", label: "Plotted Units" },
+];
+
 export default function Home() {
   return (
     <>
@@ -841,94 +849,40 @@ export default function Home() {
                 2700 sq yd clubhouse, underground utilities, and 24×7 smart
                 surveillance — all just 20 minutes from Akshardham.
               </p>
+
+              {/* Stats — same style as the home-page stats strip
+                  (hwc-stats-strip keeps 3 across on mobile and adds the top divider line) */}
               <div
-                style={{
-                  height: "1px",
-                  background: "rgba(201,144,26,0.15)",
-                  marginBottom: "2rem",
-                }}
-              />
+                className="stats-strip hwc-stats-strip"
+                aria-label="Expressway Residency statistics"
+                style={{ marginTop: "0.5rem" }}
+              >
+                <div className="stats-strip-inner">
+                  {expresswayStats.map((s, i) => (
+                    <Fragment key={s.label}>
+                      {i > 0 && (
+                        <div className="stats-strip-divider" aria-hidden="true" />
+                      )}
+                      <div className="stats-strip-item">
+                        <div className="stats-strip-inner-cell">
+                          <div className="stats-strip-num">
+                            <CountUp end={s.end} suffix={s.suffix} duration={2000} />
+                          </div>
+                          <div className="stats-strip-label">{s.label}</div>
+                        </div>
+                      </div>
+                    </Fragment>
+                  ))}
+                </div>
+              </div>
+
               <div
                 style={{
                   display: "flex",
-                  alignItems: "center",
-                  justifyContent: "space-between",
-                  flexWrap: "wrap",
-                  gap: "1.5rem",
+                  justifyContent: "center",
+                  marginTop: "1.8rem",
                 }}
               >
-                <div
-                  style={{ display: "flex", gap: "0.75rem", flexWrap: "wrap" }}
-                >
-                  {[
-                    {
-                      num: "100",
-                      suffix: "",
-                      unit: "Acres",
-                      label: "Total Area",
-                    },
-                    {
-                      num: "500",
-                      suffix: "+",
-                      unit: "Villas",
-                      label: "Premium Units",
-                    },
-                    {
-                      num: "450",
-                      suffix: "",
-                      unit: "Plots",
-                      label: "Plotted Units",
-                    },
-                  ].map((s) => (
-                    <div
-                      key={s.label}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        gap: "0.7rem",
-                        background: "var(--cream)",
-                        border: "1.5px solid rgba(201,144,26,0.25)",
-                        borderRadius: "999px",
-                        padding: "0.55rem 1.2rem",
-                      }}
-                    >
-                      <span
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "0.3rem",
-                          fontFamily: "var(--font-number)",
-                          fontSize: "1.4rem",
-                          fontWeight: 700,
-                          color: "var(--forest)",
-                          lineHeight: 1,
-                        }}
-                      >
-                        <CountUp
-                          end={s.num}
-                          suffix={s.suffix}
-                          duration={2000}
-                        />
-                        <small
-                          style={{ fontSize: "0.9rem", color: "var(--gold)", lineHeight: 1 }}
-                        >
-                          {s.unit}
-                        </small>
-                      </span>
-                      <span
-                        style={{
-                          fontSize: "0.68rem",
-                          color: "var(--gray)",
-                          textTransform: "uppercase",
-                          letterSpacing: "0.08em",
-                          fontWeight: 600,
-                        }}
-                      >
-                        {s.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
                 <Link href="/#contact" className="btn-primary">
                   Book a Site Visit →
                 </Link>
