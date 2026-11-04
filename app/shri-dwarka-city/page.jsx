@@ -1,4 +1,4 @@
-// Place this file at: app/haute-world-city/page.jsx
+// Place this file at: app/shri-dwarka-city/page.jsx
 
 "use client";
 
@@ -54,52 +54,19 @@ const IconDroplet = (p) => (<Ic {...p}><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.
 const IconYoga = (p) => (<Ic {...p}><circle cx="12" cy="4" r="1.5"/><path d="M6 12c0-3 2-5 6-5s6 2 6 5"/><path d="M4 19l4-4 4 3 4-3 4 4"/><path d="M8 15v-3"/><path d="M16 15v-3"/></Ic>);
 const IconShop = (p) => (<Ic {...p}><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></Ic>);
 const IconTrophy = (p) => (<Ic {...p}><path d="M8 21h8"/><path d="M12 17v4"/><path d="M7 4h10v5a5 5 0 0 1-10 0V4z"/><path d="M17 5h3v2a3 3 0 0 1-3 3"/><path d="M7 5H4v2a3 3 0 0 0 3 3"/></Ic>);
+/* New icons for Project Highlights */
+const IconMapPin = (p) => (<Ic {...p}><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></Ic>);
+const IconLayout = (p) => (<Ic {...p}><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="12" y1="3" x2="12" y2="21"/><line x1="3" y1="12" x2="21" y2="12"/></Ic>);
+const IconStatue = (p) => (<Ic {...p}><circle cx="12" cy="4.5" r="2"/><path d="M8 14l4-3.5 4 3.5"/><path d="M12 10.5V17"/><path d="M9 17h6"/><path d="M7 21h10"/><path d="M9 17v4"/><path d="M15 17v4"/></Ic>);
+const IconTemple = (p) => (<Ic {...p}><path d="M12 2l9 6H3z"/><path d="M5 8v13"/><path d="M19 8v13"/><path d="M9 21v-6h6v6"/><path d="M3 21h18"/></Ic>);
+const IconSparkle = (p) => (<Ic {...p}><path d="M12 3l1.6 3.9L18 8l-3.9 1.6L12 14l-1.6-4.4L6 8l4.4-1.1z"/><path d="M19 15l.8 2 2 .8-2 .8-.8 2-.8-2-2-.8 2-.8z"/></Ic>);
+const IconTrain = (p) => (<Ic {...p}><rect x="5" y="3" width="14" height="14" rx="3"/><path d="M5 11h14"/><circle cx="9" cy="14" r="0.8"/><circle cx="15" cy="14" r="0.8"/><path d="M8 21l2-4"/><path d="M16 21l-2-4"/></Ic>);
 const IconPlusMinus = ({ size = 18, color, isOpen = false }) => (
   <Ic size={size} color={color} sw={2.2}>
     <line x1="5" y1="12" x2="19" y2="12"/>
     {!isOpen && <line x1="12" y1="5" x2="12" y2="19"/>}
   </Ic>
 );
-
-/* ─────────────────────────────────────────
-   LIGHTBOX COMPONENT
-───────────────────────────────────────── */
-function Lightbox({ src, alt, onClose }) {
-  return (
-    <div
-      onClick={onClose}
-      style={{
-        position: "fixed", inset: 0, zIndex: 9999, background: "rgba(0,0,0,0.88)",
-        display: "flex", alignItems: "center", justifyContent: "center", padding: "2rem", cursor: "zoom-out",
-      }}
-      role="dialog"
-      aria-modal="true"
-      aria-label="Fullscreen image view"
-    >
-      <button
-        onClick={onClose}
-        style={{
-          position: "absolute", top: "1.2rem", right: "1.2rem", background: "rgba(255,255,255,0.1)",
-          border: "1px solid rgba(255,255,255,0.25)", borderRadius: "50%", width: "44px", height: "44px",
-          display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", color: "#fff",
-          fontSize: "1.3rem", lineHeight: 1,
-        }}
-        aria-label="Close fullscreen view"
-      >
-        ✕
-      </button>
-      <img
-        src={src}
-        alt={alt}
-        onClick={(e) => e.stopPropagation()}
-        style={{
-          maxWidth: "90vw", maxHeight: "85vh", objectFit: "contain", borderRadius: "12px",
-          boxShadow: "0 24px 80px rgba(0,0,0,0.6)", cursor: "default",
-        }}
-      />
-    </div>
-  );
-}
 
 /* ─────────────────────────────────────────
    REVEAL-ON-SCROLL WRAPPER
@@ -169,18 +136,19 @@ const amenities = [
   { Icon: IconTree, label: "Religious Space", body: "A dedicated space for prayer and reflection, designed for the community's everyday spiritual needs.", image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792660996/ShriDwarkaCity-Religious_Area_fl4njk.webp" },
 ];
 
+/* ── PROJECT HIGHLIGHTS (new, icon-led) ── */
 const projectHighlights = [
-  { title: "Approved Plots, Clear Title", body: "Every plot at Shri Dwarka City is Approved, with complete title documentation and due-diligence support." },
-  { title: "Along the Boundary of India's First Greenfield Smart City", body: "Located along the Dholera SIR boundary in Bhavnagar District — next to a smart city planned from the ground up, not retrofitted onto an existing town." },
-  { title: "Backed by the DMIC", body: "Part of the central and state government-backed Delhi–Mumbai Industrial Corridor initiative." },
-  { title: "Near the Upcoming International Airport", body: "Positioned to benefit from Dholera International Airport as passenger and cargo operations come online." },
-  { title: "Direct Expressway Access", speed: true, body: "Located directly on the Dholera Expressway, offering high-speed connectivity across the region." },
-  { title: "Semiconductor & Industrial Investment Influx", body: "Large-scale manufacturing and semiconductor investment in DSIR is expected to drive long-term demand for land." },
-  { title: "Smart City ICT Infrastructure", body: "Underground utilities, fibre connectivity, and intelligent traffic and utility management built into the region's design." },
-  { title: "Plots From 200 Sq. Yd.", body: "Flexible plot sizes to suit first-time buyers, long-term investors, and end users planning a future home." },
+  { Icon: IconMapPin, title: "Prime Location", body: "Situated on the Dholera Expressway, Gujarat." },
+  { Icon: IconLayout, title: "Planned 100-Acre Township", body: "First phase of Haute World City." },
+  { Icon: IconBuilding, title: "Residential & Commercial Plots", body: "Options for diverse property needs." },
+  { Icon: IconStatue, title: "Divine Landmark", body: "Proposed 111-foot statue of Lord Krishna and Radha Rani." },
+  { Icon: IconTemple, title: "Four Planned Temples", body: "Khatu Shyam, Radha Rani, Banke Bihari, and Nand Baba." },
+  { Icon: IconSparkle, title: "30+ Planned Amenities", body: "Designed for a comfortable community lifestyle." },
+  { Icon: IconTrain, title: "Future Connectivity", body: "Proposed metro station opposite the township entrance." },
+  { Icon: IconShield, title: "Trusted Developer", body: "By Haute World Developers." },
 ];
 
-/* ── WHY INVEST DATA (replaces old `advantages`) ── */
+/* ── WHY INVEST DATA ── */
 const whyStats = [
   { value: "₹91,000 Cr", label: "Chip fabrication plant rising inside Dholera SIR" },
   { value: "920 sq. km", label: "Planned city, built from a blank canvas" },
@@ -228,8 +196,8 @@ const whyPhases = [
 ];
 
 const layoutStats = [
-  { Icon: IconCity, value: "673", label: "Total Plots" },
-  { Icon: IconBuilding, value: "625", label: "Total Residential Plots" },
+  { Icon: IconCity, value: "672", label: "Total Plots" },
+  { Icon: IconBuilding, value: "624", label: "Total Residential Plots" },
   { Icon: IconShop, value: "48", label: "Total Commercial Plots" },
 ];
 
@@ -255,36 +223,51 @@ const proximityBullets = [
 
 const faqs = [
   {
-    q: "Where exactly is Shri Dwarka City located?",
-    a: "Shri Dwarka City is located directly on the Dholera Expressway in Bhavnagar District, Gujarat, about 3.5 km from the Dholera SIR boundary.",
+    q: "1. What is Shri Dwarka City?",
+    a: "Shri Dwarka City is a spiritually inspired gated township located on the Dholera Expressway in Gujarat. It is the first phase of Haute World City, a planned 100-acre township by Haute World Developers.",
   },
   {
-    q: "Is Shri Dwarka City approved?",
-    a: "Yes. The project layout is approved, the NA and NOC are in place, and the title is clear. Our team also provides complete documentation and due-diligence support at every stage of the booking process.",
+    q: "2. What makes Shri Dwarka City unique?",
+    a: "The township combines spiritual heritage with modern living, featuring a proposed 111-foot statue of Lord Krishna and Radha Rani, four sacred temples, and 30+ luxury amenities.",
   },
   {
-    q: "What plot sizes are available?",
-    a: "Plots start at 200 sq. yd. and go upward, giving you the flexibility to invest, plan a future home, or choose a larger parcel.",
+    q: "3. Which temples are planned within Shri Dwarka City?",
+    a: "The township's concept includes four temples: Khatu Shyam Temple, Radha Rani Temple, Banke Bihari Temple, and Nand Baba Temple.",
   },
   {
-    q: "Why is Shri Dwarka City the best option for investing in Dholera?",
-    a: "Shri Dwarka City combines a prime location with a well-documented project. It sits directly on the Dholera Expressway, close to the SIR boundary, in a region that is attracting major semiconductor and industrial investment. The layout is approved with clear title, plot sizes are flexible, and the project is developed by Haute World Developers, a team that has been delivering projects since 2011.",
+    q: "4. What is the inspiration behind Shri Dwarka City?",
+    a: "The township draws inspiration from the spiritual and cultural heritage of Vrindavan, Barsana, and Mathura, bringing temple-inspired architecture and devotional traditions into a modern residential setting.",
   },
   {
-    q: "Why is Shri Dwarka City an integrated township?",
-    a: "Shri Dwarka City is planned as a complete community rather than just a layout of plots. It includes residential and commercial plots, a clubhouse, landscaped gardens, a swimming pool, a jogging and cycling track, a kids' play zone, a wellness centre, and a retail zone. Gated entry with 24×7 security, fibre-optic connectivity and solar-powered common infrastructure complete the township.",
+    q: "5. Is there a proposed metro station near Shri Dwarka City?",
+    a: "A proposed metro station is indicated directly opposite the township's entrance gate. Its approval and development status should be verified through official sources.",
   },
   {
-    q: "Who is developing Shri Dwarka City?",
-    a: "Shri Dwarka City is being developed by Haute World Developers, which has been delivering projects since 2011 across North India, including Dehradun, Meerut, Ghaziabad and Noida, and is now expanding into Dholera Smart City.",
+    q: "6. Does Shri Dwarka City offer residential and commercial plots?",
+    a: "Yes. Shri Dwarka City offers both residential and commercial plot options, catering to buyers looking to build a home or explore commercial property opportunities. Contact the sales team for available plot sizes, current prices, and applicable terms.",
+  },
+  {
+    q: "7. How can I enquire about plots at Shri Dwarka City?",
+    a: "Contact Haute World Developers to enquire about residential and commercial plot availability, pricing, payment plans, project documentation, and site visits.",
   },
 ];
 
 /* ─────────────────────────────────────────
    PAGE
 ───────────────────────────────────────── */
+const IconLayers = (p) => (<Ic {...p}><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></Ic>);
+const IconHandshake = (p) => (<Ic {...p}><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></Ic>);
+
+const phItems = [
+  { Icon: IconMapPin,    title: "Prime Location",      body: "On the Dholera Expressway, Gujarat." },
+  { Icon: IconLayers,    title: "100-Acre Township",   body: "A well-planned, gated community." },
+  { Icon: IconTemple,    title: "Four Planned Temples", body: "For a serene and spiritual environment." },
+  { Icon: IconStatue,    title: "Divine Landmark",     body: "Proposed 111-foot statues of Lord Krishna and Radha Rani." },
+  { Icon: IconSparkle,   title: "30+ Modern Amenities", body: "Thoughtfully designed for a complete lifestyle." },
+  { Icon: IconHandshake, title: "Trusted Developer",   body: "By Haute World Developers." },
+];
+
 export default function HauteWorldCityPage() {
-  const [lightboxOpen, setLightboxOpen] = useState(false);
   const [openFaqIndex, setOpenFaqIndex] = useState(0);
 
   return (
@@ -292,18 +275,19 @@ export default function HauteWorldCityPage() {
       <Navbar />
       <PopupLeadModal pageName="Shri Dwarka City" projectName="Shri Dwarka City, Dholera" />
 
-      {lightboxOpen && (
-        <Lightbox
-          src="/assets/dholera-map.png"
-          alt="Shri Dwarka City location map — Dholera Expressway, Bhavnagar District, Gujarat"
-          onClose={() => setLightboxOpen(false)}
-        />
-      )}
-
       {/* ══════════════════════════════════════════
           SCOPED STYLES — .hwc-* prefix
       ══════════════════════════════════════════ */}
       <style>{`
+        /* ═══ ONE FONT FOR THE WHOLE PAGE ═══ */
+        :root {
+          --font-display: var(--font-body);
+          --font-number: var(--font-body);
+        }
+        body, body *:not(svg):not(svg *) {
+          font-family: var(--font-body) !important;
+        }
+
         .hwc-section   { padding: 4.5rem 0; }
         .hwc-container { width: 100%; max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; box-sizing: border-box; }
         .hwc-center    { text-align: center; max-width: 620px; margin: 0 auto 3rem; }
@@ -324,20 +308,194 @@ export default function HauteWorldCityPage() {
         .hwc-glance-val   { padding: 1.1rem 1.5rem; font-size: 0.92rem; color: var(--charcoal); font-weight: 500; line-height: 1.6; }
 
         /* Map image card */
-        .hwc-map-card { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.2); height: 420px; cursor: zoom-in; position: relative; }
-        .hwc-map-card img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.85) contrast(1.05); transition: transform 0.35s ease; }
-        .hwc-map-card:hover img { transform: scale(1.03); }
-        .hwc-map-hint { position: absolute; bottom: 1rem; right: 1rem; background: rgba(0,0,0,0.55); color: #fff; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; padding: 0.35rem 0.85rem; border-radius: 999px; pointer-events: none; display: flex; align-items: center; gap: 0.4rem; }
+        .hwc-map-card { border-radius: 16px; overflow: hidden; box-shadow: 0 8px 40px rgba(0,0,0,0.12), 0 0 0 1px rgba(201,144,26,0.2); height: 420px; position: relative; }
+        .hwc-map-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-        /* Project Highlights */
-        .hwc-highlight-grid { display: grid; grid-template-columns: 1fr; gap: 1px; background: rgba(13,47,36,0.08); border: 1px solid rgba(13,47,36,0.08); margin-top: 2.5rem; }
-        .hwc-highlight-item { background: var(--white); padding: 1.5rem 1.6rem; display: flex; gap: 1rem; align-items: flex-start; }
-        .hwc-highlight-mark { flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--forest); color: #fff; display: flex; align-items: center; justify-content: center; }
-        .hwc-highlight-item h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; margin: 0 0 0.4rem; color: var(--charcoal); }
-        .hwc-highlight-item p { margin: 0; font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
-        @media (min-width: 768px) { .hwc-highlight-grid { grid-template-columns: 1fr 1fr; } }
+        /* ═══ PROJECT HIGHLIGHTS (redesigned) ═══ */
+        .hwc-hl-section { position: relative; overflow: hidden; background: radial-gradient(ellipse at 15% 0%, rgba(201,144,26,0.14), transparent 50%), radial-gradient(ellipse at 90% 100%, rgba(201,144,26,0.1), transparent 55%), linear-gradient(160deg, #0d2f24 0%, #123d2f 55%, #0a251c 100%); }
+        .hwc-hl-pattern { position: absolute; inset: 0; background-image: repeating-linear-gradient(45deg, rgba(201,144,26,0.05) 0, rgba(201,144,26,0.05) 1px, transparent 0, transparent 50%); background-size: 36px 36px; pointer-events: none; }
+        .hwc-hl-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+        .hwc-hl-card { position: relative; height: 100%; box-sizing: border-box; padding: 2rem 1.5rem 1.8rem; border-radius: 18px; background: linear-gradient(165deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02)); border: 1px solid rgba(201,144,26,0.22); backdrop-filter: blur(4px); overflow: hidden; transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease, background 0.35s ease; }
+        .hwc-hl-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-pale), transparent); opacity: 0.55; transition: opacity 0.35s ease; }
+        .hwc-hl-card::after { content: ''; position: absolute; top: -60px; right: -60px; width: 160px; height: 160px; background: radial-gradient(circle closest-side, rgba(201,144,26,0.22), transparent); opacity: 0; transition: opacity 0.4s ease; pointer-events: none; }
+        .hwc-hl-card:hover { transform: translateY(-6px); border-color: rgba(201,144,26,0.6); box-shadow: 0 18px 44px rgba(0,0,0,0.35); background: linear-gradient(165deg, rgba(255,255,255,0.12), rgba(255,255,255,0.03)); }
+        .hwc-hl-card:hover::before, .hwc-hl-card:hover::after { opacity: 1; }
+        .hwc-hl-icon { position: relative; width: 62px; height: 62px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.3rem; background: radial-gradient(circle at 30% 25%, rgba(245,212,131,0.28), rgba(201,144,26,0.1)); border: 1px solid rgba(201,144,26,0.5); box-shadow: 0 0 0 6px rgba(201,144,26,0.07); }
+        .hwc-hl-card h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.22rem; line-height: 1.25; color: #fff; margin: 0 0 0.55rem; }
+        .hwc-hl-card p { margin: 0; font-size: 0.85rem; line-height: 1.7; color: rgba(255,255,255,0.68); }
+        .hwc-hl-sub { font-family: var(--font-display); font-style: italic; font-size: clamp(1.1rem, 1.8vw, 1.4rem); color: var(--gold-pale); margin: 0; line-height: 1.5; }
 
-        /* WHY INVEST (new) */
+        /* ═══ STATUE SECTION ═══
+           Statues have NO box. They stand directly on the section's bottom
+           edge and rise a little above its top border (desktop). */
+        .hwc-statue-section {
+          position: relative;
+          z-index: 2;                 /* lets the statues overlap the section above */
+          background: var(--cream);
+          padding: 4.5rem 0;
+          min-height: clamp(560px, 36vw, 720px);
+          display: flex;
+          align-items: center;
+        }
+        .hwc-statue-section .hwc-container { position: static; }
+        .hwc-statue-grid { display: block; }
+
+        .hwc-statue-content { text-align: center; max-width: 480px; margin: 0 auto; }
+
+        /* Statue wrappers: pinned to section bottom, overshoot the top by 2.5rem */
+        .hwc-statue-left,
+        .hwc-statue-right {
+          position: absolute;
+          bottom: 0;
+          top: -3.5rem;                 /* head rises this far above the section's top line */
+          width: auto;
+          max-width: calc((100vw - 520px) / 2 - 3vw);  /* only shrinks if the screen is too narrow to fit beside the text */
+          pointer-events: none;
+        }
+        .hwc-statue-left  { left: 3%; }
+        .hwc-statue-right { right: 3%; }
+
+        .hwc-statue-img {
+          position: relative;
+          width: auto;
+          height: 100%;
+          background: none;
+          border: none;
+          box-shadow: none;
+          border-radius: 0;
+          --shadow-lift: 0px;   /* raise this (e.g. 12px) if the shadow sits too low under the base */
+        }
+        /* soft ground shadow under the base */
+        .hwc-statue-img::after {
+          content: '';
+          position: absolute;
+          left: -4%;
+          right: -4%;
+          bottom: var(--shadow-lift);
+          height: 38px;
+          background: radial-gradient(ellipse at center, rgba(40, 28, 10, 0.55) 0%, rgba(40, 28, 10, 0.28) 40%, transparent 72%);
+          filter: blur(7px);
+          z-index: 0;
+          pointer-events: none;
+        }
+        .hwc-statue-img img {
+          position: relative;
+          z-index: 1;
+          height: 100%;
+          width: auto;
+          max-width: 100%;
+          object-fit: contain;
+          object-position: center bottom;   /* feet touch the bottom of the section */
+          display: block;
+          filter: drop-shadow(0 14px 16px rgba(40, 28, 10, 0.28));
+        }
+
+        .hwc-statue-title { font-family: var(--font-body); font-weight: 600; font-size: clamp(1.6rem, 2.6vw, 2.3rem); line-height: 1.25; letter-spacing: -0.01em; color: var(--forest-dark); margin: 0.4rem 0 0; }
+        .hwc-statue-title em { color: #a9720f; font-style: normal; display: block; }
+        .hwc-statue-text { font-family: var(--font-body); font-size: 1rem; line-height: 1.85; color: #3b3224; margin: 1.4rem auto 0; max-width: 480px; }
+
+        @media (max-width: 1024px) {
+          .hwc-hl-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+          /* Tablet / mobile: paragraph on top, Krishna bottom-left, Radha Rani bottom-right,
+             both standing on the section's bottom edge, no box */
+          .hwc-statue-section {
+            min-height: 0;
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            grid-template-areas: "content content" "left right";
+            gap: 2rem 0.5rem;
+            align-items: end;
+            padding: 3.5rem 0 0;
+          }
+          .hwc-statue-section .hwc-container { grid-area: content; }
+          .hwc-statue-content { max-width: 560px; }
+          .hwc-statue-left, .hwc-statue-right {
+            position: static;
+            width: auto;
+            max-width: none;
+            height: clamp(260px, 62vw, 460px);
+          }
+          .hwc-statue-left  { grid-area: left;  justify-self: start; margin-left: -0.5rem; }
+          .hwc-statue-right { grid-area: right; justify-self: end;   margin-right: -0.5rem; }
+          .hwc-statue-img { width: auto; }
+          .hwc-statue-img img { width: auto; max-width: 100%; }
+        }
+        @media (max-width: 600px) {
+          .hwc-hl-grid { grid-template-columns: 1fr; gap: 1rem; }
+          .hwc-hl-card { display: flex; align-items: flex-start; gap: 1.1rem; padding: 1.4rem 1.2rem; }
+          .hwc-hl-icon { margin-bottom: 0; flex-shrink: 0; width: 54px; height: 54px; }
+          .hwc-statue-section { padding: 3rem 0 0; }
+        }
+
+                /* ═══ PROJECT HIGHLIGHTS (new light design) ═══ */
+        .hwc-ph { position: relative; overflow: hidden; background: #faf8f4; padding: 4.5rem 0; }
+        .hwc-ph-grid { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.6fr); gap: 3rem; align-items: center; }
+
+        .hwc-ph-label { display: inline-flex; align-items: center; gap: 0.8rem; font-family: var(--font-body); font-size: 0.74rem; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8a6a1f; margin-bottom: 1.4rem; }
+        .hwc-ph-label::after { content: ''; width: 34px; height: 2px; background: var(--gold); }
+        .hwc-ph-title { font-family: var(--font-display); font-weight: 500; font-size: clamp(2.2rem, 3.4vw, 3.2rem); line-height: 1.08; letter-spacing: -0.01em; color: var(--forest-dark); margin: 0; }
+        .hwc-ph-title em { display: block; font-style: italic; font-weight: 600; color: var(--forest); }
+        .hwc-ph-line { width: 56px; height: 2px; background: var(--gold); margin: 1.6rem 0; }
+        .hwc-ph-text { font-family: var(--font-body); font-size: 1rem; line-height: 1.7; color: #3d4a43; margin: 0 0 1.8rem; max-width: 330px; }
+        .hwc-ph-btn { display: inline-flex; align-items: center; gap: 0.7rem; background: var(--forest-dark); color: #fff; padding: 0.95rem 1.5rem; border-radius: 4px; font-family: var(--font-body); font-size: 0.95rem; font-weight: 600; transition: background 0.3s ease, transform 0.3s ease; }
+        .hwc-ph-btn:hover { background: var(--forest); transform: translateY(-2px); }
+
+        .hwc-ph-items { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-left: 1px solid rgba(13,47,36,0.12); padding-left: 1.5rem; }
+        .hwc-ph-item { position: relative; text-align: center; padding: 2.2rem 1rem; }
+        .hwc-ph-item::before { content: ''; position: absolute; left: 0; top: 14%; bottom: 14%; width: 1px; background: rgba(13,47,36,0.12); }
+        .hwc-ph-item:nth-child(3n+1)::before { display: none; }
+        .hwc-ph-item:nth-child(n+4) { border-top: 1px solid rgba(13,47,36,0.12); }
+        .hwc-ph-icon { width: 60px; height: 60px; margin: 0 auto 1.1rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; background: #fbf0d8; border: 1px solid rgba(201,144,26,0.18); box-shadow: 0 6px 18px rgba(201,144,26,0.12); }
+        .hwc-ph-item h3 { font-family: var(--font-display); font-weight: 700; font-size: 1.3rem; line-height: 1.2; color: var(--forest-dark); margin: 0 0 0.5rem; }
+        .hwc-ph-item p { font-family: var(--font-body); font-size: 0.85rem; line-height: 1.6; color: #55605a; margin: 0 auto; max-width: 210px; }
+
+        .hwc-ph-banner { display: block; width: 100%; max-width: 640px; height: auto; margin: 0.5rem auto 0; }
+
+        @media (max-width: 1024px) {
+          .hwc-ph-grid { grid-template-columns: 1fr; gap: 2rem; }
+          .hwc-ph-text { max-width: 520px; }
+          .hwc-ph-items { border-left: none; padding-left: 0; }
+        }
+        @media (max-width: 700px) {
+          .hwc-ph { padding-top: 3rem; }
+          .hwc-ph-items { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+          .hwc-ph-item { padding: 1.6rem 0.6rem; }
+          .hwc-ph-item:nth-child(3n+1)::before { display: block; }
+          .hwc-ph-item:nth-child(odd)::before { display: none; }
+          .hwc-ph-item:nth-child(n+3) { border-top: 1px solid rgba(13,47,36,0.12); }
+          .hwc-ph-item h3 { font-size: 1.15rem; }
+        }
+
+        /* ═══ PROJECT HIGHLIGHTS: dark background override ═══ */
+        .hwc-ph { background: linear-gradient(160deg, #0d2f24 0%, #123d2f 55%, #0a251c 100%); }
+        .hwc-ph-label { color: var(--gold-pale); }
+        .hwc-ph-title { color: #fff; }
+        .hwc-ph-title em { color: var(--gold-pale); }
+        .hwc-ph-text { color: rgba(255,255,255,0.72); }
+        .hwc-ph-btn { background: var(--gold); color: #fff; }
+        .hwc-ph-btn:hover { background: var(--gold-light); }
+        .hwc-ph-items { border-left-color: rgba(255,255,255,0.14); }
+        .hwc-ph-item::before { background: rgba(255,255,255,0.14); }
+        .hwc-ph-item:nth-child(n+4) { border-top-color: rgba(255,255,255,0.14); }
+        .hwc-ph-icon { background: rgba(201,144,26,0.14); border-color: rgba(201,144,26,0.4); box-shadow: 0 0 0 6px rgba(201,144,26,0.06); }
+        .hwc-ph-item h3 { color: #fff; }
+        .hwc-ph-item p { color: rgba(255,255,255,0.65); }
+
+        /* ═══ PROJECT HIGHLIGHTS: centred intro ═══ */
+        .hwc-ph-intro { text-align: center; }
+        .hwc-ph-label::before { content: ''; width: 34px; height: 2px; background: var(--gold); }
+        .hwc-ph-line { margin-left: auto; margin-right: auto; }
+        .hwc-ph-text { margin-left: auto; margin-right: auto; }
+
+        /* ═══ PROJECT HIGHLIGHTS: button at the bottom on mobile ═══ */
+        .hwc-ph-btn-mobile { display: none; }
+        @media (max-width: 1024px) {
+          .hwc-ph-btn--desktop { display: none; }
+          .hwc-ph-btn-mobile { display: flex; justify-content: center; margin-top: 2rem; }
+        }
+
+        /* WHY INVEST */
         .hwc-wi-stats   { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 3rem; }
         .hwc-wi-stat    { background: linear-gradient(155deg, var(--forest-dark), var(--forest)); border: 1px solid rgba(201,144,26,0.25); border-radius: 16px; padding: 1.5rem 1.3rem; text-align: center; box-shadow: 0 12px 32px rgba(13,47,36,0.18); }
         .hwc-wi-stat-v  { font-family: var(--font-display); font-weight: 700; font-size: 1.7rem; color: var(--gold); line-height: 1.1; margin: 0; }
@@ -576,7 +734,7 @@ export default function HauteWorldCityPage() {
             "@type": "RealEstateListing",
             name: "Shri Dwarka City – Approved Plots in Dholera Smart City",
             description:
-              "Approved residential plots in Dholera SIR by Haute World Developers. India's first Greenfield smart city on the Delhi–Mumbai Industrial Corridor, Gujarat.",
+              "Shri Dwarka City is the first phase of Haute World City, a 100-acre township along the Dholera Expressway by Haute World Developers, inspired by the spiritual heritage of Vrindavan, Barsana, and Mathura.",
             url: "https://www.hautedevelopers.com/shri-dwarka-city",
             image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp",
             address: {
@@ -609,7 +767,7 @@ export default function HauteWorldCityPage() {
             "@type": "FAQPage",
             mainEntity: faqs.map((f) => ({
               "@type": "Question",
-              name: f.q,
+              name: f.q.replace(/^\d+\.\s*/, ""),
               acceptedAnswer: { "@type": "Answer", text: f.a },
             })),
           }),
@@ -640,7 +798,7 @@ export default function HauteWorldCityPage() {
         <div className="hero-slides mh-media" aria-hidden="true">
           <div
             className="hero-slide"
-            style={{ backgroundImage: "url('https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
+            style={{ backgroundImage: "url('https://res.cloudinary.com/dpbitfczf/image/upload/v1793685626/shri-dwarka-city-gated-elevation_xncxxy.webp')", backgroundPosition: "center 40%", opacity: 1, animation: "none" }}
           />
         </div>
         <div className="hero-img-overlay mh-hide" aria-hidden="true" />
@@ -649,8 +807,8 @@ export default function HauteWorldCityPage() {
         <div className="hwc-hero-card">
           <img
             className="hwc-hero-mobile-img"
-            src="https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp"
-            alt="Shri Dwarka City — entrance, Dholera Smart City"
+            src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793685626/shri-dwarka-city-gated-elevation_xncxxy.webp"
+            alt="Shri Dwarka City — gated entrance elevation, Dholera Expressway"
           />
 
           <div className="hero-content hero-content--new mh-panel">
@@ -662,9 +820,10 @@ export default function HauteWorldCityPage() {
               </h1>
 
               <p className="hero-desc--stacked mh-desc" style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}>
-                Shri Dwarka City is Haute World Developers landmark investment in India's most ambitious project —
-                Dholera Smart City. Approved residential plots located along the Dholera SIR boundary in Bhavnagar
-                District, backed by the Central Government's Delhi–Mumbai Industrial Corridor initiative.
+                Shri Dwarka City is the first phase of Haute World City, a 100-acre township located along the
+                Dholera Expressway. Designed around the spiritual and cultural heritage of Braj Bhoomi, the township
+                aims to recreate the divine essence of Vrindavan, Barsana, and Mathura in a thoughtfully planned
+                residential destination.
               </p>
             </div>
 
@@ -682,36 +841,37 @@ export default function HauteWorldCityPage() {
         </div>
       </section>
 
-      {/* ══════════════════ PROJECT DETAILS ══════════════════ */}
-      <section id="about" className="hwc-section" aria-labelledby="project-details-heading" style={{ background: "var(--white)" }}>
+      {/* ══════════════════ ABOUT PROJECT ══════════════════ */}
+      <section id="about" className="hwc-section" aria-labelledby="about-project-heading" style={{ background: "var(--white)" }}>
         <div className="hwc-container">
           <div className="hwc-2col">
             <div>
-              <span className="section-label">Project Details</span>
-              <h2 id="project-details-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "1rem" }}>
-                Shri Dwarka City, Residential Plots on Dholera - Bhavnagar Expressway 
+              <span className="section-label">About Project</span>
+              <h2 id="about-project-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "1rem" }}>
+                Shri Dwarka City — Where Spiritual Heritage Meets Modern Living
               </h2>
               <div className="divider" style={{ margin: "1rem 0" }} />
 
               <div className="hwc-details-img--mobile" style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)", margin: "0 0 1.6rem" }}>
                 <img
                   src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
-                  alt="Shri Dwarka City — Project Details, Dholera Smart City, Gujarat"
+                  alt="Shri Dwarka City — About the project, Dholera Expressway, Gujarat"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
               </div>
 
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "1.2rem" }}>
-                Shri Dwarka City is a residential township — plotted development — brought to you by
-                <strong style={{ color: "var(--charcoal)" }}> Haute World Developers World Pvt Ltd</strong>, located
-                along the Dholera SIR boundary in Bhavnagar District, Gujarat. The project
-                offers Approved plots starting at <strong style={{ color: "var(--charcoal)" }}>200 sq. yd. and above</strong>,
-                giving buyers the flexibility to choose a size that fits their investment goals or future home plans.
+                Shri Dwarka City is envisioned as a distinctive gated residential township and the first phase of the
+                100-acre Haute World City development, located along the Dholera Expressway in Gujarat.
+              </p>
+              <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "1.2rem" }}>
+                Inspired by the sacred cities of Vrindavan, Barsana, and Mathura, the township brings together
+                spiritual architecture, devotional spaces, modern residential planning, and lifestyle amenities.
               </p>
               <p style={{ fontSize: "0.95rem", color: "var(--gray)", lineHeight: 1.9, marginBottom: "2rem" }}>
-                Every plot at Shri Dwarka City is <strong style={{ color: "var(--charcoal)" }}>Approved property</strong>,
-                backed by complete registry documentation as per the applicable process, and clear
-                NA / NOC / Title Clear approvals — ensuring a transparent, hassle-free ownership experience from day one.
+                From its magnificent 111-foot statue of Lord Krishna and Radha Rani to its four dedicated temples,
+                every element reflects a vision of creating a community rooted in faith, culture, and contemporary
+                living.
               </p>
 
               <a href="#contact" className="btn-primary" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
@@ -722,7 +882,7 @@ export default function HauteWorldCityPage() {
             <div className="hwc-details-img--desktop" style={{ borderRadius: "20px", overflow: "hidden", boxShadow: "0 8px 40px rgba(26,74,58,0.1), 0 0 0 1px rgba(201,144,26,0.2)" }}>
               <img
                 src="https://res.cloudinary.com/dpbitfczf/image/upload/v1786535098/Dholera_vhnhnn.webp"
-                alt="Shri Dwarka City — Project Details, Dholera Smart City, Gujarat"
+                alt="Shri Dwarka City — About the project, Dholera Expressway, Gujarat"
                 style={{ width: "100%", height: "100%", display: "block", objectFit: "cover" }}
               />
             </div>
@@ -730,7 +890,225 @@ export default function HauteWorldCityPage() {
         </div>
       </section>
 
-      {/* ══════════════════ DHOLERA SMART CITY ══════════════════ */}
+      {/* ══════════════════ DIVINE LANDMARK (statues + text) ══════════════════ */}
+      <section id="divine-landmark" className="hwc-statue-section" aria-labelledby="statue-heading">
+        {/* Statues — no box. Anchored to the section bottom, rising slightly above its top border. */}
+        <RevealItem className="hwc-statue-left">
+          <div className="hwc-statue-img">
+            <img
+              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793691156/Lord-Krishna-statue_sfizn9.webp"
+              alt="Proposed statue of Lord Krishna at the entrance of Shri Dwarka City"
+              loading="lazy"
+            />
+          </div>
+        </RevealItem>
+
+        <RevealItem className="hwc-statue-right">
+          <div className="hwc-statue-img">
+            <img
+              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793691156/Radha-Rani-statue_kbqh8w.webp"
+              alt="Proposed statue of Radha Rani at the entrance of Shri Dwarka City"
+              loading="lazy"
+            />
+          </div>
+        </RevealItem>
+
+        <div className="hwc-container">
+          <div className="hwc-statue-grid">
+            <RevealItem className="hwc-statue-content">
+              <span className="section-label" style={{ color: "var(--gold)", justifyContent: "center" }}>Divine Landmark</span>
+              <h2 id="statue-heading" className="hwc-statue-title">
+                111-Foot Statue of
+                <em>Lord Krishna &amp; Radha Rani</em>
+              </h2>
+              <p className="hwc-statue-text">
+                Experience the timeless beauty of Indian spiritual heritage with the proposed 111-foot statue of Lord
+                Krishna and Radha Rani at the entrance of Shri Dwarka City. Inspired by the divine love of Radha
+                Krishna, this landmark is envisioned as a symbol of devotion, peace, and cultural grandeur.
+              </p>
+            </RevealItem>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════ PROJECT HIGHLIGHTS ══════════════════ */}
+      <section id="highlights" className="hwc-ph" aria-labelledby="highlights-heading">
+        <div className="hwc-container">
+          <div className="hwc-ph-grid">
+            <div className="hwc-ph-intro">
+              <span className="hwc-ph-label">Project Highlights</span>
+              <h2 id="highlights-heading" className="hwc-ph-title">
+                What Sets
+                <em>Shri Dwarka City</em>
+                Apart
+              </h2>
+              <div className="hwc-ph-line" />
+              <p className="hwc-ph-text">
+                A unique blend of spiritual heritage and modern living, thoughtfully planned for a higher quality of life.
+              </p>
+              <a href="#masterplan" className="hwc-ph-btn hwc-ph-btn--desktop">
+                Explore the Project
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+            </div>
+
+            <div className="hwc-ph-items">
+              {phItems.map((h) => (
+                <RevealItem key={h.title} className="hwc-ph-item">
+                  <div className="hwc-ph-icon">
+                    <h.Icon size={28} color="var(--gold-pale)" sw={1.4} />
+                  </div>
+                  <h3>{h.title}</h3>
+                  <p>{h.body}</p>
+                </RevealItem>
+              ))}
+            </div>
+          </div>
+
+          <div className="hwc-ph-btn-mobile">
+            <a href="#masterplan" className="hwc-ph-btn">
+              Explore the Project
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════ LOCATION ADVANTAGE ══════════════════ */}
+      <section id="location" className="hwc-section" aria-labelledby="location-heading" style={{ background: "var(--white)", position: "relative", overflow: "hidden" }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
+        <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
+          <div className="hwc-2col-map">
+            <div>
+              <div style={{ borderLeft: "3px solid var(--gold)", paddingLeft: "1rem", marginBottom: "1.4rem" }}>
+                <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--gold)", margin: 0, fontWeight: 500 }}>
+                  Location Advantage
+                </p>
+              </div>
+              <h2 id="location-heading" style={{ fontSize: "clamp(1.65rem, 3vw, 2.6rem)", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--charcoal)", lineHeight: 1.2, marginBottom: "1.8rem" }}>
+                Shri Dwarka City sits along the Dholera SIR boundary — directly on the Dholera Expressway
+              </h2>
+              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
+                {proximityBullets.map((item) => (
+                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontSize: "0.95rem", color: "var(--charcoal)", fontWeight: 500, lineHeight: 1.5 }}>
+                    <span style={{ width: "7px", height: "7px", minWidth: "7px", borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="hwc-map-card">
+              <img
+                src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793786810/SHRI-DWARKA-CITY-LOCATION_dd2kzk.webp"
+                alt="Shri Dwarka City location map — Dholera Expressway, Bhavnagar District, Gujarat"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════ AMENITIES ══════════════════ */}
+      <section id="amenities" className="hwc-section" aria-labelledby="amenities-heading" style={{ background: "var(--forest-dark)", position: "relative", overflow: "hidden" }}>
+        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
+        <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
+          <div className="hwc-center" style={{ maxWidth: 560 }}>
+            <span className="section-label" style={{ color: "var(--gold)" }}>Shri Dwarka City Amenities</span>
+            <h2 id="amenities-heading" style={{ color: "#fff" }}>
+              Zen Living Infrastructure for a Future-Ready Community
+            </h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8 }}>
+              Every amenity is designed to complement Dholera's smart city vision — delivering modern comfort,
+              wellness, and community living within a secure, self-sufficient township.
+            </p>
+          </div>
+
+          <div className="hwc-amenities">
+            {amenities.map((a) => (
+              <RevealItem key={a.label} className="hwc-amenity-card">
+                {a.image && (
+                  <div className="hwc-amenity-img">
+                    <img src={a.image} alt="" aria-hidden="true" />
+                  </div>
+                )}
+                <div className="hwc-amenity-body">
+                  <div style={{ width: "56px", height: "56px", background: "rgba(201,144,26,0.15)", border: "1px solid rgba(201,144,26,0.3)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+                    <a.Icon size={28} color="var(--gold)" />
+                  </div>
+                  <div>
+                    <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", fontWeight: 700, color: "#fff", margin: "0 0 0.4rem", lineHeight: 1.3 }}>
+                      {a.label}
+                    </h3>
+                    <p style={{ margin: 0, fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
+                      {a.body}
+                    </p>
+                  </div>
+                </div>
+              </RevealItem>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════ SITE PLAN (LAYOUT) ══════════════════ */}
+      <section id="masterplan" className="hwc-section" aria-labelledby="layout-heading" style={{ background: "var(--white)" }}>
+        <div className="hwc-container">
+          <div className="hwc-center">
+            <span className="section-label">Layout Overview</span>
+            <h2 id="layout-heading">Project Site Plan</h2>
+            <div className="divider" style={{ margin: "1rem auto" }} />
+            <p style={{ fontSize: "0.92rem", color: "var(--gray)", lineHeight: 1.8 }}>
+              A thoughtfully planned residential township designed for Inspired zen living — with wide internal roads,
+              green buffers, underground utilities, and a lifestyle-focused amenity zone.
+            </p>
+          </div>
+
+          <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(201,144,26,0.2)", boxShadow: "0 8px 48px rgba(26,74,58,0.1)" }}>
+            <img
+              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793274158/Shri-Dwarka-City-Layout_vyssjb.webp"
+              alt="Shri Dwarka City master plan and site layout — Dholera Expressway, Gujarat"
+              style={{ width: "100%", display: "block", objectFit: "contain" }}
+            />
+          </div>
+
+          <div className="stats-strip hwc-stats-strip" aria-label="Project plot statistics">
+            <div className="stats-strip-inner">
+              {layoutStats.map((s, i) => (
+                <Fragment key={s.label}>
+                  {i > 0 && <div className="stats-strip-divider" aria-hidden="true" />}
+                  <div className="stats-strip-item">
+                    <div className="stats-strip-inner-cell">
+                      <div className="stats-strip-num"><CountUp end={s.value} duration={2000} /></div>
+                      <div className="stats-strip-label">{s.label}</div>
+                    </div>
+                  </div>
+                </Fragment>
+              ))}
+            </div>
+          </div>
+
+          <div className="hwc-highlights" style={{ display: "none" }}>
+            {layoutStats.map((h) => (
+              <div key={h.label} className="hwc-stat-box">
+                <div className="hwc-stat-icon">
+                  <h.Icon size={22} color="var(--gold)" />
+                </div>
+                <div>
+                  <p className="hwc-stat-num">{h.value}</p>
+                  <p className="hwc-stat-label">{h.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ══════════════════ DHOLERA SMART CITY (MOVED — now directly below the layout) ══════════════════ */}
       <section id="dholera" className="hwc-section" aria-labelledby="dholera-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
 
@@ -788,167 +1166,8 @@ export default function HauteWorldCityPage() {
         </div>
       </section>
 
-      {/* ══════════════════ PROJECT HIGHLIGHTS ══════════════════ */}
-      <section id="highlights" className="hwc-section" aria-labelledby="highlights-heading" style={{ background: "var(--white)" }}>
-        <div className="hwc-container">
-          <div className="hwc-center">
-            <span className="section-label">Project Highlights</span>
-            <h2 id="highlights-heading" style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}>
-              What Sets Shri Dwarka City Apart
-            </h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
-          </div>
-
-          <div className="hwc-highlight-grid">
-            {projectHighlights.map((h) => (
-              <RevealItem key={h.title} className="hwc-highlight-item">
-                <span className="hwc-highlight-mark"><IconCheck size={13} /></span>
-                <div>
-                  <h3>{h.title}</h3>
-                  <p>{h.body}</p>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════ LOCATION ADVANTAGE ══════════════════ */}
-      <section id="location" className="hwc-section" aria-labelledby="location-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
-        <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
-          <div className="hwc-2col-map">
-            <div>
-              <div style={{ borderLeft: "3px solid var(--gold)", paddingLeft: "1rem", marginBottom: "1.4rem" }}>
-                <p style={{ fontFamily: "var(--font-display)", fontStyle: "italic", fontSize: "1.1rem", color: "var(--gold)", margin: 0, fontWeight: 500 }}>
-                  Location Advantage
-                </p>
-              </div>
-              <h2 id="location-heading" style={{ fontSize: "clamp(1.65rem, 3vw, 2.6rem)", fontFamily: "var(--font-display)", fontWeight: 700, color: "var(--charcoal)", lineHeight: 1.2, marginBottom: "1.8rem" }}>
-                Shri Dwarka City sits along the Dholera SIR boundary — directly on the Dholera Expressway
-              </h2>
-              <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "0.8rem" }}>
-                {proximityBullets.map((item) => (
-                  <li key={item} style={{ display: "flex", alignItems: "center", gap: "0.75rem", fontSize: "0.95rem", color: "var(--charcoal)", fontWeight: 500, lineHeight: 1.5 }}>
-                    <span style={{ width: "7px", height: "7px", minWidth: "7px", borderRadius: "50%", background: "var(--gold)", display: "inline-block" }} />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div
-              className="hwc-map-card"
-              onClick={() => setLightboxOpen(true)}
-              role="button"
-              tabIndex={0}
-              aria-label="View location map in fullscreen"
-              onKeyDown={(e) => { if (e.key === "Enter" || e.key === " ") setLightboxOpen(true); }}
-            >
-              <img src="/assets/dholera-map.png" alt="Shri Dwarka City location map — Dholera Expressway, Bhavnagar District, Gujarat" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════ AMENITIES ══════════════════ */}
-      <section id="amenities" className="hwc-section" aria-labelledby="amenities-heading" style={{ background: "var(--forest-dark)", position: "relative", overflow: "hidden" }}>
-        <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
-        <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
-          <div className="hwc-center" style={{ maxWidth: 560 }}>
-            <span className="section-label" style={{ color: "var(--gold)" }}>Shri Dwarka City Amenities</span>
-            <h2 id="amenities-heading" style={{ color: "#fff" }}>
-              Zen Living Infrastructure for a Future-Ready Community
-            </h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
-            <p style={{ color: "rgba(255,255,255,0.55)", fontSize: "0.92rem", lineHeight: 1.8 }}>
-              Every amenity is designed to complement Dholera's smart city vision — delivering modern comfort,
-              wellness, and community living within a secure, self-sufficient township.
-            </p>
-          </div>
-
-          <div className="hwc-amenities">
-            {amenities.map((a) => (
-              <RevealItem key={a.label} className="hwc-amenity-card">
-                {a.image && (
-                  <div className="hwc-amenity-img">
-                    <img src={a.image} alt="" aria-hidden="true" />
-                  </div>
-                )}
-                <div className="hwc-amenity-body">
-                  <div style={{ width: "56px", height: "56px", background: "rgba(201,144,26,0.15)", border: "1px solid rgba(201,144,26,0.3)", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
-                    <a.Icon size={28} color="var(--gold)" />
-                  </div>
-                  <div>
-                    <h3 style={{ fontFamily: "var(--font-body)", fontSize: "0.9rem", fontWeight: 700, color: "#fff", margin: "0 0 0.4rem", lineHeight: 1.3 }}>
-                      {a.label}
-                    </h3>
-                    <p style={{ margin: 0, fontSize: "0.78rem", color: "rgba(255,255,255,0.6)", lineHeight: 1.6 }}>
-                      {a.body}
-                    </p>
-                  </div>
-                </div>
-              </RevealItem>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════ SITE PLAN ══════════════════ */}
-      <section id="masterplan" className="hwc-section" aria-labelledby="layout-heading" style={{ background: "var(--white)" }}>
-        <div className="hwc-container">
-          <div className="hwc-center">
-            <span className="section-label">Layout Overview</span>
-            <h2 id="layout-heading">Project Site Plan</h2>
-            <div className="divider" style={{ margin: "1rem auto" }} />
-            <p style={{ fontSize: "0.92rem", color: "var(--gray)", lineHeight: 1.8 }}>
-              A thoughtfully planned residential township designed for Inspired zen living — with wide internal roads,
-              green buffers, underground utilities, and a lifestyle-focused amenity zone.
-            </p>
-          </div>
-
-          <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", border: "1px solid rgba(201,144,26,0.2)", boxShadow: "0 8px 48px rgba(26,74,58,0.1)" }}>
-            <img
-              src="https://res.cloudinary.com/dpbitfczf/image/upload/v1793274158/Shri-Dwarka-City-Layout_vyssjb.webp"
-              alt="Shri Dwarka City master plan and site layout — Dholera Smart City, Gujarat"
-              style={{ width: "100%", display: "block", objectFit: "contain" }}
-            />
-          </div>
-
-          <div className="stats-strip hwc-stats-strip" aria-label="Project plot statistics">
-            <div className="stats-strip-inner">
-              {layoutStats.map((s, i) => (
-                <Fragment key={s.label}>
-                  {i > 0 && <div className="stats-strip-divider" aria-hidden="true" />}
-                  <div className="stats-strip-item">
-                    <div className="stats-strip-inner-cell">
-                      <div className="stats-strip-num"><CountUp end={s.value} duration={2000} /></div>
-                      <div className="stats-strip-label">{s.label}</div>
-                    </div>
-                  </div>
-                </Fragment>
-              ))}
-            </div>
-          </div>
-
-          <div className="hwc-highlights" style={{ display: "none" }}>
-            {layoutStats.map((h) => (
-              <div key={h.label} className="hwc-stat-box">
-                <div className="hwc-stat-icon">
-                  <h.Icon size={22} color="var(--gold)" />
-                </div>
-                <div>
-                  <p className="hwc-stat-num">{h.value}</p>
-                  <p className="hwc-stat-label">{h.label}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ══════════════════ WHY INVEST (NEW) ══════════════════ */}
-      <section id="why-invest" className="hwc-section" aria-labelledby="why-invest-heading" style={{ background: "var(--cream)", position: "relative", overflow: "hidden" }}>
+      {/* ══════════════════ WHY INVEST ══════════════════ */}
+      <section id="why-invest" className="hwc-section" aria-labelledby="why-invest-heading" style={{ background: "var(--white)", position: "relative", overflow: "hidden" }}>
         <div aria-hidden="true" style={{ position: "absolute", inset: 0, backgroundImage: "repeating-linear-gradient(45deg, rgba(201,144,26,0.04) 0, rgba(201,144,26,0.04) 1px, transparent 0, transparent 50%)", backgroundSize: "40px 40px" }} />
         <div className="hwc-container" style={{ position: "relative", zIndex: 1 }}>
 

@@ -114,7 +114,7 @@ const upcomingProjects = [
     location: "Dholera",
     href: "/shri-dwarka-city",
     desc: "A landmark investment opportunity in Dholera Smart City...",
-    image: "/assets/dholera.webp",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1793685626/shri-dwarka-city-gated-elevation_xncxxy.webp",
   },
   {
     name: "Haute Pearl Residency",

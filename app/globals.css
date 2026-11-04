@@ -15,10 +15,14 @@
   --shadow-gold: 0 4px 24px rgba(201, 144, 26, 0.25);
   --radius: 4px;
   --radius-lg: 12px;
-  --font-display: 'Cormorant Garamond', Georgia, serif;
-  --font-number: 'Outfit', system-ui, sans-serif;
+
+  /* ONE FONT FOR THE WHOLE WEBSITE — DM Sans */
   --font-body: 'DM Sans', system-ui, sans-serif;
+  --font-display: var(--font-body);
+  --font-number: var(--font-body);
+
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -51,6 +55,16 @@ h3 { font-size: clamp(1.4rem, 2.5vw, 1.9rem); font-weight: 500; }
 h4 { font-size: 1.2rem; font-weight: 600; }
 p { font-family: var(--font-body); line-height: 1.75; color: var(--gray); font-size: 1rem; }
 a { text-decoration: none; color: inherit; }
+
+/* Site-wide: straight (lining) numbers, and dashes aligned with them */
+html, body {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1;
+}
+h1, h2, h3, h4, h5 {
+  font-variant-numeric: lining-nums;
+  font-feature-settings: "lnum" 1, "case" 1;
+}
 
 .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
 section { padding: 6rem 0; }
@@ -199,7 +213,7 @@ section { padding: 6rem 0; }
 }
 
 .hero-slide--3 { 
-  background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1792668471/shri-dwarika-city-entrance_ce0tgp.webp'); 
+  background-image: url('https://res.cloudinary.com/dpbitfczf/image/upload/v1793685626/shri-dwarka-city-gated-elevation_xncxxy.webp'); 
   background-position: center top;
   animation-delay: 6s; 
 }
@@ -1056,3 +1070,13 @@ section { padding: 6rem 0; }
 .er-blog-empty { margin-top: 2rem; padding: 2.5rem; text-align: center; border: 1px dashed rgba(201,144,26,0.25); color: var(--gray); font-size: 0.9rem; border-radius: 12px; }
 @media (min-width: 640px) { .er-blog-grid { grid-template-columns: 1fr 1fr; } }
 @media (min-width: 992px) { .er-blog-grid { grid-template-columns: repeat(3, 1fr); } }
+
+/* ═══════════════════════════════════════════
+   ONE FONT FOR THE WHOLE WEBSITE (DM Sans)
+   Catches any page or inline style that still
+   sets its own font-family.
+═══════════════════════════════════════════ */
+body,
+body *:not(svg):not(svg *) {
+  font-family: var(--font-body) !important;
+}
