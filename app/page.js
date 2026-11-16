@@ -110,10 +110,10 @@ const upcomingProjects = [
     image: "/assets/expressway.png",
   },
     {
-    name: "Haute Bungalows",
+    name: "Haute Golf Bungalows",
     location: "Ghaziabad",
-    href: "/haute-bungalows",
-    desc: "441 luxury bungalows on 450 acres along the Delhi–Meerut Expressway...",
+    href: "/haute-golf-bungalows",
+    desc: "471 luxury bungalows on 450 acres along the Delhi–Meerut Expressway...",
     image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794759937/Warm_Modern_Mansion_Estate_ky5mix.png",
   },
   {

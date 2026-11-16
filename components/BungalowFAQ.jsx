@@ -2,11 +2,12 @@
 
 // Place this file at: components/BungalowFAQ.jsx
 // Uses the same .er-faq-* classes defined in the page's <style> block.
-// FAQ content lives in lib/haute-bungalow-estate.js so the visible accordion
-// and the FAQPage JSON-LD always stay identical.
+// Pass the FAQ list from the page via the `items` prop so the visible accordion
+// and the FAQPage JSON-LD always stay identical. Falls back to the list in
+// lib/haute-bungalow-estate.js if no `items` are passed.
 
 import { useState } from "react";
-import { faqs } from "../lib/haute-bungalow-estate";
+import { faqs as defaultFaqs } from "../lib/haute-bungalow-estate";
 
 const IconPlusMinus = ({ size = 18, color = "currentColor", isOpen = false }) => (
   <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -36,12 +37,13 @@ function FaqRow({ q, a, isOpen, onToggle }) {
   );
 }
 
-export default function BungalowFAQ() {
+export default function BungalowFAQ({ items }) {
+  const list = items && items.length ? items : defaultFaqs;
   const [openIndex, setOpenIndex] = useState(0);
 
   return (
     <div className="er-faq-box">
-      {faqs.map((f, i) => (
+      {list.map((f, i) => (
         <FaqRow
           key={f.q}
           q={f.q}

@@ -1,5 +1,6 @@
-// Place this file at: app/haute-bungalow/page.jsx
-// PROJECT_SLUG in lib/haute-bungalow-estate.js must match this folder name ("haute-bungalow").
+// Place this file at: app/haute-golf-bungalows/page.jsx
+// SitePlanLightbox.jsx must be the updated version (supports the `rotate` prop).
+// BungalowFAQ.jsx must be the updated version (accepts the `items` prop).
 
 import Navbar from "../../components/Navbar";
 import PopupLeadModal from "../../components/PopupLeadModal";
@@ -11,35 +12,75 @@ import ContactForm from "../../components/ContactForm";
 import ExpresswayBlog from "../../components/ExpresswayBlog";
 import ExpresswayHighlightItem from "../../components/ExpresswayHighlightItem";
 import {
-  PROJECT_NAME,
   PAGE_URL,
   SITE_URL,
   PHONE_DISPLAY,
   PHONE_TEL,
-  MAP_EMBED_URL,
   images,
-  faqs,
 } from "../../lib/haute-bungalow-estate";
 import "../mobile-pages.css";
 
+/* Project name (overrides the value in lib/haute-bungalow-estate.js) */
+const PROJECT_NAME = "Haute Golf Bungalows";
+
+/* Google Map embed for the project */
+const MAP_EMBED_URL =
+  "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3817.6653397872874!2d77.5498478!3d28.726500100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf30a7d3150db%3A0x4827190b834fdcdb!2sHaute%20Golf%20Bungalows!5e1!3m2!1sen!2sin!4v1794824531683!5m2!1sen!2sin";
+
+/* ─────────────────────────────────────────
+   FAQ (kept local so the page, the accordion and the
+   FAQPage JSON-LD always match the latest facts)
+───────────────────────────────────────── */
+const faqs = [
+  {
+    q: `Where is ${PROJECT_NAME} located?`,
+    a: `${PROJECT_NAME} is on the Delhi–Meerut Expressway (NE-3) near Hawa Hawai, Ghaziabad, Uttar Pradesh.`,
+  },
+  {
+    q: "How many bungalows are there and how big is the estate?",
+    a: "The estate spreads across 450 acres and has a total of 471 bungalows, which keeps it low density and private.",
+  },
+  {
+    q: "What sizes are available?",
+    a: "Sizes start from 1,536 Sq. Yd. and go up to 5,682 Sq. Yd. Our team can help you pick what suits your needs.",
+  },
+  {
+    q: "Can I customise my bungalow?",
+    a: "Yes. The bungalows are customisable, so you can shape the home around your own requirements. Our team will walk you through the options at booking.",
+  },
+  {
+    q: "What are the prices?",
+    a: "Plot-only is ₹27,000 per sq. yd. and the bungalow package is ₹34,000 per sq. yd., both effective 20 November 2026. Luxury bungalows start from ₹6.5 Cr and premium estate bungalows are ₹16 Cr. Please confirm final pricing with our team.",
+  },
+  {
+    q: "What amenities are planned?",
+    a: "Amenities include an 18-hole golf course, lush greenery, wide roads, a 10,000 Sq. Yd. club house, private gardens, an artificial lake, a 5-star hotel and a dedicated maintenance area.",
+  },
+  {
+    q: "Can I buy only a plot?",
+    a: "Yes. A plot-only option is available at ₹27,000 per sq. yd. (effective 20 November 2026), so you can design your own bungalow.",
+  },
+  {
+    q: `Who is developing ${PROJECT_NAME}?`,
+    a: `${PROJECT_NAME} is developed by Haute World Developers, which has delivered premium communities across NCR since 2011.`,
+  },
+];
+
 /* ─────────────────────────────────────────
    SEO METADATA
-   Primary keywords: luxury bungalows Ghaziabad, bungalows on Delhi Meerut Expressway,
-   8 BHK bungalow Ghaziabad, 1 acre bungalow NCR, bungalow plots Ghaziabad
 ───────────────────────────────────────── */
 export const metadata = {
   title: `Luxury Bungalows in Ghaziabad | ${PROJECT_NAME}`,
   description:
-    "441 luxury bungalows on 450 acres, Delhi–Meerut Expressway, Ghaziabad. 8 BHK from ₹6.5 Cr, plots from ₹27,000/sq yd. Book a site visit.",
+    "471 luxury bungalows on 450 acres, Delhi–Meerut Expressway, Ghaziabad. Sizes from 1,536 to 5,682 Sq. Yd., plots from ₹27,000/sq yd. Book a site visit.",
   keywords: [
     PROJECT_NAME,
     "luxury bungalows Ghaziabad",
     "bungalows on Delhi Meerut Expressway",
     "luxury bungalow project Delhi NCR",
     "first bungalow project in Delhi NCR",
-    "8 BHK bungalow Ghaziabad",
-    "8 BHK luxury bungalow NCR",
-    "1 acre bungalow Delhi NCR",
+    "golf course bungalows Ghaziabad",
+    "customisable bungalows NCR",
     "bungalow plots Ghaziabad",
     "independent bungalows Ghaziabad",
     "luxury villas Ghaziabad",
@@ -52,9 +93,9 @@ export const metadata = {
   ].join(", "),
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: `${PROJECT_NAME} – 441 Luxury Bungalows on the Delhi–Meerut Expressway`,
+    title: `${PROJECT_NAME} – 471 Luxury Bungalows on the Delhi–Meerut Expressway`,
     description:
-      "450 acres, only 441 bungalows. 8 BHK luxury bungalow with 1,500 sq yd private garden from ₹6.5 Cr. One-acre bungalow at ₹16 Cr. By Haute World Developers.",
+      "450 acres, only 471 bungalows, with an 18-hole golf course, club house and private gardens. Sizes from 1,536 to 5,682 Sq. Yd. By Haute World Developers.",
     url: PAGE_URL,
     siteName: "Haute World Developers",
     ...(images.og.startsWith("http")
@@ -76,7 +117,7 @@ export const metadata = {
     card: "summary_large_image",
     title: `${PROJECT_NAME} | Luxury Bungalows, Delhi–Meerut Expressway`,
     description:
-      "441 bungalows on 450 acres. 8 BHK luxury bungalow from ₹6.5 Cr, 1 acre bungalow ₹16 Cr, plots from ₹27,000/sq yd.",
+      "471 bungalows on 450 acres with an 18-hole golf course. Sizes from 1,536 to 5,682 Sq. Yd., plots from ₹27,000/sq yd.",
     ...(images.og.startsWith("http") ? { images: [images.og] } : {}),
   },
 };
@@ -116,20 +157,20 @@ const IconLayout = ({ size = 22, color = "currentColor" }) => (
 
 const advantages = [
   "Launched as the first bungalow project in Delhi NCR",
-  "Only 441 bungalows across 450 acres for a truly low-density estate",
-  "8 BHK luxury bungalows with up to 1,500 sq. yd. of private garden",
-  "Choose a plot only, a bungalow, or a one-acre estate",
+  "Only 471 bungalows across 450 acres for a truly low-density estate",
+  "Fully customisable bungalows, designed around your needs",
+  "18-hole golf course, club house, lake and 5-star hotel inside the estate",
+  "Sizes from 1,536 to 5,682 Sq. Yd., with a plot-only option",
   "Delhi–Meerut Expressway (NE-3) address in Ghaziabad",
   "Transparent per sq. yd. pricing, clearly published",
-  "End-to-end guidance from site visit to registration",
   "Developed by Haute World Developers, delivering since 2011",
 ];
 
 const layoutStats = [
   { Icon: IconLayout, value: "450", label: "Acres of Total Land" },
-  { Icon: IconHome, value: "441", label: "Bungalows Only" },
-  { Icon: IconBuilding, value: "2,000", label: "Sq. Yd. Plot Area (8 BHK)" },
-  { Icon: IconTree, value: "1,500", label: "Sq. Yd. Private Garden" },
+  { Icon: IconHome, value: "471", label: "Bungalows Only" },
+  { Icon: IconBuilding, value: "1,536", label: "Sq. Yd. Starting Size" },
+  { Icon: IconTree, value: "5,682", label: "Sq. Yd. Maximum Size" },
 ];
 
 // TODO: confirm these distances for the exact site of this project before launch.
@@ -146,39 +187,56 @@ const proximityBullets = [
 
 const projectHighlights = [
   { title: "450-Acre Bungalow Estate", body: "A single, master-planned 450-acre development on the Delhi–Meerut Expressway in Ghaziabad." },
-  { title: "Only 441 Bungalows", body: "A limited, low-density collection of independent bungalows, so privacy and space are never compromised." },
+  { title: "Only 471 Bungalows", body: "A limited, low-density collection of independent bungalows, so privacy and space are never compromised." },
   { title: "First Bungalow Project in Delhi NCR", body: "Launched by Haute World Developers as the first bungalow project of its kind in Delhi NCR." },
-  { title: "8 BHK Luxury Bungalow", body: "A 2,000 sq. yd. plot with 500 sq. yd. of construction area and a 1,500 sq. yd. private garden." },
-  { title: "One-Acre Bungalow Option", body: "For those who want an estate-scale home, a one-acre bungalow with a private garden is available." },
+  { title: "Fully Customisable Bungalows", body: "Shape your bungalow around the way you live, with our team guiding you through the options." },
+  { title: "18-Hole Golf Course", body: "A golf course at the heart of the estate, so your daily view is green and open." },
+  { title: "Sizes from 1,536 to 5,682 Sq. Yd.", body: "A wide range of sizes, so you can choose the footprint that fits your needs." },
   { title: "Plot-Only Option", body: "Buy the plot alone and design your own bungalow, with transparent per sq. yd. pricing." },
   { title: "Expressway Frontage Location", body: "On the Delhi–Meerut Expressway (NE-3) near Hawa Hawai, with direct links to Delhi, Noida, Ghaziabad and Meerut." },
-  { title: "Trusted Developer Since 2011", body: "Haute World Developers has delivered premium communities across NCR for over 15 years and more than 5,000 families." },
 ];
 
-const priceCards = [
+/* Amenities — images supplied by client */
+const amenities = [
   {
-    label: "Plot Only",
-    value: "₹27,000",
-    unit: "per sq. yd.",
-    note: "Buy the land and build your own bungalow. Rate effective 20 November 2026.",
+    title: "18-Hole Golf Course",
+    body: "A full 18-hole golf course at the heart of the estate, right outside your door.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825039/Golf-Course_nlt7ia.webp",
   },
   {
-    label: "Bungalow",
-    value: "₹34,000",
-    unit: "per sq. yd.",
-    note: "Bungalow package rate. Rate effective 20 November 2026.",
+    title: "Lush Greenery",
+    body: "Green landscapes and tree-lined stretches running through the community.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825590/Lush-Greenry_vohbrw.webp",
   },
   {
-    label: "8 BHK Luxury Bungalow",
-    value: "₹6.5 Cr",
-    unit: "launch price from 11 Nov 2026",
-    note: "2,000 sq. yd. plot, 1,500 sq. yd. private garden and 500 sq. yd. construction area.",
+    title: "Wide Roads",
+    body: "Broad internal roads for easy, comfortable movement across the estate.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825038/Wide-Road_lyjo23.webp",
   },
   {
-    label: "1 Acre Bungalow",
-    value: "₹16 Cr",
-    unit: "with private garden",
-    note: "One acre of land with a private garden, for those who want estate-scale living.",
+    title: "10,000 Sq. Yd. Club House",
+    body: "A grand club house for leisure, celebrations and community life.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825038/Club-House_d0icgm.webp",
+  },
+  {
+    title: "Private Garden",
+    body: "Space for your own lawn and outdoor living, right at your bungalow.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825039/Private-Garden_w5zxmk.webp",
+  },
+  {
+    title: "Artificial Lake",
+    body: "A landscaped lake that brings calm and scenery to the estate.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825038/Artificial-Lake_wspnhg.webp",
+  },
+  {
+    title: "5-Star Hotel",
+    body: "A 5-star hotel within the estate for guests, stays and fine dining.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825038/5-Star-Hotel_aqq0uo.webp",
+  },
+  {
+    title: "Maintenance Area",
+    body: "A dedicated maintenance area that keeps the whole estate running smoothly.",
+    image: "https://res.cloudinary.com/dpbitfczf/image/upload/v1794825038/Maintanance-Area_ajaqgm.webp",
   },
 ];
 
@@ -186,8 +244,6 @@ const priceCards = [
    PAGE
 ───────────────────────────────────────── */
 export default function HauteBungalowsPage() {
-  const hasMap = MAP_EMBED_URL.startsWith("http");
-
   return (
     <>
       <Navbar />
@@ -195,8 +251,7 @@ export default function HauteBungalowsPage() {
 
       {/* ══════════════════════════════════════════
           RESPONSIVE STYLES
-          Scoped to .er-* classes (same classes as Expressway Residency)
-          so nothing bleeds into global styles.
+          Scoped to .er-* / .gb-* classes so nothing bleeds into global styles.
       ══════════════════════════════════════════ */}
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700&display=swap');
@@ -222,16 +277,21 @@ export default function HauteBungalowsPage() {
         .er-highlight-item p { margin: 0; font-size: 0.85rem; color: var(--gray); line-height: 1.6; }
         @media (min-width: 768px) { .er-highlight-grid { grid-template-columns: 1fr 1fr; } }
 
-        /* ── Pricing cards ── */
-        .er-price-grid { display: grid; grid-template-columns: 1fr; gap: 1.25rem; margin-top: 2.5rem; }
-        .er-price-card { background: linear-gradient(155deg, var(--forest-dark) 0%, var(--forest) 100%); border: 1px solid rgba(201,144,26,0.25); border-radius: 20px; padding: 2rem 1.6rem; text-align: center; display: flex; flex-direction: column; align-items: center; gap: 0.45rem; box-shadow: 0 16px 44px rgba(13,47,36,0.22); }
-        .er-price-label { font-size: 0.8rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-pale); }
-        .er-price-value { font-size: clamp(2rem, 3.2vw, 2.5rem); font-weight: 700; color: #fff; line-height: 1.1; margin-top: 0.3rem; }
-        .er-price-unit { font-size: 0.84rem; color: var(--gold-pale); font-weight: 600; }
-        .er-price-note { margin: 0.7rem 0 0; font-size: 0.82rem; color: rgba(255,255,255,0.68); line-height: 1.65; }
-        .er-price-foot { text-align: center; margin: 1.6rem auto 0; max-width: 720px; font-size: 0.8rem; color: var(--gray); line-height: 1.7; }
-        @media (min-width: 640px) { .er-price-grid { grid-template-columns: 1fr 1fr; } }
-        @media (min-width: 1100px) { .er-price-grid { grid-template-columns: repeat(4, 1fr); } }
+        /* ── Amenities (clean image tiles) ── */
+        .gb-amenity-grid { display: grid; grid-template-columns: 1fr; gap: 2.2rem 1.4rem; margin-top: 3rem; }
+        .gb-amenity { display: flex; flex-direction: column; }
+        .gb-amenity-img { position: relative; aspect-ratio: 4 / 5; border-radius: 18px; overflow: hidden; background: #e9e4d8; box-shadow: 0 10px 30px rgba(26,74,58,0.08); }
+        .gb-amenity-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); }
+        .gb-amenity:hover .gb-amenity-img img { transform: scale(1.06); }
+        .gb-amenity-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to top, rgba(13,47,36,0.35) 0%, transparent 40%); pointer-events: none; }
+        .gb-amenity-text { padding: 1.1rem 0.2rem 0; }
+        .gb-amenity-line { display: block; width: 28px; height: 2px; background: var(--gold); margin-bottom: 0.75rem; transition: width 0.4s ease; }
+        .gb-amenity:hover .gb-amenity-line { width: 56px; }
+        .gb-amenity-text h3 { font-family: 'Playfair Display', Georgia, serif; font-weight: 600; font-size: 1.18rem; line-height: 1.25; margin: 0 0 0.4rem; color: var(--charcoal); }
+        .gb-amenity-text p { margin: 0; font-size: 0.85rem; line-height: 1.65; color: var(--gray); }
+        @media (min-width: 560px) { .gb-amenity-grid { grid-template-columns: 1fr 1fr; } }
+        @media (min-width: 992px) { .gb-amenity-grid { grid-template-columns: repeat(4, 1fr); } }
+        @media (max-width: 559px) { .gb-amenity-img { aspect-ratio: 4 / 3; } }
 
         /* ── Key Advantages card ── */
         .er-adv-card {
@@ -291,12 +351,13 @@ export default function HauteBungalowsPage() {
         .er-block-anim.er-inview-item { opacity: 1; transform: translateY(0); }
         @media (prefers-reduced-motion: reduce) {
           .er-block-anim { opacity: 1 !important; transform: none !important; transition: none !important; }
+          .gb-amenity-img img, .gb-amenity-line { transition: none !important; }
         }
 
         /* ── Layout stats (site plan) ── */
         .er-highlights { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-top: 2rem; }
 
-        /* ── FAQ — full-bleed video background (same as Expressway Residency), card floats on top ── */
+        /* ── FAQ — full-bleed video background, card floats on top ── */
         .er-faq-section { position: relative; overflow: hidden; padding: clamp(4rem, 8vw, 6rem) 0; background: var(--forest-dark); }
         .er-faq-video   { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
         .er-faq-overlay { position: absolute; inset: 0; background: linear-gradient(to right, rgba(13,47,36,0.55) 0%, rgba(13,47,36,0.35) 40%, rgba(13,47,36,0.12) 70%, rgba(13,47,36,0) 100%); }
@@ -313,9 +374,6 @@ export default function HauteBungalowsPage() {
         @media (max-width: 640px) {
           .er-faq-overlay { background: linear-gradient(to bottom, rgba(13,47,36,0.55) 0%, rgba(13,47,36,0.72) 100%); }
         }
-
-        /* ── Map placeholder (shown until MAP_EMBED_URL is pasted) ── */
-        .er-map-empty { width: 100%; height: 100%; min-height: 340px; display: flex; align-items: center; justify-content: center; text-align: center; padding: 1.5rem; color: var(--gray); font-size: 0.88rem; }
 
         /* ══════════════════════════
            TABLET  ≤ 900px
@@ -425,7 +483,7 @@ export default function HauteBungalowsPage() {
             "@type": "RealEstateListing",
             name: `${PROJECT_NAME} – Luxury Bungalows on the Delhi–Meerut Expressway, Ghaziabad`,
             description:
-              "450-acre luxury bungalow project with only 441 bungalows on the Delhi–Meerut Expressway (NE-3), Ghaziabad. 8 BHK luxury bungalow with 1,500 sq. yd. private garden, one-acre bungalows and plot-only options. Developed by Haute World Developers.",
+              "450-acre luxury bungalow project with 471 bungalows on the Delhi–Meerut Expressway (NE-3), Ghaziabad. Customisable bungalows, an 18-hole golf course, club house and private gardens, with sizes from 1,536 to 5,682 Sq. Yd. Developed by Haute World Developers.",
             url: PAGE_URL,
             ...(images.og.startsWith("http") ? { image: images.og } : {}),
             address: {
@@ -439,14 +497,14 @@ export default function HauteBungalowsPage() {
             offers: [
               {
                 "@type": "Offer",
-                name: "8 BHK Luxury Bungalow (2,000 sq. yd. plot)",
+                name: "Luxury Bungalow (launch price)",
                 priceCurrency: "INR",
                 price: "65000000",
                 availability: "https://schema.org/InStock",
               },
               {
                 "@type": "Offer",
-                name: "1 Acre Bungalow with Private Garden",
+                name: "Premium Estate Bungalow with Private Garden",
                 priceCurrency: "INR",
                 price: "160000000",
                 availability: "https://schema.org/InStock",
@@ -540,17 +598,16 @@ export default function HauteBungalowsPage() {
                 className="line line-1"
                 style={{ opacity: 1, transform: "none", animation: "none" }}
               >
-                Haute <em>Bungalows</em>
+                Haute <em>Golf Bungalows</em>
               </span>
             </h1>
             <p
               className="hero-desc--stacked mh-desc"
               style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}
             >
-              450 acres. Only 441 bungalows. Luxury bungalows on the
-              Delhi–Meerut Expressway in Ghaziabad, with 8 BHK residences,
-              private gardens up to 1,500 sq. yd., one-acre estates and
-              plot-only options.
+              450 acres. Only 471 bungalows. Customisable luxury bungalows on
+              the Delhi–Meerut Expressway in Ghaziabad, with an 18-hole golf
+              course, private gardens and sizes from 1,536 to 5,682 Sq. Yd.
             </p>
           </div>
           <div className="hero-col-btns">
@@ -589,7 +646,7 @@ export default function HauteBungalowsPage() {
                   marginBottom: "0.5rem",
                 }}
               >
-                441 Luxury Bungalows on 450 Acres, on the Delhi–Meerut Expressway
+                471 Luxury Bungalows on 450 Acres, on the Delhi–Meerut Expressway
               </h2>
               <div className="divider" />
 
@@ -612,7 +669,7 @@ export default function HauteBungalowsPage() {
                 {PROJECT_NAME} is a 450-acre luxury bungalow project on the
                 Delhi–Meerut Expressway (NE-3) in Ghaziabad, near Hawa Hawai.
                 Launched as the first bungalow project in Delhi NCR, it offers
-                just 441 independent bungalows, so every home gets generous
+                just 471 independent bungalows, so every home gets generous
                 land, a private garden and real privacy.
               </p>
               <p
@@ -623,11 +680,10 @@ export default function HauteBungalowsPage() {
                   marginBottom: "2rem",
                 }}
               >
-                Choose the 8 BHK luxury bungalow on a 2,000 sq. yd. plot with a
-                1,500 sq. yd. private garden, step up to a one-acre bungalow, or
-                buy a plot only and design your own home. Pricing is published
-                openly per sq. yd., with full guidance from site visit to
-                registration.
+                Your bungalow is customisable, with sizes starting from 1,536
+                Sq. Yd. and going up to 5,682 Sq. Yd. You can also buy a plot
+                only and design your own home. Pricing is published openly per
+                sq. yd., with full guidance from site visit to registration.
               </p>
               <a href="#contact" className="btn-primary">
                 Register Interest &amp; Get a Callback →
@@ -681,51 +737,53 @@ export default function HauteBungalowsPage() {
       </section>
 
       {/* ══════════════════════════════════════════
-          PRICING
+          AMENITIES
       ══════════════════════════════════════════ */}
       <section
-        id="pricing"
+        id="amenities"
         className="er-section"
-        aria-labelledby="pricing-heading"
+        aria-labelledby="amenities-heading"
         style={{ background: "var(--white)" }}
       >
         <div className="er-container">
           <div className="er-center" style={{ maxWidth: 680 }}>
-            <span className="section-label">Price &amp; Configurations</span>
+            <span className="section-label">Amenities</span>
             <h2
-              id="pricing-heading"
-              style={{ fontSize: "clamp(1.7rem, 2.5vw, 2.2rem)", marginBottom: "0.5rem" }}
+              id="amenities-heading"
+              style={{ fontSize: "clamp(1.7rem, 2.6vw, 2.4rem)", lineHeight: 1.2, marginBottom: "0.5rem" }}
             >
-              Bungalow &amp; Plot Prices on the Delhi–Meerut Expressway
+              Life Around the Green, Made Effortless
             </h2>
             <div className="divider" style={{ margin: "1rem auto" }} />
             <p style={{ fontSize: "0.92rem", color: "var(--gray)", lineHeight: 1.8 }}>
-              Transparent rates, published per sq. yd. Prices increase effective
-              20 November 2026, and bookings from that date are accepted at the
-              new rates only.
+              From the golf course to the club house and a 5-star hotel, every
+              amenity at {PROJECT_NAME} is planned around comfort, space and
+              privacy.
             </p>
           </div>
 
-          <div className="er-price-grid">
-            {priceCards.map((p) => (
-              <div key={p.label} className="er-price-card">
-                <span className="er-price-label">{p.label}</span>
-                <span className="er-price-value">{p.value}</span>
-                <span className="er-price-unit">{p.unit}</span>
-                <p className="er-price-note">{p.note}</p>
-              </div>
+          <div className="gb-amenity-grid">
+            {amenities.map((a) => (
+              <article key={a.title} className="gb-amenity">
+                <div className="gb-amenity-img">
+                  <img
+                    src={a.image}
+                    alt={`${a.title} at ${PROJECT_NAME}, Delhi–Meerut Expressway, Ghaziabad`}
+                    loading="lazy"
+                  />
+                </div>
+                <div className="gb-amenity-text">
+                  <span className="gb-amenity-line" aria-hidden="true" />
+                  <h3>{a.title}</h3>
+                  <p>{a.body}</p>
+                </div>
+              </article>
             ))}
           </div>
 
-          <p className="er-price-foot">
-            Images are artist&apos;s impressions. Rates are as communicated by
-            Haute World Developers and may change. Please confirm final pricing
-            and availability with our team.
-          </p>
-
-          <div style={{ textAlign: "center", marginTop: "1.6rem" }}>
+          <div style={{ textAlign: "center", marginTop: "3rem" }}>
             <a href="#contact" className="btn-primary">
-              Get the Full Price Sheet →
+              Book a Site Visit →
             </a>
           </div>
         </div>
@@ -776,7 +834,7 @@ export default function HauteBungalowsPage() {
                   marginBottom: "1.6rem",
                 }}
               >
-                Luxury bungalows on the Delhi–Meerut Expressway (NE-3), near
+                Luxury Bungalows on the Delhi–Meerut Expressway (NE-3), near
                 Hawa Hawai, Ghaziabad
               </h2>
 
@@ -855,15 +913,17 @@ export default function HauteBungalowsPage() {
                 lineHeight: 1.8,
               }}
             >
-              A 450-acre estate planned for just 441 bungalows, so the layout
+              A 450-acre estate planned for just 471 bungalows, so the layout
               stays open, green and private.
             </p>
           </div>
 
           <div>
+            {/* rotate="ccw" turns the site layout 90° anticlockwise (one time) */}
             <SitePlanLightbox
               src={images.layout}
               alt={`${PROJECT_NAME} master plan and site layout – Delhi Meerut Expressway Ghaziabad`}
+              rotate="ccw"
             />
           </div>
 
@@ -998,7 +1058,7 @@ export default function HauteBungalowsPage() {
                 and the Namo Bharat RRTS link between Delhi, Ghaziabad and
                 Meerut. Large plots with private gardens are rare on this
                 corridor, and {PROJECT_NAME} brings them in a single planned
-                estate of just 441 bungalows.
+                estate of just 471 bungalows.
               </p>
               <p
                 style={{
@@ -1008,9 +1068,9 @@ export default function HauteBungalowsPage() {
                   marginBottom: "2rem",
                 }}
               >
-                Whether you want a ready 8 BHK bungalow, a one-acre estate or a
-                plot to build on, pricing is published per sq. yd., and our
-                team guides you from the first site visit to registration.
+                Whether you want a customised bungalow or a plot to build on,
+                pricing is published per sq. yd., and our team guides you from
+                the first site visit to registration.
               </p>
               <blockquote
                 style={{
@@ -1024,7 +1084,7 @@ export default function HauteBungalowsPage() {
                   lineHeight: 1.65,
                 }}
               >
-                Only 441 bungalows on 450 acres: space, privacy and a private
+                Only 471 bungalows on 450 acres: space, privacy and a private
                 garden that most NCR addresses cannot offer.
               </blockquote>
               <a href="#contact" className="btn-dark">
@@ -1071,7 +1131,7 @@ export default function HauteBungalowsPage() {
             <em style={{ color: "#fff", fontStyle: "italic" }}>Questions</em>
           </h2>
 
-          <BungalowFAQ />
+          <BungalowFAQ items={faqs} />
         </div>
       </section>
 
@@ -1096,7 +1156,7 @@ export default function HauteBungalowsPage() {
         <div className="er-container">
           <div className="er-center" style={{ maxWidth: 640 }}>
             <span className="section-label" style={{ color: "var(--gold)" }}>
-              Only 441 Bungalows — Register Now
+              Only 471 Bungalows — Register Now
             </span>
             <h2 id="contact-heading" style={{ fontSize: "clamp(1.8rem, 2.8vw, 2.6rem)" }}>
               Ready to Own a Bungalow at{" "}
@@ -1120,19 +1180,13 @@ export default function HauteBungalowsPage() {
 
           <div className="er-contact-wrap" style={{ marginTop: "3rem" }}>
             <div className="er-contact-map">
-              {hasMap ? (
-                <iframe
-                  src={MAP_EMBED_URL}
-                  allowFullScreen=""
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  title={`${PROJECT_NAME} Location Map — Delhi Meerut Expressway, Ghaziabad, Uttar Pradesh`}
-                />
-              ) : (
-                <div className="er-map-empty">
-                  Google Map will appear here once MAP_EMBED_URL is added in lib/haute-bungalow-estate.js
-                </div>
-              )}
+              <iframe
+                src={MAP_EMBED_URL}
+                allowFullScreen=""
+                loading="lazy"
+                referrerPolicy="strict-origin-when-cross-origin"
+                title={`${PROJECT_NAME} Location Map — Delhi Meerut Expressway, Ghaziabad, Uttar Pradesh`}
+              />
             </div>
             <div className="er-contact-form-panel">
               <ContactForm />

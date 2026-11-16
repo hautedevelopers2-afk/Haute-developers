@@ -1,12 +1,31 @@
 'use client'
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 
-export default function SitePlanLightbox({ src, alt }) {
+/*
+  Optional prop:  rotate="ccw"  → rotates the image 90° anticlockwise (one time)
+                  rotate="cw"   → rotates 90° clockwise
+  Without the prop the component behaves exactly as before (used by Expressway Residency).
+*/
+export default function SitePlanLightbox({ src, alt, rotate = null }) {
   const [open, setOpen] = useState(false)
   const [zoom, setZoom] = useState(1)
   const [pos, setPos] = useState({ x: 0, y: 0 })
   const [dragging, setDragging] = useState(false)
   const [dragStart, setDragStart] = useState({ x: 0, y: 0 })
+  const [ratio, setRatio] = useState(null) // natural width / height, set once the image size is known
+  const thumbRef = useRef(null)
+
+  // The image can already be loaded (cached / hydrated) before onLoad is attached,
+  // so also read its size on mount.
+  useEffect(() => {
+    const img = thumbRef.current
+    if (img && img.complete && img.naturalWidth && img.naturalHeight) {
+      setRatio(img.naturalWidth / img.naturalHeight)
+    }
+  }, [src])
+
+  const deg = rotate === 'ccw' ? -90 : rotate === 'cw' ? 90 : 0
+  const rotated = deg !== 0
 
   const close = () => { setOpen(false); setZoom(1); setPos({ x: 0, y: 0 }) }
   const handleWheel = (e) => { e.preventDefault(); const d = e.deltaY > 0 ? -0.3 : 0.3; setZoom(z => { const n = Math.min(Math.max(z + d, 1), 5); if (n === 1) setPos({ x: 0, y: 0 }); return n }) }
@@ -14,16 +33,44 @@ export default function SitePlanLightbox({ src, alt }) {
   const handleMouseMove = (e) => { if (dragging) setPos({ x: e.clientX - dragStart.x, y: e.clientY - dragStart.y }) }
   const handleMouseUp = () => setDragging(false)
 
+  const onThumbLoad = (e) => {
+    const { naturalWidth, naturalHeight } = e.currentTarget
+    if (naturalWidth && naturalHeight) setRatio(naturalWidth / naturalHeight)
+  }
+
   return (
     <>
       {/* Thumbnail with overlay button */}
       <div style={{ position: 'relative', borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(201,144,26,0.2)', boxShadow: '0 8px 48px rgba(26,74,58,0.1)' }}>
-        <img
-          src={src}
-          alt={alt}
-          onClick={() => setOpen(true)}
-          style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', cursor: 'zoom-in' }}
-        />
+        {rotated ? (
+          /* Rotated: the box takes the swapped aspect ratio so nothing is cropped */
+          <div style={{ position: 'relative', width: '100%', paddingBottom: `${(ratio || 1.5) * 100}%`, cursor: 'zoom-in', background: '#fff', overflow: 'hidden' }} onClick={() => setOpen(true)}>
+            <img
+              ref={thumbRef}
+              src={src}
+              alt={alt}
+              onLoad={onThumbLoad}
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                width: `${(ratio || 1.5) * 100}%`,
+                height: 'auto',
+                maxWidth: 'none',
+                transform: `translate(-50%, -50%) rotate(${deg}deg)`,
+                transformOrigin: 'center center',
+                display: 'block',
+              }}
+            />
+          </div>
+        ) : (
+          <img
+            src={src}
+            alt={alt}
+            onClick={() => setOpen(true)}
+            style={{ width: '100%', height: 'auto', display: 'block', objectFit: 'contain', cursor: 'zoom-in' }}
+          />
+        )}
         {/* Click to enlarge button */}
         <button
           onClick={() => setOpen(true)}
@@ -74,7 +121,18 @@ export default function SitePlanLightbox({ src, alt }) {
               src={src}
               alt={alt}
               draggable={false}
-              style={{ transform: `scale(${zoom}) translate(${pos.x / zoom}px, ${pos.y / zoom}px)`, transformOrigin: 'center center', transition: dragging ? 'none' : 'transform 0.2s ease', maxWidth: '100%', maxHeight: '100%', width: 'auto', height: 'auto', display: 'block', objectFit: 'contain' }}
+              style={{
+                transform: `scale(${zoom}) translate(${pos.x / zoom}px, ${pos.y / zoom}px) rotate(${deg}deg)`,
+                transformOrigin: 'center center',
+                transition: dragging ? 'none' : 'transform 0.2s ease',
+                /* when rotated, width/height limits are swapped so it still fits the screen */
+                maxWidth: rotated ? '85vh' : '100%',
+                maxHeight: rotated ? '90vw' : '100%',
+                width: 'auto',
+                height: 'auto',
+                display: 'block',
+                objectFit: 'contain',
+              }}
             />
           </div>
         </div>

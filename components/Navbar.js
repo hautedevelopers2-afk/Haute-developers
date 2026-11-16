@@ -6,7 +6,7 @@ import Image from 'next/image'
 
 const PROJECTS = [
   { href: '/expressway-residency', label: 'Expressway Residency' },
-  { href: '/haute-bungalows', label: 'Haute Bungalows' },
+  { href: '/haute-golf-bungalows', label: 'Haute Bungalows' },
   { href: '/haute-eden-valley', label: 'Haute Eden Valley' },
   { href: '/shri-dwarka-city', label: 'Shri Dwarka City' },
 ]
