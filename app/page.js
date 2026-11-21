@@ -11,6 +11,8 @@ import TestimonialsSection from "../components/TestimonialsSection";
 import ExpresswayBlog from "../components/ExpresswayBlog";
 import "./mobile-pages.css";
 
+export const revalidate = 3600;
+
 export const metadata = {
   title: "Leading Real Estate Developer in NCR | Haute World Developers",
   description: "Explore premium residential properties, luxury villas, plots and investment opportunities with Haute World Developers. Find quality real estate projects in India.",

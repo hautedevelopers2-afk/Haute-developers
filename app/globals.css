@@ -1080,3 +1080,27 @@ body,
 body *:not(svg):not(svg *) {
   font-family: var(--font-body) !important;
 }
+
+
+/* View All Articles button (moved out of styled-jsx in ExpresswayBlog) */
+.er-blog-cta {
+  background: transparent;
+  color: var(--gold);
+  padding: 0.85rem 2rem;
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1.5px solid var(--gold);
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: background 0.35s cubic-bezier(0.4,0,0.2,1), color 0.35s cubic-bezier(0.4,0,0.2,1),
+    transform 0.35s cubic-bezier(0.4,0,0.2,1), box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+.er-blog-cta:hover {
+  background: var(--gold);
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-gold);
+}

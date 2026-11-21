@@ -20,6 +20,8 @@ import {
 } from "../../lib/haute-bungalow-estate";
 import "../mobile-pages.css";
 
+export const revalidate = 3600;
+
 /* Project name (overrides the value in lib/haute-bungalow-estate.js) */
 const PROJECT_NAME = "Haute Golf Bungalows";
 

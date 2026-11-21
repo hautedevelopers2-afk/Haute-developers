@@ -13,6 +13,8 @@ import ExpresswayBlog from "../../components/ExpresswayBlog";
 import ExpresswayHighlightItem from "../../components/ExpresswayHighlightItem";
 import "../mobile-pages.css";
 
+export const revalidate = 3600;
+
 export const metadata = {
   title: "RERA Plots on Delhi Meerut Expressway | Expressway Residency",
   description:

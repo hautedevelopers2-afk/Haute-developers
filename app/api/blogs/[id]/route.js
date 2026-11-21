@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import clientPromise from '../../../../models/mongodb-blogs';
+import { postsCollection, isLive } from '../../../../lib/blog-server';
 import { getPostBySlugOrId } from '../../../../lib/blog-utils';
 
 const CORS = {
@@ -15,17 +15,12 @@ export async function OPTIONS() {
 export async function GET(req, { params }) {
   try {
     const { id } = await params; // slug OR legacy ObjectId
-
-    const client = await clientPromise;
-    const db = client.db('blogs');
-    const collection = db.collection('posts');
-
+    const collection = await postsCollection();
     const post = await getPostBySlugOrId(collection, id);
 
-    if (!post) {
+    if (!post || !isLive(post)) {
       return NextResponse.json({ error: 'Post not found' }, { status: 404, headers: CORS });
     }
-
     return NextResponse.json({ post }, { status: 200, headers: CORS });
   } catch (err) {
     console.error('Blog GET by ID error:', err);
