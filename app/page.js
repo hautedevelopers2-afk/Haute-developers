@@ -10,7 +10,6 @@ import ProjectSlider from "../components/ProjectSlider";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ExpresswayBlog from "../components/ExpresswayBlog";
 import "./mobile-pages.css";
-import HeroVideo from "../components/HeroVideo";
 
 export const revalidate = 3600;
 
@@ -159,42 +158,25 @@ export default function Home() {
       <PopupLeadModal pageName="Home" projectName="General Inquiry" />
 
       {/* ── HERO ── */}
-      <section className="hero mh-hero" aria-label="Hero section" style={{ overflow: "visible" }}>
+      <section className="hero mh-hero hero--video" aria-label="Hero section" style={{ overflow: "visible" }}>
         <div className="hero-slides mh-media" aria-hidden="true">
-          <HeroVideo />
+          <video
+            className="hero-bg-video"
+            src="https://res.cloudinary.com/dpbitfczf/video/upload/v1795328788/Haute_introductory_video_k3glfz.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
+          />
         </div>
         <div className="hero-img-overlay mh-hide" aria-hidden="true" />
         <div className="hero-bottom-shadow mh-hide" aria-hidden="true" />
         <div className="hero-bg-pattern mh-hide" aria-hidden="true" />
         <div className="hero-overlay mh-hide" aria-hidden="true" />
-        <div className="hero-content hero-content--new mh-panel">
-          <div className="hero-col-title">
-            <h1 className="hero-title mh-title">
-              <span className="line line-1">
-                Welcome to <em>Haute</em>,
-              </span>
-              <br />
-              <span className="line line-2">
-                Welcome to <em>Haute Living.</em>
-              </span>
-            </h1>
-            <p className="hero-desc--stacked mh-desc" style={{ marginTop: "1.2rem" }}>
-              Premium residential and investment opportunities designed for
-              modern lifestyles — across Delhi NCR, Vrindavan, Dholera &
-              Dehradun.
-            </p>
-          </div>
-          <div className="hero-col-btns">
-            <div className="hero-actions mh-actions">
-              <Link href="/#upcoming" className="btn-primary">
-                Explore Projects →
-              </Link>
-              <Link href="/#contact" className="btn-outline">
-                Get a Callback
-              </Link>
-            </div>
-          </div>
-        </div>
+        <h1 className="sr-only-hero">Haute World Developers — Premium Real Estate in Delhi NCR</h1>
         <div className="scroll-indicator mh-hide" aria-hidden="true" style={{ bottom: "1.5rem", zIndex: 10 }}>
           <span>Scroll</span>
           <div className="scroll-line" />

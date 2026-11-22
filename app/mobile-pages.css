@@ -177,3 +177,35 @@
   .hr-about-text h2 { text-align: center; }
   .hr-about-text .divider { margin-left: auto !important; margin-right: auto !important; }
 }
+
+/* Visually hidden (SEO heading) */
+.sr-only-hero {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Home hero on mobile: the video fills the whole hero, no green panel */
+@media (max-width: 768px) {
+  section.mh-hero.hero--video {
+    display: block !important;
+    height: 100svh !important;
+    min-height: 560px !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+    background: #0d2f24 !important;
+  }
+  section.mh-hero.hero--video .mh-media {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+  }
+}

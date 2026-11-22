@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import { usePathname } from 'next/navigation'
 
 const PROJECTS = [
   { href: '/expressway-residency', label: 'Expressway Residency' },
@@ -11,16 +12,28 @@ const PROJECTS = [
   { href: '/shri-dwarka-city', label: 'Shri Dwarka City' },
 ]
 
+// One fixed size for BOTH logos so nothing moves when the navbar changes state.
+// Tweak these two numbers if you want the logo bigger/smaller.
+const LOGO_W = 220
+const LOGO_H = 88
+// The white logo file has extra padding, so it looks smaller than the dark one.
+// This scales it up to match. Raise it if the white logo is still smaller,
+// lower it if it's now bigger than the dark one.
+const WHITE_LOGO_SCALE = 1.37
+
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
   const [projectsOpen, setProjectsOpen] = useState(false)       // desktop dropdown
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false) // mobile accordion
   const closeTimer = useRef(null)
+  const pathname = usePathname()
+  const transparent = pathname === '/' && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', onScroll)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -43,9 +56,22 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`navbar ${scrolled ? 'scrolled' : ''}`}
+        className={`navbar ${scrolled ? 'scrolled' : ''} ${transparent ? 'navbar-transparent' : ''}`}
         role="navigation"
         aria-label="Main navigation"
+        style={
+          transparent
+            ? {
+                background: 'transparent',
+                backgroundColor: 'transparent',
+                backgroundImage: 'none',
+                backdropFilter: 'none',
+                WebkitBackdropFilter: 'none',
+                boxShadow: 'none',
+                borderBottom: 'none',
+              }
+            : undefined
+        }
       >
         <div className="navbar-inner">
           <Link
@@ -54,20 +80,56 @@ export default function Navbar() {
             aria-label="Haute World Developers Home"
             style={{ marginLeft: 0, flexShrink: 0 }}
           >
-            <Image
-              src="/assets/web-logo.webp"
-              alt="Haute World Developers"
-              width={200}
-              height={80}
+            <span
               style={{
-                objectFit: 'contain',
-                width: '200px',
-                height: '80px',
-                maxHeight: 'none',
+                position: 'relative',
                 display: 'block',
+                width: `${LOGO_W}px`,
+                height: `${LOGO_H}px`,
               }}
-              priority
-            />
+            >
+              {/* White logo (transparent navbar) */}
+              <Image
+                src="/assets/fotter-logo.webp"
+                alt="Haute World Developers"
+                width={LOGO_W}
+                height={LOGO_H}
+                priority
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  objectPosition: 'left center',
+                  opacity: transparent ? 1 : 0,
+                  transform: `scale(${WHITE_LOGO_SCALE})`,
+                  transformOrigin: 'left center',
+                  transition: 'opacity 0.45s ease',
+                  willChange: 'opacity',
+                }}
+              />
+              {/* Dark logo (white navbar) */}
+              <Image
+                src="/assets/web-logo.webp"
+                alt=""
+                aria-hidden="true"
+                width={LOGO_W}
+                height={LOGO_H}
+                priority
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                  objectPosition: 'left center',
+                  opacity: transparent ? 0 : 1,
+                  transition: 'opacity 0.45s ease',
+                  willChange: 'opacity',
+                }}
+              />
+            </span>
           </Link>
 
           <ul className="nav-links">
