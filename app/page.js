@@ -6,7 +6,7 @@ import WhatsAppButton from "../components/WhatsAppButton";
 import ContactForm from "../components/ContactForm";
 import CountUp from "../components/CountUp";
 import Link from "next/link";
-import ProjectSlider from "../components/ProjectSlider";
+import DeliveredJourney from "../components/DeliveredJourney";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ExpresswayBlog from "../components/ExpresswayBlog";
 import "./mobile-pages.css";
@@ -622,41 +622,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── PROJECTS ── */}
-      <section
-        className="projects"
-        id="projects"
-        style={{
-          position: "relative",
-          overflow: "visible",
-        }}
-      >
-        {/* Background image */}
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url('/assets/delivered-bg.png')",
-            backgroundSize: "cover",
-            backgroundPosition: "center bottom",
-            backgroundRepeat: "no-repeat",
-            opacity: 0.9,
-            zIndex: 0,
-            borderRadius: 0,
-          }}
-        />
-
-        <div className="container" style={{ position: "relative", zIndex: 2 }}>
-          <div className="projects-header">
-            <div>
-              <span className="section-label">Project Portfolio</span>
-              <h2>Our Delivered Masterpieces</h2>
-              <div className="divider" />
-            </div>
-          </div>
-          <ProjectSlider projects={projects} />
-        </div>
-      </section>
+      {/* ── PROJECTS (scroll-pinned journey) ── */}
+      <DeliveredJourney projects={projects} />
 
       {/* ── UPCOMING / ONGOING LAUNCHES ── */}
       <section className="upcoming" id="upcoming">

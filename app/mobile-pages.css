@@ -195,8 +195,8 @@
 @media (max-width: 768px) {
   section.mh-hero.hero--video {
     display: block !important;
-    height: 100svh !important;
-    min-height: 560px !important;
+    height: 74svh !important;
+    min-height: 420px !important;
     padding: 0 !important;
     overflow: hidden !important;
     background: #0d2f24 !important;

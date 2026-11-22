@@ -119,7 +119,7 @@ export default function RootLayout({ children }) {
         </Script>
       </head>
       <body>
-        <PageLoader />
+        {/* <PageLoader /> */}
         {children}
         <EnquireSidebar />
       </body>

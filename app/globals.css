@@ -1158,8 +1158,8 @@ body *:not(svg):not(svg *) {
   pointer-events: none;
   background: linear-gradient(
     to bottom,
-    rgba(0, 0, 0, 0.32) 0%,
-    rgba(0, 0, 0, 0.14) 22%,
-    rgba(0, 0, 0, 0) 48%
+    rgba(0, 0, 0, 0.65) 0%,
+    rgba(0, 0, 0, 0.35) 24%,
+    rgba(0, 0, 0, 0) 55%
   );
 }
