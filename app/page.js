@@ -10,6 +10,7 @@ import ProjectSlider from "../components/ProjectSlider";
 import TestimonialsSection from "../components/TestimonialsSection";
 import ExpresswayBlog from "../components/ExpresswayBlog";
 import "./mobile-pages.css";
+import HeroVideo from "../components/HeroVideo";
 
 export const revalidate = 3600;
 
@@ -26,6 +27,7 @@ export const metadata = {
     images: [{ url: "https://www.hautedevelopers.com/favicon.ico" }],
   },
 };
+
 
 const projects = [
   { name: "Neelkanth Pinnacle", location: "Dehradun, UK", desc: "Residential project offering 2 & 3 BHK builder floors and apartments launched in 2011 and delivered in 2013 with 200 units.", status: "Delivered", image: "/assets/neelkanth-pinnacle.jpeg" },
@@ -152,17 +154,14 @@ const expresswayStats = [
 export default function Home() {
   return (
     <>
+    
       <Navbar />
       <PopupLeadModal pageName="Home" projectName="General Inquiry" />
 
       {/* ── HERO ── */}
       <section className="hero mh-hero" aria-label="Hero section" style={{ overflow: "visible" }}>
         <div className="hero-slides mh-media" aria-hidden="true">
-          <div className="hero-slide hero-slide--1" />
-          <div className="hero-slide hero-slide--2" />
-          <div className="hero-slide hero-slide--3" />
-          <div className="hero-slide hero-slide--4" />
-          <div className="hero-slide hero-slide--5" />
+          <HeroVideo />
         </div>
         <div className="hero-img-overlay mh-hide" aria-hidden="true" />
         <div className="hero-bottom-shadow mh-hide" aria-hidden="true" />
