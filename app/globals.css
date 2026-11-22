@@ -1148,3 +1148,18 @@ body *:not(svg):not(svg *) {
 .navbar.navbar-transparent .nav-links a:hover { color: var(--gold-pale); }
 .navbar.navbar-transparent .nav-cta { color: var(--white) !important; }
 .navbar.navbar-transparent .nav-mobile-toggle span { background: #fff; }
+
+/* Soft shadow from the top of the home hero fading downward (helps navbar readability) */
+.hero.hero--video::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.32) 0%,
+    rgba(0, 0, 0, 0.14) 22%,
+    rgba(0, 0, 0, 0) 48%
+  );
+}

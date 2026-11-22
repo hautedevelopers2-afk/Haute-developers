@@ -1,5 +1,7 @@
 import './globals.css'
 import Script from 'next/script'
+import PageLoader from '../components/PageLoader'
+import EnquireSidebar from '../components/EnquireSidebar'
 
 export const metadata = {
   metadataBase: new URL('https://www.hautedevelopers.com'),
@@ -116,7 +118,11 @@ export default function RootLayout({ children }) {
           `}
         </Script>
       </head>
-      <body>{children}</body>
+      <body>
+        <PageLoader />
+        {children}
+        <EnquireSidebar />
+      </body>
     </html>
   )
 }
