@@ -25,6 +25,10 @@ export const revalidate = 3600;
 /* Project name (overrides the value in lib/haute-bungalow-estate.js) */
 const PROJECT_NAME = "Haute Golf Bungalows";
 
+/* Hero background video */
+const HERO_VIDEO_URL =
+  "https://res.cloudinary.com/dpbitfczf/video/upload/v1795504736/Haute_Golf_Bungalows_gc63fz.webm";
+
 /* Google Map embed for the project */
 const MAP_EMBED_URL =
   "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3817.6653397872874!2d77.5498478!3d28.726500100000003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf30a7d3150db%3A0x4827190b834fdcdb!2sHaute%20Golf%20Bungalows!5e1!3m2!1sen!2sin!4v1794824531683!5m2!1sen!2sin";
@@ -414,66 +418,6 @@ export default function HauteBungalowsPage() {
         @media (max-width: 380px) {
           .er-highlights { grid-template-columns: 1fr; }
         }
-
-        /* ── Hero: swap to mobile-specific image, fit fully without side-cropping ── */
-        @media (max-width: 768px) {
-          .hero-slide {
-            background-image: url('${images.hero}') !important;
-            background-size: cover !important;
-            background-position: center 35% !important;
-            background-repeat: no-repeat !important;
-            background-color: var(--forest-dark);
-          }
-
-          .hero {
-            height: auto !important;
-            min-height: 0 !important;
-            aspect-ratio: 1 / 1.15;
-            align-items: flex-start !important;
-            padding-top: 78px !important;
-            padding-bottom: 1.2rem !important;
-          }
-
-          .hero-content--new {
-            padding-top: 0.3rem !important;
-            padding-bottom: 0 !important;
-          }
-
-          .hero-eyebrow {
-            font-size: 0.62rem !important;
-            margin-bottom: 0.4rem !important;
-          }
-
-          .hero-title {
-            font-size: 1.7rem !important;
-            line-height: 1.1 !important;
-          }
-
-          .hero-desc--stacked {
-            font-size: 12.5px !important;
-            line-height: 1.55 !important;
-            margin-top: 0.6rem !important;
-          }
-
-          .hero-col-btns {
-            width: 100% !important;
-            align-items: center !important;
-          }
-
-          .hero-col-btns .hero-actions {
-            width: 100% !important;
-            display: flex !important;
-            justify-content: center !important;
-            margin-top: -1.2rem !important;
-          }
-
-          .hero-btns button,
-          .hero-btns a,
-          .hero-col-btns .btn-primary {
-            padding: 12px 22px !important;
-            font-size: 13px !important;
-          }
-        }
       `}</style>
 
       {/* JSON-LD: RealEstateListing */}
@@ -553,75 +497,35 @@ export default function HauteBungalowsPage() {
       />
 
       {/* ══════════════════════════════════════════
-          HERO
+          HERO — video only, identical structure to the home page hero
+          (no text, no buttons; transparent navbar is handled in Navbar.js)
       ══════════════════════════════════════════ */}
       <section
-        className="hero mh-hero"
+        className="hero mh-hero hero--video"
         aria-label={`${PROJECT_NAME} hero`}
-        style={{
-          background:
-            "linear-gradient(135deg, var(--forest-dark) 0%, var(--forest) 50%, #2d5a44 100%)",
-        }}
+        style={{ overflow: "visible" }}
       >
         <div className="hero-slides mh-media" aria-hidden="true">
-          <div
-            className="hero-slide"
-            style={{
-              backgroundImage: `url('${images.hero}')`,
-              backgroundPosition: "center 35%",
-              opacity: 1,
-              animation: "none",
-            }}
+          <video
+            className="hero-bg-video"
+            src={HERO_VIDEO_URL}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            disablePictureInPicture
+            controlsList="nodownload nofullscreen noremoteplayback"
           />
         </div>
         <div className="hero-img-overlay mh-hide" aria-hidden="true" />
         <div className="hero-bottom-shadow mh-hide" aria-hidden="true" />
-
-        <div className="hero-content hero-content--new mh-panel">
-          <div className="hero-col-title">
-            <p
-              style={{
-                fontSize: "0.76rem",
-                letterSpacing: "0.2em",
-                textTransform: "uppercase",
-                color: "#ffffff",
-                marginBottom: "0.6rem",
-                fontFamily: "var(--font-body)",
-                fontWeight: 600,
-              }}
-            >
-              First Bungalow Project in Delhi NCR
-            </p>
-            <h1
-              className="hero-title mh-title"
-              style={{ opacity: 1, transform: "none", animation: "none" }}
-            >
-              <span
-                className="line line-1"
-                style={{ opacity: 1, transform: "none", animation: "none" }}
-              >
-                Haute <em>Golf Bungalows</em>
-              </span>
-            </h1>
-            <p
-              className="hero-desc--stacked mh-desc"
-              style={{ marginTop: "1.2rem", animation: "none", opacity: 1 }}
-            >
-              450 acres. Only 471 bungalows. Customisable luxury bungalows on
-              the Delhi–Meerut Expressway in Ghaziabad, with an 18-hole golf
-              course, private gardens and sizes from 1,536 to 5,682 Sq. Yd.
-            </p>
-          </div>
-          <div className="hero-col-btns">
-            <div className="hero-actions mh-actions">
-              <a href="#contact" className="btn-primary">
-                Book a Site Visit →
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div className="scroll-indicator mh-hide" aria-hidden="true">
+        <div className="hero-bg-pattern mh-hide" aria-hidden="true" />
+        <div className="hero-overlay mh-hide" aria-hidden="true" />
+        <h1 className="sr-only-hero">
+          {PROJECT_NAME} — 471 Luxury Bungalows on the Delhi–Meerut Expressway, Ghaziabad
+        </h1>
+        <div className="scroll-indicator mh-hide" aria-hidden="true" style={{ bottom: "1.5rem", zIndex: 10 }}>
           <span>Scroll</span>
           <div className="scroll-line" />
         </div>

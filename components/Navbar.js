@@ -7,10 +7,14 @@ import { usePathname } from 'next/navigation'
 
 const PROJECTS = [
   { href: '/expressway-residency', label: 'Expressway Residency' },
-  { href: '/haute-golf-bungalows', label: 'Haute Bungalows' },
+  { href: '/haute-golf-bungalows', label: 'Haute Golf Bungalows' },
   { href: '/haute-eden-valley', label: 'Haute Eden Valley' },
   { href: '/shri-dwarka-city', label: 'Shri Dwarka City' },
 ]
+
+// Pages whose hero is a full-bleed video: the navbar is transparent on top
+// and turns white once the user scrolls.
+const TRANSPARENT_ROUTES = ['/', '/haute-golf-bungalows']
 
 // One fixed size for BOTH logos so nothing moves when the navbar changes state.
 // Tweak these two numbers if you want the logo bigger/smaller.
@@ -28,7 +32,7 @@ export default function Navbar() {
   const [mobileProjectsOpen, setMobileProjectsOpen] = useState(false) // mobile accordion
   const closeTimer = useRef(null)
   const pathname = usePathname()
-  const transparent = pathname === '/' && !scrolled
+  const transparent = TRANSPARENT_ROUTES.includes(pathname) && !scrolled
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40)
